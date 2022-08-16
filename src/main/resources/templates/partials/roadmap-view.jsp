@@ -7,6 +7,15 @@
 <body>
 <nav th:replace="/partials/fragment.html :: navbar"></nav>
 
+<%--HERE IS WHERE THE ROADMAP WILL DISPLAY--%>
+<main class="grid">
+        <div class="text">
+        </div>
+        <div class="text">
+        </div>
+</main>
+<%--END--%>
+
 
 
 </body>
