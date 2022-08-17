@@ -43,7 +43,9 @@ public class SecurityConfiguration {
                         "/logout",
                         "/create/roadmaps",
                         "/roadmaps",
-                        "/delete/roadmaps/{?}")
+                        "/roadmaps/{?}",
+                        "/delete/roadmaps/{?}",
+                        "/update/roadmaps/{?}")
                 .authenticated()
                 .and()
                 .authorizeRequests()

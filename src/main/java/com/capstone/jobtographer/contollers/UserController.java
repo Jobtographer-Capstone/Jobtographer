@@ -3,11 +3,12 @@ package com.capstone.jobtographer.contollers;
 import com.capstone.jobtographer.models.AppUser;
 import com.capstone.jobtographer.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
@@ -26,7 +27,8 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public String loginPage() {
+    public String loginPage(Model model) {
+       model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
 
         return "/login";
     }
@@ -56,6 +58,24 @@ public class UserController {
 
 
         return "redirect:/login";
+    }
+
+    @GetMapping("/delete/user/{id}")
+    public String deleteAccount(@PathVariable long id){
+        usersdao.deleteById(id);
+        return "redirect:/login";
+    }
+    @GetMapping("/update/user/{id}")
+    public String updateAccount(Model model, @PathVariable long id){
+        model.addAttribute("user", usersdao.getById(id));
+        return "user/update_user";
+    }
+
+    @PostMapping("/update/user/{id}")
+    public String updateAccount(@RequestParam(name = "password") String password, @ModelAttribute AppUser user){
+       user.setPassword(passwordEncoder.encode(password));
+       usersdao.save(user);
+        return "redirect:/";
     }
 
 }
