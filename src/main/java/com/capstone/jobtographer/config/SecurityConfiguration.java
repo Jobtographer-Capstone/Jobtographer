@@ -42,7 +42,8 @@ public class SecurityConfiguration {
                 .antMatchers("/profile",
                         "/logout",
                         "/create/roadmaps",
-                        "/roadmaps")
+                        "/roadmaps",
+                        "/delete/roadmaps/{?}")
                 .authenticated()
                 .and()
                 .authorizeRequests()

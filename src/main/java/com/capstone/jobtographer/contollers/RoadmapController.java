@@ -6,13 +6,11 @@ import com.capstone.jobtographer.models.UserWithRoles;
 import com.capstone.jobtographer.repositories.RoadmapRepository;
 import com.capstone.jobtographer.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.method.P;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.sql.SQLException;
@@ -54,13 +52,28 @@ public class RoadmapController {
         model.addAttribute("roadmaps",roadmapsDao.findByUser(user));
         return "roadmaps/roadmaps";
     }
-
-    @GetMapping("/delete/roadmaps")
-    public String deleteRoadmaps(){
-        return "roadmaps/delete_roadmaps";
+    @GetMapping("/roadmaps/{id}")
+    public String RoadmapShow(Model model, @PathVariable long id){
+        model.addAttribute("roadmap",roadmapsDao.getById(id));
+        return "roadmaps/roadmaps_show";
     }
-    @GetMapping("/update/roadmaps")
-    public String updateRoadmaps(){
+
+    @GetMapping("/delete/roadmaps/{id}")
+    public String deleteRoadmaps(@PathVariable long id){
+        roadmapsDao.deleteById(id);
+        return "redirect:/roadmaps";
+    }
+    @GetMapping("/update/roadmaps/{id}")
+    public String updateRoadmaps(Model model, @PathVariable long id){
+        model.addAttribute("roadmap", roadmapsDao.getById(id));
+
         return "roadmaps/update_roadmaps";
+    }
+
+    @PostMapping("/update/roadmaps/{id}")
+    public String updateRoadmaps(@ModelAttribute Roadmap roadmap){
+        roadmapsDao.save(roadmap);
+
+        return "redirect:/roadmaps";
     }
 }
