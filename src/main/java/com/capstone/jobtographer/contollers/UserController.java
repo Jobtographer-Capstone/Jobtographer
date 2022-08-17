@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpSession;
 
 @Controller
-public class HomeController {
+public class UserController {
     @Autowired
     private PasswordEncoder passwordEncoder;
     @Autowired
@@ -27,6 +27,7 @@ public class HomeController {
 
     @GetMapping("/login")
     public String loginPage() {
+
         return "/login";
     }
 

@@ -40,7 +40,9 @@ public class SecurityConfiguration {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/profile",
-                        "/logout")
+                        "/logout",
+                        "/create/roadmaps",
+                        "/roadmaps")
                 .authenticated()
                 .and()
                 .authorizeRequests()
