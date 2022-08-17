@@ -17,9 +17,8 @@ public class AppUser {
     @Column(nullable = false, length = 100)
     private String password;
 
-
-
     public AppUser() {
+
     }
 
     public AppUser(Long id, String username, String email, String password) {
@@ -66,4 +65,6 @@ public class AppUser {
     public void setPassword(String password) {
         this.password = password;
     }
+
+
 }

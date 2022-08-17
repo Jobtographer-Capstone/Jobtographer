@@ -24,6 +24,7 @@
             <input type="password" id="password" name="password" class="form-control" placeholder="Password"
                    required="">
         </p>
+
         <input name="_csrf" type="hidden" th:each="cookie: ${#httpServletRequest.cookies}"
                th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
         <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
