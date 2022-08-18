@@ -18,11 +18,22 @@ public class AppUser {
     @Column(nullable = false, length = 100)
     private String password;
 
+    @Column
+    private String img;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Roadmap> roadmaps;
 
     public AppUser() {
 
+    }
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
     }
 
     public AppUser(Long id, String username, String email, String password) {

@@ -18,11 +18,14 @@ public class UserWithRoles implements UserDetails {
     private String email;
     private String password;
 
+    private String img;
+
     public UserWithRoles(AppUser user) {
         this.id = user.getId();
         this.username = user.getUsername();
         this.email = user.getEmail();
         this.password = user.getPassword();
+        this.img = user.getImg();
     }
 
     @Override
@@ -40,6 +43,8 @@ public class UserWithRoles implements UserDetails {
     public String getUsername() {
         return this.username;
     }
+
+    public String getImg(){return this.img;}
 
     public long getId() {
         return id;

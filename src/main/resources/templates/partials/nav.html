@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+
+<!--NAVBAR START-->
+<nav th:fragment="navbar" class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+        <ul class="nav w-100">
+            <li class="nav-item"> <a class="navbar-brand" href="/">Home</a></li>
+            <li class="nav-item"> <a sec:authorize="isAuthenticated()" class="navbar-brand" href="/profile">Profile</a></li>
+            <li class="nav-item"> <a sec:authorize="isAuthenticated()" class="navbar-brand" href="/roadmaps">Roadmaps</a></li>
+            <li class="nav-item ml-auto"> <a sec:authorize="isAuthenticated()" class="navbar-brand " id="logout" href="">Logout</a></li>
+        </ul>
+
+        <!-- Button trigger modals -->
+        <div th:replace="partials/modals :: modals"></div>
+        <div th:replace="partials/modals :: sign-in"></div>
+        <div th:replace="partials/modals :: register"></div>
+
+        <!--    POSSIBLE DROP-DOWN ON NAVBAR-->
+        <!--    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"-->
+        <!--            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">-->
+        <!--      <span class="navbar-toggler-icon"></span>-->
+        <!--    </button>-->
+    </div>
+    <!--  <div class="input-container">-->
+    <!--    <input type="text" placeholder="Search">-->
+    <!--    <button type="submit">Search</button>-->
+    <!--  </div>-->
+    <!--  This is where the Profile icon goes-->
+    <!--  <i></i>-->
+    <!--  This is where the settings icon goes-->
+    <!--  <i></i>-->
+</nav>
+<!--NAVBAR END-->

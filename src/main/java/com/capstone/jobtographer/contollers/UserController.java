@@ -5,6 +5,7 @@ import com.capstone.jobtographer.models.AppUser;
 import com.capstone.jobtographer.models.UserWithRoles;
 import com.capstone.jobtographer.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
@@ -34,10 +35,23 @@ public class UserController {
     }
 
     @GetMapping("/profile")
-    public String profilePage() {
+    public String profilePage(Model model) {
+        UserWithRoles loggedIn = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        AppUser user = usersdao.findByUsername(loggedIn.getUsername());
+        model.addAttribute("user",user);
+
 
         return "/user/profile";
 
+    }
+
+    @PostMapping("/profile")
+    public String profilePage(@RequestParam(name="profileImage") String pI){
+        UserWithRoles loggedIn = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        AppUser user = usersdao.findByUsername(loggedIn.getUsername());
+        usersdao.updateImg(pI, user.getUsername());
+
+        return "redirect:/profile";
     }
 
     @GetMapping("/logout")

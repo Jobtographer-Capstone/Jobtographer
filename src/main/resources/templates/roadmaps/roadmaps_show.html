@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="partials/head :: head('Roadmap details')">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<nav th:replace="partials/nav :: navbar"></nav>
+
 <div>
     <h1>User: <span th:text="${roadmap.getUser().username}"></span></h1>
     <p>Industry: <span th:text="${roadmap.getIndustry()}"></span></p>
@@ -14,4 +16,6 @@
 </div>
 
 </body>
+<footer th:replace="partials/footer :: footer"></footer>
+
 </html>

@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="partials/head :: head('Update Account')">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<nav th:replace="partials/nav :: navbar"></nav>
 <div class="container">
     <form class="form-signin" th:method="post" th:action="@{/update/user}" th:object="${user}" >
         <h2 th:if="${user == null}" class="form-signin-heading">Sign Up For An Account!</h2>
@@ -30,4 +31,5 @@
     </form>
 </div>
 </body>
+<footer th:replace="partials/footer :: footer"></footer>
 </html>
