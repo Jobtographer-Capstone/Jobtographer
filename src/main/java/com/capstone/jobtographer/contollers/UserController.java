@@ -12,15 +12,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpSession;
 
 @Controller
-public class HomeController {
+public class UserController {
     @Autowired
     private PasswordEncoder passwordEncoder;
     @Autowired
     private UserRepository usersdao;
 
-
     @GetMapping("/")
-
     public String homePage() {
         return "index";
     }
@@ -51,8 +49,8 @@ public class HomeController {
     public String registerPage(String username, String email, String password) {
 
         AppUser user = new AppUser(username, email, passwordEncoder.encode(password));
-        usersdao.save(user);
 
+        usersdao.save(user);
 
         return "redirect:/login";
     }
