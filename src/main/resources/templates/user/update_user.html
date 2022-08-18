@@ -6,7 +6,7 @@
 </head>
 <body>
 <div class="container">
-    <form class="form-signin" th:method="post" th:action="@{/update/user/{id}}" th:object="${user}" >
+    <form class="form-signin" th:method="post" th:action="@{/update/user}" th:object="${user}" >
         <h2 th:if="${user == null}" class="form-signin-heading">Sign Up For An Account!</h2>
         <p>
             <label for="username" class="sr-only">Username</label>

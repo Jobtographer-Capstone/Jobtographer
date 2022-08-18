@@ -1,9 +1,12 @@
 package com.capstone.jobtographer.config;
 
+import com.capstone.jobtographer.models.AppUser;
+import com.capstone.jobtographer.repositories.UserRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -14,7 +17,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
-
+private UserRepository usersdao;
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -43,9 +46,12 @@ public class SecurityConfiguration {
                         "/logout",
                         "/create/roadmaps",
                         "/roadmaps",
-                        "/roadmaps/{?}",
-                        "/delete/roadmaps/{?}",
-                        "/update/roadmaps/{?}")
+                        "/roadmaps/{id}",
+                        "/delete/roadmaps/{id}",
+                        "/update/roadmaps/{id}",
+                        "/update/user",
+                        "/delete/user"
+                )
                 .authenticated()
                 .and()
                 .authorizeRequests()
