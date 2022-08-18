@@ -2,6 +2,7 @@ package com.capstone.jobtographer.models;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -16,6 +17,9 @@ public class AppUser {
     private String email;
     @Column(nullable = false, length = 100)
     private String password;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
+    private List<Roadmap> roadmaps;
 
     public AppUser() {
 
@@ -32,6 +36,13 @@ public class AppUser {
         this.username = username;
         this.email = email;
         this.password = password;
+    }
+
+    public AppUser( String username, String email, String password,List<Roadmap> roadmaps) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.roadmaps = roadmaps;
     }
 
     public Long getId() {
@@ -66,5 +77,12 @@ public class AppUser {
         this.password = password;
     }
 
+    public List<Roadmap> getRoadmaps() {
+        return roadmaps;
+    }
+
+    public void setRoadmaps(List<Roadmap> roadmaps) {
+        this.roadmaps = roadmaps;
+    }
 
 }

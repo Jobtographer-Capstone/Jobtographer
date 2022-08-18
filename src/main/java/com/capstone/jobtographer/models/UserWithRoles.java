@@ -41,6 +41,10 @@ public class UserWithRoles implements UserDetails {
         return this.username;
     }
 
+    public long getId() {
+        return id;
+    }
+
     @Override
     public boolean isAccountNonExpired() {
         return true;

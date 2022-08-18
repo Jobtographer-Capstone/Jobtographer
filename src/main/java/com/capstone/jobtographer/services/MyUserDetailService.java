@@ -9,6 +9,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpSession;
+
 
 //Step one to security authentication
 
@@ -25,6 +27,7 @@ public class MyUserDetailService implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) {
 //        Find by username of logged in user
         AppUser user = usersDao.findByUsername(username);
+//        session.setAttribute("user", user);
         System.out.println(user.getUsername());
 
         if (user == null) {
