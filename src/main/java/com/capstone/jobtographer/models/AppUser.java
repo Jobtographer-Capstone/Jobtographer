@@ -21,9 +21,8 @@ public class AppUser {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Roadmap> roadmaps;
 
-
-
     public AppUser() {
+
     }
 
     public AppUser(Long id, String username, String email, String password) {
@@ -85,4 +84,5 @@ public class AppUser {
     public void setRoadmaps(List<Roadmap> roadmaps) {
         this.roadmaps = roadmaps;
     }
+
 }
