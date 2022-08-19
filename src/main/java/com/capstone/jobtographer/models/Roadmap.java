@@ -1,6 +1,7 @@
 package com.capstone.jobtographer.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "roadmaps")
@@ -19,13 +20,15 @@ public class Roadmap {
     @JoinColumn(name = "user_id")
     private AppUser user;
 
-    public Roadmap(){}
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "roadmap_certs",
+            joinColumns = {@JoinColumn(name = "roadmap_id")},
+            inverseJoinColumns = {@JoinColumn(name = "cert_id")}
+    )
+    private List<RoadmapCert> certs;
 
-    public Roadmap(String industry, String career, AppUser user){
-        this.industry = industry;
-        this.career = career;
-        this.user = user;
-    }
+    public Roadmap(){}
 
     public Roadmap(String industry, String career){
         this.industry = industry;
@@ -37,11 +40,32 @@ public class Roadmap {
         this.industry = industry;
         this.career = career;
     }
+
+    public Roadmap(String industry, String career, AppUser user){
+        this.industry = industry;
+        this.career = career;
+        this.user = user;
+    }
     public Roadmap(long id, String industry, String career, AppUser user) {
         this.id = id;
         this.industry = industry;
         this.career = career;
         this.user = user;
+    }
+
+    public Roadmap(String industry, String career, AppUser user, List<RoadmapCert> certs) {
+        this.industry = industry;
+        this.career = career;
+        this.user = user;
+        this.certs = certs;
+    }
+
+    public Roadmap(long id, String industry, String career, AppUser user, List<RoadmapCert> certs) {
+        this.id = id;
+        this.industry = industry;
+        this.career = career;
+        this.user = user;
+        this.certs = certs;
     }
 
     public long getId() {
@@ -74,5 +98,13 @@ public class Roadmap {
 
     public void setUser(AppUser user) {
         this.user = user;
+    }
+
+    public List<RoadmapCert> getCerts() {
+        return certs;
+    }
+
+    public void setCerts(List<RoadmapCert> certs) {
+        this.certs = certs;
     }
 }

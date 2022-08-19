@@ -24,17 +24,18 @@ public class AppUser {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Roadmap> roadmaps;
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name = "user_certs",
+            joinColumns = {@JoinColumn(name = "user_id")},
+            inverseJoinColumns = {@JoinColumn(name = "cert_id")})
+    private List<Certification> certs;
+
     public AppUser() {
 
     }
 
-    public String getImg() {
-        return img;
-    }
 
-    public void setImg(String img) {
-        this.img = img;
-    }
 
     public AppUser(Long id, String username, String email, String password) {
         this.id = id;
@@ -55,6 +56,7 @@ public class AppUser {
         this.password = password;
         this.roadmaps = roadmaps;
     }
+
 
     public Long getId() {
         return id;
@@ -96,4 +98,19 @@ public class AppUser {
         this.roadmaps = roadmaps;
     }
 
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
+
+    public List<Certification> getCerts() {
+        return certs;
+    }
+
+    public void setCerts(List<Certification> certs) {
+        this.certs = certs;
+    }
 }
