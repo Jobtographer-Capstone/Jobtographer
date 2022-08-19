@@ -47,6 +47,8 @@ public class UserController {
         UserWithRoles loggedIn = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         AppUser user = usersdao.findByUsername(loggedIn.getUsername());
         model.addAttribute("user",user);
+        List<UserCert> userCerts = userCertsDao.findAllByUser_id(user.getId());
+        model.addAttribute("certs",userCerts);
 //
 
 
