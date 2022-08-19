@@ -20,13 +20,9 @@ public class Roadmap {
     @JoinColumn(name = "user_id")
     private AppUser user;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "roadmap_certs",
-            joinColumns = {@JoinColumn(name = "roadmap_id")},
-            inverseJoinColumns = {@JoinColumn(name = "cert_id")}
-    )
-    private List<RoadmapCert> certs;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "roadmap_id")
+    private List<RoadmapCert> roadmapCerts;
+
 
     public Roadmap(){}
 
@@ -51,21 +47,6 @@ public class Roadmap {
         this.industry = industry;
         this.career = career;
         this.user = user;
-    }
-
-    public Roadmap(String industry, String career, AppUser user, List<RoadmapCert> certs) {
-        this.industry = industry;
-        this.career = career;
-        this.user = user;
-        this.certs = certs;
-    }
-
-    public Roadmap(long id, String industry, String career, AppUser user, List<RoadmapCert> certs) {
-        this.id = id;
-        this.industry = industry;
-        this.career = career;
-        this.user = user;
-        this.certs = certs;
     }
 
     public long getId() {
@@ -100,11 +81,11 @@ public class Roadmap {
         this.user = user;
     }
 
-    public List<RoadmapCert> getCerts() {
-        return certs;
+    public List<RoadmapCert> getRoadmapCerts() {
+        return roadmapCerts;
     }
 
-    public void setCerts(List<RoadmapCert> certs) {
-        this.certs = certs;
+    public void setRoadmapCerts(List<RoadmapCert> roadmapCerts) {
+        this.roadmapCerts = roadmapCerts;
     }
 }

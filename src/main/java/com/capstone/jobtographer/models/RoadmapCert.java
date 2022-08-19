@@ -9,23 +9,25 @@ public class RoadmapCert {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column
-    private long user_id;
+    @Column(nullable = false)
+    private int year;
 
-    @Column
-    private long cert_id;
+
+    @ManyToOne
+    @JoinColumn(name = "roadmap_id")
+    private Roadmap roadmap_id;
+
+    @ManyToOne
+    @JoinColumn(name = "cert_id")
+    private Certification cert_id;
+
 
     public RoadmapCert() {
     }
 
-    public RoadmapCert(long user_id, long cert_id) {
-        this.user_id = user_id;
-        this.cert_id = cert_id;
-    }
-
-    public RoadmapCert(long id, long user_id, long cert_id) {
-        this.id = id;
-        this.user_id = user_id;
+    public RoadmapCert(int year, Roadmap roadmap_id, Certification cert_id) {
+        this.year = year;
+        this.roadmap_id = roadmap_id;
         this.cert_id = cert_id;
     }
 
@@ -37,19 +39,27 @@ public class RoadmapCert {
         this.id = id;
     }
 
-    public long getUser_id() {
-        return user_id;
+    public int getYear() {
+        return year;
     }
 
-    public void setUser_id(long user_id) {
-        this.user_id = user_id;
+    public void setYear(int year) {
+        this.year = year;
     }
 
-    public long getCert_id() {
+    public Roadmap getRoadmap_id() {
+        return roadmap_id;
+    }
+
+    public void setRoadmap_id(Roadmap roadmap_id) {
+        this.roadmap_id = roadmap_id;
+    }
+
+    public Certification getCert_id() {
         return cert_id;
     }
 
-    public void setCert_id(long cert_id) {
+    public void setCert_id(Certification cert_id) {
         this.cert_id = cert_id;
     }
 }

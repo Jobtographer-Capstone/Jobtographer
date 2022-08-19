@@ -16,11 +16,11 @@ public class Certification {
     @Column(nullable = false, length = 50, unique = true)
     private String certificationName;
 
-@ManyToMany(mappedBy = "certs")
-    private List<AppUser> users;
+@OneToMany(mappedBy = "cert_id")
+    private List<UserCert> userCerts;
 
-@ManyToMany(mappedBy = "certs")
-    private List<Roadmap> roadmaps;
+@OneToMany(mappedBy = "cert_id")
+    private List<RoadmapCert> roadmapCerts;
 
     public Certification() {
     }
@@ -51,15 +51,19 @@ public class Certification {
         this.certificationName = certificationName;
     }
 
-    public List<AppUser> getUsers() { return users; }
-
-    public void setUsers(List<AppUser> users) { this.users = users; }
-
-    public List<Roadmap> getRoadmaps() {
-        return roadmaps;
+    public List<UserCert> getUserCerts() {
+        return userCerts;
     }
 
-    public void setRoadmaps(List<Roadmap> roadmaps) {
-        this.roadmaps = roadmaps;
+    public void setUserCerts(List<UserCert> userCerts) {
+        this.userCerts = userCerts;
+    }
+
+    public List<RoadmapCert> getRoadmapCerts() {
+        return roadmapCerts;
+    }
+
+    public void setRoadmapCerts(List<RoadmapCert> roadmapCerts) {
+        this.roadmapCerts = roadmapCerts;
     }
 }
