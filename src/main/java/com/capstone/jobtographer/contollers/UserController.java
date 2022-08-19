@@ -2,7 +2,10 @@ package com.capstone.jobtographer.contollers;
 
 import com.capstone.jobtographer.models.AppUser;
 
+import com.capstone.jobtographer.models.UserCert;
 import com.capstone.jobtographer.models.UserWithRoles;
+import com.capstone.jobtographer.repositories.CertificationRepository;
+import com.capstone.jobtographer.repositories.UserCertsRepository;
 import com.capstone.jobtographer.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -14,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class UserController {
@@ -21,6 +25,10 @@ public class UserController {
     private PasswordEncoder passwordEncoder;
     @Autowired
     private UserRepository usersdao;
+    @Autowired
+    private UserCertsRepository userCertsDao;
+    @Autowired
+    private CertificationRepository certsDao;
 
     @GetMapping("/")
     public String homePage() {
@@ -39,6 +47,10 @@ public class UserController {
         UserWithRoles loggedIn = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         AppUser user = usersdao.findByUsername(loggedIn.getUsername());
         model.addAttribute("user",user);
+//
+
+
+
 
 
         return "/user/profile";
@@ -57,7 +69,7 @@ public class UserController {
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
-        return "redirect:/";
+        return "redirect:/login";
     }
 
     @GetMapping("/register")

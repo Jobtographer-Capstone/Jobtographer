@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:method="post" th:action="@{/search/certification}" th:object="${cert}">
+    <label for="cert-name">Enter a Cert!</label>
+    <input id="cert-name" name="certificationName" th:field="*{certificationName}">
+    <input type="hidden" name="id" th:field="*{id}">
+    <input name="_csrf" type="hidden" th:each="cookie: ${#httpServletRequest.cookies}"
+           th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
+    <button type="submit">add!</button>
+</form>
+
+</body>
+</html>

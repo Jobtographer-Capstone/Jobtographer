@@ -5,24 +5,39 @@
     <title>Title</title>
 </head>
 <body>
+
 <nav th:replace="partials/nav :: navbar"></nav>
-
-<div class="profile-div" th:if="${user.getImg() == null}">
-    <div class="p_img">
-        <img class="profile-img" th:src="@{~/img/default_img.jpeg}" alt="fuck">
+<div class="row">
+    <!--Default Image-->
+    <div class="profile-div col-sm-12 col-lg-4" th:if="${user.getImg() == null}">
+        <div class="p_img">
+            <img class="profile-img" th:src="@{~/img/default_img.jpeg}" alt="fuck">
+        </div>
+        <button type="button" class="edit-img btn btn-outline-primary">Edit Profile Image</button>
     </div>
-    <button type="button" class="edit-img btn btn-outline-primary">Edit Profile Image</button>
-</div>
 
-<div class="profile-div" th:if="${user.getImg() != null}">
-    <div class="p_img">
-        <img class="profile-img" th:src="${user.img}" alt="fuck">
+    <!--Uploaded image-->
+    <div class="profile-div col-sm-12 col-lg-4" th:if="${user.getImg() != null}">
+        <div class="p_img">
+            <img class="profile-img" th:src="${user.img}" alt="fuck">
+        </div>
+        <button type="button" class="edit-img btn btn-outline-primary">Edit Profile Image</button>
     </div>
-    <button type="button" class="edit-img btn btn-outline-primary">Edit Profile Image</button>
+    <!--User certs-->
+    <div class="col-sm-12 col-lg-8">
+        <div class="m-auto"><h1>Certifications</h1></div>
+
+        <div class="card">
+            <div class="card-body">
+                <h1>You should add some certs !</h1>
+            </div>
+        </div>
+
+    </div>
 </div>
 
 <!--THIS FORM IS BEING SENT THROUGH FILESTACK.JS-->
-<form class="myForm" th:action="@{/profile}" method="post" >
+<form class="myForm" th:action="@{/profile}" method="post">
     <input name="_csrf" type="hidden" th:each="cookie: ${#httpServletRequest.cookies}"
            th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
 </form>
