@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
+<head th:replace="partials/head :: head(Search)">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
+<nav th:replace="partials/nav :: navbar"></nav>
 
-<div class="card_holder">
-
-</div>
+<div class="card">
+    <div class="card-header">
+        <h1>Search for a certification</h1>
+    <div class="card-body">
 <input type="text" class="cert_value">
-<button type="button" class="cert_search">Search Certs</button>
+<button type="button" class="cert_search">Search</button>
+    </div>
+    </div>
+</div>
+
+<div class="card_holder w-100 row"></div>
+<div th:replace="partials/modals :: #addCert"></div>
 
 
-<form class="certForm" th:method="post" th:action="@{/search/certification}" th:object="${cert}">
-<!--    <label for="cert-name">Enter a Cert!</label>-->
-<!--    <input id="cert-name" name="certificationName" th:field="*{certificationName}">-->
-<!--    <input type="hidden" name="id" th:field="*{id}">-->
-    <input name="_csrf" type="hidden" th:each="cookie: ${#httpServletRequest.cookies}"
-           th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
-<!--    <button type="submit">add!</button>-->
-</form>
+
+
 
 
 
 </body>
-<script th:src="@{~/js/keys.js}"></script>
-<script th:src="@{~/js/certs.js}"></script>
+<footer th:replace="partials/footer :: footer"></footer>
+
+
 </html>

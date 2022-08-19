@@ -14,6 +14,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.sql.Date;
+
 
 @Controller
 public class CertificationController {
@@ -31,14 +35,12 @@ public class CertificationController {
     }
 
     @PostMapping("/search/certification")
-    public String addCert(@ModelAttribute Certification cert) {
+    public String addCert(@ModelAttribute Certification cert, @RequestParam(name = "expDate") Date expDate) {
         UserWithRoles loggedIn = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         AppUser user = usersDoa.findByUsername(loggedIn.getUsername());
         certsDao.save(cert);
-        userCertsDoa.save(new UserCert(user.getId(), cert.getId()));
-//        userCert.setUser_id(user.getId());
-//        userCert.setCert_id(cert.getId());
-//        userCertsDoa.save(userCert);
+        userCertsDoa.save(new UserCert(user,cert,expDate));
+
 
         return "redirect:/profile";
     }

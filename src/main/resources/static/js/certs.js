@@ -17,18 +17,18 @@ document.querySelector('.cert_search').addEventListener('click', () => {
 
         data.CertList.forEach((cert, i) => {
 
-                document.querySelector('.card_holder').innerHTML += `<div class="card"> ${cert.Name}
+                document.querySelector('.card_holder').innerHTML += `<div class="card m-2 col-4 justify-content-center"> ${cert.Name}
             <br> ${cert.Id} 
             <br>
 <!--            <a href="${cert.Url}">Click Me</a>-->
             <input type="hidden" value="${cert.Id}" class="cert_id">
             
-            <form th:method="post" th:action="@{/search/certification}" th:object="${cert}">
-    <input type="hidden" id="cert-name" name="certificationName" th:field="*{certificationName}" value="${cert.Name}">
-    <input type="hidden" name="id" th:field="*{id}">
+    
+    <button class="add_Cert btn btn-primary w-50 m-auto" type="button"  data-toggle="modal" data-target="#addCert">Select</button>
+    
 
-    <button class="add_Cert" type="button">add!</button>
-</form>
+                  
+
             
             
             
@@ -43,10 +43,14 @@ document.querySelector('.cert_search').addEventListener('click', () => {
             let c = document.querySelector('.card_holder').children;
             c.item(i).children.item(3).addEventListener('click', () => {
 
-               console.log('cert add clicked!')
-                document.querySelector('.certForm').innerHTML += `<input type="hidden" id="cert-name" name="certificationName" th:field="*{certificationName}" value="${data.CertList[i].Name}"> <input type="hidden" name="id" th:field="*{id}">`
 
-                document.querySelector('.certForm').submit();
+                console.log('cert add clicked!')
+                document.querySelector('.certForm').innerHTML += `<input type="hidden" id="cert-name" name="certificationName" th:field="*{certificationName}" value="${data.CertList[i].Name}"> <input type="hidden" name="id" th:field="*{id}">
+                    `
+                // let date = document.querySelector("#exp-date").value;
+                // console.log(date);
+
+                // document.querySelector('.certForm').submit();
 
             })
         }

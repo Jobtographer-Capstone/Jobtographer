@@ -24,39 +24,26 @@ public class AppUser {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
     private List<Roadmap> roadmaps;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(
-            name = "user_certs",
-            joinColumns = {@JoinColumn(name = "user_id")},
-            inverseJoinColumns = {@JoinColumn(name = "cert_id")})
-    private List<Certification> certs;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "user_id")
+    private List<UserCert> userCerts;
 
     public AppUser() {
 
     }
 
 
-
-    public AppUser(Long id, String username, String email, String password) {
-        this.id = id;
+    public AppUser(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
     }
 
-    public AppUser( String username, String email, String password) {
+    public AppUser(String username, String email, String password, String img) {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.img = img;
     }
-
-    public AppUser( String username, String email, String password,List<Roadmap> roadmaps) {
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.roadmaps = roadmaps;
-    }
-
 
     public Long getId() {
         return id;
@@ -90,14 +77,6 @@ public class AppUser {
         this.password = password;
     }
 
-    public List<Roadmap> getRoadmaps() {
-        return roadmaps;
-    }
-
-    public void setRoadmaps(List<Roadmap> roadmaps) {
-        this.roadmaps = roadmaps;
-    }
-
     public String getImg() {
         return img;
     }
@@ -106,11 +85,19 @@ public class AppUser {
         this.img = img;
     }
 
-    public List<Certification> getCerts() {
-        return certs;
+    public List<Roadmap> getRoadmaps() {
+        return roadmaps;
     }
 
-    public void setCerts(List<Certification> certs) {
-        this.certs = certs;
+    public void setRoadmaps(List<Roadmap> roadmaps) {
+        this.roadmaps = roadmaps;
+    }
+
+    public List<UserCert> getUserCerts() {
+        return userCerts;
+    }
+
+    public void setUserCerts(List<UserCert> userCerts) {
+        this.userCerts = userCerts;
     }
 }
