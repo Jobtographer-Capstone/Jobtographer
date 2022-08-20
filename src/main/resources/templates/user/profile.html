@@ -21,7 +21,7 @@
         <div class="p_img">
             <img class="profile-img" th:src="${user.img}" alt="wow">
         </div>
-        <button type="button" class="edit-img btn btn-outline-primary">Edit Profile Image</button>
+        <button type="button"  class="edit-img btn btn-outline-primary">Edit Profile Image</button>
     </div>
     <!--User certs-->
     <div class="col-sm-12 col-lg-8">
@@ -32,13 +32,18 @@
                 <h1>You should add some certs !</h1>
             </div>
         </div>
+        <div class="scroll">
         <div class="card" th:each="cert : ${certs}">
             <div class="card-body">
                 <h1 th:text="${cert.getCert_id().getCertificationName()}"></h1>
                 <p> Exp date: <span th:text="${cert.getExpDate()}"></span></p>
             </div>
         </div>
+        </div>
         <a href="/search/certification">Add a certification</a>
+        <a>|</a>
+        <a href="/edit/certification"></a>
+        <a href="/certifications">Certifications</a>
     </div>
 </div>
 
@@ -49,5 +54,7 @@
 </form>
 
 </body>
+<!--<script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>-->
+<!--<script th:src="@{~/js/filestack.js}"></script>-->
 <footer th:replace="partials/footer :: footer"></footer>
 </html>

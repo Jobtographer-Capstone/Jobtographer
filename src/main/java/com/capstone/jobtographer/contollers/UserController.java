@@ -49,7 +49,7 @@ public class UserController {
         model.addAttribute("user",user);
         List<UserCert> userCerts = userCertsDao.findAllByUser_id(user.getId());
         model.addAttribute("certs",userCerts);
-//
+
 
 
 

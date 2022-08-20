@@ -27,6 +27,14 @@ public class CertificationController {
     private UserCertsRepository userCertsDoa;
     @Autowired
     private UserRepository usersDoa;
+    @GetMapping("/certifications")
+    public String allCerts(Model model){
+        UserWithRoles loggedIn = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        AppUser user = usersDoa.findByUsername(loggedIn.getUsername());
+        model.addAttribute("certs",userCertsDoa.findAllByUser_id(user.getId()));
+
+        return "/certification/all_certs";
+    }
 
     @GetMapping("/search/certification")
     public String addCert(Model model) {
@@ -43,6 +51,13 @@ public class CertificationController {
 
 
         return "redirect:/profile";
+    }
+
+    @GetMapping("/delete/certification")
+    public String deleteCert(){
+
+
+        return "/certification/delete_cert";
     }
 
 }

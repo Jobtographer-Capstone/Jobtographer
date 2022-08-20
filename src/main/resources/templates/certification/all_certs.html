@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/partials/head :: head(Certifications)">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav th:replace="/partials/nav :: navbar"></nav>
+<div  class="card w-50" th:each="cert : ${certs}">
+    <h1 th:text="${cert.getCert_id().getCertificationName()}"></h1>
+    <p th:text="${cert.expDate}"></p>
+
+</div>
+
+</body>
+<footer th:replace="/partials/footer :: footer"></footer>
+</html>
