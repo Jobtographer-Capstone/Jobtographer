@@ -9,6 +9,7 @@ import javax.transaction.Transactional;
 
 public interface UserRepository extends JpaRepository<AppUser, Long> {
 AppUser findByUsername (String username);
+AppUser findById(long id);
 @Modifying
     @Transactional
     @Query(value="UPDATE AppUser u SET u.img = :img WHERE u.username = :username")

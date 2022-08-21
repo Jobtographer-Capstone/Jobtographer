@@ -6,9 +6,13 @@
 </head>
 <body>
 <nav th:replace="/partials/nav :: navbar"></nav>
-<div  class="card w-50" th:each="cert : ${certs}">
+<div>
+    <a href="/search/certification">Add a certification +</a>
+</div>
+<div  class="card w-50 m-1 p-1" th:each="cert : ${certs}">
     <h1 th:text="${cert.getCert_id().getCertificationName()}"></h1>
     <p th:text="${cert.expDate}"></p>
+    <a th:href="@{/delete/certification/{id}(id = ${cert.getId()})}">Remove</a>
 
 </div>
 

@@ -58,9 +58,9 @@ public class RoadmapController {
 
     @GetMapping("/delete/roadmaps/{id}")
     public String deleteRoadmaps(@PathVariable long id) {
-        UserWithRoles user = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        AppUser userLoggedIn = usersDao.findByUsername(user.getUsername());
-        if (userLoggedIn.getRoadmaps().contains(roadmapsDao.getById(id))) {
+        UserWithRoles loggedIn = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        AppUser user = usersDao.findById(loggedIn.getId());
+        if (user.getRoadmaps().contains(roadmapsDao.getById(id))) {
             roadmapsDao.deleteById(id);
         }
         return "redirect:/roadmaps";
@@ -68,9 +68,9 @@ public class RoadmapController {
 
     @GetMapping("/update/roadmaps/{id}")
     public String updateRoadmaps(Model model, @PathVariable long id) {
-        UserWithRoles user = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        AppUser userLoggedIn = usersDao.findByUsername(user.getUsername());
-        if (userLoggedIn.getRoadmaps().contains(roadmapsDao.getById(id))) {
+        UserWithRoles loggedIn = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        AppUser user = usersDao.findById(loggedIn.getId());
+        if (user.getRoadmaps().contains(roadmapsDao.getById(id))) {
             model.addAttribute("roadmap", roadmapsDao.getById(id));
             return "roadmaps/update_roadmaps";
         } else {

@@ -44,13 +44,16 @@ private UserRepository usersdao;
                 .authorizeRequests()
                 .antMatchers("/profile",
                         "/logout",
-                        "/create/roadmaps",
                         "/roadmaps",
+                        "/create/roadmaps",
                         "/roadmaps/{id}",
                         "/delete/roadmaps/{id}",
                         "/update/roadmaps/{id}",
                         "/update/user",
-                        "/delete/user"
+                        "/delete/user",
+                        "/certifications",
+                        "/search/certification",
+                        "/delete/certification/{id}"
                 )
                 .authenticated()
                 .and()

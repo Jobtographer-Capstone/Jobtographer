@@ -45,7 +45,7 @@ public class UserController {
     @GetMapping("/profile")
     public String profilePage(Model model) {
         UserWithRoles loggedIn = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        AppUser user = usersdao.findByUsername(loggedIn.getUsername());
+        AppUser user = usersdao.findById(loggedIn.getId());
         model.addAttribute("user",user);
         List<UserCert> userCerts = userCertsDao.findAllByUser_id(user.getId());
         model.addAttribute("certs",userCerts);
@@ -71,7 +71,7 @@ public class UserController {
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
-        return "redirect:/login";
+        return "redirect:/";
     }
 
     @GetMapping("/register")
@@ -88,9 +88,10 @@ public class UserController {
     }
 
     @GetMapping("/delete/user")
-    public String deleteAccount() {
+    public String deleteAccount(HttpSession session) {
         UserWithRoles user = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         usersdao.deleteById(user.getId());
+        session.invalidate();
         return "redirect:/login";
     }
 
@@ -105,7 +106,7 @@ public class UserController {
     public String updateAccount(@RequestParam(name = "password") String password, @ModelAttribute AppUser user) {
         user.setPassword(passwordEncoder.encode(password));
         usersdao.save(user);
-        return "redirect:/";
+        return "redirect:/profile";
     }
 
 

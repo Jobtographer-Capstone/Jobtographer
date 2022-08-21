@@ -31,6 +31,11 @@ public class RoadmapCert {
         this.cert_id = cert_id;
     }
 
+    public RoadmapCert(Roadmap roadmap_id, Certification cert_id) {
+        this.roadmap_id = roadmap_id;
+        this.cert_id = cert_id;
+    }
+
     public long getId() {
         return id;
     }

@@ -1,11 +1,37 @@
-.profile-img{
+.profile-img {
     width: 200px;
     height: 200px;
     margin: 1em;
 }
-.profile-div{
+
+.profile-div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border-right: sandybrown solid 2px;
+
+}
+#defaultEdit{
+    font-size: 12px;
+    padding: 0 3em;
+    height: 39%;
+    margin: 0;
+
+}
+#uploadEdit{
+    font-size: 12px;
+    padding: 0 3em;
+    height: 39%;
+    margin: 0;
+
+}
+#headProfile{
+    height: 390px;
+}
+.expDate{
+    font-size: 14px;
+}
+.certs-container{
+    border-radius: 10px;
 }
