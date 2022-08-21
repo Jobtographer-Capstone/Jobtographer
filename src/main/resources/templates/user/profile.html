@@ -7,38 +7,41 @@
 <body>
 
 <nav th:replace="partials/nav :: navbar"></nav>
-<div id="headProfile" class="row justify-content-between">
+<div id="headProfile" class="row justify-content-between bg-info">
     <!--Default Image-->
-    <div class="profile-div col-sm-12 col-lg-3" th:if="${user.getImg() == null}">
+    <div class="profile-div col-sm-12 col-lg-3 w-100" th:if="${user.getImg() == null}">
         <div class="p_img">
             <img class="profile-img" th:src="@{~/img/default_img.jpeg}" alt="wow">
         </div>
         <div class="flex align-items-start">
-            <h6 class="text-muted" th:text="${user.getUsername()}"></h6>
-            <a class="btn btn-outline-primary" id="defaultEdit" href="/update/user" >Edit profile</a>
+            <h6 class="text-dark" th:text="${user.getUsername()}"></h6>
+            <a class="btn btn-outline-dark" id="defaultEdit" href="/update/user" >Edit profile</a>
         </div>
     </div>
 
     <!--Uploaded image-->
-    <div class="profile-div col-sm-12 col-lg-3" th:if="${user.getImg() != null}">
+    <div class="profile-div col-sm-12 col-lg-3 w-100" th:if="${user.getImg() != null}">
         <div class="p_img">
             <img class="profile-img" th:src="${user.img}" alt="wow">
         </div>
         <div class="flex align-items-start">
-        <h5 class="text-muted" th:text="${user.getUsername()}"></h5>
-        <a class="btn btn-outline-primary" id="uploadEdit" href="/update/user">Edit profile</a>
+        <h5 class="text-dark" th:text="${user.getUsername()}"></h5>
+        <a class="btn btn-outline-dark" id="uploadEdit" href="/update/user">Edit profile</a>
         </div>
     </div>
     <!--User certs-->
-    <div class="col-sm-12 col-lg-8 w-100 ">
-        <div class="m-auto text-dark"><h3>Certifications</h3></div>
+    <div class="col-sm-12 col-lg-8 w-100 row">
+        <div class="m-auto text-black col-sm-12 "><h3>Certifications</h3></div>
 
-        <div class="card" th:if="${certs.isEmpty()}">
-            <div class="card-body">
-                <h1>You should add some certs !</h1>
+
+        <div class=" col-sm-12 scroll bg-dark border-dark border-2 row justify-content-around certs-container">
+
+            <div class="card m-1 border-dark col-5" th:if="${certs.isEmpty()}">
+                <div class="card-body">
+                    <h6>Add a certification</h6>
+                </div>
             </div>
-        </div>
-        <div class="scroll bg-dark border-dark border-2 row justify-content-around certs-container">
+
         <div class="card m-1 border-dark col-5" th:each="cert : ${certs}">
             <div class="card-body">
                 <h5 th:text="${cert.getCert_id().getCertificationName()}"></h5>
@@ -46,10 +49,9 @@
             </div>
         </div>
         </div>
-        <a href="/search/certification">Add a certification</a>
-        <a>|</a>
-        <a href="/edit/certification"></a>
-        <a href="/certifications">Certifications</a>
+        <a class="btn btn-outline-dark link-certs" href="/search/certification">Add a certification</a>
+        <p class="col-sm-display-none" style="display: inline-block">|</p>
+        <a class="btn btn-outline-dark link-certs" href="/certifications">Certifications</a>
     </div>
 
 

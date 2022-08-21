@@ -27,11 +27,48 @@
 
 }
 #headProfile{
-    height: 390px;
+    height: 400px;
 }
 .expDate{
     font-size: 14px;
 }
 .certs-container{
     border-radius: 10px;
+}
+nav{
+    color: black;
+    background: sandybrown;
+    border-bottom: black solid 3px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+a {
+    color: black;
+    padding: 8px;
+    margin: 0;
+}
+
+
+a:hover{
+    color: floralwhite;
+
+    border-radius: 2px;
+}
+
+div.scroll {
+    margin:4px;
+    padding:4px;
+    width: 500px;
+    height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align:justify;
+}
+.link-certs{
+    font-size: 12px;
+    padding: 0 3em;
+    height: 5.5%;
+    margin: 3px 6px;
+
 }
