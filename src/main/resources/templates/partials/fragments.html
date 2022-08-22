@@ -23,17 +23,17 @@
                 <li class="nav-item"> <a sec:authorize="isAuthenticated()" class="nav-link" href="/create/roadmaps">Create</a></li>
                 <li class="nav-item ml-auto"> <a sec:authorize="isAuthenticated()" class="navbar-brand " id="logout" href="">Logout</a></li>
                 <li sec:authorize="isAuthenticated() == false" >
-                        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#sign-in">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#sign-in">
                             Sign in
                         </button>
                 </li>
 <!--Sign - In Modal-->
-                <li><div th:fragment="sign-in" class="modal fade" id="sign-in" tabindex="-1" role="dialog" aria-labelledby="sign-in" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
+                <li><div th:fragment="sign-in" class="modal fade" id="sign-in" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="sign-in" aria-hidden="true">
+                    <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Sign in</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <h5 class="modal-title" id="signinform">Sign in</h5>
+                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
@@ -59,25 +59,24 @@
                                 </form>
                             </div>
                             <div class="modal-footer">
-                                <p>Don't have an account? <span data-toggle="modal" data-target="#register">Register here!</span></p>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <p>Don't have an account? <span style="color: green" data-bs-toggle="modal" data-bs-target="#register">Register here!</span></p>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
                 </div></li>
 <!--Registration Modal-->
                 <li>
-                    <div th:fragment="register" class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="register" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
+                    <div th:fragment="register" class="modal fade" id="register" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="register" aria-hidden="true">
+                        <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="registerLabel">Register</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-
                                     <form class="form-signin" th:method="post" th:action="@{/register}">
                                         <p>
                                             <label for="reg-username" class="sr-only">Username</label>
@@ -103,7 +102,7 @@
                                     </form>
                                 </div>
                                 <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                                 </div>
                             </div>
                         </div>
