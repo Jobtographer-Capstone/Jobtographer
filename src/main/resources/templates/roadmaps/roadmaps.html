@@ -7,12 +7,15 @@
 <body>
 <nav th:replace="partials/nav :: navbar"></nav>
 
-<div th:each="roadmap: ${roadmaps}">
-    <p><a th:href="@{/roadmaps/{id}(id=${roadmap.getId()})}">Industry: <span th:text="${roadmap.getIndustry()}"></span></a></p>
-    <p>Career: <span th:text="${roadmap.getCareer()}"></span></p>
-<!--    <h1 th:text="${roadmap.getUser().getUsername()}"></h1>-->
-
+<div th:each="roadmap: ${roadmaps}" id="myProgress" class="card col-6 col-lg-8 text-center mx-auto">
+    <div id="myBar" class="card-body fs-1">
+        <p><a id="industryLink" th:href="@{/roadmaps/{id}(id=${roadmap.getId()})}"><span th:text="${roadmap.getIndustry()}"></span></a>
+        </p>
+        <p><span th:text="${roadmap.getCareer()}"></span></p>
+    </div>
 </div>
+
+<a href="/create/roadmaps">Add Roadmap</a>
 
 </body>
 <footer th:replace="partials/footer :: footer"></footer>
