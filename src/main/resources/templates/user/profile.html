@@ -62,7 +62,7 @@
 <!--roadmap body-->
 <div>
     <h2>Most Recent Roadmap</h2>
-<div id="roadmap">
+<div id="roadmap"  th:if="${roadmap != null}">
     <h4><a th:href="@{/roadmaps/{id}(id = ${roadmap.getId()})}">Indusrty: <span th:text="${roadmap.getIndustry()}"></span></a></h4>
     <h6 th:text="${roadmap.getCareer()}"></h6>
 </div>
