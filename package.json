@@ -1,7 +1,0 @@
-{
-  "name": "Jobtographer",
-  "version": "1.0.0",
-  "dependencies": {
-    "filestack-js": "^3.25.0"
-  }
-}
