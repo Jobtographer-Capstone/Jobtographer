@@ -1,0 +1,43 @@
+:root{
+    /*Uncomment below and establish common parameters for all CSS*/
+    /*--primary: ;*/
+    /*--accent: ;*/
+    /*--highlight: ;*/
+    /*--heading: ;*/
+    /*--body: ;*/
+    /*--title: ;*/
+}
+
+.profile-img{
+    width: 200px;
+    height: 200px;
+    margin: 1em;
+}
+.profile-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#myProgress {
+    padding: 0;
+    margin: 5em;
+    height: 150px;
+    background-color: rgba(128, 128, 128, 0.5);
+    border-radius: 20px;
+    border-color: black;
+    border-width: 1px;
+    align-content: center;
+}
+
+#myBar {
+    width: 60%;
+    background-color: dodgerblue;
+    height: 150px;
+    border-radius: 20px;
+}
+
+#industryLink {
+    color: white;
+}
