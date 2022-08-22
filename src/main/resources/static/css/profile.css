@@ -28,6 +28,7 @@
 }
 #headProfile{
     height: 400px;
+    width: 100%;
 }
 .expDate{
     font-size: 14px;
@@ -36,6 +37,7 @@
     border-radius: 10px;
 }
 nav{
+    margin: 0;
     color: black;
     background: sandybrown;
     border-bottom: black solid 3px;
@@ -71,4 +73,8 @@ div.scroll {
     height: 5.5%;
     margin: 3px 6px;
 
+}
+.main{
+    padding: 0;
+    margin: 0;
 }

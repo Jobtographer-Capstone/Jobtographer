@@ -60,7 +60,7 @@ public class RoadmapController {
     public String deleteRoadmaps(@PathVariable long id) {
         UserWithRoles loggedIn = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         AppUser user = usersDao.findById(loggedIn.getId());
-        if (user.getRoadmaps().contains(roadmapsDao.getById(id))) {
+        if (roadmapsDao.getById(id).getUser().getId().equals(user.getId())) {
             roadmapsDao.deleteById(id);
         }
         return "redirect:/roadmaps";
@@ -76,8 +76,6 @@ public class RoadmapController {
         } else {
             return "redirect:/roadmaps";
         }
-
-
     }
 
     @PostMapping("/update/roadmaps/{id}")

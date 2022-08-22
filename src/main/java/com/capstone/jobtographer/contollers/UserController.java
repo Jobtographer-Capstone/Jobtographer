@@ -2,9 +2,11 @@ package com.capstone.jobtographer.contollers;
 
 import com.capstone.jobtographer.models.AppUser;
 
+import com.capstone.jobtographer.models.Roadmap;
 import com.capstone.jobtographer.models.UserCert;
 import com.capstone.jobtographer.models.UserWithRoles;
 import com.capstone.jobtographer.repositories.CertificationRepository;
+import com.capstone.jobtographer.repositories.RoadmapRepository;
 import com.capstone.jobtographer.repositories.UserCertsRepository;
 import com.capstone.jobtographer.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +27,8 @@ public class UserController {
     private PasswordEncoder passwordEncoder;
     @Autowired
     private UserRepository usersdao;
+    @Autowired
+    private RoadmapRepository roadmapsDao;
     @Autowired
     private UserCertsRepository userCertsDao;
     @Autowired
@@ -49,6 +53,8 @@ public class UserController {
         model.addAttribute("user",user);
         List<UserCert> userCerts = userCertsDao.findAllByUser_id(user.getId());
         model.addAttribute("certs",userCerts);
+        Roadmap roadmap = roadmapsDao.findTopByUserOrderByIdDesc(user);
+        model.addAttribute("roadmap", roadmap);
 
 
 
@@ -62,7 +68,7 @@ public class UserController {
     @PostMapping("/profile")
     public String profilePage(@RequestParam(name="profileImage") String pI){
         UserWithRoles loggedIn = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        AppUser user = usersdao.findByUsername(loggedIn.getUsername());
+        AppUser user = usersdao.findById(loggedIn.getId());
         usersdao.updateImg(pI, user.getUsername());
 
         return "redirect:/profile";
