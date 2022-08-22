@@ -13,6 +13,4 @@ public interface UserCertsRepository extends JpaRepository<UserCert,Long> {
 
     @Query("SELECT uc FROM UserCert uc WHERE uc.user_id.id= :id")
     List<UserCert> findAllByUser_id(long id);
-
-
 }

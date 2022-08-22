@@ -7,7 +7,7 @@ const options = {
         circle: true,
         rotate: false
     },
-    accept: ['image/*'],
+    accept: ["image/*"],
     onFileUploadFinished(file) {
 
         document.querySelector('.myForm').innerHTML += (`<input type="hidden" name="profileImage" value="${file.url}" />`);
@@ -22,4 +22,4 @@ document.querySelector('.edit-img').addEventListener('click', () => {
     client.picker(options).open();
 
 
-})
+});

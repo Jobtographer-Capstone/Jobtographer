@@ -2,9 +2,11 @@ package com.capstone.jobtographer.contollers;
 
 import com.capstone.jobtographer.models.AppUser;
 
+import com.capstone.jobtographer.models.Roadmap;
 import com.capstone.jobtographer.models.UserCert;
 import com.capstone.jobtographer.models.UserWithRoles;
 import com.capstone.jobtographer.repositories.CertificationRepository;
+import com.capstone.jobtographer.repositories.RoadmapRepository;
 import com.capstone.jobtographer.repositories.UserCertsRepository;
 import com.capstone.jobtographer.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +28,8 @@ public class UserController {
     @Autowired
     private UserRepository usersdao;
     @Autowired
+    private RoadmapRepository roadmapsDao;
+    @Autowired
     private UserCertsRepository userCertsDao;
     @Autowired
     private CertificationRepository certsDao;
@@ -45,11 +49,13 @@ public class UserController {
     @GetMapping("/profile")
     public String profilePage(Model model) {
         UserWithRoles loggedIn = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        AppUser user = usersdao.findByUsername(loggedIn.getUsername());
+        AppUser user = usersdao.findById(loggedIn.getId());
         model.addAttribute("user",user);
         List<UserCert> userCerts = userCertsDao.findAllByUser_id(user.getId());
         model.addAttribute("certs",userCerts);
-//
+        Roadmap roadmap = roadmapsDao.findTopByUserOrderByIdDesc(user);
+        model.addAttribute("roadmap", roadmap);
+
 
 
 
@@ -62,7 +68,7 @@ public class UserController {
     @PostMapping("/profile")
     public String profilePage(@RequestParam(name="profileImage") String pI){
         UserWithRoles loggedIn = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        AppUser user = usersdao.findByUsername(loggedIn.getUsername());
+        AppUser user = usersdao.findById(loggedIn.getId());
         usersdao.updateImg(pI, user.getUsername());
 
         return "redirect:/profile";
@@ -71,7 +77,7 @@ public class UserController {
     @GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
-        return "redirect:/login";
+        return "redirect:/";
     }
 
     @GetMapping("/register")
@@ -88,9 +94,10 @@ public class UserController {
     }
 
     @GetMapping("/delete/user")
-    public String deleteAccount() {
+    public String deleteAccount(HttpSession session) {
         UserWithRoles user = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         usersdao.deleteById(user.getId());
+        session.invalidate();
         return "redirect:/login";
     }
 
@@ -105,7 +112,7 @@ public class UserController {
     public String updateAccount(@RequestParam(name = "password") String password, @ModelAttribute AppUser user) {
         user.setPassword(passwordEncoder.encode(password));
         usersdao.save(user);
-        return "redirect:/";
+        return "redirect:/profile";
     }
 
 

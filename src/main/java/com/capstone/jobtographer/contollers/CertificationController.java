@@ -11,12 +11,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
+import java.util.List;
 
 
 @Controller
@@ -28,6 +26,15 @@ public class CertificationController {
     @Autowired
     private UserRepository usersDoa;
 
+    @GetMapping("/certifications")
+    public String allCerts(Model model) {
+        UserWithRoles loggedIn = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        AppUser user = usersDoa.findById(loggedIn.getId());
+        model.addAttribute("certs", userCertsDoa.findAllByUser_id(user.getId()));
+
+        return "/certification/all_certs";
+    }
+
     @GetMapping("/search/certification")
     public String addCert(Model model) {
         model.addAttribute("cert", new Certification());
@@ -37,12 +44,32 @@ public class CertificationController {
     @PostMapping("/search/certification")
     public String addCert(@ModelAttribute Certification cert, @RequestParam(name = "expDate") Date expDate) {
         UserWithRoles loggedIn = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        AppUser user = usersDoa.findByUsername(loggedIn.getUsername());
-        certsDao.save(cert);
-        userCertsDoa.save(new UserCert(user,cert,expDate));
+        AppUser user = usersDoa.findById(loggedIn.getId());
+        Certification tableCert = certsDao.findCertificationByCertificationName(cert.getCertificationName());
+        System.out.println(tableCert);
+        if (tableCert == null) {
+            certsDao.save(cert);
+            userCertsDoa.save(new UserCert(user, cert, expDate));
+        } else {
+
+            userCertsDoa.save(new UserCert(user, tableCert, expDate));
+        }
+
+
+
 
 
         return "redirect:/profile";
+    }
+
+    @GetMapping("/delete/certification/{id}")
+    public String deleteCert(@PathVariable(name = "id") long id) {
+        UserWithRoles loggedIn = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        AppUser user = usersDoa.findById(loggedIn.getId());
+        if (userCertsDoa.getById(id).getUser_id().equals(user)) {
+            userCertsDoa.delete(userCertsDoa.getById(id));
+        }
+        return "redirect:/certifications";
     }
 
 }

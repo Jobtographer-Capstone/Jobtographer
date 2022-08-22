@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/partials/head :: head(Certifications)">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav th:replace="/partials/nav :: navbar"></nav>
+<div>
+    <a href="/search/certification">Add a certification +</a>
+</div>
+<div  class="card w-50 m-1 p-1" th:each="cert : ${certs}">
+    <h1 th:text="${cert.getCert_id().getCertificationName()}"></h1>
+    <p th:text="${cert.expDate}"></p>
+    <a th:href="@{/delete/certification/{id}(id = ${cert.getId()})}">Remove</a>
+
+</div>
+
+</body>
+<footer th:replace="/partials/footer :: footer"></footer>
+</html>

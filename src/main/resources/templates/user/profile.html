@@ -4,42 +4,69 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-<body>
+<body >
 
 <nav th:replace="partials/nav :: navbar"></nav>
-<div class="row">
+<div class=" main row">
+<!--Profile Head-->
+<div id="headProfile" class="row justify-content-between bg-info col-12 ">
+
     <!--Default Image-->
-    <div class="profile-div col-sm-12 col-lg-4" th:if="${user.getImg() == null}">
+    <div class="profile-div col-sm-12 col-lg-3 w-100" th:if="${user.getImg() == null}">
         <div class="p_img">
             <img class="profile-img" th:src="@{~/img/default_img.jpeg}" alt="wow">
         </div>
-        <button type="button" class="edit-img btn btn-outline-primary">Edit Profile Image</button>
+        <div class="flex align-items-start">
+            <h6 class="text-dark" th:text="${user.getUsername()}"></h6>
+            <a class="btn btn-outline-dark" id="defaultEdit" href="/update/user">Edit profile</a>
+        </div>
     </div>
 
     <!--Uploaded image-->
-    <div class="profile-div col-sm-12 col-lg-4" th:if="${user.getImg() != null}">
+    <div class="profile-div col-sm-12 col-lg-3 w-100" th:if="${user.getImg() != null}">
         <div class="p_img">
             <img class="profile-img" th:src="${user.img}" alt="wow">
         </div>
-        <button type="button" class="edit-img btn btn-outline-primary">Edit Profile Image</button>
+        <div class="flex align-items-start">
+            <h5 class="text-dark" th:text="${user.getUsername()}"></h5>
+            <a class="btn btn-outline-dark" id="uploadEdit" href="/update/user">Edit profile</a>
+        </div>
     </div>
-    <!--User certs-->
-    <div class="col-sm-12 col-lg-8">
-        <div class="m-auto"><h1>Certifications</h1></div>
 
-        <div class="card" th:if="${certs.isEmpty()}">
-            <div class="card-body">
-                <h1>You should add some certs !</h1>
+    <!--User certs-->
+    <div class="col-sm-12 col-lg-8 w-100 row">
+        <div class="m-auto text-black col-sm-12 "><h3>Certifications</h3></div>
+
+
+        <div class=" col-sm-12 scroll bg-dark border-dark border-2 row justify-content-around certs-container">
+
+            <div class="card m-1 border-dark col-5" th:if="${certs.isEmpty()}">
+                <div class="card-body">
+                    <h6>Add a certification</h6>
+                </div>
+            </div>
+
+            <div class="card m-1 border-dark col-5" th:each="cert : ${certs}">
+                <div class="card-body">
+                    <h5 th:text="${cert.getCert_id().getCertificationName()}"></h5>
+                    <p class="expDate"> Exp date: <span th:text="${cert.getExpDate()}"></span></p>
+                </div>
             </div>
         </div>
-        <div class="card" th:each="cert : ${certs}">
-            <div class="card-body">
-                <h1 th:text="${cert.getCert_id().getCertificationName()}"></h1>
-                <p> Exp date: <span th:text="${cert.getExpDate()}"></span></p>
-            </div>
-        </div>
-        <a href="/search/certification">Add a certification</a>
+        <a class="btn btn-outline-dark link-certs" href="/search/certification">Add a certification</a>
+        <p class="col-sm-display-none" style="display: inline-block">|</p>
+        <a class="btn btn-outline-dark link-certs" href="/certifications">Certifications</a>
     </div>
+    </div>
+
+<!--roadmap body-->
+<div>
+    <h2>Most Recent Roadmap</h2>
+<div id="roadmap">
+    <h4><a th:href="@{/roadmaps/{id}(id = ${roadmap.getId()})}">Indusrty: <span th:text="${roadmap.getIndustry()}"></span></a></h4>
+    <h6 th:text="${roadmap.getCareer()}"></h6>
+</div>
+</div>
 </div>
 
 <!--THIS FORM IS BEING SENT THROUGH FILESTACK.JS-->

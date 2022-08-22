@@ -19,7 +19,7 @@ public class UserCert {
     @JoinColumn(nullable = false)
     private Certification cert_id;
 
-    @Column(nullable = true)
+    @Column
     private Date expDate;
 
     public UserCert() {
