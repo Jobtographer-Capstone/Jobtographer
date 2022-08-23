@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<!--<head th:replace="partials/head :: head('Home')">-->
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" th:href="@{~/css/jobCard.css}">
+<head th:replace="partials/fragments :: head('Home')">
 </head>
 <body>
-<nav th:replace="partials/nav :: navbar"></nav>
+<nav th:replace="partials/fragments :: navbar"></nav>
 
 <div class="job_Buttons">
     <button class="prevB" type="button">Prev</button>
@@ -50,9 +46,7 @@
         <div class="job_Certs"></div>
     </div>
 </div>
-
 </body>
-<!--<footer th:replace="partials/footer :: footer"></footer>-->
-<script th:src="@{~/js/keys.js}"></script>
-<script th:src="@{~/js/jobs.js}"></script>
+<footer th:replace="partials/fragments :: footer"></footer>
+<script th:replace="paritals/fragments :: jobs"></script>
 </html>
