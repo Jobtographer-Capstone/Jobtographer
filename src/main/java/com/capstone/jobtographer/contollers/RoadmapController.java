@@ -29,6 +29,7 @@ public class RoadmapController {
 
     @PostMapping("/create/roadmaps")
     public String createRoadmap(@ModelAttribute Roadmap roadmap) {
+
         UserWithRoles userRole = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         AppUser user = usersDao.findByUsername(userRole.getUsername());
         roadmap.setUser(user);
@@ -83,5 +84,23 @@ public class RoadmapController {
         roadmapsDao.save(roadmap);
 
         return "redirect:/roadmaps";
+    }
+
+    @GetMapping("/test")
+    @ResponseBody
+    public String test(){
+        return "<h1>Test Page</h1>";
+    }
+
+    @PostMapping("/test")
+    public String tester(@RequestParam(name = "company") String company, @RequestParam(name = "title") String title, @RequestParam(name = "outlook") String outlook, @RequestParam(name = "wages") String wages, @RequestParam(name = "certs") String certs){
+        if (company != null) {
+            System.out.println("This is the company: " + company);
+            System.out.println("This is the title: " + title);
+            System.out.println("This is the outlook: " + outlook);
+            System.out.println("This is the wages: " + wages);
+            System.out.println("This is the certs: " + certs);
+        }
+        return "redirect:/test";
     }
 }
