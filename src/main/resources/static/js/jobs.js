@@ -174,10 +174,10 @@ apiRequest()
 
 
 document.querySelector('.nextB').addEventListener('click', () => {
-     titles = [];
-     wages = [];
-     outlooks = [];
-     jobCerts = [];
+    titles = [];
+    wages = [];
+    outlooks = [];
+    jobCerts = [];
     min += 5;
     max += 5;
 
@@ -196,4 +196,28 @@ document.querySelector('.prevB').addEventListener('click', () => {
     max -= 5;
 
     apiRequest();
+})
+
+
+document.querySelectorAll('.startRoadMap').forEach((button, i) => {
+    let company = document.querySelectorAll('.job_Company').item(i)
+    let title = document.querySelectorAll('.job_Title').item(i)
+    let outlook = document.querySelectorAll('.job_Outlook').item(i)
+    let wages = document.querySelectorAll('.job_Wages').item(i)
+    let certs = document.querySelectorAll('.job_Certs').item(i)
+
+    button.addEventListener('click', () => {
+
+        document.querySelector('.job_Form').innerHTML +=
+            `
+                <input type="hidden" name="company" value="${company.innerHTML}" />
+                <input type="hidden" name="title" value="${title.innerHTML}" />
+                <input type="hidden" name="outlook" value="${outlook.innerHTML}" />
+                <input type="hidden" name="wages" value="${wages.innerHTML}" />
+                <input type="hidden" name="certs" value="${certs.innerHTML}" />
+            `;
+
+        document.querySelector('.job_Form').submit();
+    })
+
 })
