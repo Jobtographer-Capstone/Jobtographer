@@ -1,11 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/head :: head(Search)">
-    <meta charset="UTF-8">
-    <title>Title</title>
+<head th:replace="partials/fragments :: head('Certifications')">
 </head>
 <body>
-<nav th:replace="partials/nav :: navbar"></nav>
+<nav th:replace="partials/fragments :: navbar"></nav>
 
 <div class="card">
     <div class="card-header">
@@ -18,7 +16,7 @@
 </div>
 
 <div class="card_holder w-100 row"></div>
-<div th:replace="partials/modals :: #addCert"></div>
+<div th:replace="partials/fragments :: modals"></div>
 
 
 
@@ -27,7 +25,7 @@
 
 
 </body>
-<footer th:replace="partials/footer :: footer"></footer>
+<footer th:replace="partials/fragments :: footer"></footer>
 
 
 </html>

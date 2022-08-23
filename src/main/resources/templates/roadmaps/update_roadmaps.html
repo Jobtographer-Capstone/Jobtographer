@@ -1,11 +1,11 @@
+<!--Do we need this as a separate HTML or just redirect them to create HTML page & just send it as an update in the Post request-->
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/head :: head('Edit Roadmap')">
-    <meta charset="UTF-8">
-    <title>Title</title>
+<head th:replace="partials/fragments :: head('Edit Roadmap')">
 </head>
 <body>
-<nav th:replace="partials/nav :: navbar"></nav>
+<nav th:replace="partials/fragments :: navbar"></nav>
 <div class="container">
     <form class="form-signin" th:method="post" th:action="@{/create/roadmaps}" th:object="${roadmap}">
         <h2 class="form-signin-heading">Update Your Roadmap</h2>
@@ -27,5 +27,5 @@
 </div>
 
 </body>
-<footer th:replace="partials/footer :: footer"></footer>
+<footer th:replace="partials/fragments :: footer"></footer>
 </html>
