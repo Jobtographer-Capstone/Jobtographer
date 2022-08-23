@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/head :: head('Roadmap details')">
+<head th:replace="partials/fragments :: head('Roadmap details')">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<nav th:replace="partials/nav :: navbar"></nav>
+<nav th:replace="partials/fragments :: navbar"></nav>
 
 <div class="container">
     <form class="form-signin" th:method="post" th:action="@{/create/roadmaps}" th:object="${roadmap}">
@@ -27,6 +27,6 @@
 </div>
 
 </body>
-<footer th:replace="partials/footer :: footer"></footer>
+<footer th:replace="partials/fragments :: footer"></footer>
 
 </html>
