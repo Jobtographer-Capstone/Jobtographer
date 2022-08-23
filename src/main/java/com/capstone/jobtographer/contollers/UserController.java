@@ -72,7 +72,7 @@ public class UserController {
         AppUser user = usersdao.findById(loggedIn.getId());
         usersdao.updateImg(pI, user.getUsername());
 
-        return "redirect:/profile";
+        return "redirect:/update/user";
     }
 
     @GetMapping("/logout")

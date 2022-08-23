@@ -26,6 +26,7 @@ private UserRepository usersdao;
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return http
+
 //                Login configuration
                 .formLogin()
                 .loginPage("/login")

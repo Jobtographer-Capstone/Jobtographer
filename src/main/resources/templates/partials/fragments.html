@@ -129,7 +129,7 @@
                         <input type="date" id="exp-date" name="expDate">
                         <input name="_csrf" type="hidden" th:each="cookie: ${#httpServletRequest.cookies}"
                                th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
-                        <button class="btn btn-outline-secondary" type="submit">add!</button>
+                        <button class="crtModal btn btn-outline-secondary" type="submit">Add</button>
                     </form>
                 </div>
                 <div class="modal-footer">
