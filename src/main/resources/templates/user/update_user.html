@@ -17,7 +17,7 @@
             <button type="button" id="defaultEdit" class="edit-img btn btn-outline-primary">Edit Profile Image</button>
         </div>
     </div>
-<!--uploaded image-->
+    <!--uploaded image-->
     <div class="profile-div col-sm-12 col-lg-3" th:if="${user.getImg() != null}">
         <div class="p_img">
             <img class="profile-img" th:src="${user.img}" alt="wow">
@@ -31,38 +31,42 @@
 
     <div class="col-6">
         <div class="card ">
-        <h1>Update Profile Information</h1>
-        <form class="form-signin" th:method="post" th:action="@{/update/user}" th:object="${user}">
-            <h2 th:if="${user == null}" class="form-signin-heading">Sign Up For An Account!</h2>
-            <p>
-                <label for="username">Username</label>
-                <input type="text" id="username" name="username" class="form-control" placeholder="Username" required=""
-                       autofocus="" th:field="*{username}">
-            </p>
-            <p>
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" class="form-control" placeholder="example@example.com"
-                       required="" autofocus="" th:field="*{email}">
-            </p>
-            <p>
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" class="form-control" placeholder="Password"
-                       required="" th:field="*{password}">
-            </p>
-            <input type="hidden" th:field="*{id}">
-            <input name="_csrf" type="hidden" th:each="cookie: ${#httpServletRequest.cookies}"
-                   th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
-            <button class="btn btn-lg btn-primary btn-block" type="submit">update</button>
-        </form>
-        <a class="col-12" href="" id="deleteAccount">Delete Account</a>
-    </div>
-<!--        File stack.Js-->
+            <h1>Update Profile Information</h1>
+            <form class="form-signin" th:method="post" th:action="@{/update/user}" th:object="${user}">
+                <h2 th:if="${user == null}" class="form-signin-heading">Sign Up For An Account!</h2>
+                <p>
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username" class="form-control" placeholder="Username"
+                           required=""
+                           autofocus="" th:field="*{username}">
+                </p>
+                <input type="hidden" th:field="*{img}">
+                <p>
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="example@example.com"
+                           required="" autofocus="" th:field="*{email}">
+                </p>
+                <p>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" class="form-control" placeholder="Password"
+                           required="" th:field="*{password}">
+                </p>
+                <input type="hidden" th:field="*{id}">
+                <input name="_csrf" type="hidden" th:each="cookie: ${#httpServletRequest.cookies}"
+                       th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
+                <button class="btn btn-lg btn-primary btn-block" type="submit">update</button>
+            </form>
+            <a class="col-12" href="" id="deleteAccount">Delete Account</a>
+        </div>
+        <!--        File stack.Js-->
         <form class="myForm" th:action="@{/profile}" method="post">
             <input name="_csrf" type="hidden" th:each="cookie: ${#httpServletRequest.cookies}"
                    th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
         </form>
-
+    </div>
 </div>
 </body>
 <footer th:replace="partials/fragments :: footer"></footer>
+<div th:replace="partials/fragments :: filestack"></div>
+
 </html>

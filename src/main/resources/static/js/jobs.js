@@ -11,16 +11,14 @@ if (random === 3) {
 }
 
 console.log(searchValue + ": was searched for!");
-let codes = [];
+
 let titles = [];
 let wages = [];
 let outlooks = [];
 let jobCerts = [];
-
-let cert1 = [];
-
 let min = 0;
 let max = 5;
+
 const apiRequest = () => {
 
     let url = `https://api.careeronestop.org/v1/jobsearch/${USER_ID}/${searchValue}/United%20States/25/0/DESC/${min}/${max}/1?source=NLx&showFilters=false`;
@@ -63,7 +61,7 @@ const apiRequest = () => {
 
 
                 }).then(res => res.json()).then(certData => {
-                    console.log(certData);
+                    // console.log(certData);
                     //ALL OF THIS BUILDS OUT THE CERT DATA FOR INDEX PAGE CARDS
 
                     jobCerts.push(certData.CertList)
@@ -90,32 +88,32 @@ const apiRequest = () => {
                         c5.push(jobCerts[4][i].Name);
                     }
 
-                    console.log(c1)
-                    console.log(c2)
-                    console.log(c3)
-                    console.log(c4)
-                    console.log(c5)
+                    // console.log(c1)
+                    // console.log(c2)
+                    // console.log(c3)
+                    // console.log(c4)
+                    // console.log(c5)
 
 
                     for (let i = 0; i < c1.length; i++) {
-                        document.querySelectorAll('.job_Certs').item(0).innerHTML =
-                            `<div>${c1}</div>`
+                        document.querySelectorAll('.job_Certs').item(0).innerHTML = c1;
+
                     }
                     for (let i = 0; i < c2.length; i++) {
-                        document.querySelectorAll('.job_Certs').item(1).innerHTML =
-                            `<div>${c2}</div>`
+                        document.querySelectorAll('.job_Certs').item(1).innerHTML = c2
+
                     }
                     for (let i = 0; i < c3.length; i++) {
-                        document.querySelectorAll('.job_Certs').item(2).innerHTML =
-                            `<div>${c3}</div>`
+                        document.querySelectorAll('.job_Certs').item(2).innerHTML = c3
+
                     }
                     for (let i = 0; i < c4.length; i++) {
-                        document.querySelectorAll('.job_Certs').item(3).innerHTML =
-                            `<div>${c4}</div>`
+                        document.querySelectorAll('.job_Certs').item(3).innerHTML = c4
+
                     }
                     for (let i = 0; i < c5.length; i++) {
-                        document.querySelectorAll('.job_Certs').item(4).innerHTML =
-                            `<div>${c5}</div>`
+                        document.querySelectorAll('.job_Certs').item(4).innerHTML = c5
+
                     }
 
 
@@ -158,6 +156,7 @@ const apiRequest = () => {
                     document.querySelectorAll('.job_Wages').forEach((wage, i) => {
 
                         wage.innerHTML = wages[i];
+                        console.log(wages[i]);
 
                     })
                 })
@@ -175,7 +174,10 @@ apiRequest()
 
 
 document.querySelector('.nextB').addEventListener('click', () => {
-
+     titles = [];
+     wages = [];
+     outlooks = [];
+     jobCerts = [];
     min += 5;
     max += 5;
 
@@ -186,7 +188,10 @@ document.querySelector('.nextB').addEventListener('click', () => {
 })
 
 document.querySelector('.prevB').addEventListener('click', () => {
-
+    titles = [];
+    wages = [];
+    outlooks = [];
+    jobCerts = [];
     min -= 5;
     max -= 5;
 

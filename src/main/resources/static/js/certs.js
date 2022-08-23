@@ -24,7 +24,7 @@ document.querySelector('.cert_search').addEventListener('click', () => {
             <input type="hidden" value="${cert.Id}" class="cert_id">
             
     
-    <button class="add_Cert btn btn-primary w-50 m-auto" type="button"  data-toggle="modal" data-target="#addCert">Select</button>
+    <button class="add_Cert btn btn-primary w-50 m-auto" type="button"  data-bs-toggle="modal" data-bs-target="#addCert">Select</button>
     
 
                   
@@ -39,21 +39,15 @@ document.querySelector('.cert_search').addEventListener('click', () => {
         )
 
 
-        for (let i = 0; i < data.CertList.length; i++) {
-            let c = document.querySelector('.card_holder').children;
-            c.item(i).children.item(3).addEventListener('click', () => {
+        document.querySelectorAll('.add_Cert').forEach((cert, i) => {
 
-
-                console.log('cert add clicked!')
-                document.querySelector('.certForm').innerHTML += `<input type="hidden" id="cert-name" name="certificationName" th:field="*{certificationName}" value="${data.CertList[i].Name}"> <input type="hidden" name="id" th:field="*{id}">
-                    `
-                // let date = document.querySelector("#exp-date").value;
-                // console.log(date);
-
-                // document.querySelector('.certForm').submit();
+            cert.addEventListener('click', () => {
+                document.querySelector('.certForm').innerHTML += `<input type="hidden" id="cert-name" name="certificationName" th:field="*{certificationName}" value="${data.CertList[i].Name}"> <input type="hidden" name="id" th:field="*{id}">`
+                console.log('clicked');
 
             })
-        }
+
+        })
 
 
     })
