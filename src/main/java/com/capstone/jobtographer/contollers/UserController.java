@@ -9,6 +9,7 @@ import com.capstone.jobtographer.repositories.CertificationRepository;
 import com.capstone.jobtographer.repositories.RoadmapRepository;
 import com.capstone.jobtographer.repositories.UserCertsRepository;
 import com.capstone.jobtographer.repositories.UserRepository;
+import com.capstone.jobtographer.services.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -34,6 +35,9 @@ public class UserController {
     @Autowired
     private CertificationRepository certsDao;
 
+    @Autowired
+    private EmailService emailService;
+
     @GetMapping("/")
     public String homePage() {
         return "index";
@@ -50,15 +54,12 @@ public class UserController {
     public String profilePage(Model model) {
         UserWithRoles loggedIn = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         AppUser user = usersdao.findById(loggedIn.getId());
-        model.addAttribute("user",user);
+        model.addAttribute("user", user);
         List<UserCert> userCerts = userCertsDao.findAllByUser_id(user.getId());
-        model.addAttribute("certs",userCerts);
+        model.addAttribute("certs", userCerts);
+
         Roadmap roadmap = roadmapsDao.findTopByUserOrderByIdDesc(user);
         model.addAttribute("roadmap", roadmap);
-
-
-
-
 
 
         return "/user/profile";
@@ -66,7 +67,7 @@ public class UserController {
     }
 
     @PostMapping("/profile")
-    public String profilePage(@RequestParam(name="profileImage") String pI){
+    public String profilePage(@RequestParam(name = "profileImage") String pI) {
         UserWithRoles loggedIn = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         AppUser user = usersdao.findById(loggedIn.getId());
         usersdao.updateImg(pI, user.getUsername());
@@ -87,9 +88,14 @@ public class UserController {
 
     @PostMapping("/register")
     public String registerPage(String username, String email, String password) {
+        if (usersdao.findByEmail(email) == null) {
+            AppUser user = new AppUser(username, email, passwordEncoder.encode(password));
+            usersdao.save(user);
+            String subject = "Account creation";
+            String body = "Welcome " + user.getUsername() + ", You have created a new account ! your login username is : " + user.getUsername();
+            emailService.prepareAndSend(user, subject, body);
+        }
 
-        AppUser user = new AppUser(username, email, passwordEncoder.encode(password));
-        usersdao.save(user);
         return "redirect:/login";
     }
 

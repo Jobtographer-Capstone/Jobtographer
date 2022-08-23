@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/head :: head('Update Account')">
+<head th:replace="partials/fragments :: head('Update Account')">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-<nav th:replace="partials/nav :: navbar"></nav>
+<nav th:replace="partials/fragments :: navbar"></nav>
 <!--Default Image-->
 <div id="headProfile" class="row justify-content-between">
     <div class="profile-div col-sm-12 col-lg-3" th:if="${user.getImg() == null}">
@@ -64,5 +64,5 @@
 
 </div>
 </body>
-<footer th:replace="partials/footer :: footer"></footer>
+<footer th:replace="partials/fragments :: footer"></footer>
 </html>

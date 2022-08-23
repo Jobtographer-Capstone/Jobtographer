@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/head :: head('Profile')">
-    <meta charset="UTF-8">
-    <title>Title</title>
+<head th:replace="partials/fragments :: head('Profile')">
 </head>
 <body>
 
-<nav th:replace="partials/nav :: navbar"></nav>
+<nav th:replace="partials/fragments :: navbar"></nav>
 <div class=" main row">
     <!--Profile Head-->
     <div id="headProfile" class="row justify-content-between bg-info col-12 ">
@@ -58,16 +56,15 @@
             <a class="btn btn-outline-dark link-certs" href="/certifications">Certifications</a>
         </div>
     </div>
-
-    <!--roadmap body-->
-    <div>
-        <h2>Most Recent Roadmap</h2>
-        <div id="roadmap" th:if="${roadmap != null}">
-            <h4><a th:href="@{/roadmaps/{id}(id = ${roadmap.getId()})}">Indusrty: <span
-                    th:text="${roadmap.getIndustry()}"></span></a></h4>
-            <h6 th:text="${roadmap.getCareer()}"></h6>
-        </div>
-    </div>
+<!--roadmap body-->
+<!--    I think we should show all Roadmaps on this page, ordered by modification date-->
+<div>
+    <h2>Most Recent Roadmap</h2>
+<div id="roadmap"  th:if="${roadmap != null}">
+    <h4><a th:href="@{/roadmaps/{id}(id = ${roadmap.getId()})}">Industry: <span th:text="${roadmap.getIndustry()}"></span></a></h4>
+    <h6 th:text="${roadmap.getCareer()}"></h6>
+</div>
+</div>
 </div>
 
 <!--THIS FORM IS BEING SENT THROUGH FILESTACK.JS-->
@@ -75,8 +72,8 @@
     <input name="_csrf" type="hidden" th:each="cookie: ${#httpServletRequest.cookies}"
            th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
 </form>
-
+<div th:replace="partials/fragments :: filestack"></div>
 </body>
-<footer th:replace="partials/footer :: footer"></footer>
-<script th:src="@{~/js/jobs.js}"></script>
+<footer th:replace="partials/fragments :: footer"></footer>
+<script th:replace="partials/fragments :: jobs"></script>
 </html>
