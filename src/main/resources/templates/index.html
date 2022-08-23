@@ -4,59 +4,15 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-
-        .job_Info{
-            display: flex;
-        }
-
-        .job_Card {
-            border: 1px solid white;
-            position: relative;
-            background: grey;
-            top: 50vh;
-            height: 50vh;
-            width: 20vw;
-            display: grid;
-            grid-template-areas:
-                    'company'
-                    'title'
-                    'outlook'
-                    'wages'
-                    'certs';
-            grid-template-rows: repeat(5, 1fr);
-        }
-
-        .job_Company {
-            grid-area: company;
-
-        }
-
-        .job_Title {
-            grid-area: title;
-
-        }
-
-        .job_Outlook{
-            grid-area: outlook;
-        }
-
-        .job_Wages{
-            grid-area: wages;
-        }
-
-        .job_Certs{
-            grid-area: certs;
-        }
-    </style>
+    <link rel="stylesheet" th:href="@{~/css/jobCard.css}">
 </head>
 <body>
 <nav th:replace="partials/nav :: navbar"></nav>
 
+<div class="job_Buttons">
+    <button class="prevB" type="button">Prev</button>
+    <button class="nextB" type="button">Next</button>
+</div>
 <div class="job_Info">
     <div class="job_Card">
         <div class="job_Company"></div>
@@ -70,28 +26,28 @@
         <div class="job_Title"></div>
         <div class="job_Outlook"></div>
         <div class="job_Wages"></div>
-        <div class="job_Certs">2</div>
+        <div class="job_Certs"></div>
     </div>
     <div class="job_Card">
         <div class="job_Company"></div>
         <div class="job_Title"></div>
         <div class="job_Outlook"></div>
         <div class="job_Wages"></div>
-        <div class="job_Certs">3</div>
+        <div class="job_Certs"></div>
     </div>
     <div class="job_Card">
         <div class="job_Company"></div>
         <div class="job_Title"></div>
         <div class="job_Outlook"></div>
         <div class="job_Wages"></div>
-        <div class="job_Certs">4</div>
+        <div class="job_Certs"></div>
     </div>
     <div class="job_Card">
         <div class="job_Company"></div>
         <div class="job_Title"></div>
         <div class="job_Outlook"></div>
         <div class="job_Wages"></div>
-        <div class="job_Certs">5</div>
+        <div class="job_Certs"></div>
     </div>
 </div>
 
