@@ -5,15 +5,17 @@
 <body>
 
 <nav th:replace="partials/fragments :: navbar"></nav>
-<div class=" main row">
-    <!--Profile Head-->
-    <div id="headProfile" class="row justify-content-between bg-info col-12 ">
 
+<div class="main row">
+    <!--Profile Head-->
+    <div id="headProfile" class="row justify-content-between bg-info col-12 col-lg-12">
         <!--Default Image-->
-        <div class="profile-div col-sm-12 col-lg-3 w-100" th:if="${user.getImg() == null}">
-            <div class="p_img">
-                <img class="profile-img" th:src="@{~/img/default_img.jpeg}" alt="wow">
+        <div class="profile-div col-6 col-lg-3" th:if="${user.getImg() == null}">
+
+            <div class="p_img col-6 col-lg-3">
+                <img th:src="@{~/img/default_img.jpeg}" id="profile-img" alt="wow">
             </div>
+
             <div class="flex align-items-start">
                 <h6 class="text-dark" th:text="${user.getUsername()}"></h6>
                 <a class="btn btn-outline-dark" id="defaultEdit" href="/update/user">Edit profile</a>
@@ -21,9 +23,9 @@
         </div>
 
         <!--Uploaded image-->
-        <div class="profile-div col-sm-12 col-lg-3 w-100" th:if="${user.getImg() != null}">
+        <div class="profile-div col-6 col-lg-4" th:if="${user.getImg() != null}">
             <div class="p_img">
-                <img class="profile-img" th:src="${user.img}" alt="wow">
+                <img th:src="${user.img}" class="profile-img rounded mx-auto d-block" alt="wow">
             </div>
             <div class="flex align-items-start">
                 <h5 class="text-dark" th:text="${user.getUsername()}"></h5>
@@ -34,7 +36,6 @@
         <!--User certs-->
         <div class="col-sm-12 col-lg-8 w-100 row">
             <div class="m-auto text-black col-sm-12 "><h3>Certifications</h3></div>
-
 
             <div class=" col-sm-12 scroll bg-dark border-dark border-2 row justify-content-around certs-container">
 
@@ -56,6 +57,7 @@
             <a class="btn btn-outline-dark link-certs" href="/certifications">Certifications</a>
         </div>
     </div>
+
 <!--roadmap body-->
 <!--    I think we should show all Roadmaps on this page, ordered by modification date-->
 <div>
@@ -73,7 +75,11 @@
            th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
 </form>
 <div th:replace="partials/fragments :: filestack"></div>
+
 </body>
+
 <footer th:replace="partials/fragments :: footer"></footer>
+
 <script th:replace="partials/fragments :: jobs"></script>
+
 </html>
