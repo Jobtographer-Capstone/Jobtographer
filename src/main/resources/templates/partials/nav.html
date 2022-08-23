@@ -2,9 +2,6 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
-
-
-
 <!--NAVBAR START-->
 <nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark">
     <button class="navbar-toggler btn btn-outline-dark bg-dark" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,14 +11,20 @@
         <ul class="navbar-nav flex w-100">
             <li class="nav-item"> <a class="navbar-brand" href="/">Home</a></li>
 
-
             <li class="nav-item"> <a sec:authorize="isAuthenticated()" class="nav-link" href="/profile">Profile</a></li>
-            <li class="nav-item"> <a sec:authorize="isAuthenticated()" class="nav-link" href="/roadmaps">Roadmaps</a></li>
+
             <li class="nav-item"> <a sec:authorize="isAuthenticated()" class="nav-link" href="/certifications">Certifications</a></li>
+
+            <li class="nav-item"> <a sec:authorize="isAuthenticated()" class="nav-link" href="/roadmaps">Roadmaps</a></li>
+
             <li class="nav-item"> <a sec:authorize="isAuthenticated()" class="nav-link" href="/create/roadmaps">Create</a></li>
+
             <li class="nav-item ml-auto"> <a sec:authorize="isAuthenticated()" class="navbar-brand " id="logout" href="">Logout</a></li>
+
             <li th:replace="partials/modals :: modals"></li>
+
             <li th:replace="partials/modals :: sign-in"></li>
+
             <li th:replace="partials/modals :: register"></li>
         </ul>
     </div>

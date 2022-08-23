@@ -12,6 +12,7 @@
     border-right: sandybrown solid 2px;
 
 }
+
 #defaultEdit{
     font-size: 12px;
     padding: 0 3em;
@@ -19,6 +20,7 @@
     margin: 0;
 
 }
+
 #uploadEdit{
     font-size: 12px;
     padding: 0 3em;
@@ -26,35 +28,29 @@
     margin: 0;
 
 }
+
 #headProfile{
     height: 400px;
     width: 100%;
 }
+
 .expDate{
     font-size: 14px;
 }
+
 .certs-container{
     border-radius: 10px;
 }
-nav{
-    margin: 0;
-    color: black;
-    background: sandybrown;
-    border-bottom: black solid 3px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-}
 
-a {
-    color: black;
-    padding: 8px;
-    margin: 0;
-}
+/*a {*/
+/*    color: black;*/
+/*    padding: 8px;*/
+/*    margin: 0;*/
+/*}*/
 
 
 a:hover{
     color: floralwhite;
-
     border-radius: 2px;
 }
 
@@ -67,6 +63,7 @@ div.scroll {
     overflow-y: auto;
     text-align:justify;
 }
+
 .link-certs{
     font-size: 12px;
     padding: 0 3em;
@@ -74,6 +71,7 @@ div.scroll {
     margin: 3px 6px;
 
 }
+
 .main{
     padding: 0;
     margin: 0;
