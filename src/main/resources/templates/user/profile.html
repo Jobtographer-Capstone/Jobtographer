@@ -10,10 +10,10 @@
     <!--Profile Head-->
     <div id="headProfile" class="row justify-content-between bg-info col-12 col-lg-12">
         <!--Default Image-->
-        <div class="profile-div col-6 col-lg-3" th:if="${user.getImg() == null}">
+        <div class="profile-div col-12 col-lg-4" th:if="${user.getImg() == null}">
 
-            <div class="p_img col-6 col-lg-3">
-                <img th:src="@{~/img/default_img.jpeg}" id="profile-img" alt="wow">
+            <div class="p_img">
+                <img th:src="@{~/img/default_img.jpeg}" class="profile-img" alt="wow">
             </div>
 
             <div class="flex align-items-start">
@@ -23,9 +23,10 @@
         </div>
 
         <!--Uploaded image-->
-        <div class="profile-div col-6 col-lg-4" th:if="${user.getImg() != null}">
+        <div class="profile-div col-12 col-lg-3" th:if="${user.getImg() != null}">
+
             <div class="p_img">
-                <img th:src="${user.img}" class="profile-img rounded mx-auto d-block" alt="wow">
+                <img th:src="${user.img}" class="profile-img" alt="wow">
             </div>
             <div class="flex align-items-start">
                 <h5 class="text-dark" th:text="${user.getUsername()}"></h5>
@@ -34,14 +35,17 @@
         </div>
 
         <!--User certs-->
-        <div class="col-sm-12 col-lg-8 w-100 row">
-            <div class="m-auto text-black col-sm-12 "><h3>Certifications</h3></div>
+        <div class="col-12 col-lg-9 justify-content-center row">
+            <div class=" d-flex justify-content-center text-black col-12 "><h3>Certifications</h3></div>
 
-            <div class=" col-sm-12 scroll bg-dark border-dark border-2 row justify-content-around certs-container">
+            <div class=" col-12 col-lg-12 scroll bg-dark border-dark border-2 row justify-content-around certs-container">
 
                 <div class="card m-1 border-dark col-5" th:if="${certs.isEmpty()}">
-                    <div class="card-body">
-                        <h6>Add a certification</h6>
+                    <div class="card-body d-flex justify-content-center align-items-center">
+                        <div class="text-center mx-auto">
+                            <p>Add a certification</p>
+                            <a href="/search/certification"><i class="fa-solid fa-plus fa-2xl"></i></a>
+                        </div>
                     </div>
                 </div>
 
@@ -52,20 +56,29 @@
                     </div>
                 </div>
             </div>
-            <a class="btn btn-outline-dark link-certs" href="/search/certification">Add a certification</a>
-            <p class="col-sm-display-none" style="display: inline-block">|</p>
-            <a class="btn btn-outline-dark link-certs" href="/certifications">Certifications</a>
+
+            <p class="  d-flex justify-content-center col-sm-display-none " style="display: inline-block"><a class="btn btn-outline-dark link-certs " href="/search/certification">Add a certification</a>|<a class="btn btn-outline-dark link-certs " href="/certifications">Certifications</a></p>
+
         </div>
     </div>
 
 <!--roadmap body-->
 <!--    I think we should show all Roadmaps on this page, ordered by modification date-->
-<div>
+<div class="bottom-profile">
     <h2>Most Recent Roadmap</h2>
-<div id="roadmap"  th:if="${roadmap != null}">
-    <h4><a th:href="@{/roadmaps/{id}(id = ${roadmap.getId()})}">Industry: <span th:text="${roadmap.getIndustry()}"></span></a></h4>
-    <h6 th:text="${roadmap.getCareer()}"></h6>
-</div>
+    <div th:if="${roadmap != null}" id="myProgress" class="card col-8 col-lg-8 text-center mx-auto shadow-lg p-3 mb-5 bg-white rounded">
+        <p>
+            <a id="industryLink" th:href="@{/roadmaps/{id}(id=${roadmap.getId()})}">
+                <span th:text="${roadmap.getIndustry().toUpperCase()}"></span>
+            </a>
+        </p>
+        <h3><span th:text="${roadmap.getCareer().toUpperCase()}"></span></h3>
+        <div class="progress" style="height: 100px">
+            <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" aria-label="Danger striped example"
+                 style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+            </div>
+        </div>
+    </div>
 </div>
 </div>
 
