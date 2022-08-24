@@ -105,15 +105,4 @@ div.scroll {
     padding: 0;
     margin: 5px;
 }
-.bottom-profile{
-    background: var(--primary);
-    flex-grow: 1;
-}
-#page-bottom{
-    border-top: black solid 5px;
-    background: black;
-    padding: 1em;
-    justify-content: center;
-    align-items: center;
-    color: whitesmoke;
-}
+
