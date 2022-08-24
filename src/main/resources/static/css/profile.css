@@ -1,15 +1,15 @@
-#profile-img{
-    width: 300px;
-    height: 300px;
+.profile-img{
+    width: 200px;
+    height: 200px;
     margin: 1em;
 }
 
-.profile-div{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
+/*.profile-div{*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*}*/
 
 /*.profile-img {*/
 /*    width: 200px;*/
@@ -17,14 +17,14 @@
 /*    margin: 1em;*/
 /*}*/
 
-/*.profile-div {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    border-right: sandybrown solid 2px;*/
+.profile-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-right: #D0D07A solid 2px;
 
-/*}*/
+}
 
 #defaultEdit{
     font-size: 12px;
@@ -42,10 +42,10 @@
 
 }
 
-#headProfile{
-    height: 400px;
-    width: 100%;
-}
+/*#headProfile{*/
+/*    height: 400px;*/
+/*    width: 100%;*/
+/*}*/
 
 .expDate{
     font-size: 14px;
@@ -80,12 +80,45 @@ div.scroll {
 .link-certs{
     font-size: 12px;
     padding: 0 3em;
-    height: 5.5%;
+    height: 70%;
     margin: 3px 6px;
 
 }
 
 .main{
+   margin: 0;
+    padding: 0;
+}
+.logo{
+    height: 70px;
+    width: 70px;
+}
+@media (prefers-reduced-motion: no-preference) {
+    .logo {
+        animation: logo-spin infinite 20s linear;
+    }
+}
+@keyframes logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.logo-name{
+    color: floralwhite;
     padding: 0;
     margin: 0;
+}
+#headProfile{
+    margin: 0;
+    padding: 0;
+}
+.navbar-brand{
+    padding: 0;
+    margin: 5px;
+}
+.bottom-profile{
+    background: #00265B;
 }
