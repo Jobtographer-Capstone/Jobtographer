@@ -1,7 +1,7 @@
 #nav-top {
     margin: 0;
-    background: #00265b;
-    border-bottom: #b6995a solid 3px;
+    background: var(--primary);
+    border-bottom: var(--highlight) solid 3px;
     width: 100%;
 }
 
@@ -14,13 +14,14 @@ ul {
 
 li a {
     display: block;
-    color: white;
+    color: var(--accent);
+    text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 
 li a:hover {
-    background-color: #001736;
+    background-color: var(--lightshade);
 }
 
 /*Bottom Navbar*/

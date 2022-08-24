@@ -13,7 +13,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-right: #b6995a solid 3px;
+    border-right: var(--highlight) solid 3px;
     margin-bottom: 1em;
     background-color: #FFFFFF;
 }
@@ -104,4 +104,16 @@ div.scroll {
 .navbar-brand{
     padding: 0;
     margin: 5px;
+}
+.bottom-profile{
+    background: var(--primary);
+    flex-grow: 1;
+}
+#page-bottom{
+    border-top: black solid 5px;
+    background: black;
+    padding: 1em;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke;
 }
