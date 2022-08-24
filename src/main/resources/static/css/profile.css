@@ -23,6 +23,7 @@
     justify-content: center;
     align-items: center;
     border-right: #D0D07A solid 2px;
+    margin-bottom: 1em;
 
 }
 
@@ -88,6 +89,8 @@ div.scroll {
 .main{
    margin: 0;
     padding: 0;
+    flex-direction: column;
+    min-height: 100vh;
 }
 .logo{
     height: 70px;
@@ -121,4 +124,15 @@ div.scroll {
 }
 .bottom-profile{
     background: #00265B;
+    flex-grow: 1;
+}
+#page-bottom{
+    border-top: black solid 5px;
+    background: black;
+    padding: 1em;
+    justify-content: center;
+    align-items: center;
+    color: whitesmoke;
+
+
 }

@@ -80,6 +80,7 @@
         </div>
     </div>
 </div>
+    <div th:replace="partials/fragments :: page-bottom"></div>
 </div>
 
 <!--THIS FORM IS BEING SENT THROUGH FILESTACK.JS-->
@@ -87,9 +88,9 @@
     <input name="_csrf" type="hidden" th:each="cookie: ${#httpServletRequest.cookies}"
            th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
 </form>
-<div th:replace="partials/fragments :: filestack"></div>
 
 </body>
+<div th:replace="partials/fragments :: filestack"></div>
 
 <footer th:replace="partials/fragments :: footer"></footer>
 
