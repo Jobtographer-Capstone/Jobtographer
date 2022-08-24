@@ -6,6 +6,8 @@
 <nav th:replace="/partials/fragments :: navbar"></nav>
 <div>
     <a href="/search/certification">Add a certification +</a>
+
+    <nav th:replace="partials/fragments :: page-bottom"></nav>
 </div>
 <div  class="card w-50 m-1 p-1" th:each="cert : ${certs}">
     <h1 th:text="${cert.getCert_id().getCertificationName()}"></h1>
