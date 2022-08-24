@@ -9,7 +9,7 @@ public class RoadmapCert {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false)
+    @Column
     private int year;
 
 
