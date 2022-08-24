@@ -35,7 +35,7 @@ const apiRequest = () => {
 
         // console.log(jobData);
         jobData.Jobs.forEach(job => {
-
+            console.log(jobData);
 
             //DISPLAYS DATA TO JOB COMPANY
             document.querySelectorAll('.job_Company').forEach((company, i) => {

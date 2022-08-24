@@ -10,15 +10,20 @@
 <div class="container">
     <form class="form-signin" th:method="post" th:action="@{/create/roadmaps}" th:object="${roadmap}">
         <h2 class="form-signin-heading">Create Your Roadmap</h2>
-        <p>
-            <label for="industry" class="sr-only">Industry</label>
-            <input type="text" id="industry" name="industry" class="form-control" placeholder="industry" required=""
-                   autofocus="" th:field="*{industry}">
-        </p>
+<!--        <p>-->
+<!--            <label for="industry" class="sr-only">Industry</label>-->
+<!--            <input type="text" id="industry" name="industry" class="form-control" placeholder="industry" required=""-->
+<!--                   autofocus="" th:field="*{industry}">-->
+<!--        </p>-->
         <p>
             <label for="career" class="sr-only">Career</label>
-            <input type="text" id="career" name="career" class="form-control" placeholder="Career"
+            <input type="text" id="career" name="title" class="form-control" placeholder="Career"
                    required="" th:field="*{career}">
+        </p>
+        <p>
+            <label for="certs" class="sr-only">Certs</label>
+            <input type="text" id="certs" name="certs" class="form-control" placeholder="Certs"
+                   required="">
         </p>
         <input name="_csrf" type="hidden" th:each="cookie: ${#httpServletRequest.cookies}"
                th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
