@@ -66,13 +66,18 @@
 <!--    I think we should show all Roadmaps on this page, ordered by modification date-->
 <div class="bottom-profile">
     <h2>Most Recent Roadmap</h2>
-    <div th:if="${roadmap != null}" id="myProgress" class="card col-8 col-lg-8 text-center mx-auto shadow-lg p-3 mb-5 bg-white rounded">
-        <p>
+    <div th:if="${roadmap != null}"  class="card col-8 col-lg-8 text-center mx-auto shadow-lg p-3 mb-5 bg-white rounded myProgress">
+        <div>
             <a id="industryLink" th:href="@{/roadmaps/{id}(id=${roadmap.getId()})}">
-                <span th:text="${roadmap.getIndustry().toUpperCase()}"></span>
+                <h3><span th:text="${roadmap.getCareer().toUpperCase()}"></span></h3>
             </a>
-        </p>
-        <h3><span th:text="${roadmap.getCareer().toUpperCase()}"></span></h3>
+            <ul>
+                <li th:each="roadmapCert : ${roadmap.getRoadmapCerts()}">
+                    <span th:if="${roadmapCert.getCert_id().getCertificationName().codePointAt(0)}" th:text="${roadmapCert.getCert_id().getCertificationName()}"></span>
+                    | <span th:text="${roadmapCert.getCert_id().getCertificationName()}"></span>
+                </li>
+            </ul>
+        </div>
         <div class="progress" style="height: 100px">
             <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" aria-label="Danger striped example"
                  style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
