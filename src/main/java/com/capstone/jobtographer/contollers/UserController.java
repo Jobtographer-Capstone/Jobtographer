@@ -38,6 +38,9 @@ public class UserController {
     @Autowired
     private EmailService emailService;
 
+    @GetMapping("/about")
+    public String about() {return "about"; }
+
     @GetMapping("/")
     public String homePage() {
         return "index";
