@@ -5,26 +5,26 @@
     --primary: #0B172E;
     --lightshade: #00265B;
     --accent: #B9B9B9;
-    --highlight: #D0D07A;
+    --highlight: #b6995a;
     --callout: #E41134;
     --heading: 'Cormorant', 'serif';
     --body: 'Raleway', 'sans-serif';
     --title: 'Tangerine', 'cursive';
 }
 
-body{
- font-family: var(--body);
-}
+/*body{*/
+/* font-family: var(--body);*/
+/*}*/
 
-h1, h2, h3 {
-    font-family: var(--title);
-    color: var(--accent);
-}
+/*h1, h2, h3 {*/
+/*    font-family: var(--title);*/
+/*    color: var(--accent);*/
+/*}*/
 
-h4, h5, h6 {
-    font-family: var(--heading);
-}
+/*h4, h5, h6 {*/
+/*    font-family: var(--heading);*/
+/*}*/
 
-#industryLink {
-    color: white;
-}
+/*#industryLink {*/
+/*    color: white;*/
+/*}*/
