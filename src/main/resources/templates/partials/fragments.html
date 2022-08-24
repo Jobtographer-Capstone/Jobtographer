@@ -152,12 +152,15 @@
     </div>
 </div>
 <!--Footer-->
+<div th:fragment="page-bottom" id="page-bottom">
+    <ul class="nav justify-content-center">
+        <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">About Jobtographer</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">FAQs</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Data Sources & Useful Links</a></li>
+    </ul>
+
+</div>
 <footer th:fragment="footer">
-<ul class="nav justify-content-end">
-    <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">About Jobtographer</a></li>
-    <li class="nav-item"><a class="nav-link" href="#">FAQs</a></li>
-    <li class="nav-item"><a class="nav-link" href="#">Data Sources & Useful Links</a></li>
-</ul>
 
 <!--Common Scripts-->
     <script th:src="@{~/js/keys.js}"></script>

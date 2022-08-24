@@ -1,15 +1,19 @@
 package com.capstone.jobtographer.contollers;
 
-import com.capstone.jobtographer.models.AppUser;
-import com.capstone.jobtographer.models.Roadmap;
-import com.capstone.jobtographer.models.UserWithRoles;
+import com.capstone.jobtographer.models.*;
+import com.capstone.jobtographer.repositories.CertificationRepository;
 import com.capstone.jobtographer.repositories.RoadmapRepository;
+import com.capstone.jobtographer.repositories.RoadmapsCertsRepository;
 import com.capstone.jobtographer.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Controller
@@ -20,6 +24,11 @@ public class RoadmapController {
     @Autowired
     private UserRepository usersDao;
 
+    @Autowired
+    private CertificationRepository certsDao;
+    @Autowired
+    private RoadmapsCertsRepository roadmapsCertsDao;
+
 
     @GetMapping("/create/roadmaps")
     public String createRoadmap(Model model) {
@@ -28,12 +37,38 @@ public class RoadmapController {
     }
 
     @PostMapping("/create/roadmaps")
-    public String createRoadmap(@ModelAttribute Roadmap roadmap) {
-
+    public String createRoadmap(Model model, @ModelAttribute Roadmap roadmap, @RequestParam(name = "title") String title, @RequestParam(name = "certs") String certs) {
         UserWithRoles userRole = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         AppUser user = usersDao.findByUsername(userRole.getUsername());
         roadmap.setUser(user);
+        roadmap.setCareer(title);
         roadmapsDao.save(roadmap);
+        String[] certsArr = certs.split(",");
+        for (String cert : certsArr) {
+            System.out.println("Look !!! A CERT " + cert);
+            Certification tableCert = certsDao.findCertificationByCertificationName(cert);
+            if (tableCert == null) {
+                Certification certification = new Certification();
+                certification.setCertificationName(cert);
+                certsDao.save(certification);
+                RoadmapCert rc = new RoadmapCert();
+                rc.setRoadmap_id(roadmap);
+                rc.setCert_id(certification);
+                roadmapsCertsDao.save(rc);
+            } else {
+
+                RoadmapCert rc = new RoadmapCert();
+                rc.setRoadmap_id(roadmap);
+                rc.setCert_id(tableCert);
+                roadmapsCertsDao.save(rc);
+            }
+
+        }
+       List<RoadmapCert> rmc = roadmapsCertsDao.findAllByRoadmap_id(roadmap.getId());
+        roadmap.setRoadmapCerts(rmc);
+
+
+
         return "redirect:/roadmaps";
     }
 
@@ -42,6 +77,7 @@ public class RoadmapController {
         UserWithRoles userRole = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         AppUser user = usersDao.findByUsername(userRole.getUsername());
         model.addAttribute("roadmaps", roadmapsDao.findByUser(user));
+
         return "roadmaps/roadmaps";
     }
 
@@ -88,12 +124,12 @@ public class RoadmapController {
 
     @GetMapping("/test")
     @ResponseBody
-    public String test(){
+    public String test() {
         return "<h1>Test Page</h1>";
     }
 
     @PostMapping("/test")
-    public String tester(@RequestParam(name = "company") String company, @RequestParam(name = "title") String title, @RequestParam(name = "outlook") String outlook, @RequestParam(name = "wages") String wages, @RequestParam(name = "certs") String certs){
+    public String tester(@RequestParam(name = "company") String company, @RequestParam(name = "title") String title, @RequestParam(name = "outlook") String outlook, @RequestParam(name = "wages") String wages, @RequestParam(name = "certs") String certs) {
         if (company != null) {
             System.out.println("This is the company: " + company);
             System.out.println("This is the title: " + title);
