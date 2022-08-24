@@ -22,7 +22,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-right: #D0D07A solid 2px;
+    border-right: var(--highlight) solid 2px;
 
 }
 
@@ -120,5 +120,5 @@ div.scroll {
     margin: 5px;
 }
 .bottom-profile{
-    background: #00265B;
+    background: var(--primary);
 }

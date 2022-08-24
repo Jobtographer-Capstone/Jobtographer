@@ -6,7 +6,7 @@
 }
 
 #newRoadmapLink {
-    color: #00265b;
+    color: var(--lightshade);
 }
 
 /*#myBar {*/
