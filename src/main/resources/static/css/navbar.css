@@ -1,9 +1,8 @@
-nav {
+#nav-top {
     margin: 0;
     background: var(--primary);
     border-bottom: var(--highlight) solid 3px;
-    border-bottom-left-radius: 2px;
-    border-bottom-right-radius: 2px;
+    width: 100%;
 }
 
 ul {
@@ -11,11 +10,6 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    /*background-color: #333;*/
-}
-
-li {
-    float: left;
 }
 
 li a {
@@ -28,4 +22,15 @@ li a {
 
 li a:hover {
     background-color: var(--lightshade);
+}
+
+/*Bottom Navbar*/
+#page-bottom {
+    border-top: #b6995a solid 3px;
+    background: #00265b;
+    padding: 1em;
+}
+
+.nav-item {
+    color: #FFFFFF;
 }
