@@ -6,6 +6,7 @@ import com.capstone.jobtographer.repositories.RoadmapRepository;
 import com.capstone.jobtographer.repositories.RoadmapsCertsRepository;
 import com.capstone.jobtographer.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.method.P;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -37,39 +39,59 @@ public class RoadmapController {
     }
 
     @PostMapping("/create/roadmaps")
-    public String createRoadmap(Model model, @ModelAttribute Roadmap roadmap, @RequestParam(name = "title") String title, @RequestParam(name = "certs") String certs) {
+    public String createRoadmap(Model model, @ModelAttribute Roadmap roadmap, @RequestParam(name = "title") String title, @RequestParam(name = "certs") String certsArr) {
         UserWithRoles userRole = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         AppUser user = usersDao.findByUsername(userRole.getUsername());
         roadmap.setUser(user);
         roadmap.setCareer(title);
         roadmapsDao.save(roadmap);
-        String[] certsArr = certs.split(",");
-        for (String cert : certsArr) {
+        long id = roadmap.getId();
+        String[] certs = certsArr.split(",");
+
+        List<Certification> certificationList = new ArrayList<>();
+        for (String cert : certs) {
             System.out.println("Look !!! A CERT " + cert);
             Certification tableCert = certsDao.findCertificationByCertificationName(cert);
             if (tableCert == null) {
                 Certification certification = new Certification();
                 certification.setCertificationName(cert);
                 certsDao.save(certification);
+                certificationList.add(certification);
                 RoadmapCert rc = new RoadmapCert();
                 rc.setRoadmap_id(roadmap);
                 rc.setCert_id(certification);
                 roadmapsCertsDao.save(rc);
-            } else {
+
+            }
+            else {
 
                 RoadmapCert rc = new RoadmapCert();
                 rc.setRoadmap_id(roadmap);
                 rc.setCert_id(tableCert);
                 roadmapsCertsDao.save(rc);
             }
-
         }
-       List<RoadmapCert> rmc = roadmapsCertsDao.findAllByRoadmap_id(roadmap.getId());
-        roadmap.setRoadmapCerts(rmc);
+        model.addAttribute("certs",certificationList);
 
 
 
-        return "redirect:/roadmaps";
+//       List<RoadmapCert> rmc = roadmapsCertsDao.findAllByRoadmap_id(roadmap.getId());
+//        roadmap.setRoadmapCerts(rmc);
+
+
+
+        return "redirect:/create/roadmaps/" + id;
+    }
+
+    @GetMapping("/create/roadmaps/{id}")
+    public String createNewRoadmap(@PathVariable(name = "id") long id, Model model){
+       Roadmap rd = roadmapsDao.getById(id);
+       model.addAttribute("roadmap",rd);
+
+
+
+        return "/roadmaps/create_roadmaps";
+
     }
 
     @GetMapping("/roadmaps")
