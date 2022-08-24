@@ -8,9 +8,10 @@
 }
 
 .job_Card {
-    border: 1px solid white;
+    border: var(--highlight);
     position: relative;
-    background: grey;
+    background: var(--primary);
+    color: var(--accent);
     top: 50vh;
     height: 50vh;
     width: 20vw;

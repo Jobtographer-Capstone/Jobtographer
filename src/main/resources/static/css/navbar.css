@@ -1,7 +1,7 @@
 nav {
     margin: 0;
-    background: #00265b;
-    border-bottom: #D0D07A solid 3px;
+    background: var(--primary);
+    border-bottom: var(--highlight) solid 3px;
     border-bottom-left-radius: 2px;
     border-bottom-right-radius: 2px;
 }
@@ -20,12 +20,12 @@ li {
 
 li a {
     display: block;
-    color: white;
+    color: var(--accent);
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 
 li a:hover {
-    background-color: #001736;
+    background-color: var(--lightshade);
 }
