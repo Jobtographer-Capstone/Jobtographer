@@ -5,65 +5,9 @@
 <body>
 <nav th:replace="partials/fragments :: navbar"></nav>
 
-<input type="text" class="searchJobs">
-<button type="button" class="searchButton">Search</button>
+<div th:replace="partials/fragments :: search-jobs"></div>
 
-<div class="job_Buttons">
-    <button class="prevB" type="button">Prev</button>
-    <button class="nextB" type="button">Next</button>
-</div>
 
-<div class="job_Info">
-    <div class="job_Card">
-        <div class="job_Company" th:name="company"></div>
-        <div class="job_Title" th:name="title"></div>
-        <div class="job_Outlook" th:name="outlook"></div>
-        <div class="job_Wages" th:name="wages"></div>
-        <div class="job_Certs" th:name="certs"></div>
-        <button class="startRoadMap" type="button">Create RoadMap</button>
-    </div>
-
-    <div class="job_Card">
-        <div class="job_Company" th:name="company"></div>
-        <div class="job_Title" th:name="title"></div>
-        <div class="job_Outlook" th:name="outlook"></div>
-        <div class="job_Wages" th:name="wages"></div>
-        <div class="job_Certs" th:name="certs"></div>
-        <button class="startRoadMap" type="button">Create RoadMap</button>
-    </div>
-
-    <div class="job_Card">
-        <div class="job_Company" th:name="company"></div>
-        <div class="job_Title" th:name="title"></div>
-        <div class="job_Outlook" th:name="outlook"></div>
-        <div class="job_Wages" th:name="wages"></div>
-        <div class="job_Certs" th:name="certs"></div>
-        <button class="startRoadMap" type="button">Create RoadMap</button>
-    </div>
-
-    <div class="job_Card">
-        <div class="job_Company" th:name="company"></div>
-        <div class="job_Title" th:name="title"></div>
-        <div class="job_Outlook" th:name="outlook"></div>
-        <div class="job_Wages" th:name="wages"></div>
-        <div class="job_Certs" th:name="certs"></div>
-        <button class="startRoadMap" type="button">Create RoadMap</button>
-    </div>
-
-    <div class="job_Card">
-        <div class="job_Company" th:name="company"></div>
-        <div class="job_Title" th:name="title"></div>
-        <div class="job_Outlook" th:name="outlook"></div>
-        <div class="job_Wages" th:name="wages"></div>
-        <div class="job_Certs" th:name="certs"></div>
-        <button class="startRoadMap" type="button">Create RoadMap</button>
-    </div>
-
-    <form class="job_Form" th:action="@{/create/roadmaps}" method="post">
-
-    </form>
-
-</div>
 <footer th:replace="partials/fragments :: footer"></footer>
 <script th:inline="javascript">
     const CAREER_API_KEY = /*[[${CAREER_API_KEY}]]*/ "test";

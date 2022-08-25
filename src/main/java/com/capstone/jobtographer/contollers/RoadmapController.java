@@ -4,6 +4,7 @@ import com.capstone.jobtographer.models.*;
 import com.capstone.jobtographer.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,10 +31,18 @@ public class RoadmapController {
     @Autowired
     private RoadmapsCertsRepository roadmapsCertsDao;
 
+    @Value("${USER_ID}")
+    private String USER_ID;
+
+    @Value("${CAREER_API_KEY}")
+    private String CAREER_API_KEY;
+
 
     @GetMapping("/create/roadmaps")
     public String createRoadmap(Model model) {
         model.addAttribute("roadmap", new Roadmap());
+        model.addAttribute("USER_ID", USER_ID);
+        model.addAttribute("CAREER_API_KEY", CAREER_API_KEY);
         return "roadmaps/create_roadmaps";
     }
 

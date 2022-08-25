@@ -163,6 +163,71 @@
     </div>
 </div>
 
+<!--Html Job Search Functionality-->
+<div th:fragment="search-jobs">
+    <input type="text" class="searchJobs">
+    <button type="button" class="searchButton">Search</button>
+
+    <div class="job_Buttons">
+        <button class="prevB" type="button">Prev</button>
+        <button class="nextB" type="button">Next</button>
+    </div>
+
+    <div class="job_Info">
+        <div class="job_Card">
+            <div class="job_Company" th:name="company"></div>
+            <div class="job_Title" th:name="title"></div>
+            <div class="job_Outlook" th:name="outlook"></div>
+            <div class="job_Wages" th:name="wages"></div>
+            <div class="job_Certs" th:name="certs"></div>
+            <button class="startRoadMap" type="button">Create RoadMap</button>
+        </div>
+
+        <div class="job_Card">
+            <div class="job_Company" th:name="company"></div>
+            <div class="job_Title" th:name="title"></div>
+            <div class="job_Outlook" th:name="outlook"></div>
+            <div class="job_Wages" th:name="wages"></div>
+            <div class="job_Certs" th:name="certs"></div>
+            <button class="startRoadMap" type="button">Create RoadMap</button>
+        </div>
+
+        <div class="job_Card">
+            <div class="job_Company" th:name="company"></div>
+            <div class="job_Title" th:name="title"></div>
+            <div class="job_Outlook" th:name="outlook"></div>
+            <div class="job_Wages" th:name="wages"></div>
+            <div class="job_Certs" th:name="certs"></div>
+            <button class="startRoadMap" type="button">Create RoadMap</button>
+        </div>
+
+        <div class="job_Card">
+            <div class="job_Company" th:name="company"></div>
+            <div class="job_Title" th:name="title"></div>
+            <div class="job_Outlook" th:name="outlook"></div>
+            <div class="job_Wages" th:name="wages"></div>
+            <div class="job_Certs" th:name="certs"></div>
+            <button class="startRoadMap" type="button">Create RoadMap</button>
+        </div>
+
+        <div class="job_Card">
+            <div class="job_Company" th:name="company"></div>
+            <div class="job_Title" th:name="title"></div>
+            <div class="job_Outlook" th:name="outlook"></div>
+            <div class="job_Wages" th:name="wages"></div>
+            <div class="job_Certs" th:name="certs"></div>
+            <button class="startRoadMap" type="button">Create RoadMap</button>
+        </div>
+
+        <form class="job_Form" th:action="@{/create/roadmaps}" method="post">
+
+        </form>
+
+    </div>
+</div>
+
+
+
 <!--Footer-->
 <nav th:fragment="page-bottom" id="page-bottom" class="navbar navbar-expand navbar-dark fixed-bottom">
     <div class="container-fluid text-center">

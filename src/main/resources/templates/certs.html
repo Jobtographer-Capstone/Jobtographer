@@ -8,10 +8,10 @@
 <div class="card">
     <div class="card-header">
         <h1>Search for a certification</h1>
-    <div class="card-body">
-<input type="text" class="cert_value">
-<button type="button" class="cert_search">Search</button>
-    </div>
+        <div class="card-body">
+            <input type="text" class="cert_value">
+            <button type="button" class="cert_search">Search</button>
+        </div>
     </div>
 </div>
 
@@ -21,6 +21,12 @@
 
 </body>
 <footer th:replace="partials/fragments :: footer"></footer>
+<script th:inline="javascript">
+    const CAREER_API_KEY = /*[[${CAREER_API_KEY}]]*/ "test";
+    console.log(CAREER_API_KEY);
+    const USER_ID = /*[[${USER_ID}]]*/ "please";
+    console.log(USER_ID);
+</script>
 <script th:src="@{~/js/certs.js}"></script>
 
 
