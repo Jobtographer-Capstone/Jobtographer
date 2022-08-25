@@ -1,223 +1,259 @@
-let random = Math.floor(Math.random() * 3) + 1;
-let searchValue = '';
-if (random === 1) {
-    searchValue = "nurse"
-}
-if (random === 2) {
-    searchValue = "cook"
-}
-if (random === 3) {
-    searchValue = "engineer"
-}
-
-console.log(searchValue + ": was searched for!");
-
-let titles = [];
-let wages = [];
-let outlooks = [];
-let jobCerts = [];
+// THESE ARE FOR SEARCH VALUES
 let min = 0;
-let max = 5;
+let max = 50;
+let searchValue = "";
+//###########################//
 
-const apiRequest = () => {
+//SEARCH BUTTON CLICK EVENT
+document.querySelector('.searchButton').addEventListener('click', ()=>{
 
-    let url = `https://api.careeronestop.org/v1/jobsearch/${USER_ID}/${searchValue}/United%20States/25/0/DESC/${min}/${max}/1?source=NLx&showFilters=false`;
+    searchValue = document.querySelector('.searchJobs').value;
+    const allJobs = getAllJobs();
+    const jobCodes = getCodesByJobId(allJobs);
+    const occData = getOccData(jobCodes)
+    const certData = getCerts(jobCodes)
+    htmlBuilder(allJobs, occData, certData)
+
+    // NEXT BUTTON CLICK EVENT
+    document.querySelector('.nextB').addEventListener('click', () => {
+
+        change++
+        htmlBuilder(allJobs, occData, certData)
+    })
+//###########################//
 
 
-    fetch(url, {
+    // PREV BUTTON CLICK EVENT
+    document.querySelector('.prevB').addEventListener('click', ()=>{
+
+        change--
+        htmlBuilder(allJobs, occData, certData)
+    })
+//###########################//
+
+})
+//###########################//
+
+// THIS IS FOR CHANGING DATA THAT IS DISPLAYED
+let change = 0;
+//###########################//
+
+//FETCH ALL JOBS
+async function getAllJobs() {
+    let jobs = new Map();
+    const call = await fetch(`https://api.careeronestop.org/v1/jobsearch/${USER_ID}/${searchValue}/United%20States/25/0/DESC/${min}/${max}/1?source=NLx&showFilters=false`, {
         headers: {
             "Authorization": "Bearer " + CAREER_API_KEY,
             Accept: "application/json",
             'Content-Type': 'application/json'
         }
-    }).then(res => res.json()).then(jobData => {
+    })
+
+    const reply = await call.json().then(data => {
+        for (let job of data.Jobs) {
+            if (!jobs.has(job.Company)) {
+                jobs.set(job.Company, job.JvId);
+            }
+        }
+    })
+    return jobs;
+}
+
+const allJobs = getAllJobs();
+//###########################//
+
+// FETCH ALL SPECIFIC JOB CODES
+async function getCodesByJobId(promise) {
+    let fetches = [];
+    let ids = [];
+    let codes = [];
+    const p = await promise.then(data => {
+        data.forEach((id, name) => {
+            ids.push(id)
+        })
+    })
+    for (let i = 0; i < ids.length; i++) {
+        let f = fetch(`https://api.careeronestop.org/v1/jobsearch/${USER_ID}/${ids[i]}?isHtml=true&enableMetaData=true`, {
+            headers: {
+                "Authorization": "Bearer " + CAREER_API_KEY,
+                Accept: "application/json",
+                'Content-Type': 'application/json'
+            }
+        })
+        fetches.push(f)
+    }
+    await Promise.all(fetches)
+        .then(values => Promise.all(values.map(v => v.json())))
+        .then(data => {
+            for (let i = 0; i < data.length; i++) {
+                codes.push(data[i].OnetCodes[0])
+            }
+        })
+    return codes;
+}
+
+const jobCodes = getCodesByJobId(allJobs);
+//###########################//
 
 
-        // console.log(jobData);
-        jobData.Jobs.forEach(job => {
-            console.log(jobData);
+// FETCH OCCUPATION DATA
+async function getOccData(promise) {
+    let fetches = [];
+    const p = await promise;
+    for (let i = 0; i < p.length; i++) {
+        let f = fetch(`https://api.careeronestop.org/v1/occupation/${USER_ID}/${p[i]}/0?training=false&interest=true&videos=false&tasks=false&dwas=false&wages=true&alternateOnetTitles=false&projectedEmployment=true&ooh=false&stateLMILinks=false&relatedOnetTitles=false&skills=true&knowledge=false&ability=false&trainingPrograms=true`, {
+            headers: {
+                "Authorization": "Bearer " + CAREER_API_KEY,
+                Accept: "application/json",
+                'Content-Type': 'application/json'
+            }
+        })
+        fetches.push(f);
+    }
 
-            //DISPLAYS DATA TO JOB COMPANY
-            document.querySelectorAll('.job_Company').forEach((company, i) => {
-                company.innerHTML = jobData.Jobs[i].Company
-            })
+    const call = await Promise.all(fetches)
+        .then(values =>
+            Promise.all(values.map(async data => await data.json())))
 
+    return call
+}
 
-            fetch(`https://api.careeronestop.org/v1/jobsearch/${USER_ID}/${job.JvId}?isHtml=true&enableMetaData=true`, {
-                headers: {
-                    "Authorization": "Bearer " + CAREER_API_KEY,
-                    Accept: "application/json",
-                    'Content-Type': 'application/json'
-                }
-            }).then(res => res.json()).then(indiJob => {
-
-
-                fetch(`https://api.careeronestop.org/v1/certificationfinder/${USER_ID}/${indiJob.OnetCodes[0]}/0/0/0/0/0/0/0/0/${min}/${max}`, {
-                    headers: {
-                        "Authorization": "Bearer " + CAREER_API_KEY,
-                        Accept: "application/json",
-                        'Content-Type': 'application/json'
-                    }
-
-
-                }).then(res => res.json()).then(certData => {
-                    // console.log(certData);
-                    //ALL OF THIS BUILDS OUT THE CERT DATA FOR INDEX PAGE CARDS
-
-                    jobCerts.push(certData.CertList)
-
-                    let c1 = [];
-                    let c2 = [];
-                    let c3 = [];
-                    let c4 = [];
-                    let c5 = [];
-
-                    for (let i = 0; i < jobCerts[0].length; i++) {
-                        c1.push(jobCerts[0][i].Name);
-                    }
-                    for (let i = 0; i < jobCerts[1].length; i++) {
-                        c2.push(jobCerts[1][i].Name);
-                    }
-                    for (let i = 0; i < jobCerts[2].length; i++) {
-                        c3.push(jobCerts[2][i].Name);
-                    }
-                    for (let i = 0; i < jobCerts[3].length; i++) {
-                        c4.push(jobCerts[3][i].Name);
-                    }
-                    for (let i = 0; i < jobCerts[4].length; i++) {
-                        c5.push(jobCerts[4][i].Name);
-                    }
-
-                    // console.log(c1)
-                    // console.log(c2)
-                    // console.log(c3)
-                    // console.log(c4)
-                    // console.log(c5)
+const occData = getOccData(jobCodes)
+//###########################//
 
 
-                    for (let i = 0; i < c1.length; i++) {
-                        document.querySelectorAll('.job_Certs').item(0).innerHTML = c1;
+// FETCH CERTIFICATION DATA
+async function getCerts(promise) {
+    let certList = [];
+    let fetches = [];
+    const p = await promise
 
-                    }
-                    for (let i = 0; i < c2.length; i++) {
-                        document.querySelectorAll('.job_Certs').item(1).innerHTML = c2
+    for (let i = 0; i < p.length; i++) {
+        let f = fetch(`https://api.careeronestop.org/v1/certificationfinder/${USER_ID}/${p[i]}/0/0/0/0/0/0/0/0/${min}/${max}`, {
+            headers: {
+                "Authorization": "Bearer " + CAREER_API_KEY,
+                Accept: "application/json",
+                'Content-Type': 'application/json'
+            }
+        })
+        fetches.push(f);
+    }
 
-                    }
-                    for (let i = 0; i < c3.length; i++) {
-                        document.querySelectorAll('.job_Certs').item(2).innerHTML = c3
-
-                    }
-                    for (let i = 0; i < c4.length; i++) {
-                        document.querySelectorAll('.job_Certs').item(3).innerHTML = c4
-
-                    }
-                    for (let i = 0; i < c5.length; i++) {
-                        document.querySelectorAll('.job_Certs').item(4).innerHTML = c5
-
-                    }
-
-
-                })
-
-
-                fetch(`https://api.careeronestop.org/v1/occupation/${USER_ID}/${indiJob.OnetCodes[0]}/0?training=false&interest=true&videos=false&tasks=false&dwas=false&wages=true&alternateOnetTitles=false&projectedEmployment=true&ooh=false&stateLMILinks=false&relatedOnetTitles=false&skills=true&knowledge=false&ability=false&trainingPrograms=true`, {
-                    headers: {
-                        "Authorization": "Bearer " + CAREER_API_KEY,
-                        Accept: "application/json",
-                        'Content-Type': 'application/json'
-                    }
-                }).then(res => res.json()).then(occData => {
-
-
-                    outlooks.push(occData.OccupationDetail[0].BrightOutlook)
-
-
-                    if (occData.OccupationDetail[0].Wages.NationalWagesList[0].RateType === 'Annual') {
-                        wages.push("Median: $" + occData.OccupationDetail[0].Wages.NationalWagesList[0].Median)
-                    }
-                    if (occData.OccupationDetail[0].Wages.NationalWagesList[1].RateType === 'Annual') {
-                        wages.push("Median: $" + occData.OccupationDetail[0].Wages.NationalWagesList[1].Median)
-                    }
-
-
-                    titles.push(occData.OccupationDetail[0].OnetTitle);
-
-
-                    document.querySelectorAll('.job_Title').forEach((title, i) => {
-
-                        title.innerHTML = titles[i];
-
-                    })
-
-                    document.querySelectorAll('.job_Outlook').forEach((outlook, i) => {
-                        outlook.innerHTML = outlooks[i];
-                    })
-
-                    document.querySelectorAll('.job_Wages').forEach((wage, i) => {
-
-                        wage.innerHTML = wages[i];
-                        console.log(wages[i]);
-
-                    })
-                })
-
-
-            })
+    const call = await Promise.all(fetches)
+        .then(values =>
+            Promise.all(values.map(async data => await data.json())))
+        .then(data => {
+            for (let i = 0; i < data.length; i++) {
+                certList.push(data[i].CertList)
+            }
         })
 
-
-    });
+    return certList;
 
 
 }
-apiRequest()
+const certData = getCerts(jobCodes)
+//###########################//
+
+// BUILDER FOR THE HTML
+async function htmlBuilder(jobData, occData, certData) {
+
+    let titles = [];
+    let companies = [];
+    let wages = [];
+    let outlooks = [];
 
 
-document.querySelector('.nextB').addEventListener('click', () => {
-    titles = [];
-    wages = [];
-    outlooks = [];
-    jobCerts = [];
-    min += 5;
-    max += 5;
-
-    console.log(min);
-    console.log(max);
-    apiRequest();
-
-})
-
-document.querySelector('.prevB').addEventListener('click', () => {
-    titles = [];
-    wages = [];
-    outlooks = [];
-    jobCerts = [];
-    min -= 5;
-    max -= 5;
-
-    apiRequest();
-})
-
-
-document.querySelectorAll('.startRoadMap').forEach((button, i) => {
-    let company = document.querySelectorAll('.job_Company').item(i)
-    let title = document.querySelectorAll('.job_Title').item(i)
-    let outlook = document.querySelectorAll('.job_Outlook').item(i)
-    let wages = document.querySelectorAll('.job_Wages').item(i)
-    let certs = document.querySelectorAll('.job_Certs').item(i)
-
-    button.addEventListener('click', () => {
-
-        document.querySelector('.job_Form').innerHTML +=
-            `
-                <input type="hidden" name="company" value="${company.innerHTML}" />
-                <input type="hidden" name="title" value="${title.innerHTML}" />
-                <input type="hidden" name="outlook" value="${outlook.innerHTML}" />
-                <input type="hidden" name="wages" value="${wages.innerHTML}" />
-                <input type="hidden" name="certs" value="${certs.innerHTML}" />
-            `;
-
-        document.querySelector('.job_Form').submit();
+    const jobs = await jobData.then(jd => {
+        console.log("-------JD--------")
+        console.log(jd);
+        jd.forEach((id, company) => {
+            companies.push(company);
+        })
     })
 
-})
+    document.querySelectorAll('.job_Company').forEach((company, i) => {
+        company.innerHTML = companies[i + change]
+    })
+
+    const occ = await occData.then(od => {
+        for (let i = 0; i < od.length; i++) {
+
+            if (od[i].Message != undefined) {
+                wages.push('unavailable')
+            } else if (od[i].OccupationDetail[0].Wages.NationalWagesList[0].RateType === 'Annual') {
+                wages.push("$" + od[i].OccupationDetail[0].Wages.NationalWagesList[0].Median)
+            } else if (od[i].OccupationDetail[0].Wages.NationalWagesList[1].RateType === 'Annual') {
+                wages.push("$" + od[i].OccupationDetail[0].Wages.NationalWagesList[1].Median)
+            }
+
+        }
+        for (let i = 0; i < od.length; i++) {
+            if (od[i].Message != undefined) {
+                // wages.push('unavailable')
+                titles.push('unavailable')
+            } else {
+                titles.push(od[i].OccupationDetail[0].OnetTitle)
+            }
+
+        }
+        for (let i = 0; i < od.length; i++) {
+            if (od[i].Message != undefined) {
+                outlooks.push('unavailable')
+            } else if (od[i].OccupationDetail[0].BrightOutlookCategory == null) {
+                outlooks.push(od[i].OccupationDetail[0].BrightOutlook)
+            } else {
+                outlooks.push(od[i].OccupationDetail[0].BrightOutlookCategory)
+            }
+        }
+
+
+        document.querySelectorAll('.job_Title').forEach((title, i) => {
+            title.innerHTML = titles[i + change]
+        })
+
+        document.querySelectorAll('.job_Wages').forEach((wage, i) => {
+            wage.innerHTML = wages[i + change]
+        })
+
+        document.querySelectorAll('.job_Outlook').forEach((outlook, i) => {
+            outlook.innerHTML = outlooks[i + change]
+        })
+    })
+
+
+    const cert = await certData.then(cd => {
+
+        document.querySelectorAll('.job_Certs').forEach((c, i) => {
+            c.innerHTML = "";
+            for (let j = 0; j < cd[i + change].length; j++) {
+                // console.log(cd[i][j])
+                if (j < 5) {
+                    c.innerHTML += cd[i + change][j].Name
+                }
+            }
+
+        })
+
+    })
+
+}
+
+htmlBuilder(allJobs, occData, certData)
+//###########################//
+
+// NEXT BUTTON CLICK EVENT
+// document.querySelector('.nextB').addEventListener('click', () => {
+//
+//     change++
+//     htmlBuilder(allJobs, occData, certData)
+// })
+//###########################//
+
+// PREV BUTTON CLICK EVENT
+// document.querySelector('.prevB').addEventListener('click', ()=>{
+//
+//     change--
+//     htmlBuilder(allJobs, occData, certData)
+// })
+//###########################//
