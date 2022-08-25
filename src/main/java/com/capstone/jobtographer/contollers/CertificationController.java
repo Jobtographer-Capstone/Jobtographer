@@ -8,6 +8,7 @@ import com.capstone.jobtographer.repositories.CertificationRepository;
 import com.capstone.jobtographer.repositories.UserCertsRepository;
 import com.capstone.jobtographer.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,7 +27,11 @@ public class CertificationController {
     @Autowired
     private UserRepository usersDoa;
 
+    @Value("${CAREER_API_KEY}")
+    private String CAREER_API_KEY;
 
+    @Value("${USER_ID}")
+    private String USER_ID;
 
     @GetMapping("/certifications")
     public String allCerts(Model model) {
@@ -39,6 +44,8 @@ public class CertificationController {
 
     @GetMapping("/search/certification")
     public String addCert(Model model) {
+        model.addAttribute("CAREER_API_KEY",CAREER_API_KEY);
+        model.addAttribute("USER_ID", USER_ID);
         model.addAttribute("cert", new Certification());
         return "certs";
     }
