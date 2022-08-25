@@ -27,8 +27,14 @@ public class CertificationController {
     @Autowired
     private UserRepository usersDoa;
 
+
+    @Value("${USER_ID}")
+    private String USER_ID;
+
     @Value("${CAREER_API_KEY}")
     private String CAREER_API_KEY;
+
+
 
     @Value("${USER_ID}")
     private String USER_ID;
@@ -47,6 +53,8 @@ public class CertificationController {
         model.addAttribute("CAREER_API_KEY",CAREER_API_KEY);
         model.addAttribute("USER_ID", USER_ID);
         model.addAttribute("cert", new Certification());
+        model.addAttribute("USER_ID",USER_ID);
+        model.addAttribute("CAREER_API_KEY", CAREER_API_KEY);
         return "certs";
     }
 

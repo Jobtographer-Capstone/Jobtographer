@@ -128,6 +128,7 @@ public class UserController {
         UserWithRoles loggedin = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("FILESTACK_API_KEY", FILESTACK_API_KEY);
         model.addAttribute("user", usersdao.getById(loggedin.getId()));
+        model.addAttribute("FILESTACK_API_KEY", FILESTACK_API_KEY);
         return "user/update_user";
     }
 
