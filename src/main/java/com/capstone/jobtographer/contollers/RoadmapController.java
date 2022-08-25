@@ -112,7 +112,7 @@ public class RoadmapController {
                 need += 1;
                 List<UserCert> uc = userCertsDao.findAllByUser_id(user.getId());
                 for (UserCert c : uc) {
-                    if (c.getCert_id().equals(rc.getCert_id())) {
+                    if (c.getCert_id().getId().equals(rc.getCert_id().getId())) {
                         have += 1;
                     }
                 }

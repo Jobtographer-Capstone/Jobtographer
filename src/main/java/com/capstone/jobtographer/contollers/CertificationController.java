@@ -27,6 +27,7 @@ public class CertificationController {
     @Autowired
     private UserRepository usersDoa;
 
+
     @Value("${USER_ID}")
     private String USER_ID;
 
@@ -34,6 +35,9 @@ public class CertificationController {
     private String CAREER_API_KEY;
 
 
+
+    @Value("${USER_ID}")
+    private String USER_ID;
 
     @GetMapping("/certifications")
     public String allCerts(Model model) {
@@ -46,6 +50,8 @@ public class CertificationController {
 
     @GetMapping("/search/certification")
     public String addCert(Model model) {
+        model.addAttribute("CAREER_API_KEY",CAREER_API_KEY);
+        model.addAttribute("USER_ID", USER_ID);
         model.addAttribute("cert", new Certification());
         model.addAttribute("USER_ID",USER_ID);
         model.addAttribute("CAREER_API_KEY", CAREER_API_KEY);
