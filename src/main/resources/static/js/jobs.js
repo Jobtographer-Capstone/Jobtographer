@@ -1,9 +1,18 @@
 // THESE ARE FOR SEARCH VALUES
 let min = 0;
 let max = 50;
-let searchValue = "";
+let searchValue = "engineer";
 //###########################//
 
+// THIS IS FOR CHANGING DATA THAT IS DISPLAYED
+let change = 0;
+//###########################//
+
+if (change === 0) {
+    document.querySelector('.prevB').setAttribute('disabled', '')
+} else{
+    document.querySelector('.prevB').removeAttribute('disabled')
+}
 //SEARCH BUTTON CLICK EVENT
 document.querySelector('.searchButton').addEventListener('click', ()=>{
 
@@ -16,8 +25,13 @@ document.querySelector('.searchButton').addEventListener('click', ()=>{
 
     // NEXT BUTTON CLICK EVENT
     document.querySelector('.nextB').addEventListener('click', () => {
-
         change++
+        if (change === 0) {
+            document.querySelector('.prevB').setAttribute('disabled', '')
+        }
+        else{
+            document.querySelector('.prevB').removeAttribute('disabled')
+        }
         htmlBuilder(allJobs, occData, certData)
     })
 //###########################//
@@ -25,17 +39,16 @@ document.querySelector('.searchButton').addEventListener('click', ()=>{
 
     // PREV BUTTON CLICK EVENT
     document.querySelector('.prevB').addEventListener('click', ()=>{
-
         change--
+        if (change === 0) {
+            document.querySelector('.prevB').setAttribute('disabled', '')
+        }
+        else{
+            document.querySelector('.prevB').removeAttribute('disabled')
+        }
         htmlBuilder(allJobs, occData, certData)
     })
-//###########################//
-
 })
-//###########################//
-
-// THIS IS FOR CHANGING DATA THAT IS DISPLAYED
-let change = 0;
 //###########################//
 
 //FETCH ALL JOBS
@@ -165,8 +178,6 @@ async function htmlBuilder(jobData, occData, certData) {
 
 
     const jobs = await jobData.then(jd => {
-        console.log("-------JD--------")
-        console.log(jd);
         jd.forEach((id, company) => {
             companies.push(company);
         })
@@ -229,7 +240,7 @@ async function htmlBuilder(jobData, occData, certData) {
             for (let j = 0; j < cd[i + change].length; j++) {
                 // console.log(cd[i][j])
                 if (j < 5) {
-                    c.innerHTML += cd[i + change][j].Name
+                    c.innerHTML += cd[i + change][j].Id
                 }
             }
 
@@ -240,20 +251,53 @@ async function htmlBuilder(jobData, occData, certData) {
 }
 
 htmlBuilder(allJobs, occData, certData)
+
+document.querySelectorAll('.startRoadMap').forEach((button, i) => {
+    let company = document.querySelectorAll('.job_Company').item(i)
+    let title = document.querySelectorAll('.job_Title').item(i)
+    let outlook = document.querySelectorAll('.job_Outlook').item(i)
+    let wages = document.querySelectorAll('.job_Wages').item(i)
+    let certs = document.querySelectorAll('.job_Certs').item(i)
+
+    button.addEventListener('click', () => {
+
+        document.querySelector('.job_Form').innerHTML +=
+            `
+                <input type="hidden" name="company" value="${company.innerHTML}" />
+                <input type="hidden" name="title" value="${title.innerHTML}" />
+                <input type="hidden" name="outlook" value="${outlook.innerHTML}" />
+                <input type="hidden" name="wages" value="${wages.innerHTML}" />
+                <input type="hidden" name="certs" value="${certs.innerHTML}" />
+            `;
+
+        document.querySelector('.job_Form').submit();
+    })
+
+})// NEXT BUTTON CLICK EVENT
+document.querySelector('.nextB').addEventListener('click', () => {
+
+    change++
+
+    if (change === 0) {
+        document.querySelector('.prevB').setAttribute('disabled', '')
+    } else{
+        document.querySelector('.prevB').removeAttribute('disabled')
+    }
+    htmlBuilder(allJobs, occData, certData)
+})
 //###########################//
 
-// NEXT BUTTON CLICK EVENT
-// document.querySelector('.nextB').addEventListener('click', () => {
-//
-//     change++
-//     htmlBuilder(allJobs, occData, certData)
-// })
-//###########################//
 
 // PREV BUTTON CLICK EVENT
-// document.querySelector('.prevB').addEventListener('click', ()=>{
-//
-//     change--
-//     htmlBuilder(allJobs, occData, certData)
-// })
+document.querySelector('.prevB').addEventListener('click', ()=>{
+
+    change--
+
+    if (change === 0) {
+        document.querySelector('.prevB').setAttribute('disabled', '')
+    } else{
+        document.querySelector('.prevB').removeAttribute('disabled')
+    }
+    htmlBuilder(allJobs, occData, certData)
+})
 //###########################//
