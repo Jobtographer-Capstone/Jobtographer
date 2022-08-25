@@ -11,7 +11,7 @@ public class Roadmap {
     private long id;
 
     @Column
-    private double progress;
+    private int progress;
 
     @Column(nullable = false, length = 100)
     private String career;
@@ -43,7 +43,7 @@ public class Roadmap {
         this.career = career;
         this.user = user;
     }
-    public Roadmap(long id, String career, AppUser user, double progress) {
+    public Roadmap(long id, String career, AppUser user, int progress) {
         this.id = id;
         this.career = career;
         this.user = user;
@@ -51,11 +51,11 @@ public class Roadmap {
 
     }
 
-    public double getProgress() {
+    public int getProgress() {
         return progress;
     }
 
-    public void setProgress(double progress) {
+    public void setProgress(int progress) {
         this.progress = progress;
     }
 

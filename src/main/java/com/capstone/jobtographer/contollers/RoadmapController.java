@@ -109,13 +109,15 @@ public class RoadmapController {
                 }
             }
 
-            double progress = (double) have/need * 100;
+            double math = (double) have/need * 100;
+            int progress =(int) math;
+
            rm.setProgress(progress);
            roadmapsDao.save(rm);
 
             System.out.println(need + " !!!!!");
             System.out.println("i have " + have);
-            System.out.format("i am %.0f percent complete %n",progress);
+            System.out.format("i am %d percent complete %n",progress);
             model.addAttribute("progress", progress);
         }
 
