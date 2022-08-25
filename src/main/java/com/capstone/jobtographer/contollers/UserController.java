@@ -126,6 +126,7 @@ public class UserController {
     @GetMapping("/update/user")
     public String updateAccount(Model model) {
         UserWithRoles loggedin = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        model.addAttribute("FILESTACK_API_KEY", FILESTACK_API_KEY);
         model.addAttribute("user", usersdao.getById(loggedin.getId()));
         return "user/update_user";
     }

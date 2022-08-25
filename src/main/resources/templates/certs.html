@@ -19,9 +19,13 @@
 <div th:replace="partials/fragments :: modals"></div>
 
 
-</body>
+<script th:inline="javascript">
+    const CAREER_API_KEY = /*[[${CAREER_API_KEY}]]*/ "test";
+    console.log(CAREER_API_KEY);
+    const USER_ID = /*[[${USER_ID}]]*/ "please";
+    console.log(USER_ID);
+</script>
 <footer th:replace="partials/fragments :: footer"></footer>
 <script th:src="@{~/js/certs.js}"></script>
-
-
+</body>
 </html>
