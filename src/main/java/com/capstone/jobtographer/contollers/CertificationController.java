@@ -26,6 +26,8 @@ public class CertificationController {
     @Autowired
     private UserRepository usersDoa;
 
+
+
     @GetMapping("/certifications")
     public String allCerts(Model model) {
         UserWithRoles loggedIn = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
