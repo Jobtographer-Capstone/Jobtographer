@@ -10,8 +10,8 @@ public class Roadmap {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column( length = 100)
-    private String industry;
+    @Column
+    private double progress;
 
     @Column(nullable = false, length = 100)
     private String career;
@@ -24,29 +24,39 @@ public class Roadmap {
     private List<RoadmapCert> roadmapCerts;
 
 
-    public Roadmap(){}
-
-    public Roadmap(String industry, String career){
-        this.industry = industry;
-        this.career = career;
+    public Roadmap() {
     }
 
-    public Roadmap(long id, String industry, String career) {
+
+    public Roadmap(long id, String career) {
         this.id = id;
-        this.industry = industry;
         this.career = career;
     }
 
-    public Roadmap(String industry, String career, AppUser user){
-        this.industry = industry;
+    public Roadmap(String career, AppUser user) {
         this.career = career;
         this.user = user;
     }
-    public Roadmap(long id, String industry, String career, AppUser user) {
-        this.id = id;
-        this.industry = industry;
+
+    public Roadmap(long progress, String career, AppUser user) {
+        this.id = progress;
         this.career = career;
         this.user = user;
+    }
+    public Roadmap(long id, String career, AppUser user, double progress) {
+        this.id = id;
+        this.career = career;
+        this.user = user;
+        this.progress = progress;
+
+    }
+
+    public double getProgress() {
+        return progress;
+    }
+
+    public void setProgress(double progress) {
+        this.progress = progress;
     }
 
     public long getId() {
@@ -57,13 +67,6 @@ public class Roadmap {
         this.id = id;
     }
 
-    public String getIndustry() {
-        return industry;
-    }
-
-    public void setIndustry(String industry) {
-        this.industry = industry;
-    }
 
     public String getCareer() {
         return career;
@@ -88,4 +91,5 @@ public class Roadmap {
     public void setRoadmapCerts(List<RoadmapCert> roadmapCerts) {
         this.roadmapCerts = roadmapCerts;
     }
+
 }

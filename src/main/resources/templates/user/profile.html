@@ -174,9 +174,7 @@
                             <h3><span th:text="${roadmap.getCareer().toUpperCase()}"></span></h3>
                         </a>
                         <ul>
-                            <li th:each="roadmapCert : ${roadmap.getRoadmapCerts()}">
-                                <span th:if="${roadmapCert.getCert_id().getCertificationName().codePointAt(0)}" th:text="${roadmapCert.getCert_id().getCertificationName()}"></span>
-                                | <span th:text="${roadmapCert.getCert_id().getCertificationName()}"></span>
+                            <li> You are <span th:text="${roadmap.getProgress()}"></span>% Complete!
                             </li>
                         </ul>
                     </div>

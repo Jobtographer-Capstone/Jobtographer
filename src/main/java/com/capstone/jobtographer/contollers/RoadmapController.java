@@ -1,12 +1,9 @@
 package com.capstone.jobtographer.contollers;
 
 import com.capstone.jobtographer.models.*;
-import com.capstone.jobtographer.repositories.CertificationRepository;
-import com.capstone.jobtographer.repositories.RoadmapRepository;
-import com.capstone.jobtographer.repositories.RoadmapsCertsRepository;
-import com.capstone.jobtographer.repositories.UserRepository;
+import com.capstone.jobtographer.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.method.P;
+
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.util.ArrayList;
-import java.util.Arrays;
+
 import java.util.List;
 
 
@@ -22,6 +19,8 @@ import java.util.List;
 public class RoadmapController {
     @Autowired
     private RoadmapRepository roadmapsDao;
+    @Autowired
+    public UserCertsRepository userCertsDao;
 
     @Autowired
     private UserRepository usersDao;
@@ -41,7 +40,7 @@ public class RoadmapController {
     @PostMapping("/create/roadmaps")
     public String createRoadmap(Model model, @ModelAttribute Roadmap roadmap, @RequestParam(name = "title") String title, @RequestParam(name = "certs") String certsArr) {
         UserWithRoles userRole = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        AppUser user = usersDao.findByUsername(userRole.getUsername());
+        AppUser user = usersDao.findById(userRole.getId());
         roadmap.setUser(user);
         roadmap.setCareer(title);
         roadmapsDao.save(roadmap);
@@ -62,8 +61,7 @@ public class RoadmapController {
                 rc.setCert_id(certification);
                 roadmapsCertsDao.save(rc);
 
-            }
-            else {
+            } else {
 
                 RoadmapCert rc = new RoadmapCert();
                 rc.setRoadmap_id(roadmap);
@@ -71,23 +69,20 @@ public class RoadmapController {
                 roadmapsCertsDao.save(rc);
             }
         }
-        model.addAttribute("certs",certificationList);
-
+        model.addAttribute("certs", certificationList);
 
 
 //       List<RoadmapCert> rmc = roadmapsCertsDao.findAllByRoadmap_id(roadmap.getId());
 //        roadmap.setRoadmapCerts(rmc);
 
 
-
         return "redirect:/create/roadmaps/" + id;
     }
 
     @GetMapping("/create/roadmaps/{id}")
-    public String createNewRoadmap(@PathVariable(name = "id") long id, Model model){
-       Roadmap rd = roadmapsDao.getById(id);
-       model.addAttribute("roadmap",rd);
-
+    public String createNewRoadmap(@PathVariable(name = "id") long id, Model model) {
+        Roadmap rd = roadmapsDao.getById(id);
+        model.addAttribute("roadmap", rd);
 
 
         return "/roadmaps/create_roadmaps";
@@ -97,8 +92,32 @@ public class RoadmapController {
     @GetMapping("/roadmaps")
     public String roadmaps(Model model) {
         UserWithRoles userRole = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        AppUser user = usersDao.findByUsername(userRole.getUsername());
+        AppUser user = usersDao.findById(userRole.getId());
         model.addAttribute("roadmaps", roadmapsDao.findByUser(user));
+        List<Roadmap> rmList = roadmapsDao.findByUser(user);
+        for (Roadmap rm : rmList) {
+            int have = 0;
+            int need = 0;
+            List<RoadmapCert> rcList = roadmapsCertsDao.findAllByRoadmap_id(rm.getId());
+            for (RoadmapCert rc : rcList) {
+                need += 1;
+                List<UserCert> uc = userCertsDao.findAllByUser_id(user.getId());
+                for (UserCert c : uc) {
+                    if (c.getCert_id().equals(rc.getCert_id())) {
+                        have += 1;
+                    }
+                }
+            }
+
+            double progress = (double) have/need * 100;
+           rm.setProgress(progress);
+           roadmapsDao.save(rm);
+
+            System.out.println(need + " !!!!!");
+            System.out.println("i have " + have);
+            System.out.format("i am %.0f percent complete %n",progress);
+            model.addAttribute("progress", progress);
+        }
 
         return "roadmaps/roadmaps";
     }

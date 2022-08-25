@@ -44,7 +44,7 @@
                 <!--        </p>-->
                 <input name="_csrf" type="hidden" th:each="cookie: ${#httpServletRequest.cookies}"
                        th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
-                <button class="btn btn-lg btn-primary btn-block" type="submit">next</button>
+
             </div>
         </div>
         <div class="tab-pane fade" id="certs" role="tabpanel" aria-labelledby="profile-tab">

@@ -7,7 +7,6 @@
 
 <div>
     <h1>User: <span th:text="${roadmap.getUser().username}"></span></h1>
-    <p>Industry: <span th:text="${roadmap.getIndustry()}"></span></p>
     <p>Career: <span th:text="${roadmap.getCareer()}"></span></p>
     <a th:href="@{/delete/roadmaps/{id}(id=${roadmap.getId()})}">Delete</a>
     <a th:href="@{/update/roadmaps/{id}(id=${roadmap.getId()})}">Update</a>
