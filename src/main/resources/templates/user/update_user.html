@@ -65,8 +65,11 @@
         </form>
     </div>
 </div>
-</body>
 <footer th:replace="partials/fragments :: footer"></footer>
+<script th:inline="javascript">
+    const FILESTACK_API_KEY = /*[[${FILESTACK_API_KEY}]]*/ "test";
+    console.log(FILESTACK_API_KEY);
+</script>
 <div th:replace="partials/fragments :: filestack"></div>
-
+</body>
 </html>

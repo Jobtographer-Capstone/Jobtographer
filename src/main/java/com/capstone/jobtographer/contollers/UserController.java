@@ -11,6 +11,7 @@ import com.capstone.jobtographer.repositories.UserCertsRepository;
 import com.capstone.jobtographer.repositories.UserRepository;
 import com.capstone.jobtographer.services.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -35,6 +36,15 @@ public class UserController {
     @Autowired
     private CertificationRepository certsDao;
 
+    @Value("${CAREER_API_KEY}")
+    private String CAREER_API_KEY;
+
+    @Value("${USER_ID}")
+    private String USER_ID;
+
+    @Value("${FILESTACK_API_KEY}")
+    private String FILESTACK_API_KEY;
+
     @Autowired
     private EmailService emailService;
 
@@ -42,7 +52,9 @@ public class UserController {
     public String about() {return "about"; }
 
     @GetMapping("/")
-    public String homePage() {
+    public String homePage(Model model) {
+        model.addAttribute("CAREER_API_KEY", CAREER_API_KEY);
+        model.addAttribute("USER_ID", USER_ID);
         return "index";
     }
 
@@ -70,9 +82,10 @@ public class UserController {
     }
 
     @PostMapping("/profile")
-    public String profilePage(@RequestParam(name = "profileImage") String pI) {
+    public String profilePage(@RequestParam(name = "profileImage") String pI, Model model) {
         UserWithRoles loggedIn = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         AppUser user = usersdao.findById(loggedIn.getId());
+        model.addAttribute("FILESTACK_API_KEY", FILESTACK_API_KEY);
         usersdao.updateImg(pI, user.getUsername());
 
         return "redirect:/update/user";
