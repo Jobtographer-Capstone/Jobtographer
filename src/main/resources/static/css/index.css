@@ -1,11 +1,13 @@
 body{
     min-height: 100vh;
+    /*background-image: url("static/img/index-pic.jpeg");*/
 }
 .index-head{
     height: 400px;
     border-bottom: gold solid 3px;
     margin-bottom: 1em;
-    background: url("static/img/index-pic.jpeg");
+
+
 }
 #job-search{
     font-size: 15px;

@@ -1,3 +1,4 @@
 "use strict";
-let progress = /*[[${progress}}*/ "100";
-document.querySelector("#progress-bar").css("width:" + progress);
+let progress = document.querySelector("#progress-bar").innerHTML;
+
+document.querySelector(".red-bar").style.width = progress + "%";

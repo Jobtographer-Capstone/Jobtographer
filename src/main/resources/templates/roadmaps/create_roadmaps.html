@@ -35,6 +35,7 @@
                     <h4>Career</h4>
                     <div th:if="${roadmap.getCareer() == null}">
                     <div th:replace="partials/fragments :: search-jobs"></div>
+                        <div th:replace="partials/fragments :: populate"></div>
                     </div>
 
                     <p th:text="${roadmap.getCareer()}"></p>
@@ -63,7 +64,7 @@
                 <div th:if="${cert.expectedDate != null}">
                     <h6>Expected date has been added!</h6>
                 </div>
-                
+
                 <form th:if="${cert.expectedDate == null}" th:action="@{/create/roadmaps/{id}(id=${roadmap.getId()})}" th:method="post">
                     <input th:id="${cert.getCert_id().getCertificationName()}" name="expected" type="month">
                     <input type="hidden" th:value="${cert.getId()}" name="cert-id">

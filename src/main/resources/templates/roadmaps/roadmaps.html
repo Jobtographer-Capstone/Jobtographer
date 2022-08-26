@@ -5,27 +5,25 @@
 
 <body>
 <nav th:replace="partials/fragments :: navbar"></nav>
-<!--<div th:each="roadmap: ${roadmaps}" id="myProgress" class="card col-8 col-lg-8 text-center mx-auto">-->
-<!--    <div id="myBar" class="card-body fs-1">-->
+
 <!--Roadmap -->
 <div th:each="roadmap: ${roadmaps}" class="card col-8 col-lg-8 text-center mx-auto shadow-lg p-3 mb-5 bg-white rounded myProgress">
 
     <div>
-        <a id="industryLink" th:href="@{/roadmaps/{id}(id=${roadmap.getId()})}">
+
             <h3><span th:text="${roadmap.getCareer().toUpperCase()}"></span></h3>
+
+        <p>You are <span id="progress-bar" th:text="${roadmap.getProgress()}"></span>% complete!</p>
+        <a id="career-Link" th:href="@{/roadmaps/{id}(id=${roadmap.getId()})}">
+            See more details
         </a>
-        <p>You are <span th:text="${roadmap.getProgress()}"></span>% complete!</p>
-        <ul>
-        <li th:each="roadmapCert : ${roadmap.getRoadmapCerts()}">
-            <span class="cert-name" th:text="${roadmapCert.getCert_id().getCertificationName()}"></span>
-        </li>
-        </ul>
+
     </div>
-    <div class="progress" style="height: 100px">
-        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" aria-label="Danger striped example"
-             style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-        </div>
-    </div>
+<!--    <div class="progress red-bar" style="height: 100px">-->
+<!--        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" aria-label="Danger striped example"-->
+<!--             style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">-->
+<!--        </div>-->
+<!--    </div>-->
 </div>
 
 <!--Link to Create a Roadmap-->
@@ -38,5 +36,6 @@
 
 <script th:replace="partials/fragments :: convert-name"></script>
 <footer th:replace="partials/fragments :: footer"></footer>
+<script th:replace="partials/fragments :: progress-bar"></script>
 </body>
 </html>

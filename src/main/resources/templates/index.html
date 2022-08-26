@@ -2,10 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials/fragments :: head('Home')">
 </head>
-<body>
+<body >
 <nav th:replace="partials/fragments :: navbar"></nav>
 <div class="main row">
 <div class=" col-lg-12 d-flex justify-content-center index-head">
+<!--    <img th:src="@{~/img/index-pic.jpeg}" style="width: 100%">-->
 <div th:replace="partials/fragments :: search-jobs"></div>
 </div>
 
