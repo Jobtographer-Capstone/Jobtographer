@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 import java.util.List;
@@ -54,7 +55,7 @@ public class RoadmapController {
         roadmap.setCareer(title);
         roadmapsDao.save(roadmap);
         long id = roadmap.getId();
-        String[] certs = certsArr.split(",");
+        String[] certs = certsArr.split(" ");
         System.out.println(certsArr);
 
         List<Certification> certificationList = new ArrayList<>();
@@ -91,8 +92,21 @@ public class RoadmapController {
         model.addAttribute("roadmap", rd);
 
 
+
         return "/roadmaps/create_roadmaps";
 
+    }
+
+    @PostMapping("/create/roadmaps/{id}")
+    public String addDate(@PathVariable(name = "id") long id, @RequestParam(name = "cert-id") long certId, @RequestParam(name = "expected")String date) {
+        RoadmapCert cert = roadmapsCertsDao.getById(certId);
+
+        cert.setExpectedDate(date);
+        System.out.println(cert.getExpectedDate());
+        roadmapsCertsDao.save(cert);
+        System.out.println("Did it save ?");
+
+        return "redirect:/create/roadmaps/{id}";
     }
 
     @GetMapping("/roadmaps")
@@ -120,7 +134,7 @@ public class RoadmapController {
 
             rm.setProgress(progress);
             roadmapsDao.save(rm);
-            model.addAttribute("progress",progress);
+            model.addAttribute("progress", progress);
 
             System.out.println(need + " !!!!!");
             System.out.println("i have " + have);

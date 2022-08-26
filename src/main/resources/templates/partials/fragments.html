@@ -174,67 +174,16 @@
 </div>
 
 <!--Html Job Search Functionality-->
-<div class="row" th:fragment="search-jobs">
-    <div class="col-lg-12 d-flex justify-content-center">
-        <input type="text" class="searchJobs">
-        <button type="button" class=" searchButton btn btn-outline-primary">Search</button>
+<div class="d-flex justify-content-center align-items-center" th:fragment="search-jobs">
+    <div class=" d-flex justify-content-center align-items-center">
+        <input id="job-input" type="text" class="searchJobs">
+        <button id="job-search" type="button" class=" searchButton btn btn-outline-primary">Search</button>
     </div>
+</div>
+
     <!--    <div class="row job_Info">-->
-
-    <div class=" col-lg-4 job_Card">
-        <p class="job_Company" th:name="company"></p>
-        <p class="job_Title" th:name="title"></p>
-        <p class="job_Outlook" th:name="outlook"></p>
-        <p class="job_Wages" th:name="wages"></p>
-        <p class="job_Certs" th:name="certs"></p>
-        <button class="startRoadMap btn btn-primary" type="button">Create RoadMap</button>
-    </div>
-
-    <div class="col-lg-4 job_Card">
-        <p class="job_Company" th:name="company"></p>
-        <p class="job_Title" th:name="title"></p>
-        <p class="job_Outlook" th:name="outlook"></p>
-        <p class="job_Wages" th:name="wages"></p>
-        <p class="job_Certs" th:name="certs"></p>
-        <button class="startRoadMap btn btn-primary" type="button">Create RoadMap</button>
-    </div>
-
-    <div class="col-lg-4 job_Card">
-        <p class="job_Company" th:name="company"></p>
-        <p class="job_Title" th:name="title"></p>
-        <p class="job_Outlook" th:name="outlook"></p>
-        <p class="job_Wages" th:name="wages"></p>
-        <p class="job_Certs" th:name="certs"></p>
-        <button class="startRoadMap btn btn-primary" type="button">Create RoadMap</button>
-    </div>
-
-    <div class="col-lg-4 job_Card">
-        <p class="job_Company" th:name="company"></p>
-        <p class="job_Title" th:name="title"></p>
-        <p class="job_Outlook" th:name="outlook"></p>
-        <p class="job_Wages" th:name="wages"></p>
-        <p class="job_Certs" th:name="certs"></p>
-        <button class="startRoadMap btn btn-primary" type="button">Create RoadMap</button>
-    </div>
-
-    <div class="col-lg-4 job_Card">
-        <p class="job_Company" th:name="company"></p>
-        <p class="job_Title" th:name="title"></p>
-        <p class="job_Outlook" th:name="outlook"></p>
-        <p class="job_Wages" th:name="wages"></p>
-        <p class="job_Certs" th:name="certs"></p>
-        <button class="startRoadMap btn btn-primary" type="button">Create RoadMap</button>
-    </div>
-
-    <div class="col-lg-4 job_Card">
-        <p class="job_Company" th:name="company"></p>
-        <p class="job_Title" th:name="title"></p>
-        <p class="job_Outlook" th:name="outlook"></p>
-        <p class="job_Wages" th:name="wages"></p>
-        <p class="job_Certs" th:name="certs"></p>
-        <button class="startRoadMap btn btn-primary" type="button">Create RoadMap</button>
-    </div>
-
+<div id="populate" class="col-lg-12" th:fragment="populate">
+<div class="populate row col-lg-12"></div>
     <div class="col-lg-12 row job_Buttons">
         <button class=" col-lg-6 prevB btn btn-primary" type="button">Prev</button>
         <button class=" col-lg-6 nextB btn btn-primary" type="button">Next</button>
@@ -245,7 +194,6 @@
     </form>
 
 </div>
-<!--</div>-->
 
 
 <!--Footer-->
@@ -284,5 +232,6 @@
 <script th:fragment="certs" th:src="@{~/js/certs.js}"></script>
 <script th:fragment="DnD" th:src="@{~/js/dnd.js}"></script>
 <script th:fragment="jobs" th:src="@{~/js/jobs.js}"></script>
+<script th:fragment="convert-name" th:src="@{~/js/certs-convert.js}"></script>
 </body>
 </html>

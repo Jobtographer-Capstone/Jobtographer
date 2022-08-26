@@ -10,11 +10,11 @@ let change = 0;
 
 if (change === 0) {
     document.querySelector('.prevB').setAttribute('disabled', '')
-} else{
+} else {
     document.querySelector('.prevB').removeAttribute('disabled')
 }
 //SEARCH BUTTON CLICK EVENT
-document.querySelector('.searchButton').addEventListener('click', ()=>{
+document.querySelector('.searchButton').addEventListener('click', () => {
 
     searchValue = document.querySelector('.searchJobs').value;
     const allJobs = getAllJobs();
@@ -28,8 +28,7 @@ document.querySelector('.searchButton').addEventListener('click', ()=>{
         change++
         if (change === 0) {
             document.querySelector('.prevB').setAttribute('disabled', '')
-        }
-        else{
+        } else {
             document.querySelector('.prevB').removeAttribute('disabled')
         }
         htmlBuilder(allJobs, occData, certData)
@@ -38,12 +37,11 @@ document.querySelector('.searchButton').addEventListener('click', ()=>{
 
 
     // PREV BUTTON CLICK EVENT
-    document.querySelector('.prevB').addEventListener('click', ()=>{
+    document.querySelector('.prevB').addEventListener('click', () => {
         change--
         if (change === 0) {
             document.querySelector('.prevB').setAttribute('disabled', '')
-        }
-        else{
+        } else {
             document.querySelector('.prevB').removeAttribute('disabled')
         }
         htmlBuilder(allJobs, occData, certData)
@@ -69,6 +67,8 @@ async function getAllJobs() {
             }
         }
     })
+    console.log(jobs);
+
     return jobs;
 }
 
@@ -85,6 +85,7 @@ async function getCodesByJobId(promise) {
             ids.push(id)
         })
     })
+    console.log(ids);
     for (let i = 0; i < ids.length; i++) {
         let f = fetch(`https://api.careeronestop.org/v1/jobsearch/${USER_ID}/${ids[i]}?isHtml=true&enableMetaData=true`, {
             headers: {
@@ -161,11 +162,13 @@ async function getCerts(promise) {
 
             }
         })
+    console.log(certList)
 
     return certList;
 
 
 }
+
 const certData = getCerts(jobCodes)
 //###########################//
 
@@ -239,9 +242,9 @@ async function htmlBuilder(jobData, occData, certData) {
         document.querySelectorAll('.job_Certs').forEach((c, i) => {
             c.innerHTML = "";
             for (let j = 0; j < cd[i + change].length; j++) {
-                // console.log(cd[i][j])
                 if (j < 5) {
-                    c.innerHTML += cd[i + change][j].Id + ","
+                    //Each individual cert seperated by a space
+                    c.innerHTML += cd[i + change][j].Id + " "
                 }
             }
 
@@ -249,6 +252,21 @@ async function htmlBuilder(jobData, occData, certData) {
 
     })
 
+}
+
+let x = 0;
+while (x < 3) {
+    let card = '<div class=" col-lg-4 job_Card">' +
+        '<p class="job_Company" th:name="company"></p>' +
+        '<p class="job_Title" th:name="title"></p>' +
+        '<p class="job_Outlook" th:name="outlook"></p>' +
+        '<p class="job_Wages" th:name="wages"></p>' +
+        '<p class="job_Certs" th:name="certs"></p>' +
+        '<button class="startRoadMap btn btn-primary" type="button">Create RoadMap</button>' +
+        '</div>';
+    document.querySelector(".populate").insertAdjacentHTML("beforeEnd", card
+    )
+    x++;
 }
 
 htmlBuilder(allJobs, occData, certData)
@@ -282,7 +300,7 @@ document.querySelector('.nextB').addEventListener('click', () => {
 
     if (change === 0) {
         document.querySelector('.prevB').setAttribute('disabled', '')
-    } else{
+    } else {
         document.querySelector('.prevB').removeAttribute('disabled')
     }
     htmlBuilder(allJobs, occData, certData)
@@ -291,13 +309,13 @@ document.querySelector('.nextB').addEventListener('click', () => {
 
 
 // PREV BUTTON CLICK EVENT
-document.querySelector('.prevB').addEventListener('click', ()=>{
+document.querySelector('.prevB').addEventListener('click', () => {
 
     change--
 
     if (change === 0) {
         document.querySelector('.prevB').setAttribute('disabled', '')
-    } else{
+    } else {
         document.querySelector('.prevB').removeAttribute('disabled')
     }
     htmlBuilder(allJobs, occData, certData)

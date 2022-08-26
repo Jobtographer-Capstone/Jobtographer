@@ -4,23 +4,24 @@
 </head>
 <body>
 <nav th:replace="/partials/fragments :: navbar"></nav>
-<div>
-    <a href="/search/certification">Add a certification +</a>
+<div class="main row">
+    <!--All User Certifications-->
+    <div class="col-lg-6">
+        <div class=" col-lg-6 card w-50 m-1 p-1" th:each="cert : ${certs}">
 
-    <nav th:replace="partials/fragments :: page-bottom"></nav>
-</div>
-<div  class="card w-50 m-1 p-1" th:each="cert : ${certs}">
-    <h1 th:text="${cert.getCert_id().getCertificationName()}"></h1>
-    <p th:text="${cert.expDate}"></p>
-    <a th:href="@{/delete/certification/{id}(id = ${cert.getId()})}">Remove</a>
+            <h1 class="cert-name" th:text="${cert.getCert_id().getCertificationName()}"></h1>
+            <p th:text="${cert.expDate}"></p>
+            <a th:href="@{/delete/certification/{id}(id = ${cert.getId()})}">Remove</a>
 
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <a href="/search/certification">Add a certification +</a>
+
+    </div>
 </div>
-<script th:inline="javascript">
-    const CAREER_API_KEY = /*[[${CAREER_API_KEY}]]*/ "test";
-    console.log(CAREER_API_KEY);
-    const USER_ID = /*[[${USER_ID}]]*/ "please";
-    console.log(USER_ID);
-</script>
+<nav th:replace="partials/fragments :: page-bottom"></nav>
+<script th:replace="partials/fragments :: convert-name"></script>
 <footer th:replace="/partials/fragments :: footer"></footer>
 </body>
 </html>

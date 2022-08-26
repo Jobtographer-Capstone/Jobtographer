@@ -12,10 +12,14 @@
 
     <ul class="nav nav-tabs" id="create-roadmap" role="tablist">
         <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="roadmap-tab" data-bs-toggle="tab" data-bs-target="#roadmap" type="button" role="tab" aria-controls="roadmap" aria-selected="true">Roadmap</button>
+            <button class="nav-link active" id="roadmap-tab" data-bs-toggle="tab" data-bs-target="#roadmap"
+                    type="button" role="tab" aria-controls="roadmap" aria-selected="true">Roadmap
+            </button>
         </li>
         <li class="nav-item" role="presentation">
-            <button class="nav-link" id="certs-tab" data-bs-toggle="tab" data-bs-target="#certs" type="button" role="tab" aria-controls="certifications" aria-selected="false">Certification timeline</button>
+            <button class="nav-link" id="certs-tab" data-bs-toggle="tab" data-bs-target="#certs" type="button"
+                    role="tab" aria-controls="certifications" aria-selected="false">Certification timeline
+            </button>
         </li>
     </ul>
     <div class="tab-content" id="roadmapTabContent">
@@ -29,13 +33,16 @@
                 <!--        </p>-->
                 <div>
                     <h4>Career</h4>
+                    <div th:if="${roadmap.getCareer() == null}">
                     <div th:replace="partials/fragments :: search-jobs"></div>
+                    </div>
 
                     <p th:text="${roadmap.getCareer()}"></p>
                 </div>
                 <h4 class="pt-5">Certifications Needed</h4>
-                <div  th:each="cert : ${roadmap.getRoadmapCerts()}">
-                    <p th:text="${cert.getCert_id().getCertificationName()}"></p>
+                <div th:each="cert : ${roadmap.getRoadmapCerts()}">
+                    <p class="cert-name"><span th:text="${cert.getCert_id().getCertificationName()}"></span></p>
+                    <p> expected date: <span th:text="${cert.expectedDate}"></span></p>
                 </div>
 
                 <!--        <p>-->
@@ -49,6 +56,23 @@
             </div>
         </div>
         <div class="tab-pane fade" id="certs" role="tabpanel" aria-labelledby="profile-tab">
+            <h3>Assign Needed Certifications An Expected Completion Date </h3>
+            <div th:each="cert : ${roadmap.getRoadmapCerts()}">
+                <p class="cert-name" th:text="${cert.getCert_id().getCertificationName()}"></p>
+
+                <div th:if="${cert.expectedDate != null}">
+                    <h6>Expected date has been added!</h6>
+                </div>
+                
+                <form th:if="${cert.expectedDate == null}" th:action="@{/create/roadmaps/{id}(id=${roadmap.getId()})}" th:method="post">
+                    <input th:id="${cert.getCert_id().getCertificationName()}" name="expected" type="month">
+                    <input type="hidden" th:value="${cert.getId()}" name="cert-id">
+                    <input name="_csrf" type="hidden" th:each="cookie: ${#httpServletRequest.cookies}"
+                           th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
+
+                    <button class="btn btn-primary" type="submit">Add date</button>
+                </form>
+            </div>
 
 
         </div>
@@ -57,21 +81,11 @@
     <nav th:replace="partials/fragments :: page-bottom"></nav>
 
 </div>
-<script th:inline="javascript">
-    const CAREER_API_KEY = /*[[${CAREER_API_KEY}]]*/ "test";
-    console.log(CAREER_API_KEY);
-    const USER_ID = /*[[${USER_ID}]]*/ "please";
-    console.log(USER_ID);
-</script>
+
 <footer th:replace="partials/fragments :: footer"></footer>
 <script th:replace="partials/fragments :: DnD"></script>
 
-<script th:inline="javascript">
-    const CAREER_API_KEY = /*[[${CAREER_API_KEY}]]*/ "test";
-    console.log(CAREER_API_KEY);
-    const USER_ID = /*[[${USER_ID}]]*/ "please";
-    console.log(USER_ID);
-</script>
+<script th:replace="partials/fragments :: convert-name"></script>
 <script th:replace="partials/fragments :: jobs"></script>
 
 
