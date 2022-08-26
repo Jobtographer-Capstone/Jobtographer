@@ -174,11 +174,12 @@
                             <h3><span th:text="${roadmap.getCareer().toUpperCase()}"></span></h3>
                         </a>
                         <ul>
-                            <li> You are <span th:text="${roadmap.getProgress()}"></span>% Complete!
+                            <li> You are <span id="progress-bar" th:text="${roadmap.getProgress()}"></span>% Complete!
                             </li>
+
                         </ul>
                     </div>
-                    <div class="progress" style="height: 100px">
+                    <div class="progress red-bar" style="height: 100px">
                         <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" aria-label="Danger striped example"
                              style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                         </div>
@@ -205,5 +206,10 @@
 <div th:replace="partials/fragments :: filestack"></div>
 <footer th:replace="partials/fragments :: footer"></footer>
 <script th:replace="partials/fragments :: jobs"></script>
+<script th:inline="javascript">
+    let progress = document.querySelector("#progress-bar").innerHTML;
+    console.log(progress + " hello");
+    document.querySelector(".red-bar").style.width=progress + "%";
+</script>
 </body>
 </html>

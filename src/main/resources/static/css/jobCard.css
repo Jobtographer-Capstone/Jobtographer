@@ -1,61 +1,61 @@
-* {
-    margin: 0;
-    padding: 0;
-}
+/** {*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*}*/
 
-.job_Info{
-    display: flex;
-}
+/*.job_Info{*/
+/*    display: flex;*/
+/*}*/
 
-.job_Card {
-    border: var(--highlight);
-    position: relative;
-    background: var(--primary);
-    color: var(--accent);
-    top: 50vh;
-    height: 50vh;
-    width: 20vw;
-    display: grid;
-    grid-template-areas:
-                    'company'
-                    'title'
-                    'outlook'
-                    'wages'
-                    'certs';
-    grid-template-rows: repeat(5, 1fr);
-}
+/*.job_Card {*/
+/*    border: var(--highlight);*/
+/*    position: relative;*/
+/*    background: var(--primary);*/
+/*    color: var(--accent);*/
+/*    top: 50vh;*/
+/*    height: 50vh;*/
+/*    width: 20vw;*/
+/*    display: grid;*/
+/*    grid-template-areas:*/
+/*                    'company'*/
+/*                    'title'*/
+/*                    'outlook'*/
+/*                    'wages'*/
+/*                    'certs';*/
+/*    grid-template-rows: repeat(5, 1fr);*/
+/*}*/
 
-.job_Company {
-    grid-area: company;
+/*.job_Company {*/
+/*    grid-area: company;*/
 
-}
+/*}*/
 
-.job_Title {
-    grid-area: title;
+/*.job_Title {*/
+/*    grid-area: title;*/
 
-}
+/*}*/
 
-.job_Outlook{
-    grid-area: outlook;
-}
+/*.job_Outlook{*/
+/*    grid-area: outlook;*/
+/*}*/
 
-.job_Wages{
-    grid-area: wages;
-}
+/*.job_Wages{*/
+/*    grid-area: wages;*/
+/*}*/
 
-.job_Certs{
-    grid-area: certs;
-}
-.job_Buttons{
-    grid-area: buttons;
-    display: flex;
-    justify-content: space-around;
-    position: relative;
-    top: 50vh;
-}
-.prevB{
-    width: 50vw;
-}
-.nextB{
-    width: 50vw;
-}
+/*.job_Certs{*/
+/*    grid-area: certs;*/
+/*}*/
+/*.job_Buttons{*/
+/*    grid-area: buttons;*/
+/*    display: flex;*/
+/*    justify-content: space-around;*/
+/*    position: relative;*/
+/*    top: 50vh;*/
+/*}*/
+/*.prevB{*/
+/*    width: 100%;*/
+/*}*/
+/*.nextB{*/
+/*    width: 100%;*/
+/*}*/

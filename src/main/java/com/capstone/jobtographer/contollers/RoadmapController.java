@@ -55,6 +55,7 @@ public class RoadmapController {
         roadmapsDao.save(roadmap);
         long id = roadmap.getId();
         String[] certs = certsArr.split(",");
+        System.out.println(certsArr);
 
         List<Certification> certificationList = new ArrayList<>();
         for (String cert : certs) {
@@ -79,10 +80,6 @@ public class RoadmapController {
             }
         }
         model.addAttribute("certs", certificationList);
-
-
-//       List<RoadmapCert> rmc = roadmapsCertsDao.findAllByRoadmap_id(roadmap.getId());
-//        roadmap.setRoadmapCerts(rmc);
 
 
         return "redirect:/create/roadmaps/" + id;
@@ -118,15 +115,16 @@ public class RoadmapController {
                 }
             }
 
-            double math = (double) have/need * 100;
-            int progress =(int) math;
+            double math = (double) have / need * 100;
+            int progress = (int) math;
 
-           rm.setProgress(progress);
-           roadmapsDao.save(rm);
+            rm.setProgress(progress);
+            roadmapsDao.save(rm);
+            model.addAttribute("progress",progress);
 
             System.out.println(need + " !!!!!");
             System.out.println("i have " + have);
-            System.out.format("i am %d percent complete %n",progress);
+            System.out.format("i am %d percent complete %n", progress);
             model.addAttribute("progress", progress);
         }
 

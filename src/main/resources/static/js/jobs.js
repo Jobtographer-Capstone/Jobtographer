@@ -158,6 +158,7 @@ async function getCerts(promise) {
         .then(data => {
             for (let i = 0; i < data.length; i++) {
                 certList.push(data[i].CertList)
+
             }
         })
 
@@ -240,7 +241,7 @@ async function htmlBuilder(jobData, occData, certData) {
             for (let j = 0; j < cd[i + change].length; j++) {
                 // console.log(cd[i][j])
                 if (j < 5) {
-                    c.innerHTML += cd[i + change][j].Id
+                    c.innerHTML += cd[i + change][j].Id + ","
                 }
             }
 
@@ -258,6 +259,7 @@ document.querySelectorAll('.startRoadMap').forEach((button, i) => {
     let outlook = document.querySelectorAll('.job_Outlook').item(i)
     let wages = document.querySelectorAll('.job_Wages').item(i)
     let certs = document.querySelectorAll('.job_Certs').item(i)
+    console.log(certs)
 
     button.addEventListener('click', () => {
 
