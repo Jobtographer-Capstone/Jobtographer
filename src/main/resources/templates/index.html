@@ -4,17 +4,19 @@
 </head>
 <body >
 <nav th:replace="partials/fragments :: navbar"></nav>
-<div class="main row">
-<div th:replace="partials/fragments :: populate"></div>
-<div class=" col-lg-12 d-flex justify-content-center index-head">
-<!--    <img th:src="@{~/img/index-pic.jpeg}" style="width: 100%">-->
-<div th:replace="partials/fragments :: search-jobs"></div>
-</div>
+
+<div class="main">
+    <div id="index-pic" class="container index-head">
+        <div th:replace="partials/fragments :: search-jobs"></div>
+    </div>
+    <div th:replace="partials/fragments :: populate"></div>
+
+    <div th:replace="partials/fragments :: page-bottom"></div>
+
 
 </div>
-<div th:replace="partials/fragments :: page-bottom"></div>
-
 <footer th:replace="partials/fragments :: footer"></footer>
+
 <script th:inline="javascript">
     const CAREER_API_KEY = /*[[${CAREER_API_KEY}]]*/ "test";
     console.log(CAREER_API_KEY);

@@ -62,12 +62,12 @@ div.scroll {
     margin: 3px 6px;
 }
 
-.main {
-   margin: 0;
-    padding: 0;
-    flex-direction: column;
-    /*min-height: 100vh;*/
-}
+/*.main {*/
+/*   margin: 0;*/
+/*    padding: 0;*/
+/*    flex-direction: column;*/
+/*    !*min-height: 100vh;*!*/
+/*}*/
 
 .logo{
     height: 70px;
