@@ -1,0 +1,25 @@
+body{
+    min-height: 100vh;
+    /*background-image: url("static/img/index-pic.jpeg");*/
+}
+.index-head{
+    height: 400px;
+    border-bottom: gold solid 3px;
+    margin-bottom: 1em;
+
+
+}
+#job-search{
+    font-size: 15px;
+    padding: 0 1em;
+
+}
+#job-input{
+    padding: 0 0;
+    height: 50%;
+    border-radius: 4px;
+}
+#populate{
+   padding: 1em;
+    margin: .5em;
+}

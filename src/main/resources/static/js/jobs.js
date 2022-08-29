@@ -28,6 +28,7 @@ if (change < end) {
 
 //SEARCH BUTTON CLICK EVENT
 document.querySelector('.searchButton').addEventListener('click', () => {
+
     end = 1;
     change = 0;
 
@@ -83,7 +84,6 @@ document.querySelector('.searchButton').addEventListener('click', () => {
     // PREV BUTTON CLICK EVENT
     document.querySelector('.prevB').addEventListener('click', () => {
 
-
         change--
 
         console.log("CHANGE: " + change)
@@ -130,6 +130,8 @@ async function getAllJobs() {
         end = jobs.size
 
     })
+    console.log(jobs);
+
     return jobs;
 }
 const allJobs = getAllJobs();
@@ -146,6 +148,7 @@ async function getCodesByJobId(promise) {
             ids.push(id)
         })
     })
+    console.log(ids);
     for (let i = 0; i < ids.length; i++) {
         let f = fetch(`https://api.careeronestop.org/v1/jobsearch/${USER_ID}/${ids[i]}?isHtml=true&enableMetaData=true`, {
             headers: {
@@ -217,10 +220,13 @@ async function getCerts(promise) {
         .then(data => {
             for (let i = 0; i < data.length; i++) {
                 certList.push(data[i].CertList)
+
             }
         })
+
     return certList;
 }
+
 const certData = getCerts(jobCodes)
 //###########################//
 
@@ -304,9 +310,10 @@ async function htmlBuilder(jobData, occData, certData) {
         document.querySelectorAll('.job_Certs').forEach((c, i) => {
             c.innerHTML = "";
             for (let j = 0; j < cd[i + change].length; j++) {
-                console.log("Length: " + cd[i + change].length)
+
                 if (j < 5) {
-                    c.innerHTML += cd[i + change][j].Id
+                    //Each individual cert seperated by a space
+                    c.innerHTML += cd[i + change][j].Id + " "
                 }
             }
 
@@ -315,6 +322,23 @@ async function htmlBuilder(jobData, occData, certData) {
     })
 
 }
+
+
+let x = 0;
+while (x < 3) {
+    let card = '<div class=" col-lg-4 job_Card">' +
+        '<p class="job_Title" th:name="title"></p>' +
+        'Average salary: ' +
+        '<p class="job_Wages" th:name="wages"></p>' +
+        '<p class="job_Certs cert-name" th:name="certs"></p>' +
+        '<button class="startRoadMap btn btn-primary" type="button">Create RoadMap</button>' +
+        '</div>';
+    document.querySelector(".populate").insertAdjacentHTML("beforeEnd", card
+    )
+    x++;
+}
+
+
 htmlBuilder(allJobs, occData, certData)
 //###########################//
 
@@ -326,6 +350,7 @@ document.querySelectorAll('.startRoadMap').forEach((button, i) => {
     let outlook = document.querySelectorAll('.job_Outlook').item(i)
     let wages = document.querySelectorAll('.job_Wages').item(i)
     let certs = document.querySelectorAll('.job_Certs').item(i)
+    console.log(certs)
 
     button.addEventListener('click', () => {
 
@@ -373,7 +398,6 @@ document.querySelector('.nextB').addEventListener('click', () => {
 
 // PREV BUTTON CLICK EVENT
 document.querySelector('.prevB').addEventListener('click', () => {
-
 
     change--
 
