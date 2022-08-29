@@ -35,10 +35,6 @@ public class CertificationController {
     private String CAREER_API_KEY;
 
 
-
-    @Value("${USER_ID}")
-    private String USER_ID;
-
     @GetMapping("/certifications")
     public String allCerts(Model model) {
         UserWithRoles loggedIn = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -53,8 +49,8 @@ public class CertificationController {
         model.addAttribute("CAREER_API_KEY",CAREER_API_KEY);
         model.addAttribute("USER_ID", USER_ID);
         model.addAttribute("cert", new Certification());
-        model.addAttribute("USER_ID",USER_ID);
-        model.addAttribute("CAREER_API_KEY", CAREER_API_KEY);
+//        model.addAttribute("USER_ID",USER_ID);
+//        model.addAttribute("CAREER_API_KEY", CAREER_API_KEY);
         return "certs";
     }
 
@@ -78,7 +74,7 @@ public class CertificationController {
 
 
 
-        return "redirect:/profile";
+        return "redirect:/roadmaps";
     }
 
     @GetMapping("/delete/certification/{id}")
@@ -88,7 +84,7 @@ public class CertificationController {
         if (userCertsDoa.getById(id).getUser_id().equals(user)) {
             userCertsDoa.delete(userCertsDoa.getById(id));
         }
-        return "redirect:/certifications";
+        return "redirect:/roadmaps";
     }
 
 }

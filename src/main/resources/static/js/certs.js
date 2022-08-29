@@ -42,8 +42,9 @@ document.querySelector('.cert_search').addEventListener('click', () => {
         document.querySelectorAll('.add_Cert').forEach((cert, i) => {
 
             cert.addEventListener('click', () => {
-                document.querySelector('.certForm').innerHTML += `<input type="hidden" id="cert-name" name="certificationName" th:field="*{certificationName}" value="${data.CertList[i].Name}"> <input type="hidden" name="id" th:field="*{id}">`
+                document.querySelector('.certForm').innerHTML += `<input type="hidden" id="cert-name" name="certificationName" th:field="*{certificationName}" value="${data.CertList[i].Id}"> <input type="hidden" name="id" th:field="*{id}">`
                 console.log('clicked');
+                console.log(data.CertList[i].Id);
 
             })
 

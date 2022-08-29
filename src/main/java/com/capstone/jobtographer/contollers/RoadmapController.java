@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 import java.util.List;
@@ -54,7 +55,8 @@ public class RoadmapController {
         roadmap.setCareer(title);
         roadmapsDao.save(roadmap);
         long id = roadmap.getId();
-        String[] certs = certsArr.split(",");
+        String[] certs = certsArr.split(" ");
+        System.out.println(certsArr);
 
         List<Certification> certificationList = new ArrayList<>();
         for (String cert : certs) {
@@ -81,10 +83,6 @@ public class RoadmapController {
         model.addAttribute("certs", certificationList);
 
 
-//       List<RoadmapCert> rmc = roadmapsCertsDao.findAllByRoadmap_id(roadmap.getId());
-//        roadmap.setRoadmapCerts(rmc);
-
-
         return "redirect:/create/roadmaps/" + id;
     }
 
@@ -94,8 +92,21 @@ public class RoadmapController {
         model.addAttribute("roadmap", rd);
 
 
+
         return "/roadmaps/create_roadmaps";
 
+    }
+
+    @PostMapping("/create/roadmaps/{id}")
+    public String addDate(@PathVariable(name = "id") long id, @RequestParam(name = "cert-id") long certId, @RequestParam(name = "expected")String date) {
+        RoadmapCert cert = roadmapsCertsDao.getById(certId);
+
+        cert.setExpectedDate(date);
+        System.out.println(cert.getExpectedDate());
+        roadmapsCertsDao.save(cert);
+        System.out.println("Did it save ?");
+
+        return "redirect:/create/roadmaps/{id}";
     }
 
     @GetMapping("/roadmaps")
@@ -118,15 +129,16 @@ public class RoadmapController {
                 }
             }
 
-            double math = (double) have/need * 100;
-            int progress =(int) math;
+            double math = (double) have / need * 100;
+            int progress = (int) math;
 
-           rm.setProgress(progress);
-           roadmapsDao.save(rm);
+            rm.setProgress(progress);
+            roadmapsDao.save(rm);
+            model.addAttribute("progress", progress);
 
             System.out.println(need + " !!!!!");
             System.out.println("i have " + have);
-            System.out.format("i am %d percent complete %n",progress);
+            System.out.format("i am %d percent complete %n", progress);
             model.addAttribute("progress", progress);
         }
 

@@ -8,14 +8,26 @@
 #newRoadmapLink {
     color: var(--lightshade);
 }
+#progress-bar{
+    margin: 1em 0;
+}
+.single-cert{
+    padding: 0;
+    margin: 5em;
+    height: 500px;
+    border-radius: 10px;
 
-/*#myBar {*/
-/*    width: 60%;*/
-/*    background-color: dodgerblue;*/
-/*    height: 150px;*/
-/*    border-radius: 10px;*/
-/*}*/
-
-/*#industryLink {*/
-/*    color: white;*/
-/*}*/
+}
+.casing{
+    border: solid crimson 2px;
+    border-radius: 10px;
+}
+.career-title{
+    padding-left: 12em;
+}
+.prog-percent{
+    padding-left: 12em;
+}
+body{
+    background: lightgoldenrodyellow;
+}

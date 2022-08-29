@@ -1,6 +1,7 @@
 package com.capstone.jobtographer.models;
 
 import javax.persistence.*;
+import java.sql.Date;
 
 @Entity
 @Table(name = "roadmap_certs")
@@ -10,7 +11,7 @@ public class RoadmapCert {
     private long id;
 
     @Column
-    private int year;
+    private String expectedDate;
 
 
     @ManyToOne
@@ -25,11 +26,13 @@ public class RoadmapCert {
     public RoadmapCert() {
     }
 
-    public RoadmapCert(int year, Roadmap roadmap_id, Certification cert_id) {
-        this.year = year;
+    public RoadmapCert(String expectedDate, Roadmap roadmap_id, Certification cert_id) {
+        this.expectedDate = expectedDate;
         this.roadmap_id = roadmap_id;
         this.cert_id = cert_id;
     }
+
+
 
     public RoadmapCert(Roadmap roadmap_id, Certification cert_id) {
         this.roadmap_id = roadmap_id;
@@ -44,12 +47,12 @@ public class RoadmapCert {
         this.id = id;
     }
 
-    public int getYear() {
-        return year;
+    public String getExpectedDate() {
+        return expectedDate;
     }
 
-    public void setYear(int year) {
-        this.year = year;
+    public void setExpectedDate(String expectedDate) {
+        this.expectedDate = expectedDate;
     }
 
     public Roadmap getRoadmap_id() {

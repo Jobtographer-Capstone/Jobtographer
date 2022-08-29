@@ -5,19 +5,32 @@
 <body>
 <nav th:replace="partials/fragments :: navbar"></nav>
 
-<div>
-    <h1>User: <span th:text="${roadmap.getUser().username}"></span></h1>
-    <p>Career: <span th:text="${roadmap.getCareer()}"></span></p>
-    <a th:href="@{/delete/roadmaps/{id}(id=${roadmap.getId()})}">Delete</a>
-    <a th:href="@{/update/roadmaps/{id}(id=${roadmap.getId()})}">Update</a>
-</div>
 
-<script th:inline="javascript">
-    const CAREER_API_KEY = /*[[${CAREER_API_KEY}]]*/ "test";
-    console.log(CAREER_API_KEY);
-    const USER_ID = /*[[${USER_ID}]]*/ "please";
-    console.log(USER_ID);
-</script>
+<div class="col-8 col-lg-8 mx-auto shadow-lg p-3 mb-5 bg-white rounded single-cert">
+    <div>
+            <h3 class="career-title"><span th:text="${roadmap.getCareer().toUpperCase()}"></span></h3>
+
+        <div th:each="cert : ${roadmap.getRoadmapCerts()}">
+            <p class="cert-name" th:text="${cert.getCert_id().getCertificationName()}"></p>
+        </div>
+        <ul>
+            <li><h3 class="prog-percent"> You are <span id="progress-bar" th:text="${roadmap.getProgress()}"></span>% Complete!
+            </h3></li>
+        </ul>
+    </div>
+    <div class="casing">
+    <div class="progress red-bar" style="height: 100px">
+        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar"
+             aria-label="Danger striped example"
+             style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+        </div>
+    </div>
+    </div>
+    <a class="btn" type="button" th:href="@{/delete/roadmaps/{id}(id = ${roadmap.getId()})}">Delete</a>
+</div>
 <footer th:replace="partials/fragments :: footer"></footer>
+<script th:replace="partials/fragments :: convert-name"></script>
+<script th:replace="partials/fragments :: progress-bar"></script>
+
 </body>
 </html>

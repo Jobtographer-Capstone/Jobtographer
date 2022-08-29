@@ -15,7 +15,7 @@
             <div class="p_img">
                 <img th:src="@{~/img/default_img.jpeg}" class="profile-img" alt="wow">
             </div>
-<!--           Profile Username-->
+            <!--           Profile Username-->
             <div class="flex align-items-start">
                 <h5 class="text-dark text-center" th:text="${user.getUsername()}"></h5>
                 <a class="btn btn-outline-dark" id="defaultEdit" href="/update/user">Edit profile</a>
@@ -29,7 +29,7 @@
             <div class="p_img">
                 <img th:src="${user.img}" class="profile-img" alt="wow">
             </div>
-<!--            Profile Username-->
+            <!--            Profile Username-->
             <div class="flex align-items-start">
                 <h5 class="text-dark text-center" th:text="${user.getUsername()}"></h5>
                 <a class="btn btn-outline-dark" id="uploadEdit" href="/update/user">Edit profile</a>
@@ -39,11 +39,11 @@
 
         <!--User certs-->
         <div class="cert-div col-12 col-lg-9 justify-content-center row">
-<!--            Certs Header in User Profile-->
+            <!--            Certs Header in User Profile-->
             <div class="d-flex align-items-start col-12">
                 <h3 class="text-black">My Certifications</h3>
             </div>
-<!--            Cert Carousel-->
+            <!--            Cert Carousel-->
             <div class="slider">
                 <input type="radio" name="testimonial" id="t-1">
                 <input type="radio" name="testimonial" id="t-2">
@@ -64,12 +64,15 @@
 
                         <div class="card m-1 border-dark col-5" th:each="cert : ${certs}">
                             <div class="card-body">
-                                <h5 th:text="${cert.getCert_id().getCertificationName()}"></h5>
+                                <h5 class="cert-name" th:text="${cert.getCert_id().getCertificationName()}"></h5>
                                 <p class="expDate"> Exp date: <span th:text="${cert.getExpDate()}"></span></p>
                             </div>
                         </div>
 
-                        <p class="  d-flex justify-content-center col-sm-display-none " style="display: inline-block"><a class="btn btn-outline-dark link-certs " href="/search/certification">Add a certification</a>|<a class="btn btn-outline-dark link-certs " href="/certifications">Certifications</a></p>
+                        <p class="  d-flex justify-content-center col-sm-display-none " style="display: inline-block"><a
+                                class="btn btn-outline-dark link-certs " href="/search/certification">Add a
+                            certification</a>|<a class="btn btn-outline-dark link-certs " href="/certifications">Certifications</a>
+                        </p>
 
                     </label>
                     <label class="item" for="t-2">
@@ -85,12 +88,15 @@
 
                         <div class="card m-1 border-dark col-5" th:each="cert : ${certs}">
                             <div class="card-body">
-                                <h5 th:text="${cert.getCert_id().getCertificationName()}"></h5>
+                                <h5 class="cert-name" th:text="${cert.getCert_id().getCertificationName()}"></h5>
                                 <p class="expDate"> Exp date: <span th:text="${cert.getExpDate()}"></span></p>
                             </div>
                         </div>
 
-                        <p class="  d-flex justify-content-center col-sm-display-none " style="display: inline-block"><a class="btn btn-outline-dark link-certs " href="/search/certification">Add a certification</a>|<a class="btn btn-outline-dark link-certs " href="/certifications">Certifications</a></p>
+                        <p class="  d-flex justify-content-center col-sm-display-none " style="display: inline-block"><a
+                                class="btn btn-outline-dark link-certs " href="/search/certification">Add a
+                            certification</a>|<a class="btn btn-outline-dark link-certs " href="/certifications">Certifications</a>
+                        </p>
 
                     </label>
                     <label class="item" for="t-3">
@@ -106,12 +112,15 @@
 
                         <div class="card m-1 border-dark col-5" th:each="cert : ${certs}">
                             <div class="card-body">
-                                <h5 th:text="${cert.getCert_id().getCertificationName()}"></h5>
+                                <h5 class="cert-name" th:text="${cert.getCert_id().getCertificationName()}"></h5>
                                 <p class="expDate"> Exp date: <span th:text="${cert.getExpDate()}"></span></p>
                             </div>
                         </div>
 
-                        <p class="  d-flex justify-content-center col-sm-display-none " style="display: inline-block"><a class="btn btn-outline-dark link-certs " href="/search/certification">Add a certification</a>|<a class="btn btn-outline-dark link-certs " href="/certifications">Certifications</a></p>
+                        <p class="  d-flex justify-content-center col-sm-display-none " style="display: inline-block"><a
+                                class="btn btn-outline-dark link-certs " href="/search/certification">Add a
+                            certification</a>|<a class="btn btn-outline-dark link-certs " href="/certifications">Certifications</a>
+                        </p>
 
                     </label>
                     <label class="item" for="t-4">
@@ -132,7 +141,10 @@
                             </div>
                         </div>
 
-                        <p class="  d-flex justify-content-center col-sm-display-none " style="display: inline-block"><a class="btn btn-outline-dark link-certs " href="/search/certification">Add a certification</a>|<a class="btn btn-outline-dark link-certs " href="/certifications">Certifications</a></p>
+                        <p class="  d-flex justify-content-center col-sm-display-none " style="display: inline-block"><a
+                                class="btn btn-outline-dark link-certs " href="/search/certification">Add a
+                            certification</a>|<a class="btn btn-outline-dark link-certs " href="/certifications">Certifications</a>
+                        </p>
 
                     </label>
                     <label class="item" for="t-5">
@@ -148,12 +160,15 @@
 
                         <div class="card m-1 border-dark col-5" th:each="cert : ${certs}">
                             <div class="card-body">
-                                <h5 th:text="${cert.getCert_id().getCertificationName()}"></h5>
+                                <h5 class="cert-name" th:text="${cert.getCert_id().getCertificationName()}"></h5>
                                 <p class="expDate"> Exp date: <span th:text="${cert.getExpDate()}"></span></p>
                             </div>
                         </div>
 
-                        <p class="  d-flex justify-content-center col-sm-display-none " style="display: inline-block"><a class="btn btn-outline-dark link-certs " href="/search/certification">Add a certification</a>|<a class="btn btn-outline-dark link-certs " href="/certifications">Certifications</a></p>
+                        <p class="  d-flex justify-content-center col-sm-display-none " style="display: inline-block"><a
+                                class="btn btn-outline-dark link-certs " href="/search/certification">Add a
+                            certification</a>|<a class="btn btn-outline-dark link-certs " href="/certifications">Certifications</a>
+                        </p>
 
                     </label>
                 </div>
@@ -165,24 +180,29 @@
                     <label for="t-5"></label>
                 </div>
             </div>
-<!--            End of Carousel-->
+            <!--            End of Carousel-->
             <div class="bottom-profile">
                 <h2>Most Recent Roadmap</h2>
-                <div th:if="${roadmap != null}"  class="card col-8 col-lg-8 text-center mx-auto shadow-lg p-3 mb-5 bg-white rounded myProgress">
+                <div th:if="${roadmap != null}"
+                     class="card col-8 col-lg-8 text-center mx-auto shadow-lg p-3 mb-5 bg-white rounded myProgress">
                     <div>
                         <a id="industryLink" th:href="@{/roadmaps/{id}(id=${roadmap.getId()})}">
                             <h3><span th:text="${roadmap.getCareer().toUpperCase()}"></span></h3>
                         </a>
                         <ul>
-                            <li> You are <span th:text="${roadmap.getProgress()}"></span>% Complete!
+                            <li> You are <span id="progress-bar" th:text="${roadmap.getProgress()}"></span>% Complete!
                             </li>
+
                         </ul>
                     </div>
-                    <div class="progress" style="height: 100px">
-                        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" aria-label="Danger striped example"
+                    <div class="casing progress">
+                    <div class="progress red-bar" style="height: 100px">
+                        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar"
+                             aria-label="Danger striped example"
                              style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
                         </div>
                     </div>
+                        </div>
                 </div>
             </div>
         </div>
@@ -203,7 +223,11 @@
     console.log(FILESTACK_API_KEY);
 </script>
 <div th:replace="partials/fragments :: filestack"></div>
+<script th:replace="partials/fragments :: convert-name"></script>
 <footer th:replace="partials/fragments :: footer"></footer>
 <script th:replace="partials/fragments :: jobs"></script>
+<script th:replace="partials/fragments :: progress-bar"></script>
+
+
 </body>
 </html>
