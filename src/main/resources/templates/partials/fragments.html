@@ -174,19 +174,19 @@
 </div>
 
 <!--Html Job Search Functionality-->
-<div class="d-flex justify-content-center align-items-center" th:fragment="search-jobs">
-    <div class=" d-flex justify-content-center align-items-center">
-        <input id="job-input" type="text" class="searchJobs">
-        <button id="job-search" type="button" class=" searchButton btn btn-outline-primary">Search</button>
+<div class="" th:fragment="search-jobs">
+    <div class="search-jobs">
+        <input id="job-input" type="text" class="searchJobs" placeholder="Search Jobs ..">
+        <button id="job-search" type="button" class="btn btn-outline-dark searchButton">Search</button>
     </div>
 </div>
 
 <!--Where job cards populate-->
-<div id="populate" class="col-lg-12" th:fragment="populate">
-<div class="populate row col-lg-12"></div>
-    <div class="col-lg-12 row job_Buttons">
-        <button class=" col-lg-6 prevB btn btn-primary" type="button">Prev</button>
-        <button class=" col-lg-6 nextB btn btn-primary" type="button">Next</button>
+<div id="populate" class="" th:fragment="populate">
+<div class="populate"></div>
+    <div class="job_Buttons">
+        <button class=" prevB btn btn-dark" type="button">Prev</button>
+        <button class=" nextB btn btn-dark" type="button">Next</button>
     </div>
 
     <form class="job_Form" th:action="@{/create/roadmaps}" method="post">

@@ -10,6 +10,9 @@ let change = 0;
 let end = 1;
 //###########################//
 
+document.querySelector("#index-pic").style.backgroundImage = "url('/img/index-pic.jpeg')";
+
+
 //###########################//
 if (change === 0) {
     document.querySelector('.prevB').setAttribute('disabled', '')
@@ -326,12 +329,12 @@ async function htmlBuilder(jobData, occData, certData) {
 
 let x = 0;
 while (x < 3) {
-    let card = '<div class=" col-lg-4 job_Card">' +
+    let card = '<div class="card job_Card">' +
         '<p class="job_Title" th:name="title"></p>' +
         'Average salary: ' +
         '<p class="job_Wages" th:name="wages"></p>' +
         '<p class="job_Certs cert-name" th:name="certs"></p>' +
-        '<button class="startRoadMap btn btn-primary" type="button">Create RoadMap</button>' +
+        '<button class="startRoadMap btn btn-dark" type="button">Create RoadMap</button>' +
         '</div>';
     document.querySelector(".populate").insertAdjacentHTML("beforeEnd", card
     )
