@@ -1,7 +1,8 @@
 #nav-top {
     margin: 0;
-    background: var(--lightshade);
-    border-bottom: var(--highlight) solid 3px;
+    padding: 0;
+    background: black;
+    border-bottom: #b6995a solid 3px;
     width: 100%;
 }
 
@@ -27,8 +28,10 @@ li a:hover {
 /*Bottom Navbar*/
 #page-bottom {
     border-top: #b6995a solid 3px;
-    background: #00265b;
+    background: black;
     padding: 1em;
+    position: fixed;
+    bottom: 0;
 }
 
 .nav-item {

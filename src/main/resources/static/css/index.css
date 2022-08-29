@@ -1,25 +1,76 @@
-body{
+body {
     min-height: 100vh;
     /*background-image: url("static/img/index-pic.jpeg");*/
 }
-.index-head{
-    height: 400px;
-    border-bottom: gold solid 3px;
+
+#index-pic {
+background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+
+.index-head {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: solid black 1px;
+    border-radius: 5px;
+    padding: 1em;
+    margin-top: 1em;
     margin-bottom: 1em;
+    height: 400px;
 
 
 }
-#job-search{
+
+.main {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+
+}
+
+#job-search {
     font-size: 15px;
-    padding: 0 1em;
+    margin-top: .5em;
+    padding: 4px;
+    width: min-content;
+}
+
+#job-input {
+    padding: 2px;
+    border-radius: 5px;
+    background: transparent;
+}
+.search-jobs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15em;
 
 }
-#job-input{
-    padding: 0 0;
-    height: 50%;
-    border-radius: 4px;
+
+#populate {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1em;
+    padding-bottom: 60px;
+
 }
-#populate{
-   padding: 1em;
+.populate{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.job_Card{
+    padding: .5em;
     margin: .5em;
 }
