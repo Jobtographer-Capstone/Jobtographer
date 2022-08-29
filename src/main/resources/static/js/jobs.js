@@ -257,11 +257,10 @@ async function htmlBuilder(jobData, occData, certData) {
 let x = 0;
 while (x < 3) {
     let card = '<div class=" col-lg-4 job_Card">' +
-        '<p class="job_Company" th:name="company"></p>' +
         '<p class="job_Title" th:name="title"></p>' +
-        '<p class="job_Outlook" th:name="outlook"></p>' +
+        'Average salary: ' +
         '<p class="job_Wages" th:name="wages"></p>' +
-        '<p class="job_Certs" th:name="certs"></p>' +
+        '<p class="job_Certs cert-name" th:name="certs"></p>' +
         '<button class="startRoadMap btn btn-primary" type="button">Create RoadMap</button>' +
         '</div>';
     document.querySelector(".populate").insertAdjacentHTML("beforeEnd", card

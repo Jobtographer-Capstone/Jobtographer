@@ -22,3 +22,12 @@
     border: solid crimson 2px;
     border-radius: 10px;
 }
+.career-title{
+    padding-left: 12em;
+}
+.prog-percent{
+    padding-left: 12em;
+}
+body{
+    background: lightgoldenrodyellow;
+}
