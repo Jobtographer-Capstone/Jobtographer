@@ -36,8 +36,7 @@ public class CertificationController {
 
 
 
-    @Value("${USER_ID}")
-    private String USER_ID;
+
 
     @GetMapping("/certifications")
     public String allCerts(Model model) {
