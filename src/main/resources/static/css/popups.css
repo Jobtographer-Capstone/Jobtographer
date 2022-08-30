@@ -1,0 +1,23 @@
+#populate{
+    margin: 0;
+    padding: 0;
+}
+
+.nextPop{
+    background: darkslategrey!important;
+    height: 50vh;
+    width: 100vw;
+}
+.loadButtons{
+    display: flex;
+    justify-content: center;
+    padding-top: 20vh;
+}
+
+.loadMore{
+    width: 30vw;
+}
+.loadPrev{
+    width: 30vw;
+    margin-right: 1vw;
+}

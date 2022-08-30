@@ -1,4 +1,4 @@
-@import "customized.css";
+@import "customParameters.css";
 @import "navbar.css";
 @import "profile.css";
 @import "roadmaps.css";
@@ -6,3 +6,4 @@
 @import "carousel-profile.css";
 @import "about.css";
 @import "index.css";
+@import "popups.css";

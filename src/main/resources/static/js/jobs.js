@@ -1,8 +1,22 @@
 // THESE ARE FOR SEARCH VALUES
 let min = 0;
-let max = 100;
+let max = 5;
 let searchValue = "engineer";
+let page = 0;
+//###########################//
 
+let certList = [];
+let jobs = new Map();
+let codes = [];
+
+let titles = [];
+let companies = [];
+let wages = [];
+let outlooks = [];
+
+//SET LOAD BUTTONS TO DISPLAY NONE ON PAGE LOAD
+document.querySelector('.loadMore').style.display = "none";
+document.querySelector('.loadPrev').style.display = "none";
 //###########################//
 
 // THIS IS FOR CHANGING DATA THAT IS DISPLAYED
@@ -14,14 +28,12 @@ document.querySelector("#index-pic").style.backgroundImage = "url('/img/index-pi
 
 
 //###########################//
+
 if (change === 0) {
     document.querySelector('.prevB').setAttribute('disabled', '')
 } else {
     document.querySelector('.prevB').removeAttribute('disabled')
 }
-
-console.log("CHANGE: " + change)
-console.log("END: " + end)
 
 if (change < end) {
     document.querySelector('.nextB').removeAttribute('disabled')
@@ -34,9 +46,6 @@ document.querySelector('.searchButton').addEventListener('click', () => {
 
     end = 1;
     change = 0;
-
-    console.log("CHANGE: " + change)
-    console.log("END: " + end)
 
     if (end > change) {
         document.querySelector('.nextB').removeAttribute('disabled')
@@ -72,10 +81,10 @@ document.querySelector('.searchButton').addEventListener('click', () => {
 
         console.log("CHANGE: " + change)
         console.log("END: " + end)
-        if ((end - 5) > change) {
+        if ((end - 2) > change) {
             document.querySelector('.nextB').removeAttribute('disabled')
         }
-        if (change >= (end - 5)) {
+        if (change >= (end - 2)) {
             document.querySelector('.nextB').setAttribute('disabled', '')
         }
         awaitNewLoad();
@@ -98,10 +107,10 @@ document.querySelector('.searchButton').addEventListener('click', () => {
             document.querySelector('.prevB').removeAttribute('disabled')
         }
 
-        if ((end - 5) > change) {
+        if ((end - 2) > change) {
             document.querySelector('.nextB').removeAttribute('disabled')
         }
-        if (change >= (end - 5)) {
+        if (change >= (end - 2)) {
             document.querySelector('.nextB').setAttribute('disabled', '')
         }
 
@@ -113,7 +122,7 @@ document.querySelector('.searchButton').addEventListener('click', () => {
 
 //FETCH ALL JOBS
 async function getAllJobs() {
-    let jobs = new Map();
+
     const call = await fetch(`https://api.careeronestop.org/v1/jobsearch/${USER_ID}/${searchValue}/United%20States/25/0/DESC/${min}/${max}/1?source=NLx&showFilters=false`, {
         headers: {
             "Authorization": "Bearer " + CAREER_API_KEY,
@@ -133,7 +142,7 @@ async function getAllJobs() {
         end = jobs.size
 
     })
-    console.log(jobs);
+
 
     return jobs;
 }
@@ -145,13 +154,13 @@ const allJobs = getAllJobs();
 async function getCodesByJobId(promise) {
     let fetches = [];
     let ids = [];
-    let codes = [];
+
     const p = await promise.then(data => {
         data.forEach((id, name) => {
             ids.push(id)
         })
     })
-    console.log(ids);
+
     for (let i = 0; i < ids.length; i++) {
         let f = fetch(`https://api.careeronestop.org/v1/jobsearch/${USER_ID}/${ids[i]}?isHtml=true&enableMetaData=true`, {
             headers: {
@@ -202,7 +211,6 @@ const occData = getOccData(jobCodes)
 
 // FETCH CERTIFICATION DATA
 async function getCerts(promise) {
-    let certList = [];
     let fetches = [];
     const p = await promise
 
@@ -221,6 +229,7 @@ async function getCerts(promise) {
         .then(values =>
             Promise.all(values.map(async data => await data.json())))
         .then(data => {
+
             for (let i = 0; i < data.length; i++) {
                 certList.push(data[i].CertList)
 
@@ -228,19 +237,18 @@ async function getCerts(promise) {
         })
 
     return certList;
+
 }
 
 const certData = getCerts(jobCodes)
+
 //###########################//
 
 
 // BUILDER FOR THE HTML
 async function htmlBuilder(jobData, occData, certData) {
 
-    let titles = [];
-    let companies = [];
-    let wages = [];
-    let outlooks = [];
+
 
 
     const jobs = await jobData.then(jd => {
@@ -304,14 +312,11 @@ async function htmlBuilder(jobData, occData, certData) {
 
 
     const cert = await certData.then(cd => {
-        let certifs = [];
-        for (let i = 0; i < cd.length; i++){
-            console.log(cd[i]);
+        console.log(cd)
 
-        }
-        console.log(certifs);
         document.querySelectorAll('.job_Certs').forEach((c, i) => {
             c.innerHTML = "";
+            console.log(i + change)
             for (let j = 0; j < cd[i + change].length; j++) {
 
                 if (j < 5) {
@@ -321,6 +326,7 @@ async function htmlBuilder(jobData, occData, certData) {
             }
 
         })
+
 
     })
 
@@ -353,7 +359,6 @@ document.querySelectorAll('.startRoadMap').forEach((button, i) => {
     let outlook = document.querySelectorAll('.job_Outlook').item(i)
     let wages = document.querySelectorAll('.job_Wages').item(i)
     let certs = document.querySelectorAll('.job_Certs').item(i)
-    console.log(certs)
 
     button.addEventListener('click', () => {
 
@@ -369,9 +374,8 @@ document.querySelectorAll('.startRoadMap').forEach((button, i) => {
         document.querySelector('.job_Form').submit();
     })
 //###########################//
+})
 
-})// NEXT BUTTON CLICK EVENT
-//###########################//
 
 
 // NEXT BUTTON CLICK EVENT
@@ -379,16 +383,13 @@ document.querySelector('.nextB').addEventListener('click', () => {
 
     change++
 
-    console.log("CHANGE: " + change)
-    console.log("END: " + end)
-
     if (change === 0) {
         document.querySelector('.prevB').setAttribute('disabled', '')
     } else {
         document.querySelector('.prevB').removeAttribute('disabled')
     }
 
-    if (change >= (end - 5)) {
+    if (change >= (end - 2)) {
         document.querySelector('.nextB').setAttribute('disabled', '')
     } else {
         document.querySelector('.nextB').removeAttribute('disabled')
@@ -404,17 +405,13 @@ document.querySelector('.prevB').addEventListener('click', () => {
 
     change--
 
-
-    console.log("CHANGE: " + change)
-    console.log("END: " + end)
-
     if (change === 0) {
         document.querySelector('.prevB').setAttribute('disabled', '')
     } else {
         document.querySelector('.prevB').removeAttribute('disabled')
     }
 
-    if (change >= (end - 5)) {
+    if (change >= (end - 2)) {
         document.querySelector('.nextB').setAttribute('disabled', '')
     } else {
         document.querySelector('.nextB').removeAttribute('disabled')
@@ -427,11 +424,179 @@ document.querySelector('.prevB').addEventListener('click', () => {
 
 // SETS POPUP TO LOAD NEW JOB DATA
 function awaitNewLoad() {
-    let target = document.querySelector('.nextB').getAttribute('disabled')
+    let target = document.querySelector('.nextB')
 
-    if (target !== null) {
-        alert('NEW LOAD REQUEST')
+    if (target.hasAttribute('disabled')) {
+        document.querySelector('#populate').className = "nextPop";
+
+        document.querySelectorAll('.startRoadMap').forEach(b =>{
+            b.style.display = "none";
+        })
+
+        document.querySelectorAll('.job_Card').forEach(c => {
+            c.style.display = "none";
+        })
+
+        document.querySelector('.nextB').style.display = "none";
+        document.querySelector('.prevB').style.display = "none";
+        document.querySelector('.loadMore').style.display = "block";
+        document.querySelector('.loadPrev').style.display = "block";
+
+    } else{
+
+        let popup = document.querySelector('.nextPop')
+        if (popup !== null){
+            document.querySelector('.jobs').className -= "nextPop";
+        }
+
+        document.querySelectorAll('.startRoadMap').forEach(b =>{
+            b.style.display = "block";
+        })
+
+        document.querySelectorAll('.job_Card').forEach(c => {
+            c.style.display = "block";
+        })
+
+        document.querySelector('.nextB').style.display = "block";
+        document.querySelector('.prevB').style.display = "block";
+
+        document.querySelector('.loadMore').style.display = "none";
+        document.querySelector('.loadPrev').style.display = "none";
     }
 
 }
 //###########################//
+
+// BUTTON EVENTS FOR POPUP
+document.querySelector('.loadPrev').addEventListener('click', ()=>{
+
+    certList = [];
+    jobs = new Map();
+    codes = [];
+
+    titles = [];
+    companies = [];
+    wages = [];
+    outlooks = [];
+
+    console.log('GOING BACKWARDS!')
+    change = 0;
+    end = 1;
+    page --;
+
+
+    if (change === 0) {
+        document.querySelector('.prevB').setAttribute('disabled', '')
+    } else {
+        document.querySelector('.prevB').removeAttribute('disabled')
+    }
+
+    if (change < end) {
+        document.querySelector('.nextB').removeAttribute('disabled')
+    }
+
+    if (page >= -1) {
+
+        let popup = document.querySelector('.nextPop')
+        if (popup !== null){
+            popup.classList.remove('nextPop')
+        }
+
+        document.querySelector('.loadMore').style.display = "none";
+        document.querySelector('.loadPrev').style.display = "none";
+
+        document.querySelector('.nextB').style.display = "block";
+        document.querySelector('.prevB').style.display = "block";
+
+        document.querySelectorAll('.startRoadMap').forEach(b =>{
+            b.style.display = "block";
+        })
+
+        document.querySelectorAll('.job_Card').forEach(c => {
+            c.style.display = "block";
+        })
+        min -= 5;
+        max -= 5;
+
+
+        const allJobs = getAllJobs();
+        const jobCodes = getCodesByJobId(allJobs);
+        const occData = getOccData(jobCodes)
+        const certData = getCerts(jobCodes)
+        htmlBuilder(allJobs, occData, certData)
+    }
+
+    if (page <= 0) {
+        document.querySelector('.loadPrev').setAttribute('disabled', '')
+    } else{
+        document.querySelector('.loadPrev').removeAttribute('disabled')
+    }
+})
+
+document.querySelector('.loadMore').addEventListener('click', ()=>{
+
+    // certList = [];
+    jobs = new Map();
+    codes = [];
+
+    titles = [];
+    companies = [];
+    wages = [];
+    outlooks = [];
+
+    change = 0;
+    end = 1;
+    page ++;
+
+    if (change === 0) {
+        document.querySelector('.prevB').setAttribute('disabled', '')
+    } else {
+        document.querySelector('.prevB').removeAttribute('disabled')
+    }
+
+    if (change < end) {
+        document.querySelector('.nextB').removeAttribute('disabled')
+    }
+
+    let popup = document.querySelector('.nextPop')
+    if (popup !== null){
+        popup.classList.remove('nextPop')
+    }
+
+    if (page <= 0) {
+        document.querySelector('.loadPrev').setAttribute('disabled', '')
+    } else{
+        document.querySelector('.loadPrev').removeAttribute('disabled')
+    }
+
+    document.querySelector('.loadMore').style.display = "none";
+    document.querySelector('.loadPrev').style.display = "none";
+
+    document.querySelector('.nextB').style.display = "block";
+    document.querySelector('.prevB').style.display = "block";
+
+    document.querySelectorAll('.startRoadMap').forEach(b =>{
+        b.style.display = "block";
+    })
+
+    document.querySelectorAll('.job_Card').forEach(c => {
+        c.style.display = "block";
+    })
+
+    min += 5;
+    max += 5;
+
+
+    const allJobs = getAllJobs();
+    const jobCodes = getCodesByJobId(allJobs);
+    const occData = getOccData(jobCodes)
+    const certData = getCerts(jobCodes)
+    htmlBuilder(allJobs, occData, certData)
+})
+//###########################//
+
+if (page <= 0) {
+    document.querySelector('.loadPrev').setAttribute('disabled', '')
+} else{
+    document.querySelector('.loadPrev').removeAttribute('disabled')
+}
