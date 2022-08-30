@@ -37,3 +37,34 @@ li a:hover {
 .nav-item {
     color: #FFFFFF;
 }
+.logo{
+    height: 70px;
+    width: 70px;
+}
+
+.logo-name{
+    color: floralwhite;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar-brand{
+    padding: 0;
+    margin: 5px;
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+    .logo {
+        animation: logo-spin infinite 20s linear;
+    }
+}
+
+@keyframes logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}

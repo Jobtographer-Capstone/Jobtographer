@@ -4,17 +4,15 @@
     margin: 1em;
 }
 
-.cert-div {
-    background-color: #FFFFFF;
-}
-
 .profile-div {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border-right: var(--highlight) solid 3px;
+    border-right: black solid 3px;
+    padding-right: 5em;
     margin-bottom: 1em;
+    margin-right: 4em;
     background-color: #FFFFFF;
 }
 
@@ -36,14 +34,6 @@
     font-size: 14px;
 }
 
-.certs-container{
-    border-radius: 10px;
-}
-
-a:hover{
-    color: floralwhite;
-    border-radius: 2px;
-}
 
 div.scroll {
     margin:4px;
@@ -61,48 +51,22 @@ div.scroll {
     height: 70%;
     margin: 3px 6px;
 }
-
-/*.main {*/
-/*   margin: 0;*/
-/*    padding: 0;*/
-/*    flex-direction: column;*/
-/*    !*min-height: 100vh;*!*/
-/*}*/
-
-.logo{
-    height: 70px;
-    width: 70px;
+#profile{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    margin-left: 1em;
+}
+.certs{
+width: 75%;
+}
+.roadmap-profile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-    .logo {
-        animation: logo-spin infinite 20s linear;
-    }
-}
 
-@keyframes logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
 
-.logo-name{
-    color: floralwhite;
-    padding: 0;
-    margin: 0;
-}
-
-#headProfile{
-    margin: 0;
-    padding: 0;
-    background-color: #FFFFFF;
-}
-
-.navbar-brand{
-    padding: 0;
-    margin: 5px;
-}
 
