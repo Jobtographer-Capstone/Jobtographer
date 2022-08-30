@@ -43,11 +43,8 @@
             <li class="nav-item">
                 <a sec:authorize="isAuthenticated()" class="nav-link" href="/roadmaps">Roadmaps</a>
             </li>
-            <li class="nav-item">
-                <a sec:authorize="isAuthenticated()" class="nav-link" href="/create/roadmaps">Create</a>
-            </li>
             <li class="nav-item ms-auto me-4">
-                <a sec:authorize="isAuthenticated()" class="navbar-brand" id="logout" href="">Logout</a>
+                <a sec:authorize="isAuthenticated()" class="navbar-brand" id="logout" href="#">Logout</a>
             </li>
             <li sec:authorize="isAuthenticated() == false">
                 <button type="button" class="btn btn-outline-light me-5 nav-item " data-bs-toggle="modal"
