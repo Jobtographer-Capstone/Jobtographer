@@ -1,8 +1,8 @@
 #nav-top {
     margin: 0;
     padding: 0;
-    background: black;
-    border-bottom: #b6995a solid 3px;
+    background: var(--primary);
+    border-bottom: var(--highlight) solid 3px;
     width: 100%;
 }
 
@@ -27,13 +27,18 @@ li a:hover {
 
 /*Bottom Navbar*/
 #page-bottom {
-    border-top: #b6995a solid 3px;
-    background: black;
+    border-top: var(--highlight) solid 3px;
+    background: var(--primary);
     padding: 1em;
     position: fixed;
     bottom: 0;
 }
 
 .nav-item {
-    color: #FFFFFF;
+    color: var(--accent);
+}
+
+.logo-name {
+    font-family: var(--title);
+    color: var(--accent);
 }
