@@ -41,7 +41,7 @@ public class CertificationController {
         AppUser user = usersDoa.findById(loggedIn.getId());
         model.addAttribute("certs", userCertsDoa.findAllByUser_id(user.getId()));
 
-        return "/certification/all_certs";
+        return "certification/all_certs";
     }
 
     @GetMapping("/search/certification")
