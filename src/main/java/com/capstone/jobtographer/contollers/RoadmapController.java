@@ -106,7 +106,7 @@ public class RoadmapController {
 
 
 
-        return "/roadmaps/create_roadmaps";
+        return "roadmaps/create_roadmaps";
 
     }
 
