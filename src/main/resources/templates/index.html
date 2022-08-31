@@ -4,23 +4,42 @@
 </head>
 <body >
 <nav th:replace="partials/fragments :: navbar"></nav>
+
 <div class="main">
-    <div id="index-pic" class="container index-head">
-        <div th:replace="partials/fragments :: search-jobs"></div>
+    <div id="index-title" class="container index-head">
+<!--        <h1 id="welcome" class="welcome" >Welcome</h1>-->
+<!--        <h1 class="welcome">To</h1>-->
+        <h1 id="jobtographer" class="welcome  align-middle">Jobtographer</h1>
+<!--        <div th:replace="partials/fragments :: search-jobs"></div>-->
     </div>
-    <div th:replace="partials/fragments :: populate"></div>
 
-    <div th:replace="partials/fragments :: page-bottom"></div>
-
+    <div id="scroll-map" class="scroll col-xl-12">
+        <div id="imgs">
+            <img src="https://farm9.staticflickr.com/8461/8048823381_0fbc2d8efb.jpg" alt=""/>
+            <img src="https://farm7.staticflickr.com/6217/6216951796_e50778255c.jpg" alt=""/>
+            <img src="https://farm7.staticflickr.com/6083/6055581292_d94c2d90e3.jpg" alt=""/>
+            <img src="https://farm8.staticflickr.com/7187/6895047173_d4b1a0d798.jpg" alt=""/>
+            <img src="https://farm7.staticflickr.com/6139/5986939269_10721b8017.jpg" alt=""/>
+            <img src="https://farm9.staticflickr.com/8461/8048823381_0fbc2d8efb.jpg" alt=""/>
+            <img src="https://farm7.staticflickr.com/6217/6216951796_e50778255c.jpg" alt=""/>
+            <img src="https://farm7.staticflickr.com/6083/6055581292_d94c2d90e3.jpg" alt=""/>
+            <img src="https://farm8.staticflickr.com/7187/6895047173_d4b1a0d798.jpg" alt=""/>
+            <img src="https://farm7.staticflickr.com/6139/5986939269_10721b8017.jpg" alt=""/>
+        </div>
+    </div>
+<!--    <div th:replace="partials/fragments :: populate"></div>-->
 </div>
+
+<div th:replace="partials/fragments :: page-bottom"></div>
+
 <footer th:replace="partials/fragments :: footer"></footer>
 
-<script th:inline="javascript">
-    const CAREER_API_KEY = /*[[${CAREER_API_KEY}]]*/ "test";
-    console.log(CAREER_API_KEY);
-    const USER_ID = /*[[${USER_ID}]]*/ "please";
-    console.log(USER_ID);
-</script>
-<script th:replace="partials/fragments :: jobs"></script>
+<!--<script th:inline="javascript">-->
+<!--    const CAREER_API_KEY = /*[[${CAREER_API_KEY}]]*/ "test";-->
+<!--    console.log(CAREER_API_KEY);-->
+<!--    const USER_ID = /*[[${USER_ID}]]*/ "please";-->
+<!--    console.log(USER_ID);-->
+<!--</script>-->
+<!--<script th:replace="partials/fragments :: jobs"></script>-->
 </body>
 </html>

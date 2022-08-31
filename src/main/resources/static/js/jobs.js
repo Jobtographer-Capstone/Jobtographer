@@ -10,7 +10,7 @@ let change = 0;
 let end = 1;
 //###########################//
 
-document.querySelector("#index-pic").style.backgroundImage = "url('/img/index-pic.jpeg')";
+// document.querySelector("#index-pic").style.backgroundImage = "url('/img/index-pic.jpeg')";
 
 
 //###########################//

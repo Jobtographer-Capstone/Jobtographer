@@ -1,9 +1,25 @@
 #nav-top {
     margin: 0;
     padding: 0;
-    background: black;
-    border-bottom: #b6995a solid 3px;
+    background: #FFFFFF;
+    border-bottom: rgba(0, 0, 0, 0.3) solid 1px;
     width: 100%;
+}
+
+#signIn {
+    color: black;
+    border-width: 2px;
+    border-radius: 0;
+}
+
+#signIn:hover {
+    color: #FFFFFF;
+}
+
+.logo-name {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%) translateY(-50%);
 }
 
 ul {
@@ -15,25 +31,18 @@ ul {
 
 li a {
     display: block;
-    color: var(--accent);
+    color: black;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
 }
 
 li a:hover {
-    background-color: var(--primary);
+    background-color: black;
+
 }
 
-/*Bottom Navbar*/
-#page-bottom {
-    border-top: #b6995a solid 3px;
-    background: black;
-    padding: 1em;
-    position: fixed;
-    bottom: 0;
-}
-
-.nav-item {
-    color: #FFFFFF;
+/*Bottom Page*/
+hr {
+    width: 80%;
 }

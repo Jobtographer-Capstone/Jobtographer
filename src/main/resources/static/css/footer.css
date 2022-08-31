@@ -1,0 +1,9 @@
+#footer-signup {
+    color: black;
+    border-width: 2px;
+    border-radius: 0;
+}
+
+#footer-signup:hover {
+    color: #FFFFFF;
+}
