@@ -74,7 +74,7 @@ public class CertificationController {
 
 
 
-        return "redirect:/roadmaps";
+        return "redirect:/certifications";
     }
 
     @GetMapping("/delete/certification/{id}")

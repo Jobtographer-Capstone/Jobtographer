@@ -43,11 +43,8 @@
             <li class="nav-item">
                 <a sec:authorize="isAuthenticated()" class="nav-link" href="/roadmaps">Roadmaps</a>
             </li>
-            <li class="nav-item">
-                <a sec:authorize="isAuthenticated()" class="nav-link" href="/create/roadmaps">Create</a>
-            </li>
             <li class="nav-item ms-auto me-4">
-                <a sec:authorize="isAuthenticated()" class="navbar-brand" id="logout" href="">Logout</a>
+                <a sec:authorize="isAuthenticated()" class="navbar-brand" id="logout" href="#">Logout</a>
             </li>
             <li sec:authorize="isAuthenticated() == false">
                 <button type="button" class="btn btn-outline-light me-5 nav-item " data-bs-toggle="modal"
@@ -91,7 +88,6 @@
                             <div class="modal-footer">
                                 <p>Don't have an account? <span style="color: green" data-bs-toggle="modal"
                                                                 data-bs-target="#register">Register here!</span></p>
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
@@ -133,9 +129,6 @@
                                            th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
                                     <button class="btn btn-lg btn-secondary btn-block" type="submit">Register!</button>
                                 </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             </div>
                         </div>
                     </div>
@@ -182,11 +175,17 @@
 </div>
 
 <!--Where job cards populate-->
-<div id="populate" class="" th:fragment="populate">
-<div class="populate"></div>
-    <div class="job_Buttons">
-        <button class=" prevB btn btn-dark" type="button">Prev</button>
-        <button class=" nextB btn btn-dark" type="button">Next</button>
+
+<div id="populate" class="jobs col-lg-12" th:fragment="populate">
+<div class="populate row col-lg-12"></div>
+    <div class="col-lg-12 row job_Buttons">
+        <button class=" col-lg-6 prevB btn btn-primary" type="button">Prev</button>
+        <button class=" col-lg-6 nextB btn btn-primary" type="button">Next</button>
+
+    </div>
+    <div class="loadButtons">
+        <button class="loadPrev btn btn-primary" type="button">Load Prev</button>
+        <button class="loadMore btn btn-primary" type="button">Load Next</button>
     </div>
 
     <form class="job_Form" th:action="@{/create/roadmaps}" method="post">
