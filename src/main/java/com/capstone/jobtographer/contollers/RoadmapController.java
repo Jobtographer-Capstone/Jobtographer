@@ -5,6 +5,7 @@ import com.capstone.jobtographer.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,8 +13,11 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.sql.Date;
+import java.time.YearMonth;
 import java.util.ArrayList;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -90,6 +94,15 @@ public class RoadmapController {
     public String createNewRoadmap(@PathVariable(name = "id") long id, Model model) {
         Roadmap rd = roadmapsDao.getById(id);
         model.addAttribute("roadmap", rd);
+        List<RoadmapCert> timeline = roadmapsCertsDao.findAllByRoadmap_id(id);
+        List<YearMonth> rcDates = new ArrayList<>();
+        for(RoadmapCert rc : timeline){
+           YearMonth rcDate = YearMonth.parse(rc.getExpectedDate());
+           rcDates.add(rcDate);
+        }
+      Collections.sort(rcDates);
+        System.out.println(rcDates);
+        model.addAttribute("timeline", rcDates);
 
 
 

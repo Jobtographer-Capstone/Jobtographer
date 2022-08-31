@@ -24,7 +24,6 @@ let change = 0;
 let end = 1;
 //###########################//
 
-document.querySelector("#index-pic").style.backgroundImage = "url('/img/index-pic.jpeg')";
 
 
 //###########################//
@@ -382,8 +381,10 @@ document.querySelectorAll('.startRoadMap').forEach((button, i) => {
 
         document.querySelector('.job_Form').innerHTML +=
             `
+
+
                 <input type="hidden" name="title" value="${title.innerHTML}" />
-                <input type="hidden" name="outlook" value="${outlook.innerHTML}" />
+<!--                <input type="hidden" name="outlook" value="" />-->
                 <input type="hidden" name="wages" value="${wages.innerHTML}" />
                 <input type="hidden" name="certs" value="${certs.innerHTML}" />
             `;

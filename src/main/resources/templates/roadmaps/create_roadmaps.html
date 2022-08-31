@@ -75,6 +75,11 @@
                 </form>
             </div>
 
+            <div th:each=" cert : ${timeline}">
+                <p th:text="${cert}"></p>
+
+            </div>
+
 
         </div>
     </div>
