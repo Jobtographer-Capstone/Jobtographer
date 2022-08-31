@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <!-- Created with Vectornator (http://vectornator.io/) -->
-<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 1024 1024" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 1024 1024" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs/>
 <clipPath id="ArtboardFrame">
 <rect height="1024" width="1024" x="0" y="0"/>
 </clipPath>
-<g clip-path="url(#ArtboardFrame)" id="Layer-1" vectornator:layerName="Layer 1">
-<g opacity="1">
-<path d="M512 128C299.923 128 128 299.923 128 512C128 724.077 299.923 896 512 896C724.077 896 896 724.077 896 512C896 299.923 724.077 128 512 128ZM512 192C688.731 192 832 335.269 832 512C832 688.731 688.731 832 512 832C335.269 832 192 688.731 192 512C192 335.269 335.269 192 512 192Z" fill="#81812c" fill-rule="nonzero" opacity="1" stroke="#81812c" stroke-linecap="round" stroke-linejoin="bevel" stroke-opacity="0" stroke-width="5"/>
-<path d="M512 192C335.287 192 192 335.264 192 512C192 688.713 335.264 832 512 832C688.713 832 832 688.736 832 512C832 335.287 688.736 192 512 192ZM512 199.191C684.754 199.191 824.809 339.222 824.809 512C824.809 684.754 684.778 824.809 512 824.809C339.246 824.809 199.191 684.778 199.191 512C199.191 339.246 339.222 199.191 512 199.191Z" fill="#4f4f16" fill-rule="nonzero" opacity="1" stroke="#81812c" stroke-linecap="round" stroke-linejoin="bevel" stroke-opacity="0" stroke-width="10"/>
-<path d="M512 156C315.407 156 156 315.381 156 512C156 708.594 315.381 868 512 868C708.594 868 868 708.619 868 512C868 315.407 708.619 156 512 156ZM512 164C704.189 164 860 319.785 860 512C860 704.189 704.215 860 512 860C319.811 860 164 704.215 164 512C164 319.811 319.785 164 512 164Z" fill="#d0d07a" fill-rule="nonzero" opacity="1" stroke="#81812c" stroke-linecap="round" stroke-linejoin="bevel" stroke-opacity="0" stroke-width="5"/>
-<path d="M512 128C299.944 128 128 299.916 128 512C128 724.056 299.916 896 512 896C724.056 896 896 724.084 896 512C896 299.944 724.084 128 512 128ZM512 136.629C719.305 136.629 887.371 304.667 887.371 512C887.371 719.305 719.333 887.371 512 887.371C304.695 887.371 136.629 719.333 136.629 512C136.629 304.695 304.667 136.629 512 136.629Z" fill="#4f4f16" fill-rule="nonzero" opacity="1" stroke="#81812c" stroke-linecap="round" stroke-linejoin="bevel" stroke-opacity="0" stroke-width="5"/>
-</g>
+<g clip-path="url(#ArtboardFrame)" id="Layer-1">
 <path d="M263.094 263.094L336 512L263.094 760.906L512 688L760.906 760.906L688 512L760.906 263.094L512 336L263.094 263.094ZM512 384C582.692 384 640 441.308 640 512C640 582.692 582.692 640 512 640C441.308 640 384 582.692 384 512C384 441.308 441.308 384 512 384Z" fill="#81812c" fill-rule="nonzero" opacity="1" stroke="#81812c" stroke-linecap="round" stroke-linejoin="bevel" stroke-opacity="0" stroke-width="3"/>
 <path d="M512 384C441.308 384 384 441.308 384 512C384 582.692 441.308 640 512 640C582.692 640 640 582.692 640 512C640 441.308 582.692 384 512 384ZM512 448C547.346 448 576 476.654 576 512C576 547.346 547.346 576 512 576C476.654 576 448 547.346 448 512C448 476.654 476.654 448 512 448Z" fill="#81812c" fill-rule="nonzero" opacity="1" stroke="#81812c" stroke-linecap="round" stroke-linejoin="bevel" stroke-opacity="0" stroke-width="3"/>
 <path d="M425 421.913L512.951 0L599 425L425 421.913Z" fill="#81812c" fill-rule="nonzero" opacity="1" stroke="#81812c" stroke-linecap="round" stroke-linejoin="bevel" stroke-width="3"/>

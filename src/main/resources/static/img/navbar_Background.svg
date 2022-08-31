@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Created with Vectornator (http://vectornator.io/) -->
+<svg height="100%" stroke-miterlimit="10" style="fill-rule:nonzero;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;" version="1.1" viewBox="0 0 4096 512" width="100%" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:vectornator="http://vectornator.io" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs/>
+<clipPath id="ArtboardFrame">
+<rect height="512" width="4096" x="0" y="0"/>
+</clipPath>
+<g clip-path="url(#ArtboardFrame)" id="Layer-1" vectornator:layerName="Layer 1">
+<path d="M0 0L4096 0L4096 529.027L0 529.027L0 0Z" fill="#82a071" fill-rule="nonzero" opacity="1" stroke="none"/>
+<path d="M101.692 0L100 390" fill="none" opacity="1" stroke="#787878" stroke-dasharray="50.0" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+<path d="M0 100L590 102.742" fill="none" opacity="1" stroke="#787878" stroke-dasharray="50.0" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+<path d="M300 0L300.57 512" fill="none" opacity="1" stroke="#787878" stroke-dasharray="50.0" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+<path d="M0 302.363L150 300" fill="none" opacity="1" stroke="#787878" stroke-dasharray="50.0" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+<path d="M200 400L890 400" fill="none" opacity="1" stroke="#787878" stroke-dasharray="50.0" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+<path d="M1400 514L1400.47 124" fill="none" opacity="1" stroke="#787878" stroke-dasharray="50.0" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+<path d="M1200 401.811L2590 400" fill="none" opacity="1" stroke="#787878" stroke-dasharray="50.0" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+<path d="M1800.76 0L1800 290" fill="none" opacity="1" stroke="#787878" stroke-dasharray="50.0" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+<path d="M2500.43 0L2500 490" fill="none" opacity="1" stroke="#787878" stroke-dasharray="50.0" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+<path d="M2600 0L2600.56 256" fill="none" opacity="1" stroke="#787878" stroke-dasharray="50.0" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+<path d="M2900.58 0L2900 190" fill="none" opacity="1" stroke="#787878" stroke-dasharray="50.0" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+<path d="M3100.2 0L3100 390" fill="none" opacity="1" stroke="#787878" stroke-dasharray="50.0" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+<path d="M2600 200L3490 200" fill="none" opacity="1" stroke="#787878" stroke-dasharray="50.0" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+<path d="M2100.27 0L2100 390" fill="none" opacity="1" stroke="#787878" stroke-dasharray="50.0" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+<path d="M1700 100L2290 100" fill="none" opacity="1" stroke="#787878" stroke-dasharray="50.0" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+<path d="M4000.57 590L4000 400" fill="none" opacity="1" stroke="#787878" stroke-dasharray="50.0" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+<path d="M4090 300L3500 300.292" fill="none" opacity="1" stroke="#787878" stroke-dasharray="50.0" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+<path d="M3700.78 520L3700 170" fill="none" opacity="1" stroke="#787878" stroke-dasharray="50.0" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+<path d="M3800 401.811L4100 400" fill="none" opacity="1" stroke="#787878" stroke-dasharray="50.0" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+<path d="M3900.2 490L3900 200" fill="none" opacity="1" stroke="#787878" stroke-dasharray="50.0" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+<path d="M900 200L1190 200" fill="none" opacity="1" stroke="#787878" stroke-dasharray="50.0" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+<path d="M1100 128L1100 311.896" fill="none" opacity="1" stroke="#787878" stroke-dasharray="50.0" stroke-linecap="round" stroke-linejoin="round" stroke-width="5"/>
+</g>
+</svg>
