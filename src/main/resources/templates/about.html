@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/fragments :: head('Login')">
+<head th:replace="partials/fragments :: head('About')">
 </head>
 <body>
 <nav th:replace="partials/fragments :: navbar"></nav>
@@ -10,7 +10,7 @@
     <section>
         <div class="container text-center">
             <div class="row mt-2">
-                <h1>Development Team</h1>
+                <h1>About Us</h1>
             </div>
         </div>
     </section>
@@ -18,136 +18,127 @@
 
     <!--    //dunno yet-->
     <section>
-        <!--        Carousel Start-->
-        <div class="row mt-5">
-            <div class="slider-about">
-                <input type="radio" name="testimonial" id="t-1">
-                <input type="radio" name="testimonial" id="t-2">
-                <input type="radio" name="testimonial" id="t-3" checked>
-                <input type="radio" name="testimonial" id="t-4">
-                <input type="radio" name="testimonial" id="t-5">
 
-                <!--            //1st card start-->
-                <div class="about-carousel">
+        <div class="container marketing">
 
-                    <label class="item container" for="t-1">
-                        <div class="card" style="width: 25rem; height: 25rem;">
-                            <img src="https://www.nationalreview.com/wp-content/uploads/2022/03/Will-Smith-and-Chris-Rock.jpg?w=1592" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Michael Sigg</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">An item</li>
-                                <li class="list-group-item">A second item</li>
-                                <li class="list-group-item">A third item</li>
-                            </ul>
-                            <div class="card-footer text-center">
-                                <a href="https://www.linkedin.com/in/mjsigg/"><i class="fa-brands fa-linkedin"></i></a>
-                                <a href=""><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
+            <!-- Three columns of text below the carousel -->
+            <div class="row">
 
-                        <!--            //1st card end-->
+                <div class="col-lg-4">
+                    <img class="mt-1 rounded-circle" src="https://media-exp1.licdn.com/dms/image/C5103AQH05RoF-f0B3A/profile-displayphoto-shrink_100_100/0/1517021647912?e=1667433600&v=beta&t=lFIb_q6e0kyEI0xqE4AVLdCFan0rZpihqegBj11nvxA" alt="" width="140" height="140" x="50%" y="50%">
+                    <h2 class="fw-normal">Juan <em>"Double Agent"</em> Silva</h2>
+                    <p>Full Stack Developer.  Working on BYOBand.</p>
+                    <p><a class="btn btn-secondary" href="#">View details &raquo;</a></p>
+                </div><!-- /.col-lg-4 -->
 
-                    </label>
-                    <label class="item container" for="t-2">
+            </div><!-- /.row -->
 
-                        <div class="card" style="width: 18rem;">
-                            <img src="https://www.nationalreview.com/wp-content/uploads/2022/03/Will-Smith-and-Chris-Rock.jpg?w=1592" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Michael Sigg</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">An item</li>
-                                <li class="list-group-item">A second item</li>
-                                <li class="list-group-item">A third item</li>
-                            </ul>
-                            <div class="card-footer text-center">
-                                <a href="https://www.linkedin.com/in/mjsigg/"><i class="fa-brands fa-linkedin"></i></a>
-                                <a href=""><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
 
-                    </label>
+            <!-- START THE FEATURETTES -->
 
-                    <!--                ///card 3 start-->
-                    <label class="item" for="t-3">
+            <hr class="featurette-divider">
 
-                        <div class="card container" style="width: 18rem;">
-                            <img src="https://www.nationalreview.com/wp-content/uploads/2022/03/Will-Smith-and-Chris-Rock.jpg?w=1592" class="card-img-top text-center" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Michael Sigg</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">An item</li>
-                                <li class="list-group-item">A second item</li>
-                                <li class="list-group-item">A third item</li>
-                            </ul>
-                            <div class="card-footer text-center">
-                                <a href="https://www.linkedin.com/in/mjsigg/"><i class="fa-brands fa-linkedin"></i></a>
-                                <a href=""><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading fw-normal lh-1"> Michael Sigg.
+                        <div><span class="text-muted">Pull Stack Developer. </span></div>
+                    </h2>
+                    <p class="lead"><h2><em>Hire me because ...</em></h2></p>
+                    <p class="lead">please.</p>
 
-                    </label>
-                    <!--                //card start end-->
-
-                    <label class="item" for="t-4">
-
-                        <div class="card container" style="width: 18rem;">
-                            <img src="https://www.nationalreview.com/wp-content/uploads/2022/03/Will-Smith-and-Chris-Rock.jpg?w=1592" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Michael Sigg</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">An item</li>
-                                <li class="list-group-item">A second item</li>
-                                <li class="list-group-item">A third item</li>
-                            </ul>
-                            <div class="card-footer text-center">
-                                <a href="https://www.linkedin.com/in/mjsigg/"><i class="fa-brands fa-linkedin"></i></a>
-                                <a href=""><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-
-                    </label>
-                    <label class="item" for="t-5">
-
-                        <div class="card container" style="width: 18rem;">
-                            <img src="https://www.nationalreview.com/wp-content/uploads/2022/03/Will-Smith-and-Chris-Rock.jpg?w=1592" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Michael Sigg</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">An item</li>
-                                <li class="list-group-item">A second item</li>
-                                <li class="list-group-item">A third item</li>
-                            </ul>
-                            <div class="card-footer text-center">
-                                <a href="https://www.linkedin.com/in/mjsigg/"><i class="fa-brands fa-linkedin"></i></a>
-                                <a href=""><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-
-                    </label>
+                    <!--                    ///social links-->
+                    <a href="https://www.linkedin.com/in/mjsigg/"><i class="fa-brands fa-linkedin" w></i></a>
+                    <a href=""><i class="fa-brands fa-github"></i></a>
                 </div>
-
-                <div class="dots">
-                    <label for="t-1"></label>
-                    <label for="t-2"></label>
-                    <label for="t-3"></label>
-                    <label for="t-4"></label>
-                    <label for="t-5"></label>
+                <div class="col-md-5">
+                    <img class="mt-1" src="https://media-exp1.licdn.com/dms/image/C5603AQHb0_bnGzdjhw/profile-displayphoto-shrink_800_800/0/1661878075262?e=1667433600&v=beta&t=D8A33p7h6UiYN5CcU2CCmtGThFVB_j_ghoFIyG6xy1M" alt="" width="500" height="500">
                 </div>
             </div>
 
-        </div>
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading fw-normal lh-1"> Kevin Orgeron
+                        <div><span class="text-muted">Full Stack developer from Slidell. </span></div>
+                    </h2>
+                    <p class="lead"><h2><em>Hire me because ...</em></h2></p>
+                    <p class="lead">Super passionate about all things code.</p>
+
+                    <!--                    ///social links-->
+                    <a href="https://www.linkedin.com/in/mjsigg/"><i class="fa-brands fa-linkedin" w></i></a>
+                    <a href=""><i class="fa-brands fa-github"></i></a>
+                </div>
+                <div class="col-md-5">
+                    <img class="mt-1" src="https://media-exp1.licdn.com/dms/image/C4E03AQHNbc3AqKDMhA/profile-displayphoto-shrink_800_800/0/1656083812845?e=1667433600&v=beta&t=DQXOpS9kXuS0CSJ33OniIQtN0PGhLOGc-FqGCWGXYEQ" alt="" width="500" height="500">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading fw-normal lh-1"> Miguel Romero
+                        <div><span class="text-muted">Full Stack Developer. </span></div>
+                    </h2>
+                    <p class="lead"><h2><em>Hire me because ...</em></h2></p>
+                    <p class="lead">I don't just defy expectations ... I expand them.</p>
+
+                    <!--                    ///social links-->
+                    <a href="https://www.linkedin.com/in/mjsigg/"><i class="fa-brands fa-linkedin" w></i></a>
+                    <a href=""><i class="fa-brands fa-github"></i></a>
+                </div>
+                <div class="col-md-5">
+                    <img class="mt-1" src="https://media-exp1.licdn.com/dms/image/C4E03AQFKVUtodBPhRw/profile-displayphoto-shrink_800_800/0/1655481324802?e=1667433600&v=beta&t=_hBYBe2mhXk2j3MTVcOnYJZRiW1RbDwTMe3TDlphTWI" alt="" width="500" height="500">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading fw-normal lh-1"> Christopher Davis
+                        <div><span class="text-muted">Full Stack Developer.  Decorated military veteran.</span></div>
+                    </h2>
+                    <p class="lead"><h2><em>Hire me because ...</em></h2></p>
+                    <p class="lead">Extensive military background as a leader.</p>
+
+                    <!--                    ///social links-->
+                    <a href="https://www.linkedin.com/in/mjsigg/"><i class="fa-brands fa-linkedin" w></i></a>
+                    <a href=""><i class="fa-brands fa-github"></i></a>
+                </div>
+                <div class="col-md-5">
+                    <img class="mt-1" src="https://media-exp1.licdn.com/dms/image/D4E03AQGKME1Fb4veQg/profile-displayphoto-shrink_800_800/0/1655914247035?e=1667433600&v=beta&t=gPlokN-Zt41a43SM5ZWhQ0HBTBRfzp1GGUX5MmuSHMQ" alt="" width="500" height="500">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <div class="row featurette">
+                <div class="col-md-7">
+                    <h2 class="featurette-heading fw-normal lh-1"> Romeo Cohens
+                        <div><span class="text-muted">Full Stack Developer.  Former Spanish linguist.</span></div>
+                    </h2>
+                    <p class="lead"><h2><em>Hire me because ...</em></h2></p>
+                    <p class="lead">Passionate about health related endeavors. </p>
+
+                    <!--                    ///social links-->
+                    <a href="https://www.linkedin.com/in/mjsigg/"><i class="fa-brands fa-linkedin" w></i></a>
+                    <a href=""><i class="fa-brands fa-github"></i></a>
+                </div>
+                <div class="col-md-5">
+                    <img class="mt-1" src="https://media-exp1.licdn.com/dms/image/D4E35AQF0kvuLJzc9cg/profile-framedphoto-shrink_800_800/0/1660229143206?e=1662584400&v=beta&t=OJzKuh_eGdTbRoL2FVKrM584lTQhJindpRTcKMfeoUY" alt="" width="500" height="500">
+                </div>
+            </div>
+
+            <hr class="featurette-divider">
+
+            <!-- /END THE FEATURETTES -->
+
+        </div><!-- /.container -->
     </section>
+
     <div th:replace="partials/fragments :: page-bottom"></div>
 </div>
 <footer th:replace="partials/fragments :: footer"></footer>
