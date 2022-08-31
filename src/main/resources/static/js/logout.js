@@ -6,7 +6,7 @@ document.querySelector("#logout").addEventListener("click", () => {
     if (trueFalse === true) {
         window.location.assign("/logout");
         alert("You have been logged out");
-        window.location.assign("/login");
+        window.location.assign("/");
     }
 });
 

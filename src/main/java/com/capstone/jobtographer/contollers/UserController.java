@@ -62,7 +62,7 @@ public class UserController {
 
     public String loginPage(Model model) {
         model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
-        return "/login";
+        return "index";
     }
 
     @GetMapping("/profile")
@@ -77,7 +77,7 @@ public class UserController {
         model.addAttribute("roadmap", roadmap);
 
 
-        return "/user/profile";
+        return "user/profile";
 
     }
 
@@ -99,7 +99,7 @@ public class UserController {
 
     @GetMapping("/register")
     public String registerPage() {
-        return "/register";
+        return "register";
     }
 
     @PostMapping("/register")

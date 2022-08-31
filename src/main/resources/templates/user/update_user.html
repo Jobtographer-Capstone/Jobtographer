@@ -49,12 +49,21 @@
                 <p>
                     <label for="password">Password</label>
                     <input type="password" id="password" name="password" class="form-control" placeholder="Password"
-                           required="" th:field="*{password}">
+                           th:field="*{password}">
                 </p>
                 <input type="hidden" th:field="*{id}">
+
                 <input name="_csrf" type="hidden" th:each="cookie: ${#httpServletRequest.cookies}"
                        th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
                 <button class="btn btn-lg btn-primary btn-block" type="submit">update</button>
+
+                <input name="_csrf" type="hidden" th:each="cookie: ${#httpServletRequest.cookies}"
+                       th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
+                <button  th:action="@{/profile.html}" class="btn btn-lg btn-primary btn-block" type="submit">Cancel</button>
+
+
+
+
             </form>
             <a class="col-12" href="" id="deleteAccount">Delete Account</a>
         </div>

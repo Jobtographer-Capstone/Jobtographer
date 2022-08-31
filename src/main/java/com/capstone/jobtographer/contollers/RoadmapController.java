@@ -5,6 +5,7 @@ import com.capstone.jobtographer.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.domain.Sort;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,8 +13,11 @@ import org.springframework.web.bind.annotation.*;
 
 
 import java.sql.Date;
+import java.time.YearMonth;
 import java.util.ArrayList;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 
@@ -90,10 +94,19 @@ public class RoadmapController {
     public String createNewRoadmap(@PathVariable(name = "id") long id, Model model) {
         Roadmap rd = roadmapsDao.getById(id);
         model.addAttribute("roadmap", rd);
+        List<RoadmapCert> timeline = roadmapsCertsDao.findAllByRoadmap_id(id);
+        List<YearMonth> rcDates = new ArrayList<>();
+        for(RoadmapCert rc : timeline){
+           YearMonth rcDate = YearMonth.parse(rc.getExpectedDate());
+           rcDates.add(rcDate);
+        }
+      Collections.sort(rcDates);
+        System.out.println(rcDates);
+        model.addAttribute("timeline", rcDates);
 
 
 
-        return "/roadmaps/create_roadmaps";
+        return "roadmaps/create_roadmaps";
 
     }
 
@@ -184,23 +197,5 @@ public class RoadmapController {
         roadmapsDao.save(roadmap);
 
         return "redirect:/roadmaps";
-    }
-
-    @GetMapping("/test")
-    @ResponseBody
-    public String test() {
-        return "<h1>Test Page</h1>";
-    }
-
-    @PostMapping("/test")
-    public String tester(@RequestParam(name = "company") String company, @RequestParam(name = "title") String title, @RequestParam(name = "outlook") String outlook, @RequestParam(name = "wages") String wages, @RequestParam(name = "certs") String certs) {
-        if (company != null) {
-            System.out.println("This is the company: " + company);
-            System.out.println("This is the title: " + title);
-            System.out.println("This is the outlook: " + outlook);
-            System.out.println("This is the wages: " + wages);
-            System.out.println("This is the certs: " + certs);
-        }
-        return "redirect:/test";
     }
 }
