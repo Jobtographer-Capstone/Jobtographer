@@ -16,7 +16,7 @@
 .single-cert{
     padding: 0;
     margin: 5em;
-    height: 500px;
+    height: 100%;
     border-radius: 10px;
 
 }
@@ -29,6 +29,60 @@
 }
 .prog-percent{
     padding-left: 12em;
+}
+#roadmapTabContent{
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 100px;
+    flex-wrap: wrap;
+}
+.circle{
+    height: 80px;
+    width: 80px;
+    border-radius: 50%;
+    border: black solid 2px;
+}
+.timeline-cert{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.timeline-container{
+    display: flex;
+    flex-direction: row;
+    /*justify-content: center;*/
+    /*width: 100vw;*/
+}
+.tc-con{
+    width: 325px;
+    margin-top: 1em;
+    /*margin-right: 5px;*/
+    /*padding: ;*/
+}
+.table-tm{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: end;
+    flex-wrap: wrap;
+}
+.divider{
+    /*flex-grow: 1;*/
+    border: black solid 3px;
+}
+.circle-container{
+    display: flex;
+    width: 100%;
+    margin-top: 1em;
+
+}
+.divider-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    flex-grow: 1;
 }
 /*body{*/
 /*    background: lightgoldenrodyellow;*/

@@ -94,15 +94,22 @@ public class RoadmapController {
     public String createNewRoadmap(@PathVariable(name = "id") long id, Model model) {
         Roadmap rd = roadmapsDao.getById(id);
         model.addAttribute("roadmap", rd);
-        List<RoadmapCert> timeline = roadmapsCertsDao.findAllByRoadmap_id(id);
-        List<YearMonth> rcDates = new ArrayList<>();
-        for(RoadmapCert rc : timeline){
-           YearMonth rcDate = YearMonth.parse(rc.getExpectedDate());
-           rcDates.add(rcDate);
+        List<RoadmapCert> timeline = roadmapsCertsDao.findAllByRoadmap_idOrderByExpectedDateAsc(id);
+//        List<YearMonth> rcDates = new ArrayList<>();
+//        for(RoadmapCert rc : timeline){
+//            if(rc.getExpectedDate() != null) {
+//                YearMonth rcDate = YearMonth.parse(rc.getExpectedDate());
+//                rcDates.add(rcDate);
+//            }
+//        }
+//      Collections.sort();
+//        System.out.println(rcDates);
+//        Collections.sort(timeline)
+        for(RoadmapCert cert : timeline){
+            System.out.println(cert.getExpectedDate());
         }
-      Collections.sort(rcDates);
-        System.out.println(rcDates);
-        model.addAttribute("timeline", rcDates);
+//        System.out.println(timeline.toString());
+        model.addAttribute("timeline", timeline);
 
 
 
@@ -112,9 +119,10 @@ public class RoadmapController {
 
     @PostMapping("/create/roadmaps/{id}")
     public String addDate(@PathVariable(name = "id") long id, @RequestParam(name = "cert-id") long certId, @RequestParam(name = "expected")String date) {
-        RoadmapCert cert = roadmapsCertsDao.getById(certId);
 
-        cert.setExpectedDate(date);
+        RoadmapCert cert = roadmapsCertsDao.getById(certId);
+        YearMonth cDate = YearMonth.parse(date);
+        cert.setExpectedDate(cDate);
         System.out.println(cert.getExpectedDate());
         roadmapsCertsDao.save(cert);
         System.out.println("Did it save ?");
@@ -164,6 +172,8 @@ public class RoadmapController {
         AppUser userLoggedIn = usersDao.findByUsername(user.getUsername());
         if (userLoggedIn.getRoadmaps().contains(roadmapsDao.getById(id))) {
             model.addAttribute("roadmap", roadmapsDao.getById(id));
+            List<RoadmapCert> timeline = roadmapsCertsDao.findAllByRoadmap_idOrderByExpectedDateAsc(id);
+            model.addAttribute("timeline", timeline);
             return "roadmaps/roadmaps_show";
         } else {
             return "redirect:/roadmaps";
