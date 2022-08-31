@@ -26,7 +26,7 @@
         <ul class="navbar-nav flex align-items-center me-auto mb-2 mb-lg-0">
             <li class="nav-item">
                 <a class="navbar-brand" href="/">
-                    <img class="logo" src="/../img/Jobtographer_Compass.svg" alt="Compass Logo">
+                    <img th:src="@{~/img/jobtographer_Compass.svg}" alt="Compass" class="logo">
                 </a>
             </li>
             <li>
@@ -34,23 +34,43 @@
             </li>
         </ul>
         <ul class="navbar-nav flex align-items-center ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a sec:authorize="isAuthenticated()" class="nav-link" href="/profile">Profile</a>
+            <li sec:authorize="isAuthenticated()" class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                   Profile
+               </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/profile">View Profile</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="/update/user">Edit Profile</a></li>
+                </ul>
             </li>
-            <li class="nav-item">
-                <a sec:authorize="isAuthenticated()" class="nav-link" href="/certifications">Certifications</a>
+            <li sec:authorize="isAuthenticated()" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Certifications
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/certifications">View Certifications</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="/search/certifications">Add Certifications</a></li>
+                </ul>
             </li>
-            <li class="nav-item">
-                <a sec:authorize="isAuthenticated()" class="nav-link" href="/roadmaps">Roadmaps</a>
+            <li sec:authorize="isAuthenticated()" class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Roadmaps
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="/roadmaps">View Roadmaps</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="/create/roadmaps">Add Roadmaps</a></li>
+                </ul>
             </li>
-            <li class="nav-item">
-                <a sec:authorize="isAuthenticated()" class="nav-link" href="/create/roadmaps">Create</a>
-            </li>
-            <li class="nav-item ms-auto me-4">
-                <a sec:authorize="isAuthenticated()" class="navbar-brand" id="logout" href="">Logout</a>
+            <li sec:authorize="isAuthenticated()">
+                <button type="button" class="btn me-5 nav-item" id="logout">
+                    Logout
+                </button>
             </li>
             <li sec:authorize="isAuthenticated() == false">
-                <button type="button" class="btn btn-outline-light me-5 nav-item " data-bs-toggle="modal"
+                <button type="button" class="btn me-5 nav-item " data-bs-toggle="modal"
                         data-bs-target="#sign-in">
                     Sign in
                 </button>
