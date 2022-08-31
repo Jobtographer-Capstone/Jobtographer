@@ -1,59 +1,44 @@
 #nav-top {
     margin: 0;
     padding: 0;
-    background: var(--primary);
-    border-bottom: var(--highlight) solid 3px;
+    background-image: url("../img/navbar_Background.svg");
+    background-color: var(--primary);
+    border-bottom: var(--accent) solid 3px;
     width: 100%;
 }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-}
-
-li a {
-    display: block;
-    color: var(--accent);
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li a:hover {
-    background-color: var(--primary);
-}
-
-/*Bottom Navbar*/
-#page-bottom {
-    border-top: var(--highlight) solid 3px;
-    background: var(--primary);
-    padding: 1em;
-    position: fixed;
-    bottom: 0;
-}
-
-.nav-item {
-
-    color: #FFFFFF;
-}
 .logo{
-    height: 70px;
-    width: 70px;
+    height: 64px;
 }
 
-.logo-name{
-    color: floralwhite;
-    padding: 0;
-    margin: 0;
+.logo-name {
+    font-family: var(--title);
+    color: var(--titletext);
+    position: relative;
+    right: 32px;
+    font-size: xxx-large;
+    text-shadow: 3px 1px 2px dimgrey;
 }
 
-.navbar-brand{
-    padding: 0;
-    margin: 5px;
+.btn{
+    color: var(--accent) !important;
+    background-color: var(--titletext);
+    border: var(--accent) 3px solid;
 }
 
+.btn:hover {
+    background-color: antiquewhite;
+    box-shadow: 3px 3px 2px dimgrey;
+}
+
+.nav-item{
+    color: var(--titletext);
+    font-weight: bold;
+}
+
+.nav-item:hover{
+    text-shadow: 1px 1px 3px antiquewhite;
+}
 
 @media (prefers-reduced-motion: no-preference) {
     .logo {
@@ -68,12 +53,4 @@ li a:hover {
     to {
         transform: rotate(360deg);
     }
-
-    color: var(--accent);
-}
-
-.logo-name {
-    font-family: var(--title);
-    color: var(--accent);
-
 }

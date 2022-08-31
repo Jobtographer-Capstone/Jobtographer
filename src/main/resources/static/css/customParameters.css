@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant&family=Raleway&family=Tangerine:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Unicase&family=Raleway&display=swap');
 
 :root{
     /*Uncomment below and establish common parameters for all CSS*/
-    --primary: #0B172E;
-    --lightshade: #00265B;
-    --accent: #B9B9B9;
+    --primary: #82a074;
+    --background: #f9f5f4;
     --highlight: #b6995a;
-    --callout: #E41134;
-    --heading: 'Cormorant', 'serif';
+    --accent: #6f7c8b;
+    --button: #a07381;
+    --titletext: #E6E6DB;
     --body: 'Raleway', 'sans-serif';
-    --title: 'Tangerine', 'cursive';
+    --title: 'Cormorant Unicase', 'serif';
 }
 
 body{
