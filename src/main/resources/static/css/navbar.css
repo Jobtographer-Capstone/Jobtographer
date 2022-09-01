@@ -47,11 +47,6 @@ li a {
     text-decoration: none;
 }
 
-li a:hover {
-    background-color: black;
-
-}
-
 /*Bottom Page*/
 hr {
     width: 80%;
