@@ -13,7 +13,7 @@
 <!--        Google Fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Antonio:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cedarville+Cursive&family=Dosis&family=Noto+Serif+Balinese&family=Oswald:wght@700&display=swap" rel="stylesheet">
     <!--    Main CSS File-->
     <link rel="stylesheet" th:href="@{~/css/main.css}">
 </head>
@@ -54,6 +54,12 @@
                 <a sec:authorize="isAuthenticated()" class="navbar-brand" id="logout" href="">Logout</a>
             </li>
             <li sec:authorize="isAuthenticated() == false">
+<!--                Register button doesnt work-->
+                <button id="register-button" type="button" class="btn btn-outline-dark nav-item me-2 shadow"
+                        data-bs-toggle="modal"
+                        data-bs-target="#sign-in">
+                    Register
+                </button>
                 <button id="signIn" type="button" class="btn btn-outline-dark nav-item me-5 shadow"
                         data-bs-toggle="modal"
                         data-bs-target="#sign-in">

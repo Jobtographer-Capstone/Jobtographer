@@ -6,6 +6,16 @@
     width: 100%;
 }
 
+#register-button {
+    color: black;
+    border-width: 2px;
+    border-radius: 0;
+}
+
+#register-button:hover {
+    color: #FFFFFF;
+}
+
 #signIn {
     color: black;
     border-width: 2px;

@@ -3,108 +3,91 @@ body {
     background-color: #f9f5f4;
 }
 
-#welcome {
-    padding-top: 0;
+#index-title {
+    padding-left: 0;
+    margin-left: 20px;
 }
 
 #jobtographer {
-    font-size: 150px;
+    font-size: 125px;
     color: black;
-    padding: 0;
+    /*padding: 0;*/
+    text-align: start;
+    font-family: 'Abril Fatface', cursive;
+    /*font-family: 'Cedarville Cursive', cursive;*/
+    /*font-family: 'Dosis', sans-serif;*/
+    /*font-family: 'Noto Serif Balinese', serif;*/
+    /*font-family: 'Oswald', sans-serif;*/
+    padding-top: .75em;
+    padding-bottom: .5em;
+    padding-left: 0;
+    margin-left: 0;
 }
 
-/*.welcome {*/
-/*    !*padding-top: 3em;*!*/
-/*    !*padding-bottom: 0;*!*/
-/*    font-family: 'Antonio', sans-serif;*/
-/*    font-size: 50px;*/
-/*    color: #f35626;*/
-/*    background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);*/
-/*    -webkit-background-clip: text;*/
-/*    -webkit-text-fill-color: transparent;*/
-/*    -webkit-animation: hue 20s infinite linear;*/
-/*}*/
-
-/*@-webkit-keyframes hue {*/
-/*    from {*/
-/*        -webkit-filter: hue-rotate(0deg);*/
-/*    }*/
-
-/*    to {*/
-/*        -webkit-filter: hue-rotate(360deg);*/
-/*    }*/
-/*}*/
-
-/*#index-pic {*/
-/*    background-repeat: no-repeat;*/
-/*    background-size: cover;*/
-/*    background-position: center;*/
-/*}*/
-
-/*.index-head {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    justify-content: center;*/
-/*    align-items: center;*/
-/*    padding: 1em;*/
-/*    margin-top: 1em;*/
-/*    margin-bottom: 1em;*/
-/*    height: 400px;*/
-/*}*/
+#quote {
+    font-family: 'Cedarville Cursive', cursive;
+    /*font-family: 'Dosis', sans-serif;*/
+    /*font-family: 'Noto Serif Balinese', serif;*/
+    /*font-family: 'Oswald', sans-serif;*/
+    font-size: 30px;
+    color: #22311d;
+    padding-bottom: 25px;
+    margin-bottom: 0;
+}
 
 .main {
     margin: 0;
-    padding: 0;
+    padding-bottom: 5em;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-#job-search {
-    font-size: 15px;
-    margin-top: .5em;
-    padding: 4px;
-    width: min-content;
-}
+/*#job-search {*/
+/*    font-size: 15px;*/
+/*    margin-top: .5em;*/
+/*    padding: 4px;*/
+/*    width: min-content;*/
+/*}*/
 
-#job-input {
-    padding: 2px;
-    border-radius: 5px;
-    background: transparent;
-}
+/*#job-input {*/
+/*    padding: 2px;*/
+/*    border-radius: 5px;*/
+/*    background: transparent;*/
+/*}*/
 
-.search-jobs{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-top: 15em;
+/*.search-jobs{*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    justify-content: center;*/
+/*    align-items: center;*/
+/*    margin-top: 15em;*/
 
-}
+/*}*/
 
-#populate {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 1em;
-    padding-bottom: 60px;
+/*#populate {*/
+/*    flex-grow: 1;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    align-items: center;*/
+/*    margin-bottom: 1em;*/
+/*    padding-bottom: 60px;*/
 
-}
+/*}*/
 
-.populate{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-}
+/*.populate{*/
+/*    display: flex;*/
+/*    flex-direction: row;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*}*/
 
-.job_Card{
-    padding: .5em;
-    margin: .5em;
-    border-radius: 0;
-    border-width: 2px;
-}
+/*.job_Card{*/
+/*    padding: .5em;*/
+/*    margin: .5em;*/
+/*    border-radius: 0;*/
+/*    border-width: 2px;*/
+/*}*/
 
 #scroll-map {
     width: 100%;
@@ -123,5 +106,9 @@ div.scroll {
     overflow-x: auto;
     overflow-y: hidden;
     white-space: nowrap;
+}
+
+.scroll-img {
+    padding-top: 70px;
 }
 
