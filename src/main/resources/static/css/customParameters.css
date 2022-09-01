@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Unicase&family=Raleway&display=swap');
-
+/*@import url('https://fonts.googleapis.com/css2?family=Cormorant+Unicase&family=Raleway&display=swap');*/
+/*@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
 :root{
     /*Uncomment below and establish common parameters for all CSS*/
     --primary: #82a074;
@@ -8,8 +9,8 @@
     --accent: #6f7c8b;
     --button: #a07381;
     --titletext: #E6E6DB;
-    --body: 'Raleway', 'sans-serif';
-    --title: 'Cormorant Unicase', 'serif';
+    --body: 'Roboto Condensed', 'sans-serif';
+    --title: 'League Spartan', 'serif';
 }
 
 body{
