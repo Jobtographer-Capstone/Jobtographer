@@ -1,10 +1,13 @@
 #nav-top {
     margin: 0;
     padding: 0;
-    background-image: url("../img/navbar_Background.svg");
-    background-color: var(--primary);
-    border-bottom: var(--accent) solid 3px;
+    /*background-image: url("../img/navbar_Background.svg");*/
+    background-color: #BDDAC1;
+    /*border-bottom: var(--accent) solid 3px;*/
     width: 100%;
+    /*position: fixed;*/
+
+
 }
 
 .logo{
@@ -13,27 +16,31 @@
 
 .logo-name {
     font-family: var(--title);
-    color: var(--titletext);
-    position: relative;
-    right: 32px;
-    font-size: xxx-large;
-    text-shadow: 3px 1px 2px dimgrey;
-}
 
-.btn{
-    color: var(--accent) !important;
-    background-color: var(--titletext);
-    border: var(--accent) 3px solid;
-}
-
-.btn:hover {
-    background-color: antiquewhite;
-    box-shadow: 3px 3px 2px dimgrey;
+    color: #05386B;
+    /*position: relative;*/
+    /*right: 32px;*/
+    font-size: 4em;
+    /*text-shadow: 3px 1px 2px dimgrey;*/
 }
 
 .nav-item{
-    color: var(--titletext);
+    color:  #05386B;
     font-weight: bold;
+}
+.btn{
+    color: #EDF5E1;
+    background-color: #05386B;
+/*border: var(--accent) 3px solid;*/
+}
+
+.nav-link{
+    color: #05386B;
+}
+.btn:hover {
+    background-color:#EDF5E1 ;
+    box-shadow: 3px 3px 2px dimgrey;
+    color: #05386B;
 }
 
 .nav-item:hover{

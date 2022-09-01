@@ -199,16 +199,16 @@
 
 <!--Where job cards populate-->
 
-<div id="populate" class="jobs col-lg-12" th:fragment="populate">
-<div class="populate row col-lg-12"></div>
-    <div class="col-lg-12 row job_Buttons">
-        <button class=" col-lg-6 prevB btn btn-primary" type="button">Prev</button>
-        <button class=" col-lg-6 nextB btn btn-primary" type="button">Next</button>
+<div id="populate" class="jobs" th:fragment="populate">
+<div class="populate"></div>
+    <div class=" job_Buttons">
+        <button class="prevB btn " type="button">Prev</button>
+        <button class=" nextB btn" type="button">Next</button>
 
     </div>
     <div class="loadButtons">
-        <button class="loadPrev btn btn-primary" type="button">Load Prev</button>
-        <button class="loadMore btn btn-primary" type="button">Load Next</button>
+        <button class="loadPrev btn " type="button">Load Prev</button>
+        <button class="loadMore btn " type="button">Load Next</button>
     </div>
 
     <form class="job_Form" th:action="@{/create/roadmaps}" method="post">
@@ -219,7 +219,7 @@
 
 
 <!--Footer-->
-<nav th:fragment="page-bottom" id="page-bottom" class="navbar navbar-expand navbar-dark fixed-bottom">
+<nav th:fragment="page-bottom" id="page-bottom" class="navbar navbar-expand navbar-dark">
     <div class="container-fluid text-center">
         <ul class="navbar-nav mx-auto" id="bottom-list">
             <li class="nav-item">
