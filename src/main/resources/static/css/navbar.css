@@ -1,63 +1,43 @@
 #nav-top {
     margin: 0;
     padding: 0;
-    /*background-image: url("../img/navbar_Background.svg");*/
-    background-color: #BDDAC1;
-    /*border-bottom: var(--accent) solid 3px;*/
+    background-color: var(--mintGreen);
     width: 100%;
-    /*position: fixed;*/
 
 
 }
 
 .logo{
-    height: 64px;
+    height: 3em;
+    margin-left: 1em;
 }
 
 .logo-name {
     font-family: var(--title);
-
-    color: #05386B;
-    /*position: relative;*/
-    /*right: 32px;*/
+    margin-top: 10px;
+    color: var(--navyBlue);
     font-size: 4em;
-    /*text-shadow: 3px 1px 2px dimgrey;*/
 }
 
 .nav-item{
-    color:  #05386B;
+    color:  var(--navyBlue);
     font-weight: bold;
 }
 .btn{
-    color: #EDF5E1;
-    background-color: #05386B;
+    color: var(--offWhite);
+    background-color: var(--navyBlue);
 /*border: var(--accent) 3px solid;*/
 }
 
 .nav-link{
-    color: #05386B;
+    color: var(--navyBlue);
 }
 .btn:hover {
-    background-color:#EDF5E1 ;
+    background-color:var(--offWhite) ;
     box-shadow: 3px 3px 2px dimgrey;
-    color: #05386B;
+    color: var(--navyBlue);
 }
 
 .nav-item:hover{
-    text-shadow: 1px 1px 3px antiquewhite;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .logo {
-        animation: logo-spin infinite 20s linear;
-    }
-}
-
-@keyframes logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+    text-shadow: 1px 1px 3px var(--offWhite);
 }
