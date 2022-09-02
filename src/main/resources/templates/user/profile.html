@@ -53,11 +53,10 @@
            <div class="roadmap-profile">
 
                <h2>Most Recent Roadmap</h2>
+
                <div th:if="${roadmap == null}">
                    <div class="text-center">
                        <a href="/create/roadmaps" id="newRoadmapLink"><i class="fa-solid fa-plus fa-2xl"></i></a>
-                   </div>
-                   <div id="chart">
                    </div>
                </div>
                <div th:if="${roadmap != null}"
@@ -69,9 +68,9 @@
                        <ul>
                            <li> You are <span id="progress-bar" th:text="${roadmap.getProgress()}"></span>% Complete!
                            </li>
-
                        </ul>
                    </div>
+
 
 <!--                   <div class="casing progress">-->
 <!--                       <div class="progress red-bar" style="height: 100px">-->
@@ -81,6 +80,9 @@
 <!--                           </div>-->
 <!--                       </div>-->
 <!--                   </div>-->
+               </div>
+               <div>
+                   <canvas id="myChart"></canvas>
                </div>
 
            </div>
@@ -100,80 +102,17 @@
     <input name="_csrf" type="hidden" th:each="cookie: ${#httpServletRequest.cookies}"
            th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
 </form>
-<!--<script th:src="@{~/static/js/roadmap.js}"></script>-->
 <script th:inline="javascript">
-    const FILESTACK_API_KEY = /*[[${FILESTACK_API_KEY}]]*/ "test";
-    console.log(FILESTACK_API_KEY);
+const FILESTACK_API_KEY = /*[[${FILESTACK_API_KEY}]]*/ "test";
+console.log(FILESTACK_API_KEY);
 
-    document.querySelector(".main-profile").style.backgroundImage = "url('/img/profile2.jpg')";
+document.querySelector(".main-profile").style.backgroundImage = "url('/img/profile2.jpg')";
 
-
-
-    //     let options = {
-    //     chart: {
-    //     height: 280,
-    //     type: "radialBar",
-    // },
-    //
-    //     series: [67],
-    //     colors: ["#20E647"],
-    //     plotOptions: {
-    //     radialBar: {
-    //     hollow: {
-    //     margin: 0,
-    //     size: "70%",
-    //     background: "#293450"
-    // },
-    //     track: {
-    //     dropShadow: {
-    //     enabled: true,
-    //     top: 2,
-    //     left: 0,
-    //     blur: 4,
-    //     opacity: 0.15
-    // }
-    // },
-    //     dataLabels: {
-    //     name: {
-    //     offsetY: -10,
-    //     color: "#fff",
-    //     fontSize: "13px"
-    // },
-    //     value: {
-    //     color: "#fff",
-    //     fontSize: "30px",
-    //     show: true
-    // }
-    // }
-    // }
-    // },
-    //     fill: {
-    //     type: "gradient",
-    //     gradient: {
-    //     shade: "dark",
-    //     type: "vertical",
-    //     gradientToColors: ["#87D4F9"],
-    //     stops: [0, 100]
-    // }
-    // },
-    //     stroke: {
-    //     lineCap: "round"
-    // },
-    //     labels: ["Progress"]
-    // };
-    //
-    //     let chart = new ApexCharts(document.querySelector("#chart"), options);
-    //
-    //     chart.render();
 
 </script>
+<script th:src="@{~/js/roadmap.js}"></script>
 <div th:replace="partials/fragments :: filestack"></div>
 <script th:replace="partials/fragments :: convert-name"></script>
-
-
-
-
-
 <footer th:replace="partials/fragments :: footer"></footer>
 <script th:replace="partials/fragments :: jobs"></script>
 <script th:replace="partials/fragments :: progress-bar"></script>

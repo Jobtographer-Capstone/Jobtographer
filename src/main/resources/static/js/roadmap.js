@@ -1,57 +1,26 @@
-"use strict";
-let options = {
-    chart: {
-        height: 280,
-        type: "radialBar",
-    },
+let progress = document.querySelector("#progress-bar").innerHTML;
+let need  = 100 - progress;
 
-    series: [67],
-    colors: ["#20E647"],
-    plotOptions: {
-        radialBar: {
-            hollow: {
-                margin: 0,
-                size: "70%",
-                background: "#293450"
-            },
-            track: {
-                dropShadow: {
-                    enabled: true,
-                    top: 2,
-                    left: 0,
-                    blur: 4,
-                    opacity: 0.15
-                }
-            },
-            dataLabels: {
-                name: {
-                    offsetY: -10,
-                    color: "#fff",
-                    fontSize: "13px"
-                },
-                value: {
-                    color: "#fff",
-                    fontSize: "30px",
-                    show: true
-                }
-            }
-        }
-    },
-    fill: {
-        type: "gradient",
-        gradient: {
-            shade: "dark",
-            type: "vertical",
-            gradientToColors: ["#87D4F9"],
-            stops: [0, 100]
-        }
-    },
-    stroke: {
-        lineCap: "round"
-    },
-    labels: ["Progress"]
+const data = {
+    labels: [
+        'Progress','Not complete'
+
+    ],
+    datasets: [{
+        label: 'My First Dataset',
+        data: [progress, need],
+        backgroundColor: [
+            'rgb(255, 99, 132)',
+            'gray'
+        ],
+        hoverOffset: 4
+    }]
 };
 
-let chart = new ApexCharts(document.querySelector("#chart"), options);
+const config = {
+    type: 'doughnut',
+    data: data,
+};
 
-chart.render();
+const myChart = new Chart(
+    document.querySelector('#myChart'), config);
