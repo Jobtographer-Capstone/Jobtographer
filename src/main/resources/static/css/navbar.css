@@ -11,17 +11,15 @@
 }
 
 .logo{
-    height: 64px;
+    height: 3em;
+    margin-left: 1em;
 }
 
 .logo-name {
     font-family: var(--title);
-
+    margin-top: 10px;
     color: #05386B;
-    /*position: relative;*/
-    /*right: 32px;*/
     font-size: 4em;
-    /*text-shadow: 3px 1px 2px dimgrey;*/
 }
 
 .nav-item{
@@ -48,7 +46,7 @@
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    .logo {
+    .logo:hover {
         animation: logo-spin infinite 20s linear;
     }
 }
