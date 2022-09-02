@@ -80,10 +80,10 @@
                 <div th:fragment="sign-in" class="modal fade" id="sign-in" data-bs-backdrop="static"
                      data-bs-keyboard="false" tabindex="-1" aria-labelledby="sign-in" aria-hidden="true">
                     <div class="modal-dialog">
-                        <div class="modal-content">
+                        <div class="modal-content nav-modal">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="signinform">Sign in</h5>
-                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <button type="button" class="close btn" data-bs-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
@@ -92,25 +92,25 @@
                                     <h2 class="form-signin-heading">Please sign in</h2>
                                     <p>
                                         <label for="username" class="sr-only">Username</label>
-                                        <input type="text" id="username" name="username" class="form-control"
+                                        <input type="text" id="username" name="username" class="form-control text-input"
                                                placeholder="Username" required=""
                                                autofocus="">
                                     </p>
                                     <p>
                                         <label for="password" class="sr-only">Password</label>
-                                        <input type="password" id="password" name="password" class="form-control"
+                                        <input type="password" id="password" name="password" class="form-control text-input"
                                                placeholder="Password"
                                                required="">
                                     </p>
 
                                     <input name="_csrf" type="hidden" th:each="cookie: ${#httpServletRequest.cookies}"
                                            th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
-                                    <button class="btn btn-lg btn-secondary btn-block" type="submit">Sign in</button>
+                                    <button class="btn btn-lg btn-block" type="submit">Sign in</button>
                                 </form>
                             </div>
                             <div class="modal-footer">
-                                <p>Don't have an account? <span style="color: green" data-bs-toggle="modal"
-                                                                data-bs-target="#register">Register here!</span></p>
+                                <p>Don't have an account? <a class="register-here" style="color: #A9675B" data-bs-toggle="modal"
+                                                                data-bs-target="#register" href="">Register here!</a></p>
                             </div>
                         </div>
                     </div>
@@ -121,10 +121,10 @@
                 <div th:fragment="register" class="modal fade" id="register" data-bs-backdrop="static"
                      data-bs-keyboard="false" tabindex="-1" aria-labelledby="register" aria-hidden="true">
                     <div class="modal-dialog">
-                        <div class="modal-content">
+                        <div class="modal-content nav-modal">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="registerLabel">Register</h5>
-                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <button type="button" class="close btn" data-bs-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
@@ -132,19 +132,19 @@
                                 <form class="form-signin" th:method="post" th:action="@{/register}">
                                     <p>
                                         <label for="reg-username" class="sr-only">Username</label>
-                                        <input type="text" id="reg-username" name="username" class="form-control"
+                                        <input type="text" id="reg-username" name="username" class="form-control text-input"
                                                placeholder="Username" required=""
                                                autofocus="">
                                     </p>
                                     <p>
                                         <label for="email" class="sr-only">Email</label>
-                                        <input type="email" id="email" name="email" class="form-control"
+                                        <input type="email" id="email" name="email" class="form-control text-input"
                                                placeholder="example@example.com"
                                                required="" autofocus="">
                                     </p>
                                     <p>
                                         <label for="reg-password" class="sr-only">Password</label>
-                                        <input type="password" id="reg-password" name="password" class="form-control"
+                                        <input type="password" id="reg-password" name="password" class="form-control text-input"
                                                placeholder="Password"
                                                required="">
                                     </p>
