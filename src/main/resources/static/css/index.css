@@ -1,6 +1,6 @@
 body {
     min-height: 100vh;
-    background: #BDDAC1;
+    background: var(--mintGreen);
 }
 
 #index-pic {
@@ -46,8 +46,8 @@ background-repeat: no-repeat;
     padding: 2px;
     border-radius: 5px;
     background: transparent;
-    border: #05386B solid 2px;
-    color: #EDF5E1;
+    border: var(--navyBlue) solid 2px;
+    color: var(--offWhite);
 }
 .search-jobs{
     display: flex;
@@ -81,10 +81,10 @@ background-repeat: no-repeat;
     padding: .5em;
     margin: .5em;
     background: transparent;
-    color: #EDF5E1;
+    color: var(--offWhite);
 }
 .card{
-    border: solid #05386B 2px;
+    border: solid var(--navyBlue) 2px;
 
 }
 #bottom-index{
