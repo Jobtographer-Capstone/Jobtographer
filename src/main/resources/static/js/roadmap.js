@@ -10,7 +10,7 @@ const data = {
         label: 'My First Dataset',
         data: [progress, need],
         backgroundColor: [
-            'rgb(255, 99, 132)',
+            '#5CDB95',
             'gray'
         ],
         hoverOffset: 4

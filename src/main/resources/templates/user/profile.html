@@ -8,14 +8,14 @@
 <div class="main main-profile">
     <div id="profile" class="container main-profile">
         <!--Default Image-->
-        <div class="profile-div" th:if="${user.getImg() == null}">
+        <div class="profile-div shadow-lg" th:if="${user.getImg() == null}">
 
             <div class="p_img">
                 <img th:src="@{~/img/default_img.jpeg}" class="profile-img" alt="wow">
             </div>
             <!--           Profile Username-->
             <div class="flex align-items-start">
-                <h5 class="text-dark text-center" th:text="${user.getUsername()}"></h5>
+                <h5 class="text-dark text-center username" th:text="${user.getUsername()}"></h5>
                 <h6 th:text="${user.getEmail()}"></h6>
                 <a class="btn btn-outline-dark" id="defaultEdit" href="/update/user">Edit profile</a>
             </div>
@@ -23,14 +23,14 @@
         </div>
 
         <!--Uploaded image-->
-        <div class="profile-div" th:if="${user.getImg() != null}">
+        <div class="profile-div shadow-lg" th:if="${user.getImg() != null}">
 
             <div class="p_img">
                 <img th:src="${user.img}" class="profile-img" alt="wow">
             </div>
             <!--            Profile Username-->
             <div class="flex align-items-start">
-                <h5 class="text-dark text-center" th:text="${user.getUsername()}"></h5>
+                <h5 class="text-dark text-center username" th:text="${user.getUsername()}"></h5>
                 <h6 th:text="${user.getEmail()}"></h6>
                 <a class="btn btn-outline-dark" id="uploadEdit" href="/update/user">Edit profile</a>
             </div>
@@ -39,20 +39,20 @@
 
 <!--        Certs and Roadmaps-->
         <div id="certs-maps">
-           <div class="certs text-center">
-               <h3>Certifications <i class="fa-solid fa-award"></i></h3>
+           <div class="certs text-center shadow-lg">
+               <h3 class="cert-label">Certifications <i class="fa-solid fa-award"></i></h3>
                <h5>You have <span th:text="${certs.size()}"></span> certs</h5>
 
 
-                   <p class="" style="display: inline-block"><a
+                   <p class="cert-links" style="display: inline-block"><a
                            class="btn btn-outline-dark link-certs " href="/search/certification">Add a
                        certification</a>|<a class="btn btn-outline-dark link-certs "
                                             href="/certifications">Certifications</a>
                    </p>
            </div>
-           <div class="roadmap-profile">
+           <div class="roadmap-profile shadow-lg">
 
-               <h2>Most Recent Roadmap</h2>
+               <h2 class="rm-label">Most Recent Roadmap</h2>
 
                <div th:if="${roadmap == null}">
                    <div class="text-center">
@@ -60,7 +60,7 @@
                    </div>
                </div>
                <div th:if="${roadmap != null}"
-                    class="card text-center mx-auto shadow-lg p-3 bg-white rounded myProgress">
+                    class="text-center myProgress">
                    <div>
                        <a id="industryLink" th:href="@{/roadmaps/{id}(id=${roadmap.getId()})}">
                            <h5><span th:text="${roadmap.getCareer().toUpperCase()}"></span></h5>
