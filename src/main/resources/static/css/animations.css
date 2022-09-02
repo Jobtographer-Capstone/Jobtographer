@@ -1,0 +1,66 @@
+@media (prefers-reduced-motion: no-preference) {
+    .logo-spin:hover {
+        animation: spin infinite 20s linear;
+    }
+
+    .fade-in {
+        opacity: 1;
+        animation-name: fadeInOpacity;
+        animation-iteration-count: 1;
+        animation-timing-function: ease-in;
+        animation-duration: 2s;
+    }
+
+    .slide-left{
+        animation-duration: 2s;
+        animation-name: slideToLeft;
+    }
+
+    .slide-right{
+        animation-duration: 2s;
+        animation-name: slideToRight;
+    }
+}
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeInOpacity {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes slideToLeft {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+
+    to {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+
+@keyframes slideToRight {
+    from {
+        margin-right: 100%;
+        width: 300%;
+    }
+
+    to {
+        margin-right: 0;
+        width: 100%;
+    }
+}
