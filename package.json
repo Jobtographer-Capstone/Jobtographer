@@ -1,0 +1,7 @@
+{
+  "name": "Jobtographer",
+  "version": "1.0.0",
+  "dependencies": {
+    "apexcharts": "^3.35.5"
+  }
+}
