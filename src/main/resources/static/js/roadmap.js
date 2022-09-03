@@ -1,9 +1,10 @@
 let progress = document.querySelector("#progress-bar").innerHTML;
-let need  = 100 - progress;
+let need  = 100;
+need = need - progress;
 
 const data = {
     labels: [
-        'Progress','Not complete'
+        'Progress','Incomplete'
 
     ],
     datasets: [{

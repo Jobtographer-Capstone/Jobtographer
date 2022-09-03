@@ -1,14 +1,8 @@
 package com.capstone.jobtographer.contollers;
 
-import com.capstone.jobtographer.models.AppUser;
+import com.capstone.jobtographer.models.*;
 
-import com.capstone.jobtographer.models.Roadmap;
-import com.capstone.jobtographer.models.UserCert;
-import com.capstone.jobtographer.models.UserWithRoles;
-import com.capstone.jobtographer.repositories.CertificationRepository;
-import com.capstone.jobtographer.repositories.RoadmapRepository;
-import com.capstone.jobtographer.repositories.UserCertsRepository;
-import com.capstone.jobtographer.repositories.UserRepository;
+import com.capstone.jobtographer.repositories.*;
 import com.capstone.jobtographer.services.EmailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -34,6 +28,8 @@ public class UserController {
     private UserCertsRepository userCertsDao;
     @Autowired
     private CertificationRepository certsDao;
+    @Autowired
+    private RoadmapsCertsRepository roadmapsCertsDao;
 
     @Value("${CAREER_API_KEY}")
     private String CAREER_API_KEY;
@@ -74,6 +70,24 @@ public class UserController {
 
         Roadmap roadmap = roadmapsDao.findTopByUserOrderByIdDesc(user);
         model.addAttribute("roadmap", roadmap);
+        int have = 0;
+        int need = 0;
+        List<RoadmapCert> rcList = roadmapsCertsDao.findAllByRoadmap_id(roadmap.getId());
+        for (RoadmapCert rc : rcList) {
+            need += 1;
+            List<UserCert> uc = userCertsDao.findAllByUser_id(user.getId());
+            for (UserCert c : uc) {
+                if (c.getCert_id().getId().equals(rc.getCert_id().getId())) {
+                    have += 1;
+                }
+            }
+        }
+
+        double math = (double) have / need * 100;
+        int progress = (int) math;
+
+        roadmap.setProgress(progress);
+        roadmapsDao.save(roadmap);
 
 
         return "user/profile";
@@ -86,6 +100,7 @@ public class UserController {
         AppUser user = usersdao.findById(loggedIn.getId());
         model.addAttribute("FILESTACK_API_KEY", FILESTACK_API_KEY);
         usersdao.updateImg(pI, user.getUsername());
+
 
         return "redirect:/update/user";
     }

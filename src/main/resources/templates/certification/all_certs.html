@@ -4,7 +4,7 @@
 </head>
 <body>
 <nav th:replace="/partials/fragments :: navbar"></nav>
-<div class="main">
+<div class="main main-rd">
     <!--All User Certifications-->
     <div class="cert-main">
         <div class="cert-card shadow-lg" th:each="cert : ${certs}">
@@ -21,6 +21,10 @@
     </div>
 </div>
 <nav th:replace="partials/fragments :: page-bottom"></nav>
+<script th:inline="javascript">
+    document.querySelector(".main-rd").style.backgroundImage = "url('/img/background.jpg')";
+
+</script>
 <script th:replace="partials/fragments :: convert-name"></script>
 <footer th:replace="/partials/fragments :: footer"></footer>
 </body>

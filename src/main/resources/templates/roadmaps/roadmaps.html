@@ -5,39 +5,54 @@
 
 <body>
 <nav th:replace="partials/fragments :: navbar"></nav>
-<div class="main">
+<div class="main main-rd">
 
-<div id="roadmaps">
-    <!--Roadmap -->
-    <div th:each="roadmap: ${roadmaps}" class="card col-8 col-lg-8 text-center mx-auto shadow-lg p-3 mb-5 bg-white rounded myProgress">
+    <div id="roadmaps">
+        <!--Roadmap -->
+        <div th:each="roadmap: ${roadmaps}" class="col-8 text-center shadow-lg rd-page">
 
-        <div>
+            <div class="roadmap-all">
 
-            <h3><span th:text="${roadmap.getCareer().toUpperCase()}"></span></h3>
+                <div class="text-center myProgress">
+                    <div>
+                        <a id="industryLink" th:href="@{/roadmaps/{id}(id=${roadmap.getId()})}">
+                            <h5><span th:text="${roadmap.getCareer().toUpperCase()}"></span></h5>
+                        </a>
+                        <ul>
+                            <li> You are <span id="progress-bar" th:text="${roadmap.getProgress()}"></span>% Complete!
+                            </li>
+                        </ul>
+                    </div>
 
-            <p>You are <span id="progress-bar" th:text="${roadmap.getProgress()}"></span>% complete!</p>
-            <a id="career-Link" th:href="@{/roadmaps/{id}(id=${roadmap.getId()})}">
-                See more details
-            </a>
+                </div>
+                <div>
+                    <canvas id="myChart"></canvas>
+                </div>
 
+            </div>
+            <div>
+
+
+            </div>
         </div>
-
-</div>
-    <h1 class="create-rd" th:if="${roadmaps.isEmpty()}">Create</h1>
+    </div>
     <!--Link to Create a Roadmap-->
-    <div class="text-center">
+    <div class="text-center add-rd">
+        <h1 class="create-rd" th:if="${roadmaps.isEmpty()}">Create</h1>
         <a href="/create/roadmaps" id="newRoadmapLink"><i class="fa-solid fa-plus fa-2xl"></i></a>
     </div>
+
+
+    <nav th:replace="partials/fragments :: page-bottom"></nav>
 </div>
 
+    <script th:inline="javascript">
+        document.querySelector(".main-rd").style.backgroundImage = "url('/img/background.jpg')";
 
-
-<nav th:replace="partials/fragments :: page-bottom"></nav>
-</div>
-
-
-<script th:replace="partials/fragments :: convert-name"></script>
-<footer th:replace="partials/fragments :: footer"></footer>
-<script th:replace="partials/fragments :: progress-bar"></script>
+    </script>
+    <script th:src="@{~/js/roadmap.js}"></script>
+    <script th:replace="partials/fragments :: convert-name"></script>
+    <footer th:replace="partials/fragments :: footer"></footer>
+    <script th:replace="partials/fragments :: progress-bar"></script>
 </body>
 </html>
