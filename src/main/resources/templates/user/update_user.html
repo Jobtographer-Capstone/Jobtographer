@@ -6,66 +6,70 @@
 </head>
 <body>
 <nav th:replace="partials/fragments :: navbar"></nav>
-<!--Default Image-->
-<div id="headProfile" class="row justify-content-between">
-    <div class="profile-div col-sm-12 col-lg-3" th:if="${user.getImg() == null}">
+
+<div  class="main main-profile">
+    <div id="update-info">
+
+
+    <!--Default Img-->
+    <div class="profile-div update-profile-div shadow-lg" th:if="${user.getImg() == null}">
         <div class="p_img">
             <img class="profile-img" th:src="@{~/img/default_img.jpeg}" alt="wow">
         </div>
         <div class="flex align-items-start">
-            <h6 th:text="${user.getUsername()}"></h6>
-            <button type="button" id="defaultEdit" class="edit-img btn btn-outline-primary">Edit Profile Image</button>
+            <h6 class="username" th:text="${user.getUsername()}"></h6>
+            <button type="button" id="defaultEdit" class="edit-img btn ">Edit Profile Image</button>
         </div>
     </div>
     <!--uploaded image-->
-    <div class="profile-div col-sm-12 col-lg-3" th:if="${user.getImg() != null}">
+    <div class="profile-div update-profile-div shadow-lg" th:if="${user.getImg() != null}">
         <div class="p_img">
             <img class="profile-img" th:src="${user.img}" alt="wow">
         </div>
         <div class="flex align-items-start">
-            <h5 th:text="${user.getUsername()}"></h5>
-            <button type="button" id="uploadEdit" class="edit-img btn btn-outline-primary">Edit Profile Image</button>
+            <h5 class="username" th:text="${user.getUsername()}"></h5>
+            <button type="button" id="uploadEdit" class="edit-img btn ">Edit Profile Image</button>
 
         </div>
     </div>
 
-    <div class="col-6">
-        <div class="card ">
-            <h1>Update Profile Information</h1>
-            <form class="form-signin" th:method="post" th:action="@{/update/user}" th:object="${user}">
+<!--Update form-->
+        <div class="update-info shadow-lg text-center">
+            <h1 class="update-label">Update Profile Information</h1>
+            <form class=" form-profile" th:method="post" th:action="@{/update/user}" th:object="${user}">
                 <h2 th:if="${user == null}" class="form-signin-heading">Sign Up For An Account!</h2>
                 <p>
                     <label for="username">Username</label>
-                    <input type="text" id="username" name="username" class="form-control" placeholder="Username"
+                    <input type="text" id="username" name="username" class="" placeholder="Username"
                            required=""
                            autofocus="" th:field="*{username}">
                 </p>
                 <input type="hidden" th:field="*{img}">
                 <p>
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" class="form-control" placeholder="example@example.com"
+                    <input type="email" id="email" name="email" class="" placeholder="example@example.com"
                            required="" autofocus="" th:field="*{email}">
                 </p>
                 <p>
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password" class="form-control" placeholder="Password"
+                    <input type="password" id="password" name="password" class="" placeholder="Password"
                            th:field="*{password}">
                 </p>
                 <input type="hidden" th:field="*{id}">
 
                 <input name="_csrf" type="hidden" th:each="cookie: ${#httpServletRequest.cookies}"
                        th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
-                <button class="btn btn-lg btn-primary btn-block" type="submit">update</button>
+                <button class="btn btn-block" type="submit">update</button>
 
                 <input name="_csrf" type="hidden" th:each="cookie: ${#httpServletRequest.cookies}"
                        th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
-                <button  th:action="@{/profile.html}" class="btn btn-lg btn-primary btn-block" type="submit">Cancel</button>
+                <button  th:action="@{/profile.html}" class="btn btn-block" type="submit">Cancel</button>
 
 
 
 
             </form>
-            <a class="col-12" href="" id="deleteAccount">Delete Account</a>
+            <a class="delete" href="" id="deleteAccount">Delete Account</a>
         </div>
         <!--        File stack.Js-->
         <form class="myForm" th:action="@{/profile}" method="post">
@@ -73,6 +77,7 @@
                    th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
         </form>
     </div>
+    <div th:replace="partials/fragments :: page-bottom"></div>
 </div>
 <footer th:replace="partials/fragments :: footer"></footer>
 <script th:inline="javascript">

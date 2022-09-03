@@ -1,0 +1,15 @@
+.cert-card {
+    background: #edf5e1;
+    padding: 1em;
+    margin: 1em;
+}
+.cert-main{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+}
+.cert-name{
+    font-family: var(--title);
+}

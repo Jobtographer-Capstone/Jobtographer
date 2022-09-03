@@ -4,23 +4,27 @@
 </head>
 <body>
 <nav th:replace="/partials/fragments :: navbar"></nav>
-<div class="main row">
+<div class="main main-rd">
     <!--All User Certifications-->
-    <div class="col-lg-6">
-        <div class=" col-lg-6 card w-50 m-1 p-1" th:each="cert : ${certs}">
+    <div class="cert-main">
+        <div class="cert-card shadow-lg" th:each="cert : ${certs}">
 
-            <h1 class="cert-name" th:text="${cert.getCert_id().getCertificationName()}"></h1>
+            <h1 class="cert-name"><span th:text="${cert.getCert_id().getCertificationName()}"></span></h1>
             <p th:text="${cert.expDate}"></p>
             <a th:href="@{/delete/certification/{id}(id = ${cert.getId()})}">Remove</a>
 
         </div>
     </div>
-    <div class="col-lg-6">
+    <div class="">
         <a href="/search/certification">Add a certification +</a>
 
     </div>
 </div>
 <nav th:replace="partials/fragments :: page-bottom"></nav>
+<script th:inline="javascript">
+    document.querySelector(".main-rd").style.backgroundImage = "url('/img/background.jpg')";
+
+</script>
 <script th:replace="partials/fragments :: convert-name"></script>
 <footer th:replace="/partials/fragments :: footer"></footer>
 </body>
