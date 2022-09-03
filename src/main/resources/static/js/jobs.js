@@ -253,7 +253,12 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
                     if (j < 10) {
                         //Each individual cert seperated by a space
-                        c.innerHTML += cd[i + change][j].Id + " "
+                        c.innerHTML +=
+                            `
+                                <p>${cd[i + change][j].Name}</p>
+                                <input name="certID" type="hidden" value="${cd[i + change][j].Id}" />
+                            `;
+
                     }
                 }
 
@@ -296,33 +301,6 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
     htmlBuilder(certData, occData)
 //###########################//
-
-    // SETTING UP THE FORM FOR STORING ROADMAP DATA
-    document.querySelectorAll('.startRoadMap').forEach((button, i) => {
-        let company = document.querySelectorAll('.job_Company').item(i)
-        let title = document.querySelectorAll('.job_Title').item(i)
-        let outlook = document.querySelectorAll('.job_Outlook').item(i)
-        let wages = document.querySelectorAll('.job_Wages').item(i)
-        let certs = document.querySelectorAll('.job_Certs').item(i)
-
-        button.addEventListener('click', () => {
-
-            document.querySelector('.job_Form').innerHTML +=
-                `
-
-
-                <input type="hidden" name="title" value="${title.innerHTML}" />
-<!--                <input type="hidden" name="outlook" value="" />-->
-                <input type="hidden" name="wages" value="${wages.innerHTML}" />
-                <input type="hidden" name="certs" value="${certs.innerHTML}" />
-            `;
-
-            document.querySelector('.job_Form').submit();
-        })
-//###########################//
-    })
-//###########################//
-
 
     // NEXT BUTTON CLICK EVENT
     function nextButtonEvent() {
@@ -381,3 +359,39 @@ document.querySelector('#job-search').addEventListener('click', () => {
 //###########################//
 
 })
+
+// SETTING UP THE FORM FOR STORING ROADMAP DATA
+document.querySelectorAll('.startRoadMap').forEach((button, i) => {
+    // let certs = document.querySelectorAll('.cert_Id')
+    // certs.forEach(cert => console.log(cert))
+    button.addEventListener('click', () => {
+        let company = document.querySelectorAll('.job_Company').item(i)
+        let title = document.querySelectorAll('.job_Title').item(i)
+        let outlook = document.querySelectorAll('.job_Outlook').item(i)
+        let wages = document.querySelectorAll('.job_Wages').item(i)
+        let certs = document.querySelectorAll('.job_Certs').item(i)
+
+        console.log('clicked')
+        console.log(wages)
+
+
+
+        document.querySelector('.job_Form').innerHTML +=
+            `
+                <input type="hidden" name="title" value="${title.innerHTML}" />
+<!--                <input type="hidden" name="outlook" value="" />-->
+                <input type="hidden" name="wages" value="${wages.innerHTML}" />
+                `;
+
+        for (let child of certs.children) {
+            if (child.hasAttribute("name")) {
+                document.querySelector('.job_Form').innerHTML += `<input type="hidden" name="certs" value="${child.value}" />`
+            }
+        }
+
+
+        document.querySelector('.job_Form').submit();
+    })
+//###########################//
+})
+//###########################//
