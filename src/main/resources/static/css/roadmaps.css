@@ -4,6 +4,16 @@
     border: none;
 
 }
+.create-rd{
+    font-family: var(--title);
+}
+#roadmaps{
+flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 #progress-bar{
     font-family: var(--title);
 }
@@ -88,6 +98,6 @@
 
     flex-grow: 1;
 }
-/*body{*/
-/*    background: lightgoldenrodyellow;*/
-/*}*/
+.create-roadmap{
+    flex-grow: 1;
+}

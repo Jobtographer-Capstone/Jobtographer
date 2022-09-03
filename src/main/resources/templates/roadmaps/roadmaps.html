@@ -5,33 +5,35 @@
 
 <body>
 <nav th:replace="partials/fragments :: navbar"></nav>
+<div class="main">
 
-<!--Roadmap -->
-<div th:each="roadmap: ${roadmaps}" class="card col-8 col-lg-8 text-center mx-auto shadow-lg p-3 mb-5 bg-white rounded myProgress">
+<div id="roadmaps">
+    <!--Roadmap -->
+    <div th:each="roadmap: ${roadmaps}" class="card col-8 col-lg-8 text-center mx-auto shadow-lg p-3 mb-5 bg-white rounded myProgress">
 
-    <div>
+        <div>
 
             <h3><span th:text="${roadmap.getCareer().toUpperCase()}"></span></h3>
 
-        <p>You are <span id="progress-bar" th:text="${roadmap.getProgress()}"></span>% complete!</p>
-        <a id="career-Link" th:href="@{/roadmaps/{id}(id=${roadmap.getId()})}">
-            See more details
-        </a>
+            <p>You are <span id="progress-bar" th:text="${roadmap.getProgress()}"></span>% complete!</p>
+            <a id="career-Link" th:href="@{/roadmaps/{id}(id=${roadmap.getId()})}">
+                See more details
+            </a>
 
+        </div>
+
+</div>
+    <h1 class="create-rd" th:if="${roadmaps.isEmpty()}">Create</h1>
+    <!--Link to Create a Roadmap-->
+    <div class="text-center">
+        <a href="/create/roadmaps" id="newRoadmapLink"><i class="fa-solid fa-plus fa-2xl"></i></a>
     </div>
-<!--    <div class="progress red-bar" style="height: 100px">-->
-<!--        <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" aria-label="Danger striped example"-->
-<!--             style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">-->
-<!--        </div>-->
-<!--    </div>-->
 </div>
 
-<!--Link to Create a Roadmap-->
-<div class="text-center">
-    <a href="/create/roadmaps" id="newRoadmapLink"><i class="fa-solid fa-plus fa-2xl"></i></a>
-</div>
+
 
 <nav th:replace="partials/fragments :: page-bottom"></nav>
+</div>
 
 
 <script th:replace="partials/fragments :: convert-name"></script>

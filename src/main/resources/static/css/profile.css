@@ -35,7 +35,9 @@
     /*height: 20%;*/
     margin-bottom: 1em;
 }
-
+.delete{
+    color: var(--redBrown);
+}
 .expDate{
     font-size: 14px;
 }

@@ -17,8 +17,8 @@
             <img class="profile-img" th:src="@{~/img/default_img.jpeg}" alt="wow">
         </div>
         <div class="flex align-items-start">
-            <h6 th:text="${user.getUsername()}"></h6>
-            <button type="button" id="defaultEdit" class="edit-img btn btn-outline-primary">Edit Profile Image</button>
+            <h6 class="username" th:text="${user.getUsername()}"></h6>
+            <button type="button" id="defaultEdit" class="edit-img btn ">Edit Profile Image</button>
         </div>
     </div>
     <!--uploaded image-->
@@ -27,8 +27,8 @@
             <img class="profile-img" th:src="${user.img}" alt="wow">
         </div>
         <div class="flex align-items-start">
-            <h5 th:text="${user.getUsername()}"></h5>
-            <button type="button" id="uploadEdit" class="edit-img btn btn-outline-primary">Edit Profile Image</button>
+            <h5 class="username" th:text="${user.getUsername()}"></h5>
+            <button type="button" id="uploadEdit" class="edit-img btn ">Edit Profile Image</button>
 
         </div>
     </div>
@@ -69,7 +69,7 @@
 
 
             </form>
-            <a class="col-12" href="" id="deleteAccount">Delete Account</a>
+            <a class="delete" href="" id="deleteAccount">Delete Account</a>
         </div>
         <!--        File stack.Js-->
         <form class="myForm" th:action="@{/profile}" method="post">

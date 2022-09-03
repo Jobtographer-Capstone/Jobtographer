@@ -6,10 +6,8 @@
 </head>
 <body>
 <nav th:replace="partials/fragments :: navbar"></nav>
-
-<div class="container">
-
-
+<div class="main">
+<div class="container create-roadmap">
     <ul class="nav nav-tabs" id="create-roadmap" role="tablist">
         <li class="nav-item" role="presentation">
             <button class="nav-link active" id="roadmap-tab" data-bs-toggle="tab" data-bs-target="#roadmap"
@@ -26,11 +24,6 @@
         <div class="tab-pane fade show active" id="roadmap" role="tabpanel" aria-labelledby="roadmap-tab">
             <div class="form" th:method="post" th:action="@{/create/roadmaps}" th:object="${roadmap}">
                 <h2 class="form-heading text-center">Create Your Roadmap</h2>
-                <!--        <p>-->
-                <!--            <label for="industry" class="sr-only">Industry</label>-->
-                <!--            <input type="text" id="industry" name="industry" class="form-control" placeholder="industry" required=""-->
-                <!--                   autofocus="" th:field="*{industry}">-->
-                <!--        </p>-->
                 <div>
                     <h4>Career</h4>
                     <div th:if="${roadmap.getCareer() == null}">
@@ -71,13 +64,17 @@
 
                         <div class="circle-container">
 
-                            <div class="divider-div"><hr class="divider"></div>
+                            <div class="divider-div">
+                                <hr class="divider">
+                            </div>
 
-                        <div class="circle"
-                             style="background: #E41134">
-                        </div>
+                            <div class="circle"
+                                 style="background: #E41134">
+                            </div>
 
-                            <div class="divider-div"><hr class="divider"></div>
+                            <div class="divider-div">
+                                <hr class="divider">
+                            </div>
 
                         </div>
 
@@ -90,8 +87,9 @@
         </div>
     </div>
 
-    <nav th:replace="partials/fragments :: page-bottom"></nav>
 
+</div>
+<nav th:replace="partials/fragments :: page-bottom"></nav>
 </div>
 
 <footer th:replace="partials/fragments :: footer"></footer>
@@ -100,19 +98,19 @@
 <script th:replace="partials/fragments :: convert-name"></script>
 <script th:replace="partials/fragments :: jobs"></script>
 <script type="text/javascript">
-   let tms = document.querySelectorAll(".divider-div");
-   let i= 0;
-   for(let tm of tms){
-       if(i === 0){
-           tm.style.borderLeft = "solid black 5px";
-           console.log("hello ?" + tm[i])
-       }
-       if(i === tms.length -1){
-           tm.style.borderRight = "solid black 5px";
-       }
+    let tms = document.querySelectorAll(".divider-div");
+    let i = 0;
+    for (let tm of tms) {
+        if (i === 0) {
+            tm.style.borderLeft = "solid black 5px";
+            console.log("hello ?" + tm[i])
+        }
+        if (i === tms.length - 1) {
+            tm.style.borderRight = "solid black 5px";
+        }
 
-       i++;
-   }
+        i++;
+    }
 </script>
 
 
