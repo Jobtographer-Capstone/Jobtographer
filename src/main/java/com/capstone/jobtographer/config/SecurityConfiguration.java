@@ -47,6 +47,7 @@ private UserRepository usersdao;
                         "/logout",
                         "/roadmaps",
                         "/create/roadmaps",
+                        "/create/roadmaps/{id}",
                         "/roadmaps/{id}",
                         "/delete/roadmaps/{id}",
                         "/update/roadmaps/{id}",
@@ -60,7 +61,7 @@ private UserRepository usersdao;
                 .and()
                 .authorizeRequests()
 //
-                .antMatchers("/")
+                .antMatchers("/" , "/register" ,"/login")
                 .permitAll()
                 .and()
                 .build();
