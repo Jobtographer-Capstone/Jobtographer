@@ -205,14 +205,10 @@
 
 <div id="populate" class="jobs" th:fragment="populate">
 <div class="populate"></div>
-    <div class=" job_Buttons">
+    <div class="job_Buttons">
         <button class="prevB btn " type="button">Prev</button>
         <button class=" nextB btn" type="button">Next</button>
 
-    </div>
-    <div class="loadButtons">
-        <button class="loadPrev btn " type="button">Load Prev</button>
-        <button class="loadMore btn " type="button">Load Next</button>
     </div>
 
     <form class="job_Form" th:action="@{/create/roadmaps}" method="post">
@@ -223,7 +219,7 @@
 
 
 <!--Footer-->
-<nav th:fragment="page-bottom" id="page-bottom" class="navbar navbar-expand navbar-dark">
+<nav th:fragment="page-bottom-one" id="page-bottom" class="navbar navbar-expand navbar-dark">
     <div class="container-fluid text-center">
         <ul class="navbar-nav mx-auto" id="bottom-list">
             <li class="nav-item">
@@ -239,6 +235,96 @@
         </ul>
     </div>
 </nav>
+
+<div th:fragment="page-bottom-two" id="footer-bottom" class="container">
+    <hr class="mx-auto">
+    <!-- Footer -->
+    <div class="text-center text-lg-start text-black" style="background-color: #f9f5f4">
+        <!-- Grid container -->
+        <div id="page-bottom-container" class="container p-4 pb-0">
+            <!-- Section: Links -->
+            <section class="">
+                <!--Grid row-->
+                <div class="row">
+                    <!--Grid column-->
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4 mb-md-0 text-center">
+                        <h5 class="text-uppercase">FOOTER CONTENT</h5>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                            Molestiae modi cum ipsam ad, illo possimus laborum ut
+                            reiciendis obcaecati. Ducimus, quas. Corrupti, pariatur eaque?
+                            Reiciendis assumenda iusto sapiente inventore animi?
+                        </p>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-xl-6 col-lg-6 col-md-6 mb-4 mb-md-0">
+                        <ul class="footer-links">
+                            <li>
+                                <h6 class="text-uppercase text-center footer-content">
+                                    <a class="text-black" aria-current="page" href="/about">About Jobtographer</a>
+                                </h6>
+                            </li>
+                            <li>
+                                <h6 class="text-uppercase text-center footer-content">
+                                    <a class="text-black" href="#">FAQs</a>
+                                </h6>
+                            </li>
+                            <li>
+                                <h6 class="text-uppercase text-center footer-content">
+                                    <a class="text-black" href="#">Data Sources & Useful Links</a>
+                                </h6>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <!--                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">-->
+                    <!--                        -->
+                    <!--                    </div>-->
+                    <!--                    &lt;!&ndash;Grid column&ndash;&gt;-->
+
+                    <!--                    &lt;!&ndash;Grid column&ndash;&gt;-->
+                    <!--                    <div class="col-lg-3 col-md-6 mb-4 mb-md-0">-->
+                    <!--                        -->
+                    <!--                    </div>-->
+                    <!--                    &lt;!&ndash;Grid column&ndash;&gt;-->
+                    <!--                    &lt;!&ndash;Grid column&ndash;&gt;-->
+                </div>
+                <!--Grid row-->
+            </section>
+            <!-- Section: Links -->
+
+            <hr class="mx-auto"/>
+
+            <!-- Section: CTA -->
+            <section class="">
+                <p class="d-flex justify-content-center align-items-center">
+                    <span class="me-3">Register for free</span>
+                    <button id="footer-signup" type="button" class="btn btn-outline-dark shadow">
+                        Sign up!
+                    </button>
+                </p>
+            </section>
+            <!-- Section: CTA -->
+
+            <hr class="mx-auto"/>
+
+            <!-- Section: Social media -->
+            <section class="mb-4 text-center">
+                <!-- Github -->
+                <a id="github-button" class="btn btn-outline-light btn-floating shadow m-1" href="https://github.com/Jobtographer-Capstone/Jobtographer" role="button">
+                    <i class="fab fa-github"></i>
+                </a>
+            </section>
+            <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+    </div>
+    <!-- Footer -->
+</div>
 
 <!--Common Scripts-->
 <footer th:fragment="footer">
