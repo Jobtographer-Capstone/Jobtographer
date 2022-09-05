@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/fragments :: head('Home')">
+    <meta charset="UTF-8">
+    <title>Error</title>
+</head>
+<body>
+
+<h1>Something went wrong! </h1>
+<h2>Our Engineers are on it</h2>
+<a href="/">Go Home</a>
+
+<script th:src="@{~/js/error.js}"></script>
+
+</body>
+</html>
