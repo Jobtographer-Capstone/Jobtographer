@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/fragments :: head('Search')">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<nav th:replace="partials/fragments :: navbar"></nav>
+<div class="main main-job">
+    <div th:replace="partials/fragments :: search-jobs"></div>
+
+    <div th:replace="partials/fragments :: populate"></div>
+
+</div>
+<div th:replace="partials/fragments :: page-bottom"></div>
+<footer th:replace="partials/fragments :: footer"></footer>
+<script th:replace="partials/fragments :: convert-name"></script>
+<script th:replace="partials/fragments :: jobs"></script>
+
+</body>
+</html>

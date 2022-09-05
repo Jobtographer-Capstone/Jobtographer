@@ -1,61 +1,38 @@
-/** {*/
-/*    margin: 0;*/
-/*    padding: 0;*/
-/*}*/
+.search-jobs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5em;
 
-/*.job_Info{*/
-/*    display: flex;*/
-/*}*/
 
-/*.job_Card {*/
-/*    border: var(--highlight);*/
-/*    position: relative;*/
-/*    background: var(--primary);*/
-/*    color: var(--accent);*/
-/*    top: 50vh;*/
-/*    height: 50vh;*/
-/*    width: 20vw;*/
-/*    display: grid;*/
-/*    grid-template-areas:*/
-/*                    'company'*/
-/*                    'title'*/
-/*                    'outlook'*/
-/*                    'wages'*/
-/*                    'certs';*/
-/*    grid-template-rows: repeat(5, 1fr);*/
-/*}*/
+}
+.job-card-populate{
+    background: #edf5e1;
+    padding: 1em;
+    margin: 1em;
+    width: 75%;
+    /*height: 40%;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: start;
+}
+.populate{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 
-/*.job_Company {*/
-/*    grid-area: company;*/
-
-/*}*/
-
-/*.job_Title {*/
-/*    grid-area: title;*/
-
-/*}*/
-
-/*.job_Outlook{*/
-/*    grid-area: outlook;*/
-/*}*/
-
-/*.job_Wages{*/
-/*    grid-area: wages;*/
-/*}*/
-
-/*.job_Certs{*/
-/*    grid-area: certs;*/
-/*}*/
-/*.job_Buttons{*/
-/*    grid-area: buttons;*/
-/*    display: flex;*/
-/*    justify-content: space-around;*/
-/*    position: relative;*/
-/*    top: 50vh;*/
-/*}*/
-/*.prevB{*/
-/*    width: 100%;*/
-/*}*/
-/*.nextB{*/
-/*    width: 100%;*/
-/*}*/
+}
+#populate{
+    display: flex;
+    flex-direction: column;
+    /*justify-content: start;*/
+    align-items: center;
+    /*flex-grow: 1;*/
+}
+.main-job{
+    justify-content: center;
+    align-items: center;
+}
