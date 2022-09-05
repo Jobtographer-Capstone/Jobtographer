@@ -70,24 +70,27 @@ public class UserController {
 
         Roadmap roadmap = roadmapsDao.findTopByUserOrderByIdDesc(user);
         model.addAttribute("roadmap", roadmap);
-        int have = 0;
-        int need = 0;
-        List<RoadmapCert> rcList = roadmapsCertsDao.findAllByRoadmap_id(roadmap.getId());
-        for (RoadmapCert rc : rcList) {
-            need += 1;
-            List<UserCert> uc = userCertsDao.findAllByUser_id(user.getId());
-            for (UserCert c : uc) {
-                if (c.getCert_id().getId().equals(rc.getCert_id().getId())) {
-                    have += 1;
+        if(roadmap != null){
+            int have = 0;
+            int need = 0;
+            List<RoadmapCert> rcList = roadmapsCertsDao.findAllByRoadmap_id(roadmap.getId());
+            for (RoadmapCert rc : rcList) {
+                need += 1;
+                List<UserCert> uc = userCertsDao.findAllByUser_id(user.getId());
+                for (UserCert c : uc) {
+                    if (c.getCert_id().getId().equals(rc.getCert_id().getId())) {
+                        have += 1;
+                    }
                 }
             }
+
+            double math = (double) have / need * 100;
+            int progress = (int) math;
+
+            roadmap.setProgress(progress);
+            roadmapsDao.save(roadmap);
         }
 
-        double math = (double) have / need * 100;
-        int progress = (int) math;
-
-        roadmap.setProgress(progress);
-        roadmapsDao.save(roadmap);
 
 
         return "user/profile";
