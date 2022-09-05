@@ -3,10 +3,82 @@
 <head th:replace="partials/fragments :: head('About')">
 </head>
 <body>
-<nav th:replace="partials/fragments :: navbar"></nav>
-<div>
 
-    <section>
+<nav th:replace="partials/fragments :: navbar"></nav>
+
+    <div class="container text-center" style="background-color: tan">
+
+<!--            ////column for the center-->
+            <div class="row">
+<!--            // card 1 start-->
+                <section class="card col-4 me-auto" style="width: 18rem;">
+                    <img class="mt-1 ms-5 ppl-img" src="https://media-exp1.licdn.com/dms/image/C5603AQHb0_bnGzdjhw/profile-displayphoto-shrink_800_800/0/1661878075262?e=1667433600&v=beta&t=D8A33p7h6UiYN5CcU2CCmtGThFVB_j_ghoFIyG6xy1M" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Michael Sigg</h5>
+                        <p class="card-text"></p>
+                        <p class="text-center">
+                            <a href="https://www.linkedin.com/in/mjsigg/"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+                            <a href="https://www.linkedin.com/in/mjsigg/"><i class="fa-brands fa-github fa-xl"></i></a>
+                        </p>
+                    </div>
+                </section>
+<!--                //card 1 end-->
+
+<!--                card 2 start-->
+                <section class="card col-4 me-auto" style="width: 18rem;">
+                    <img class="mt-1 ppl-img" src="https://media-exp1.licdn.com/dms/image/C4E03AQFKVUtodBPhRw/profile-displayphoto-shrink_800_800/0/1655481324802?e=1667433600&v=beta&t=_hBYBe2mhXk2j3MTVcOnYJZRiW1RbDwTMe3TDlphTWI" alt="" >
+                    <div class="card-body">
+                        <h5 class="card-title">Michael Sigg</h5>
+                        <p class="card-text"></p>
+                        <p class="text-center">
+                            <a href="https://www.linkedin.com/in/mjsigg/"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+                            <a href="https://www.linkedin.com/in/mjsigg/"><i class="fa-brands fa-github fa-xl"></i></a>
+                        </p>
+                    </div>
+                </section>
+<!--                card 2 end-->
+
+<!--                card 3-->
+                <section class="card col-4" style="width: 18rem;">
+                    <img class="mt-1 ms-5 ppl-img" src="https://media-exp1.licdn.com/dms/image/C5603AQHb0_bnGzdjhw/profile-displayphoto-shrink_800_800/0/1661878075262?e=1667433600&v=beta&t=D8A33p7h6UiYN5CcU2CCmtGThFVB_j_ghoFIyG6xy1M" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Michael Sigg</h5>
+                        <p class="card-text"></p>
+                        <p class="text-center">
+                            <a href="https://www.linkedin.com/in/mjsigg/"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+                            <a href="https://www.linkedin.com/in/mjsigg/"><i class="fa-brands fa-github fa-xl"></i></a>
+                        </p>
+                    </div>
+                </section>
+                <hr class="disabled">
+<!--                card 4 start-->
+                <section class="card col-2" style="width: 18rem;">
+                    <img class="mt-1 ms-5 ppl-img" src="https://media-exp1.licdn.com/dms/image/C5603AQHb0_bnGzdjhw/profile-displayphoto-shrink_800_800/0/1661878075262?e=1667433600&v=beta&t=D8A33p7h6UiYN5CcU2CCmtGThFVB_j_ghoFIyG6xy1M" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Michael Sigg</h5>
+                        <p class="card-text"></p>
+                        <p class="text-center">
+                            <a href="https://www.linkedin.com/in/mjsigg/"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+                            <a href="https://www.linkedin.com/in/mjsigg/"><i class="fa-brands fa-github fa-xl"></i></a>
+                        </p>
+                    </div>
+                </section>
+<!--                card 4 end-->
+
+<!--                card 5 start-->
+                <section class="card col-2" style="width: 18rem;">
+                    <img class="mt-1 ms-5 ppl-img" src="https://media-exp1.licdn.com/dms/image/C5603AQHb0_bnGzdjhw/profile-displayphoto-shrink_800_800/0/1661878075262?e=1667433600&v=beta&t=D8A33p7h6UiYN5CcU2CCmtGThFVB_j_ghoFIyG6xy1M" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title">Michael Sigg</h5>
+                        <p class="card-text"></p>
+                        <p class="text-center">
+                            <a href="https://www.linkedin.com/in/mjsigg/"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+                            <a href="https://www.linkedin.com/in/mjsigg/"><i class="fa-brands fa-github fa-xl"></i></a>
+                        </p>
+                    </div>
+                </section>
+<!--                card 5 end -->
+
 
         <div class="d-flex flex-column gap-3 container-fluid text-center position-relative" >
             <div id="background-image-target"></div>
@@ -134,16 +206,14 @@
                 </div>
             </div>
 
-
             <hr class="featurette-divider">
 
             <!-- /END THE FEATURETTES -->
 
         </div><!-- /.container -->
-    </section>
 
-    <div th:replace="partials/fragments :: page-bottom"></div>
-</div>
+<div th:replace="partials/fragments :: page-bottom"></div>
 <footer th:replace="partials/fragments :: footer"></footer>
+
 </body>
 </html>
