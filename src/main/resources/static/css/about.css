@@ -33,6 +33,7 @@
     height: 150px;
     border-radius: 50%;
     box-shadow: white;
+    border: #05386B solid 3px;
 }
 
 .whole-card{
@@ -40,9 +41,14 @@
     box-shadow: 5px 5px;
 }
 
-.card{
-    background-color: #BDDAC1;
-    border: white;
+.about-card{
+    background-color: #EDF5E1;
+    margin: 1em;
+    padding: 1em;
+}
+
+.social-links {
+    margin-top: 5em;
 }
 
 
