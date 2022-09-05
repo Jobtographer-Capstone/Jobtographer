@@ -1,0 +1,15 @@
+#page-bottom-container {
+    background: var(--mintGreen);
+}
+
+#footer-bottom {
+    padding-top: 5em;
+}
+
+#github-button {
+    background: black;
+}
+
+#github-button:hover{
+    color: white;
+}
