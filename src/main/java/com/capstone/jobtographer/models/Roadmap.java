@@ -1,5 +1,7 @@
 package com.capstone.jobtographer.models;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
 import java.util.List;
 
