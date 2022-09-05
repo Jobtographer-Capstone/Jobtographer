@@ -1,11 +1,16 @@
+body{
+    min-height: 100vh;
+}
 #profile{
     display: flex;
-    flex-direction: row;
-    margin-left: 5em;
-    height: 100vh;
-    justify-content: start;
+    flex-direction: column;
+    /*margin-left: 5em;*/
+    /*height: 100vh;*/
+    /*justify-content: start;*/
+    flex-grow: 1;
 
 }
+
 .profile-img{
     width: 200px;
     height: 200px;
@@ -18,7 +23,8 @@
     justify-content: start;
     align-items: center;
     background-color: #EDF5E1;
-    margin: 1em;
+    padding: .5em;
+    margin:1em 5em;
 }
 .update-profile-div{
     width: 80%;
@@ -92,7 +98,7 @@
     justify-content: center;
     align-items: center;
     background: transparent;
-    margin:.5em;
+    margin:.5em 3em;
 
 }
 .main-profile{
@@ -106,7 +112,7 @@
 }
 .update-info{
     background: #edf5e1;
-    width: 50%;
+    width: 70%;
 
 }
 #update-info{
@@ -116,7 +122,22 @@
     flex-grow: 1;
 
 }
+@media screen and (min-width:992px) {
 
+    #profile{
+        flex-direction: row;
+        margin-left: 5em;
+        /*height: 100vh;*/
+        justify-content: start;
+    }
+    .profile-div{
+        margin: 1em;
+    }
+    #certs-maps{
+        margin: .5em;
+    }
+
+}
 
 
 
