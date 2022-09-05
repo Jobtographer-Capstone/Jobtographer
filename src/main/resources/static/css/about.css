@@ -47,8 +47,28 @@
     padding: 1em;
 }
 
-.social-links {
-    margin-top: 5em;
+.card-body > h5{
+    /*font: var(--title);*/
+    font-size: 30px;
+    color: #05386B;
 }
 
+.social-links {
+    margin-top: 2em;
+    /*padding: 1.5em;*/
+}
+
+.social-links > * {
+    margin: .25em;
+}
+
+.about-title{
+    color: #05386B;
+}
+
+.card-title > p{
+    margin-top: .5em;
+    font-size: 18px;
+
+}
 
