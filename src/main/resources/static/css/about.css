@@ -1,201 +1,74 @@
-.slider-about {
-    width: 100%;
-    height: 150px;
-}
 
-.slider-about input {
-    display: none;
-}
 
-.about-carousel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    min-height: 750px;
-    perspective: 1000px;
-    overflow: hidden;
-    margin-bottom: 1em;
-}
-.about-carousel .item {
-    top: 0;
+#background-image-target {
     position: absolute;
-    box-sizing: border-box;
-    background-color: #FFFFFF;
-    padding: 30px;
-    width: 450px;
-    text-align: center;
-    transition: transform 0.4s;
-    -webkit-transform-style: preserve-3d;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    user-select: none;
-    cursor: pointer;
-    margin-top: 1em;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-size: cover;
+    opacity: 1;
+    background-position: center;
+    /*background-image: url("https://images.unsplash.com/photo-1579724984996-c2d12999e8f6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1064&q=80");*/
+    z-index: -1;
+
 }
-.about-carousel .item img {
-    width: 100px;
+
+#background-image-target > * {
+    position: relative;
+
+}
+
+#background-image-target:before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /*background-color: hsla(213, 54%, 50%, 0.1);*/
+    background-color: #bddac1;
+}
+
+
+.ppl-img{
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
-    border: 13px solid #3B344D;
-}
-.about-carousel .item p {
-    color: #ddd;
-}
-.about-carousel .item h2 {
-    font-size: 14px;
+    box-shadow: white;
+    border: #05386B solid 3px;
 }
 
-.dots {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.whole-card{
+    background-color: whitesmoke;
+    box-shadow: 5px 5px;
 }
 
-.dots label {
-    display: block;
-    height: 5px;
-    width: 5px;
-    border-radius: 50%;
-    cursor: pointer;
-    background-color: #413B52;
-    margin: 7px;
-    transition: transform 0.2s, color 0.2s;
+.about-card{
+    background-color: #EDF5E1;
+    margin: 1em;
+    padding: 1em;
 }
 
-/* First */
-#t-1:checked ~ .dots label[for="t-1"] {
-    transform: scale(2);
-    background-color: #fff;
-}
-#t-1:checked ~ .dots label[for="t-2"] {
-    transform: scale(1.5);
-}
-#t-1:checked ~ .about-carousel label[for="t-1"] {
-    z-index: 4;
-}
-#t-1:checked ~ .about-carousel label[for="t-2"] {
-    transform: translateX(300px) translateZ(-90px) rotateY(-15deg);
-    z-index: 3;
-}
-    #t-1:checked ~ .about-carousel label[for="t-3"] {
-    transform: translateX(600px) translateZ(-180px) rotateY(-25deg);
-    z-index: 2;
-}
-#t-1:checked ~ .about-carousel label[for="t-4"] {
-    transform: translateX(900px) translateZ(-270px) rotateY(-35deg);
-    z-index: 1;
-}
-#t-1:checked ~ .about-carousel label[for="t-5"] {
-    transform: translateX(1200px) translateZ(-360px) rotateY(-45deg);
+.card-body > h5{
+    /*font: var(--title);*/
+    font-size: 30px;
+    color: #05386B;
 }
 
-/* Second */
-#t-2:checked ~ .dots label[for="t-1"] {
-    transform: scale(1.5);
-}
-#t-2:checked ~ .dots label[for="t-2"] {
-    transform: scale(2);
-    background-color: #fff;
-}
-#t-2:checked ~ .dots label[for="t-3"] {
-    transform: scale(1.5);
-}
-#t-2:checked ~ .about-carousel label[for="t-1"] {
-    transform: translateX(-300px) translateZ(-90px) rotateY(15deg);
-}
-#t-2:checked ~ .about-carousel label[for="t-2"] {
-    z-index: 3;
-}
-#t-2:checked ~ .about-carousel label[for="t-3"] {
-    transform: translateX(300px) translateZ(-90px) rotateY(-15deg);
-    z-index: 2;
-}
-#t-2:checked ~ .about-carousel label[for="t-4"] {
-    transform: translateX(600px) translateZ(-180px) rotateY(-25deg);
-    z-index: 1;
-}
-#t-2:checked ~ .about-carousel label[for="t-5"] {
-    transform: translateX(900px) translateZ(-270px) rotateY(-35deg);
+.social-links {
+    margin-top: 2em;
+    /*padding: 1.5em;*/
 }
 
-/* Third */
-#t-3:checked ~ .dots label[for="t-2"] {
-    transform: scale(1.5);
-}
-#t-3:checked ~ .dots label[for="t-3"] {
-    transform: scale(2);
-    background-color: #fff;
-}
-#t-3:checked ~ .dots label[for="t-4"] {
-    transform: scale(1.5);
-}
-#t-3:checked ~ .about-carousel label[for="t-1"] {
-    transform: translateX(-600px) translateZ(-180px) rotateY(25deg);
-}
-#t-3:checked ~ .about-carousel label[for="t-2"] {
-    transform: translateX(-300px) translateZ(-90px) rotateY(15deg);
-}
-#t-3:checked ~ .about-carousel label[for="t-3"] {
-    z-index: 3;
-}
-#t-3:checked ~ .about-carousel label[for="t-4"] {
-    transform: translateX(300px) translateZ(-90px) rotateY(-15deg);
-    z-index: 2;
-}
-#t-3:checked ~ .about-carousel label[for="t-5"] {
-    transform: translateX(600px) translateZ(-180px) rotateY(-25deg);
+.social-links > * {
+    margin: .25em;
 }
 
-/* Fourth */
-#t-4:checked ~ .dots label[for="t-3"] {
-    transform: scale(1.5);
-}
-#t-4:checked ~ .dots label[for="t-4"] {
-    transform: scale(2);
-    background-color: #fff;
-}
-#t-4:checked ~ .dots label[for="t-5"] {
-    transform: scale(1.5);
-}
-#t-4:checked ~ .about-carousel label[for="t-1"] {
-    transform: translateX(-900px) translateZ(-270px) rotateY(35deg);
-}
-#t-4:checked ~ .about-carousel label[for="t-2"] {
-    transform: translateX(-600px) translateZ(-180px) rotateY(25deg);
-}
-#t-4:checked ~ .about-carousel label[for="t-3"] {
-    transform: translateX(-300px) translateZ(-90px) rotateY(15deg);
-    z-index: 2;
-}
-#t-4:checked ~ .about-carousel label[for="t-4"] {
-    z-index: 3;
-}
-#t-4:checked ~ .about-carousel label[for="t-5"] {
-    transform: translateX(300px) translateZ(-90px) rotateY(-15deg);
+.about-title{
+    color: #05386B;
 }
 
-/* Fifth */
-#t-5:checked ~ .dots label[for="t-4"] {
-    transform: scale(1.5);
+.card-title > p{
+    margin-top: .5em;
+    font-size: 18px;
+
 }
-#t-5:checked ~ .dots label[for="t-5"] {
-    transform: scale(2);
-    background-color: #fff;
-}
-#t-5:checked ~ .about-carousel label[for="t-1"] {
-    transform: translateX(-1200px) translateZ(-360px) rotateY(45deg);
-}
-#t-5:checked ~ .about-carousel label[for="t-2"] {
-    transform: translateX(-900px) translateZ(-270px) rotateY(35deg);
-    z-index: 1;
-}
-#t-5:checked ~ .about-carousel label[for="t-3"] {
-    transform: translateX(-600px) translateZ(-180px) rotateY(25deg);
-    z-index: 2;
-}
-#t-5:checked ~ .about-carousel label[for="t-4"] {
-    transform: translateX(-300px) translateZ(-90px) rotateY(15deg);
-    z-index: 3;
-}
-#t-5:checked ~ .about-carousel label[for="t-5"] {
-    z-index: 4;
-}
+

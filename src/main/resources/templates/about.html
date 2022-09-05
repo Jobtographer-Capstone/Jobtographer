@@ -1,155 +1,127 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/fragments :: head('Login')">
-</head>
+<head th:replace="partials/fragments :: head('About')"></head>
 <body>
+
 <nav th:replace="partials/fragments :: navbar"></nav>
-<div>
 
-    <!--    ///development team title-->
-    <section>
-        <div class="container text-center">
-            <div class="row mt-2">
-                <h1>Development Team</h1>
+<section class="row text-center">
+    <h1 class="text-center font-title about-title"> Development Team</h1>
+</section>
+
+    <div class="container">
+
+<!--            ////column for the center-->
+            <div class="row">
+<!--            // card 1 start-->
+                <section class=" myprogress about-card col shadow-lg" style="width: 18rem; height: 400px;">
+                    <div class="text-center">
+                        <img class="mt-1 ppl-img" src="https://media-exp1.licdn.com/dms/image/D4E03AQGKME1Fb4veQg/profile-displayphoto-shrink_800_800/0/1655914247035?e=1667433600&v=beta&t=gPlokN-Zt41a43SM5ZWhQ0HBTBRfzp1GGUX5MmuSHMQ" alt="" >
+
+                        <div class="card-body text-center">
+                            <h5 class="card-title font-title">
+                                <li>Christopher</li>
+                                <li>Davis</li>
+                                <p>Aspiring Web Developer. Army Veteran.</p>
+                            </h5>
+                            <li class="social-links">
+                                <a href="https://www.linkedin.com/in/chrisdavis713/"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+                                <a href="https://github.com/CJDPenguin"><i class="fa-brands fa-github fa-xl"></i></a>
+                            </li>
+                        </div>
+                    </div>
+                </section>
+<!--                //card 1 end-->
+
+<!--                card 2 start-->
+                <section class="myprogress about-card col shadow-lg" style="width: 18rem;">
+                    <div class="text-center">
+                        <img class="mt-1 ppl-img" src="https://media-exp1.licdn.com/dms/image/C4E03AQFKVUtodBPhRw/profile-displayphoto-shrink_800_800/0/1655481324802?e=1667433600&v=beta&t=_hBYBe2mhXk2j3MTVcOnYJZRiW1RbDwTMe3TDlphTWI" alt="" >
+
+                        <div class="card-body text-center">
+                            <h5 class="card-title font-title">
+                                <li>Miguel</li>
+                                <li>Romero</li>
+                                <p>Aspiring Web Developer. Army Veteran.</p>
+                            </h5>
+
+                            <li class="social-links">
+                                <a href="https://www.linkedin.com/in/miguelromero23/"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+                                <a href="https://github.com/Miguelisiah23"><i class="fa-brands fa-github fa-xl"></i></a>
+                            </li>
+                        </div>
+                    </div>
+                </section>
+<!--                card 2 end-->
+
+                <section class="myprogress about-card col shadow-lg" style="width: 18rem;">
+                    <div class="text-center">
+                        <img class="mt-1 ppl-img" src="https://media-exp1.licdn.com/dms/image/C4E03AQHNbc3AqKDMhA/profile-displayphoto-shrink_800_800/0/1656083812845?e=1668038400&v=beta&t=WTNi9JEpHVppnr5Yj3Tkm9jkJtnHGLEbIjId1YOOV78" alt="">
+
+                        <div class="card-body text-center">
+                            <h5 class="card-title font-title">
+                                <li>Kevin</li>
+                                <li>Orgeron</li>
+                                <p>Aspiring Web Developer. Army Veteran.</p>
+                            </h5>
+                            <li class="social-links">
+                                <a href="https://www.linkedin.com/in/kevin-orgeron/"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+                                <a href="https://github.com/korgeron"><i class="fa-brands fa-github fa-xl"></i></a>
+                            </li>
+                        </div>
+                    </div>
+                </section>
+<!--                card 3-->
+
+<!--                card 4 start-->
+                <section class="myprogress about-card col shadow-lg" style="width: 18rem;">
+                    <div class="text-center">
+                        <img class="mt-1 ppl-img" src="https://media-exp1.licdn.com/dms/image/D4E35AQF0kvuLJzc9cg/profile-framedphoto-shrink_800_800/0/1660229143206?e=1662584400&v=beta&t=OJzKuh_eGdTbRoL2FVKrM584lTQhJindpRTcKMfeoUY" alt="" >
+
+                        <div class="card-body text-center">
+                            <h5 class="card-title font-title">
+                                <li>Romeo</li>
+                                <li>Cohens</li>
+                                <p>Aspiring Web Developer. Army Veteran.</p>
+                            </h5>
+                            <li class="social-links">
+                                <a href="https://www.linkedin.com/in/romeo-cohens/"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+                                <a href="https://github.com/romeocohens17"><i class="fa-brands fa-github fa-xl"></i></a>
+                            </li>
+                        </div>
+                    </div>
+                </section>
+<!--                card 4 end-->
+
+
+<!--                card 5 start-->
+                <section class="myprogress about-card col shadow-lg" style="width: 18rem;">
+                    <div class="text-center">
+                        <img class="mt-1 ppl-img" src="https://media-exp1.licdn.com/dms/image/C5603AQHb0_bnGzdjhw/profile-displayphoto-shrink_800_800/0/1661878075262?e=1667433600&v=beta&t=D8A33p7h6UiYN5CcU2CCmtGThFVB_j_ghoFIyG6xy1M" alt="">
+
+                        <div class="card-body text-center">
+                            <h5 class="card-title font-title">
+                                <li>Michael</li>
+                                <li>Sigg</li>
+                                <p>Aspiring Web Developer. Army Veteran.</p>
+                            </h5>
+                            <li class="social-links">
+                                <a href="https://www.linkedin.com/in/chrisdavis713/"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
+                                <a href="https://github.com/CJDPenguin"><i class="fa-brands fa-github fa-xl"></i></a>
+                            </li>
+                        </div>
+                    </div>
+                </section>
+<!--                card 5 end -->
             </div>
-        </div>
-    </section>
-    <!--    ///development team title-->
 
-    <!--    //dunno yet-->
-    <section>
-        <!--        Carousel Start-->
-        <div class="row mt-5">
-            <div class="slider-about">
-                <input type="radio" name="testimonial" id="t-1">
-                <input type="radio" name="testimonial" id="t-2">
-                <input type="radio" name="testimonial" id="t-3" checked>
-                <input type="radio" name="testimonial" id="t-4">
-                <input type="radio" name="testimonial" id="t-5">
-
-                <!--            //1st card start-->
-                <div class="about-carousel">
-
-                    <label class="item container" for="t-1">
-                        <div class="card" style="width: 25rem; height: 25rem;">
-                            <img src="https://www.nationalreview.com/wp-content/uploads/2022/03/Will-Smith-and-Chris-Rock.jpg?w=1592" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Michael Sigg</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">An item</li>
-                                <li class="list-group-item">A second item</li>
-                                <li class="list-group-item">A third item</li>
-                            </ul>
-                            <div class="card-footer text-center">
-                                <a href="https://www.linkedin.com/in/mjsigg/"><i class="fa-brands fa-linkedin"></i></a>
-                                <a href=""><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-
-                        <!--            //1st card end-->
-
-                    </label>
-                    <label class="item container" for="t-2">
-
-                        <div class="card" style="width: 18rem;">
-                            <img src="https://www.nationalreview.com/wp-content/uploads/2022/03/Will-Smith-and-Chris-Rock.jpg?w=1592" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Michael Sigg</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">An item</li>
-                                <li class="list-group-item">A second item</li>
-                                <li class="list-group-item">A third item</li>
-                            </ul>
-                            <div class="card-footer text-center">
-                                <a href="https://www.linkedin.com/in/mjsigg/"><i class="fa-brands fa-linkedin"></i></a>
-                                <a href=""><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-
-                    </label>
-
-                    <!--                ///card 3 start-->
-                    <label class="item" for="t-3">
-
-                        <div class="card container" style="width: 18rem;">
-                            <img src="https://www.nationalreview.com/wp-content/uploads/2022/03/Will-Smith-and-Chris-Rock.jpg?w=1592" class="card-img-top text-center" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Michael Sigg</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">An item</li>
-                                <li class="list-group-item">A second item</li>
-                                <li class="list-group-item">A third item</li>
-                            </ul>
-                            <div class="card-footer text-center">
-                                <a href="https://www.linkedin.com/in/mjsigg/"><i class="fa-brands fa-linkedin"></i></a>
-                                <a href=""><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-
-                    </label>
-                    <!--                //card start end-->
-
-                    <label class="item" for="t-4">
-
-                        <div class="card container" style="width: 18rem;">
-                            <img src="https://www.nationalreview.com/wp-content/uploads/2022/03/Will-Smith-and-Chris-Rock.jpg?w=1592" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Michael Sigg</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">An item</li>
-                                <li class="list-group-item">A second item</li>
-                                <li class="list-group-item">A third item</li>
-                            </ul>
-                            <div class="card-footer text-center">
-                                <a href="https://www.linkedin.com/in/mjsigg/"><i class="fa-brands fa-linkedin"></i></a>
-                                <a href=""><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-
-                    </label>
-                    <label class="item" for="t-5">
-
-                        <div class="card container" style="width: 18rem;">
-                            <img src="https://www.nationalreview.com/wp-content/uploads/2022/03/Will-Smith-and-Chris-Rock.jpg?w=1592" class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title text-center">Michael Sigg</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            </div>
-                            <ul class="list-group list-group-flush">
-                                <li class="list-group-item">An item</li>
-                                <li class="list-group-item">A second item</li>
-                                <li class="list-group-item">A third item</li>
-                            </ul>
-                            <div class="card-footer text-center">
-                                <a href="https://www.linkedin.com/in/mjsigg/"><i class="fa-brands fa-linkedin"></i></a>
-                                <a href=""><i class="fa-brands fa-github"></i></a>
-                            </div>
-                        </div>
-
-                    </label>
-                </div>
-
-                <div class="dots">
-                    <label for="t-1"></label>
-                    <label for="t-2"></label>
-                    <label for="t-3"></label>
-                    <label for="t-4"></label>
-                    <label for="t-5"></label>
-                </div>
-            </div>
 
         </div>
     </section>
     <nav th:replace="partials/fragments :: page-bottom-one"></nav>
 </div>
+
 <footer th:replace="partials/fragments :: footer"></footer>
+
 </body>
 </html>
