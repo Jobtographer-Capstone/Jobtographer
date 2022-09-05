@@ -42,6 +42,8 @@
         </li>
     </ul>
     <a class="btn" type="button" th:href="@{/delete/roadmaps/{id}(id = ${roadmap.getId()})}">Delete</a>
+    <a class="btn" th:href="@{/create/roadmaps/{id}(id=${roadmap.getId()})}" type="button">Update</a>
+
 </div>
 <footer th:replace="partials/fragments :: footer"></footer>
 <script th:replace="partials/fragments :: convert-name"></script>

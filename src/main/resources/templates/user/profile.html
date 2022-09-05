@@ -66,13 +66,13 @@
                             <h5><span th:text="${roadmap.getCareer().toUpperCase()}"></span></h5>
                         </a>
                         <ul>
-                            <li> You are <span id="progress-bar" th:text="${roadmap.getProgress()}"></span>% Complete!
+                            <li> You are <span class="progress-bar" th:text="${roadmap.getProgress()}"></span>% Complete!
                             </li>
                         </ul>
                     </div>
                 </div>
                 <div>
-                    <canvas id="myChart"></canvas>
+                    <canvas class="myChart"></canvas>
                 </div>
 
             </div>
@@ -104,7 +104,7 @@
 <script th:replace="partials/fragments :: convert-name"></script>
 <footer th:replace="partials/fragments :: footer"></footer>
 <script th:replace="partials/fragments :: jobs"></script>
-<script th:replace="partials/fragments :: progress-bar"></script>
+<!--<script th:replace="partials/fragments :: progress-bar"></script>-->
 
 
 </body>

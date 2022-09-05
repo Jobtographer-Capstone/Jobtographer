@@ -155,6 +155,12 @@ public class UserController {
         usersdao.save(user);
         return "redirect:/profile";
     }
+    @GetMapping("/search")
+    public String search(){
+
+        return "search-jobs";
+    }
+
 
 
 }

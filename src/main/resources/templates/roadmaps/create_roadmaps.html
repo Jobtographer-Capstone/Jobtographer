@@ -23,12 +23,13 @@
     <div class="tab-content" id="roadmapTabContent">
         <div class="tab-pane fade show active" id="roadmap" role="tabpanel" aria-labelledby="roadmap-tab">
             <div class="form" th:method="post" th:action="@{/create/roadmaps}" th:object="${roadmap}">
-                <h2 class="form-heading text-center">Create Your Roadmap</h2>
+                <h2 th:if="${roadmap.getCareer() == null }" class="form-heading text-center">Create Your Roadmap</h2>
                 <div>
                     <h4>Career</h4>
                     <div th:if="${roadmap.getCareer() == null}">
-                        <div th:replace="partials/fragments :: search-jobs"></div>
-                        <div th:replace="partials/fragments :: populate"></div>
+<!--                        <div th:replace="partials/fragments :: search-jobs"></div>-->
+<!--                        <div th:replace="partials/fragments :: populate"></div>-->
+                        <a class="btn" href="/search" type="button">Search Jobs</a>
                     </div>
 
                     <p th:text="${roadmap.getCareer()}"></p>
@@ -38,7 +39,7 @@
                     <p class="cert-name"><span th:text="${cert.getCert_id().getCertificationName()}"></span></p>
                     <p> expected date: <span th:text="${cert.expectedDate}"></span></p>
 
-                    <form th:if="${cert.expectedDate == null}"
+                    <form
                           th:action="@{/create/roadmaps/{id}(id=${roadmap.getId()})}" th:method="post">
                         <input th:id="${cert.getCert_id().getCertificationName()}" name="expected" type="month"
                                required="">
@@ -46,7 +47,8 @@
                         <input name="_csrf" type="hidden" th:each="cookie: ${#httpServletRequest.cookies}"
                                th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
 
-                        <button class="btn btn-primary" type="submit">Add date</button>
+                        <button th:if="${cert.expectedDate == null}" class="btn btn-primary" type="submit">add date</button>
+                        <button th:if="${cert.expectedDate != null}" class="btn btn-primary" type="submit">change date</button>
                     </form>
                 </div>
 
@@ -54,6 +56,8 @@
                        th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
 
             </div>
+            <a th:if="${roadmap.getCareer() != null}" class="btn" href="/roadmaps" type="button">Finish</a>
+
         </div>
         <div class="tab-pane fade timeline-container " id="certs" role="tabpanel" aria-labelledby="profile-tab">
             <ul class="table-tm">
@@ -93,7 +97,7 @@
 </div>
 
 <footer th:replace="partials/fragments :: footer"></footer>
-<script th:replace="partials/fragments :: DnD"></script>
+<!--<script th:replace="partials/fragments :: DnD"></script>-->
 
 <script th:replace="partials/fragments :: convert-name"></script>
 <script th:replace="partials/fragments :: jobs"></script>
