@@ -89,9 +89,7 @@ public class UserController {
         roadmap.setProgress(progress);
         roadmapsDao.save(roadmap);
 
-
         return "user/profile";
-
     }
 
     @PostMapping("/profile")
@@ -152,6 +150,4 @@ public class UserController {
         usersdao.save(user);
         return "redirect:/profile";
     }
-
-
 }
