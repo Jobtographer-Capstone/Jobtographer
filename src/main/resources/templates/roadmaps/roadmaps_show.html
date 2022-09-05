@@ -6,15 +6,15 @@
 <nav th:replace="partials/fragments :: navbar"></nav>
 
 
-<div class="col-8 col-lg-8 mx-auto shadow-lg p-3 mb-5 bg-white rounded single-cert">
+<div class="shadow-lg single-cert myProgress">
     <div>
-            <h3 class="career-title"><span th:text="${roadmap.getCareer().toUpperCase()}"></span></h3>
+            <h3 class="career-title"><span class="font-title" th:text="${roadmap.getCareer().toUpperCase()}"></span></h3>
 
         <div th:each="cert : ${roadmap.getRoadmapCerts()}">
             <p class="cert-name" th:text="${cert.getCert_id().getCertificationName()}"></p>
         </div>
         <ul>
-            <li><h3 class="prog-percent"> You are <span id="progress-bar" th:text="${roadmap.getProgress()}"></span>% Complete!
+            <li><h3 class="prog-percent"><span id="progress-bar" class="font-title" th:text="${roadmap.getProgress()}"></span>% Complete!
             </h3></li>
         </ul>
     </div>
