@@ -4,19 +4,20 @@
 </head>
 <body>
 <nav th:replace="partials/fragments :: navbar"></nav>
-<div class="main row">
-    <div class="card">
-        <div class="card-header">
-            <h1>Search for a certification</h1>
-            <div class="card-body">
+<div class="main main-certs">
+    <div class="search-cert-main">
+        <div class="text-center">
+            <h1 class="font-title">Search for a certification</h1>
+            <div class="search-cert-btn ">
                 <input type="text" class="cert_value">
-                <button type="button" class="cert_search">Search</button>
+                <button type="button" class="cert_search btn">Search</button>
             </div>
         </div>
+<!--        Certs populate here-->
+        <div class="card_holder"></div>
     </div>
 
 
-    <div class="card_holder w-100 row"></div>
 
     <div th:replace="partials/fragments :: modals"></div>
 
@@ -31,6 +32,10 @@
     console.log(CAREER_API_KEY);
     const USER_ID = /*[[${USER_ID}]]*/ "please";
     console.log(USER_ID);
+</script>
+<script th:inline="javascript">
+    document.querySelector(".main-certs").style.backgroundImage = "url('/img/backdrop.jpg')";
+
 </script>
 <footer th:replace="partials/fragments :: footer"></footer>
 <script th:inline="javascript">
