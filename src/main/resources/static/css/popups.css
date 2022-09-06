@@ -1,23 +1,49 @@
+:root{
+    --start: 0;
+    --end: 48vw;
+}
+
+
 #populate{
     margin: 0;
     padding: 0;
 }
 
-.nextPop{
-    background: darkslategrey!important;
-    height: 50vh;
-    width: 100vw;
-}
-.loadButtons{
-    display: flex;
-    justify-content: center;
-    padding-top: 20vh;
+
+.loading{
+    height: 5vh;
+    width: 50vw;
+    border-radius: 1em;
+    background: navy;
+    border: 1px inset navy;
+    position: absolute;
 }
 
-.loadMore{
-    width: 30vw;
+.loadBar{
+    position: relative;
+    background: #BDDAC1;
+    border-radius: 1em;
+    height: 2.5vh;
+    top: 1vh;
+    left: 0.5vw;
+    width: 48vw;
+    animation-name: bar;
+    animation-duration: 5s;
 }
-.loadPrev{
-    width: 30vw;
-    margin-right: 1vw;
+
+.loadImg{
+    height: 100px;
+    width: 100px;
+    position: relative;
+    bottom: 12vh;
+    right: 25vw;
+}
+
+@keyframes bar {
+    from{
+        width: 5vw;
+    }
+    to{
+        width: var(--end);
+    }
 }

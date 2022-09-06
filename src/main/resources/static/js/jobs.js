@@ -28,7 +28,8 @@ cardBuilder()
 let change = 0;
 let end = 1;
 
-
+document.querySelector('.loading').style.display = "none"
+document.querySelector('.loadImg').style.display = "none"
 document.querySelectorAll('.job_Card').forEach(jobCard => {
     jobCard.style.display = 'none'
 })
@@ -42,6 +43,12 @@ document.querySelector('#job-search').addEventListener('click', () => {
     })
     document.querySelector('.nextB').style.display = 'none';
     document.querySelector('.prevB').style.display = 'none';
+
+    document.querySelector('.loading').style.display = "block"
+    document.querySelector('.loadImg').style.display = "block"
+    document.querySelector('.loadBar').style.setProperty('--end', '0')
+
+
 
     //###########################//
     let min = 0;
@@ -63,6 +70,9 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
     //FETCH ALL JOBS
     async function getAllJobs(searchValue) {
+        document.querySelector('.loadImg').style.setProperty('--end', '10vw')
+
+
         let jobs = new Map();
 
         const call = await fetch(`https://api.careeronestop.org/v1/jobsearch/${USER_ID}/${searchValue}/United%20States/25/0/DESC/${min}/${max}/1?source=NLx&showFilters=false`, {
@@ -135,7 +145,8 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
     // FETCH OCCUPATION DATA
     async function getOccData(promise) {
-
+        // document.querySelector('.loadImg').style.removeProperty('--end')
+        document.querySelector('.loadBar').style.setProperty('--end', '20vw')
 
         let values = [];
         let titles_And_Codes = new Map();
@@ -206,6 +217,7 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
     // FETCH CERTIFICATION DATA
     async function getCerts(promise) {
+        document.querySelector('.loadBar').style.setProperty('--end', '35vw')
         let certList = [];
         let fetches = [];
         // let certList = [];
@@ -243,7 +255,7 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
 // BUILDER FOR THE HTML
     async function htmlBuilder(certData, occData) {
-
+            document.querySelector('.loadBar').style.setProperty('--end', '40vw')
         const cert = await certData.then(cd => {
             console.log(cd);
             document.querySelectorAll('.job_Certs').forEach((c, i) => {
@@ -267,6 +279,7 @@ document.querySelector('#job-search').addEventListener('click', () => {
         })
 
         const occ = await occData.then(od => {
+
             console.log(od);
 
             document.querySelectorAll('.job_Title').forEach((title, i) => {
@@ -293,6 +306,11 @@ document.querySelector('#job-search').addEventListener('click', () => {
         document.querySelectorAll('.job_Card').forEach(jobCard => {
             jobCard.style.display = 'flex'
         })
+        document.querySelector('.loadBar').style.setProperty('--end', '48vw')
+        loadData()
+
+
+
         document.querySelector('.nextB').style.display = 'block';
         document.querySelector('.prevB').style.display = 'block';
 
@@ -375,7 +393,6 @@ document.querySelectorAll('.startRoadMap').forEach((button, i) => {
         console.log(wages)
 
 
-
         document.querySelector('.job_Form').innerHTML +=
             `
                 <input type="hidden" name="title" value="${title.innerHTML}" />
@@ -395,3 +412,9 @@ document.querySelectorAll('.startRoadMap').forEach((button, i) => {
 //###########################//
 })
 //###########################//
+
+
+function loadData(){
+    document.querySelector('.loading').style.display = "none"
+    document.querySelector('.loadImg').style.display = "none"
+}
