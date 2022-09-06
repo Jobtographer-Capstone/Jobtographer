@@ -29,8 +29,8 @@
 
                     <div class="divider-div"><hr class="divider"></div>
 
-                    <div class="circle"
-                         style="background: #E41134">
+                    <div class="circle">
+                        <i th:each="c : ${user.getUserCerts()}" th:if="${c.getCert_id() == cert.getCert_id()}" class="fa-solid fa-star"></i>
                     </div>
 
                     <div class="divider-div"><hr class="divider"></div>

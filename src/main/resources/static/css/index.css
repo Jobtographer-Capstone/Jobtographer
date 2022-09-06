@@ -88,11 +88,78 @@ background-repeat: no-repeat;
     padding-bottom: 0;
 }
 #index-mid{
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    height: 40vh;
+    /*background-size: contain;*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: center;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /*height: 40vh;*/
     width: 100%;
+}
+.index-mid-header{
+    width: 100%;
+}
+.who-we-are{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: center;
+
+}
+.who-text{
+    width: 50%;
+}
+.search-track{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+@media screen and (min-width: 996px){
+    .search-track{
+        flex-direction: row;
+    }
+}
+.first{
+    display: flex;
+    justify-content: end;
+    align-items: end;
+    margin: 0;
+}
+.icon1{
+    width: 130px;
+    height: 110px;
+    margin: 0;
+    background-size: cover;
+    background-position: bottom;
+}
+.icon2{
+    width: 130px;
+    height: 110px;
+    margin: 0;
+    background-size: cover;
+    background-position: center;
+}
+.icon3{
+    width: 130px;
+    height: 110px;
+    margin: 0;
+    background-size: cover;
+    background-position: center;
+}
+.how-to{
+    margin: 2em;
+}
+.big-text{
+    font-size: 4em;
+    margin-bottom: 0;
+}
+.search-big{
+display: flex;
+    justify-content: end;
+    align-items: end;
 }
 .nav-modal{
     background: #BDDAC1;
