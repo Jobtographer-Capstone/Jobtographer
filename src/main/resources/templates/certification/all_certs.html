@@ -7,7 +7,7 @@
 <div class="main main-rd">
     <!--All User Certifications-->
     <div class="cert-main">
-        <div class="cert-card shadow-lg" th:each="cert : ${certs}">
+        <div class="cert-card shadow-lg" th:if="${certs != null}" th:each="cert : ${certs}">
 
             <h1 class="cert-name"><span th:text="${cert.getCert_id().getCertificationName()}"></span></h1>
             <p th:text="${cert.expDate}"></p>
