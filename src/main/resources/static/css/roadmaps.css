@@ -52,6 +52,10 @@ flex-grow: 1;
     border-radius: 50%;
     border: var(--notBlack) solid 2px;
     justify-self: center;
+    background: #05386B;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .timeline-cert{
     display: flex;
@@ -63,14 +67,12 @@ flex-grow: 1;
     display: flex;
     flex-direction: row;
     width: 100vw;
-    /*justify-content: center;*/
-    /*width: 100vw;*/
+
 }
 .tc-con{
     width: 325px;
     margin-top: 1em;
-    /*margin-right: 5px;*/
-    /*padding: ;*/
+
 }
 .table-tm{
     display: flex;
@@ -107,15 +109,14 @@ flex-grow: 1;
     background-repeat: no-repeat;
 }
 .roadmap-all{
-    /*width: 50vw;*/
-    /*height: 100%;*/
+
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    /*padding: 1em;*/
-    /*margin: .5em;*/
+
     background: var(--offWhite);
+
 }
 .add-rd{
     flex-grow: 1;
@@ -127,12 +128,26 @@ flex-grow: 1;
     width: 100vw;
 }
 .cert-name{
-    /*padding: 1em;*/
+
     margin: .5em;
 }
 .fa-star{
     color: var(--redBrown);
     font-size: 1.5em;
+}
+.fa-star-blue{
+    color: #05386B;
+}
+.circle-brown{
+    background: #A9675B;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    border: black solid 2px;
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 @media screen and (min-width:996px) {
     .circle{
