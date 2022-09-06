@@ -12,7 +12,7 @@ public class RoadmapCert {
     private long id;
 
     @Column
-    private YearMonth expectedDate;
+    private Date expectedDate;
 
 
     @ManyToOne
@@ -27,7 +27,7 @@ public class RoadmapCert {
     public RoadmapCert() {
     }
 
-    public RoadmapCert(YearMonth expectedDate, Roadmap roadmap_id, Certification cert_id) {
+    public RoadmapCert(Date expectedDate, Roadmap roadmap_id, Certification cert_id) {
         this.expectedDate = expectedDate;
         this.roadmap_id = roadmap_id;
         this.cert_id = cert_id;
@@ -48,11 +48,11 @@ public class RoadmapCert {
         this.id = id;
     }
 
-    public YearMonth getExpectedDate() {
+    public Date getExpectedDate() {
         return expectedDate;
     }
 
-    public void setExpectedDate(YearMonth expectedDate) {
+    public void setExpectedDate(Date expectedDate) {
         this.expectedDate = expectedDate;
     }
 

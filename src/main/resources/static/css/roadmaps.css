@@ -130,6 +130,10 @@ flex-grow: 1;
     /*padding: 1em;*/
     margin: .5em;
 }
+.fa-star{
+    color: #A9675B;
+    font-size: 1.5em;
+}
 @media screen and (min-width:996px) {
     .circle{
         height: 80px;

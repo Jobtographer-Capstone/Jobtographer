@@ -11,7 +11,8 @@
             <h3 class="career-title"><span class="font-title" th:text="${roadmap.getCareer().toUpperCase()}"></span></h3>
 
         <div th:each="cert : ${roadmap.getRoadmapCerts()}">
-            <p class="cert-name" th:text="${cert.getCert_id().getCertificationName()}"></p>
+            <p> <span class="cert-name" th:text="${cert.getCert_id().getCertificationName()}"></span> <span th:each="c : ${user.getUserCerts()}" th:if="${c.getCert_id() == cert.getCert_id()}"><i class="fa-solid fa-star"></i></span></p>
+
         </div>
         <ul>
             <li><h3 class="prog-percent"><span id="progress-bar" class="font-title" th:text="${roadmap.getProgress()}"></span>% Complete!
