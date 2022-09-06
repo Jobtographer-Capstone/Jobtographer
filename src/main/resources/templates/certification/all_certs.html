@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="/partials/fragments :: head(Certifications)">
+<head th:replace="partials/fragments :: head(Certifications)">
 </head>
 <body>
-<nav th:replace="/partials/fragments :: navbar"></nav>
+<nav th:replace="partials/fragments :: navbar"></nav>
 <div class="main main-rd">
     <!--All User Certifications-->
     <div class="cert-main">
@@ -26,6 +26,6 @@
 
 </script>
 <script th:replace="partials/fragments :: convert-name"></script>
-<footer th:replace="/partials/fragments :: footer"></footer>
+<footer th:replace="partials/fragments :: footer"></footer>
 </body>
 </html>
