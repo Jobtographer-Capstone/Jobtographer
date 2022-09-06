@@ -1,16 +1,16 @@
-:root{
+:root {
     --start: 0;
     --end: 48vw;
 }
 
 
-#populate{
+#populate {
     margin: 0;
     padding: 0;
 }
 
 
-.loading{
+.loading {
     height: 5vh;
     width: 50vw;
     border-radius: 1em;
@@ -19,7 +19,7 @@
     position: absolute;
 }
 
-.loadBar{
+.loadBar {
     position: relative;
     background: #BDDAC1;
     border-radius: 1em;
@@ -31,7 +31,7 @@
     animation-duration: 5s;
 }
 
-.loadImg{
+.loadImg {
     height: 100px;
     width: 100px;
     position: relative;
@@ -40,10 +40,29 @@
 }
 
 @keyframes bar {
-    from{
+    from {
         width: 5vw;
     }
-    to{
+    to {
         width: var(--end);
     }
+}
+
+.noLoad {
+    position: absolute;
+    top: 30vh;
+
+    left: 15.5vw;
+
+    height: 70vh;
+    width: 70vw;
+    background: var(--offWhite);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.noLoadButton{
+
 }

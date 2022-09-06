@@ -28,6 +28,8 @@ cardBuilder()
 let change = 0;
 let end = 1;
 
+
+document.querySelector('.noLoad').style.display = "none"
 document.querySelector('.loading').style.display = "none"
 document.querySelector('.loadImg').style.display = "none"
 document.querySelectorAll('.job_Card').forEach(jobCard => {
@@ -47,7 +49,6 @@ document.querySelector('#job-search').addEventListener('click', () => {
     document.querySelector('.loading').style.display = "block"
     document.querySelector('.loadImg').style.display = "block"
     document.querySelector('.loadBar').style.setProperty('--end', '0')
-
 
 
     //###########################//
@@ -255,9 +256,23 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
 // BUILDER FOR THE HTML
     async function htmlBuilder(certData, occData) {
-            document.querySelector('.loadBar').style.setProperty('--end', '40vw')
+        let theData = 0;
+        document.querySelector('.loadBar').style.setProperty('--end', '40vw')
         const cert = await certData.then(cd => {
             console.log(cd);
+            if (cd.length > 0) {
+                theData = cd.length;
+            } else {
+                document.querySelector('.loading').style.display = "none"
+                document.querySelector('.loadImg').style.display = "none"
+
+                document.querySelector('#job-input').style.display = "none"
+                document.querySelector('#job-search').style.display = "none"
+                document.querySelector('.noLoad').style.display = "flex"
+                document.querySelector('.noLoadButton').addEventListener('click', ()=>{
+                    document.location.reload()
+                })
+            }
             document.querySelectorAll('.job_Certs').forEach((c, i) => {
                 c.innerHTML = "";
 
@@ -306,9 +321,9 @@ document.querySelector('#job-search').addEventListener('click', () => {
         document.querySelectorAll('.job_Card').forEach(jobCard => {
             jobCard.style.display = 'flex'
         })
+
         document.querySelector('.loadBar').style.setProperty('--end', '48vw')
         loadData()
-
 
 
         document.querySelector('.nextB').style.display = 'block';
@@ -411,10 +426,11 @@ document.querySelectorAll('.startRoadMap').forEach((button, i) => {
     })
 //###########################//
 })
+
 //###########################//
 
 
-function loadData(){
+function loadData() {
     document.querySelector('.loading').style.display = "none"
     document.querySelector('.loadImg').style.display = "none"
 }
