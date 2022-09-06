@@ -8,7 +8,10 @@
 <nav th:replace="partials/fragments :: navbar"></nav>
 <div class="main main-job">
     <div th:replace="partials/fragments :: search-jobs"></div>
-
+        <img class="loadImg" th:src="@{~/img/modern_Jobtographer_Logo_RedBrown.svg}" alt="compass">
+    <div class="loading">
+        <div class="loadBar"></div>
+    </div>
     <div th:replace="partials/fragments :: populate"></div>
 
 </div>
