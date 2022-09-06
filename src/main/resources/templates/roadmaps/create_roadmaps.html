@@ -27,8 +27,7 @@
                 <div>
                     <h4>Career</h4>
                     <div th:if="${roadmap.getCareer() == null}">
-<!--                        <div th:replace="partials/fragments :: search-jobs"></div>-->
-<!--                        <div th:replace="partials/fragments :: populate"></div>-->
+
                         <a class="btn" href="/search" type="button">Search Jobs</a>
                     </div>
 
@@ -41,7 +40,7 @@
 
                     <form
                           th:action="@{/create/roadmaps/{id}(id=${roadmap.getId()})}" th:method="post">
-                        <input th:id="${cert.getCert_id().getCertificationName()}" name="expected" type="month"
+                        <input th:id="${cert.getCert_id().getCertificationName()}" name="expected" type="date"
                                required="">
                         <input type="hidden" th:value="${cert.getId()}" name="cert-id">
                         <input name="_csrf" type="hidden" th:each="cookie: ${#httpServletRequest.cookies}"

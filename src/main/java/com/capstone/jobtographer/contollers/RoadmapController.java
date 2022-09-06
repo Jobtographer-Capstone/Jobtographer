@@ -120,11 +120,11 @@ public class RoadmapController {
     }
 
     @PostMapping("/create/roadmaps/{id}")
-    public String addDate(@PathVariable(name = "id") long id, @RequestParam(name = "cert-id") long certId, @RequestParam(name = "expected")String date) {
+    public String addDate(@PathVariable(name = "id") long id, @RequestParam(name = "cert-id") long certId, @RequestParam(name = "expected")Date date) {
 
         RoadmapCert cert = roadmapsCertsDao.getById(certId);
-        YearMonth cDate = YearMonth.parse(date);
-        cert.setExpectedDate(cDate);
+//        YearMonth cDate = YearMonth.parse(date);
+        cert.setExpectedDate(date);
         System.out.println(cert.getExpectedDate());
         roadmapsCertsDao.save(cert);
         System.out.println("Did it save ?");
@@ -172,7 +172,9 @@ public class RoadmapController {
     public String RoadmapShow(Model model, @PathVariable long id) {
         UserWithRoles user = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         AppUser userLoggedIn = usersDao.findByUsername(user.getUsername());
+        model.addAttribute("user",userLoggedIn);
         if (userLoggedIn.getRoadmaps().contains(roadmapsDao.getById(id))) {
+
             model.addAttribute("roadmap", roadmapsDao.getById(id));
             List<RoadmapCert> timeline = roadmapsCertsDao.findAllByRoadmap_idOrderByExpectedDateAsc(id);
             model.addAttribute("timeline", timeline);

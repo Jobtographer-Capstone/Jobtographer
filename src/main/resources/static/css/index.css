@@ -5,13 +5,32 @@ body {
     display: flex;
     flex-direction: column;
 }
+.search-index-button{
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+
+.btn-index{
+    width: 150px;
+    margin-right: 1.5em;
+    margin-bottom: 1.5em;
+    font-size: 25px;
+
+}
 
 #index-pic {
 background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
     height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    align-items: end;
 }
+
+
 
 .index-head {
     display: flex;
@@ -51,34 +70,9 @@ background-repeat: no-repeat;
 }
 
 
-/*#populate {*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    align-items: center;*/
-/*    height: 500px;*/
 
 
 
-/*}*/
-/*.populate{*/
-/*    display: flex;*/
-/*    flex-direction: row;*/
-/*    flex-grow: 1;*/
-/*    align-items: center;*/
-/*    background: transparent;*/
-/*    padding-top: 6em;*/
-
-/*}*/
-/*.job_Card{*/
-/*    padding: .5em;*/
-/*    margin: .5em;*/
-/*    background: transparent;*/
-/*    color: var(--offWhite);*/
-/*}*/
-/*.card{*/
-/*    border: solid var(--navyBlue) 2px;*/
-
-/*}*/
 #bottom-index{
     flex-grow: 1;
     background-size: contain;
@@ -113,12 +107,6 @@ li{
     list-style: none;
 }
 
-.btn-index{
-    width: 150px;
-    margin-right: 120px;
-    font-size: 25px;
-
-}
 
 .card-body{
     margin-top: 2.5em;
@@ -128,5 +116,10 @@ li{
     #index-pic{
         height: 600px;
     }
-
+    .search-index-button{
+        justify-content: start;
+        align-items: end;
+        margin-right: 24em;
+        margin-bottom: 5em;
+    }
 }

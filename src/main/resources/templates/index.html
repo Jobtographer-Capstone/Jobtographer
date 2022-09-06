@@ -8,13 +8,29 @@
 <div class="main">
     <div id="index-pic" class=" index-head">
 
-            <div class="row justify-content-end w-50 h-100 align-items-end">
-                <button type="button" class="btn btn-index mb-5 p-1 font-title" href="/search">Explore</button>
+            <div class="search-index-button">
+                <a type="button" class="btn btn-index font-title" href="/search">Explore</a>
             </div>
 <!--        <div th:replace="partials/fragments :: search-jobs"></div>-->
     </div>
 
     <div id="index-mid" class="container">
+        <div>
+            <h1 class="font-title">Who We Are</h1>
+            <p></p>
+        </div>
+        <div>
+            <h1 class="font-title">Search</h1>
+            <p></p>
+        </div>
+        <div>
+            <h1 class="font-title">Create</h1>
+            <p></p>
+        </div>
+        <div>
+            <h1 class="font-title">Track</h1>
+            <p></p>
+        </div>
 
     </div>
 <!--    <div th:replace="partials/fragments :: populate"></div>-->
@@ -41,7 +57,7 @@
     document.querySelector("#index-pic").style.backgroundImage = "url('/img/job6.jpg')";
     // document.querySelector("#bottom-index").style.backgroundImage = "url('/img/jobaccent.jpg')";
     document.querySelector("#bottom-index").style.backgroundImage = "url('/img/jobaccent2.jpg')";
-    document.querySelector("#index-mid").style.backgroundImage = "url('/img/mid2.jpg')";
+    // document.querySelector("#index-mid").style.backgroundImage = "url('/img/mid2.jpg')";
 
 </script>
 <script th:replace="partials/fragments :: jobs"></script>
