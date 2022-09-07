@@ -10,11 +10,12 @@
     <h1 class="font-title">Search careers</h1>
     <div th:replace="partials/fragments :: search-jobs"></div>
 
-    <img class="loadImg" th:src="@{~/img/modern_Jobtographer_Logo_RedBrown.svg}" alt="compass">
-    <div class="loading">
-        <div class="loadBar"></div>
+    <div class="loadContainer">
+        <img class="loadImg" th:src="@{~/img/modern_Jobtographer_Logo_RedBrown.svg}" alt="compass">
+        <div class="loading">
+            <div class="loadBar"></div>
+        </div>
     </div>
-
     <div th:replace="partials/fragments :: populate"></div>
 
 </div>

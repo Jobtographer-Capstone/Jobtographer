@@ -32,8 +32,7 @@ let end = 1;
 
 
 document.querySelector('.noLoad').style.display = "none"
-document.querySelector('.loading').style.display = "none"
-document.querySelector('.loadImg').style.display = "none"
+document.querySelector('.loadContainer').style.display = "none"
 document.querySelectorAll('.job_Card').forEach(jobCard => {
     jobCard.style.display = 'none'
 })
@@ -42,14 +41,15 @@ document.querySelector('.prevB').style.display = 'none';
 
 document.querySelector('#job-search').addEventListener('click', () => {
 
+    document.querySelector('.main-job').style.backgroundImage = "none"
+
     document.querySelectorAll('.job_Card').forEach(jobCard => {
         jobCard.style.display = 'none'
     })
     document.querySelector('.nextB').style.display = 'none';
     document.querySelector('.prevB').style.display = 'none';
 
-    document.querySelector('.loading').style.display = "block"
-    document.querySelector('.loadImg').style.display = "block"
+    document.querySelector('.loadContainer').style.display = "flex"
     document.querySelector('.loadBar').style.width = "2vw"
 
 
@@ -73,8 +73,6 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
     //FETCH ALL JOBS
     async function getAllJobs(searchValue) {
-        // document.querySelector('.loadBar').style.width = '100vw'
-
 
         let jobs = new Map();
 
@@ -141,7 +139,6 @@ document.querySelector('#job-search').addEventListener('click', () => {
             })
 
         document.querySelector('.loadBar').style.width = '15vw'
-
         return codes;
     }
 
@@ -214,7 +211,6 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
 
         document.querySelector('.loadBar').style.width = '20vw'
-
         return values;
     }
 
@@ -253,7 +249,6 @@ document.querySelector('#job-search').addEventListener('click', () => {
             })
 
         document.querySelector('.loadBar').style.width = '35vw'
-
         return certList;
 
     }
@@ -272,7 +267,6 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
                 document.querySelector('.loading').style.display = "none"
                 document.querySelector('.loadImg').style.display = "none"
-
                 document.querySelector('#job-input').style.display = "none"
                 document.querySelector('#job-search').style.display = "none"
                 document.querySelector('.noLoad').style.display = "flex"
@@ -329,10 +323,11 @@ document.querySelector('#job-search').addEventListener('click', () => {
         document.querySelector('.loadBar').style.width = '48vw'
         if (document.querySelector('.loadBar').style.width === '48vw') {
             setTimeout(function (){
-                loadData()
+                document.querySelector('.loadContainer').style.display = "none"
 
             },350)
             setTimeout(function (){
+                document.querySelector(".main-job").style.backgroundImage = "url('/img/backdrop.jpg')"
                 document.querySelectorAll('.job_Card').forEach(jobCard => {
                     jobCard.style.display = 'flex'
                 })
