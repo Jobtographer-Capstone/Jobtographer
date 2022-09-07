@@ -109,7 +109,7 @@ flex-grow: 1;
     background-repeat: no-repeat;
 }
 .roadmap-all{
-
+    padding: 1em;
     display: flex;
     flex-direction: row;
     justify-content: center;
