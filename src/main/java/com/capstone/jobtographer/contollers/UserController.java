@@ -54,7 +54,6 @@ public class UserController {
     }
 
     @GetMapping("/login")
-
     public String loginPage(Model model) {
         model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
         return "index";
