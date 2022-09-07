@@ -14,7 +14,7 @@
                 <img th:src="@{~/img/default_img.jpeg}" class="profile-img" alt="wow">
             </div>
             <!--           Profile Username-->
-            <div class="flex align-items-start">
+            <div class="flex">
                 <h5 class="text-dark text-center username" th:text="${user.getUsername()}"></h5>
                 <h6 th:text="${user.getEmail()}"></h6>
                 <a class="btn btn-outline-dark" id="defaultEdit" href="/update/user">Edit profile</a>
@@ -32,7 +32,7 @@
             <div class="flex align-items-start">
                 <h5 class="text-dark text-center username" th:text="${user.getUsername()}"></h5>
                 <h6 th:text="${user.getEmail()}"></h6>
-                <a class="btn btn-outline-dark" id="uploadEdit" href="/update/user">Edit profile</a>
+                <a class="btn btn-outline-dark shadow" id="uploadEdit" href="/update/user">Edit profile</a>
             </div>
 
         </div>
@@ -44,11 +44,11 @@
                 <h5>You have <span th:text="${certs.size()}"></span> certs</h5>
 
 
-                <p class="cert-links" style="display: inline-block"><a
-                        class="btn btn-outline-dark link-certs " href="/search/certification">Add a
-                    certification</a>|<a class="btn btn-outline-dark link-certs "
-                                         href="/certifications">Certifications</a>
+                <p class="cert-links" style="display: inline-block">
+                    <a id="add-a-cert" class="btn btn-outline-dark link-certs shadow" href="/search/certification">Add Certification</a>
+                    <a id="cert-btn" class="btn btn-outline-dark link-certs shadow" href="/certifications">Certifications</a>
                 </p>
+
             </div>
             <div class="roadmap-profile shadow-lg">
 

@@ -40,6 +40,8 @@ body{
     padding:2px 3em;
     /*height: 20%;*/
     margin-bottom: 1em;
+    height: 40px;
+    border-radius: 0;
 }
 .delete{
     color: var(--redBrown);
@@ -136,8 +138,18 @@ body{
     #certs-maps{
         margin: .5em;
     }
-
 }
+
+#add-a-cert {
+    height: 40px;
+    border-radius: 0;
+}
+
+#cert-btn {
+    height: 40px;
+    border-radius: 0;
+}
+
 
 
 

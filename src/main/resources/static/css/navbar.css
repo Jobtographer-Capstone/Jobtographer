@@ -46,3 +46,8 @@
 .navbar-toggler {
     background-color: var(--navyBlue);
 }
+
+#logout {
+    height: 40px;
+    border-radius: 0;
+}
