@@ -24,7 +24,7 @@ body{
     align-items: center;
     background-color: var(--offWhite);
     padding: .5em;
-    margin:1em 5em;
+    width: 100%;
 }
 .update-profile-div{
     width: 80%;

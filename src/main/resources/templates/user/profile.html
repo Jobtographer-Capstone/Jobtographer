@@ -7,6 +7,7 @@
 <nav th:replace="partials/fragments :: navbar"></nav>
 <div class="main main-profile">
     <div id="profile" class="">
+        <div id="certs-maps">
         <!--Default Image-->
         <div class=" profile-div shadow-lg" th:if="${user.getImg() == null}">
 
@@ -16,7 +17,7 @@
             <!--           Profile Username-->
             <div class="flex align-items-start">
                 <h5 class="text-dark text-center username" th:text="${user.getUsername()}"></h5>
-                <h6 th:text="${user.getEmail()}"></h6>
+                <h6 class="text-center" th:text="${user.getEmail()}"></h6>
                 <a class="btn btn-outline-dark" id="defaultEdit" href="/update/user">Edit profile</a>
             </div>
 
@@ -38,43 +39,38 @@
         </div>
 
         <!--        Certs and Roadmaps-->
-        <div id="certs-maps">
             <div class="certs text-center shadow-lg">
                 <h3 class="cert-label">Certifications <i class="fa-solid fa-award"></i></h3>
                 <h5>You have <span th:text="${certs.size()}"></span> certs</h5>
-
-
-                <p class="cert-links" style="display: inline-block"><a
-                        class="btn btn-outline-dark link-certs " href="/search/certification">Add a
-                    certification</a>|<a class="btn btn-outline-dark link-certs "
-                                         href="/certifications">Certifications</a>
+                <p class="cert-links" style="display: inline-block">
+                    <a class="btn btn-outline-dark link-certs" href="/search/certification">
+                        Add a certification
+                    </a>
                 </p>
             </div>
             <div class="roadmap-profile shadow-lg">
-
                 <h2 class="rm-label">Most Recent Roadmap</h2>
-
-                <div th:if="${roadmap == null}">
-                    <div class="text-center">
-                        <a href="/create/roadmaps" id="newRoadmapLink"><i class="fa-solid fa-plus fa-2xl"></i></a>
-                    </div>
-                </div>
-                <div th:if="${roadmap != null}"
-                     class="text-center myProgress">
+                <div th:if="${roadmap != null}" class="text-center myProgress">
                     <div>
                         <a id="industryLink" th:href="@{/roadmaps/{id}(id=${roadmap.getId()})}">
                             <h5><span th:text="${roadmap.getCareer().toUpperCase()}"></span></h5>
                         </a>
-                        <ul>
-                            <li> You are <span class="progress-bar" th:text="${roadmap.getProgress()}"></span>% Complete!
+                        <ul style="padding-left: 0">
+                            <li class="text-center"> You are <span class="progress-bar" th:text="${roadmap.getProgress()}"></span>% Complete!
                             </li>
                         </ul>
                     </div>
+                    <div>
+                        <canvas class="myChart"></canvas>
+                    </div>
                 </div>
                 <div>
-                    <canvas class="myChart"></canvas>
+                    <div class="text-center">
+                        <a class="btn btn-outline-dark link-certs" href="/search">
+                            Add a Roadmap
+                        </a>
+                    </div>
                 </div>
-
             </div>
         </div>
     </div>
