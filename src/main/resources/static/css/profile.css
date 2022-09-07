@@ -22,9 +22,9 @@ body{
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    background-color: #EDF5E1;
+    background-color: var(--offWhite);
     padding: .5em;
-    margin:1em 5em;
+    width: 100%;
 }
 .update-profile-div{
     width: 80%;
@@ -48,13 +48,13 @@ body{
     font-size: 14px;
 }
 .profile-img{
-    border: solid #05386B 3px;
+    border: solid var(--navyBlue) 3px;
     border-radius: 50%;
 }
 
 .link-certs{
     font-size: 12px;
-    padding: 0 3em;
+    padding: 0.5em 3em;
     height: 70%;
     margin: 3px 6px;
 }
@@ -78,7 +78,7 @@ body{
     height: 100%;
     padding: 1em;
     margin: .5em;
-    background: #EDF5E1;
+    background: var(--offWhite);
 
 }
 .roadmap-profile{
@@ -90,7 +90,7 @@ body{
     align-items: center;
     padding: 1em;
     margin: .5em;
-    background: #EDF5E1;
+    background: var(--offWhite);
 }
 #certs-maps{
     display: flex;
@@ -111,8 +111,8 @@ body{
     padding: 0;
 }
 .update-info{
-    background: #edf5e1;
-    width: 70%;
+    background: var(--offWhite);
+    width: 80vw;
 
 }
 #update-info{
@@ -121,6 +121,10 @@ body{
     align-items: center;
     flex-grow: 1;
 
+}
+
+.inputs {
+    display: flex;
 }
 @media screen and (min-width:992px) {
 

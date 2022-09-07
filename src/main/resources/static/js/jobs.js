@@ -10,8 +10,10 @@ function cardBuilder() {
             '<p class="job_Outlook" th:name="outlook"></p>' +
             'Average salary: ' +
             '<p class="job_Wages" th:name="wages"></p>' +
-            '<p class="job_Certs cert-name" th:name="certs"></p>' +
+            '<p class="job_Certs cert-name" th:name="certs"></p>' + '<div>' +
             '<button class="startRoadMap btn" type="button">Create RoadMap</button>' +
+            '</div>' +
+
             '</div>';
         document.querySelector(".populate").insertAdjacentHTML("beforeEnd", card
         )
@@ -30,8 +32,7 @@ let end = 1;
 
 
 document.querySelector('.noLoad').style.display = "none"
-document.querySelector('.loading').style.display = "none"
-document.querySelector('.loadImg').style.display = "none"
+document.querySelector('.loadContainer').style.display = "none"
 document.querySelectorAll('.job_Card').forEach(jobCard => {
     jobCard.style.display = 'none'
 })
@@ -40,15 +41,16 @@ document.querySelector('.prevB').style.display = 'none';
 
 document.querySelector('#job-search').addEventListener('click', () => {
 
+    document.querySelector('.main-job').style.backgroundImage = "none"
+
     document.querySelectorAll('.job_Card').forEach(jobCard => {
         jobCard.style.display = 'none'
     })
     document.querySelector('.nextB').style.display = 'none';
     document.querySelector('.prevB').style.display = 'none';
 
-    document.querySelector('.loading').style.display = "block"
-    document.querySelector('.loadImg').style.display = "block"
-    document.querySelector('.loadBar').style.setProperty('--end', '0')
+    document.querySelector('.loadContainer').style.display = "flex"
+    document.querySelector('.loadBar').style.width = "2vw"
 
 
     //###########################//
@@ -71,8 +73,6 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
     //FETCH ALL JOBS
     async function getAllJobs(searchValue) {
-        document.querySelector('.loadImg').style.setProperty('--end', '10vw')
-
 
         let jobs = new Map();
 
@@ -94,7 +94,8 @@ document.querySelector('#job-search').addEventListener('click', () => {
             }
 
         })
-        console.log('JOBS FUNC FIRED OFF')
+
+        document.querySelector('.loadBar').style.width = '5vw'
         return jobs;
     }
 
@@ -136,7 +137,8 @@ document.querySelector('#job-search').addEventListener('click', () => {
                     }
                 }
             })
-        console.log('JOB CODES FUNC FIRED OFF')
+
+        document.querySelector('.loadBar').style.width = '15vw'
         return codes;
     }
 
@@ -146,8 +148,6 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
     // FETCH OCCUPATION DATA
     async function getOccData(promise) {
-        // document.querySelector('.loadImg').style.removeProperty('--end')
-        document.querySelector('.loadBar').style.setProperty('--end', '20vw')
 
         let values = [];
         let titles_And_Codes = new Map();
@@ -209,7 +209,8 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
         values.push(filteredCodes, outlooks, filteredTitles, wages)
 
-        console.log('OCC DATA FUNC FIRED OFF')
+
+        document.querySelector('.loadBar').style.width = '20vw'
         return values;
     }
 
@@ -218,7 +219,7 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
     // FETCH CERTIFICATION DATA
     async function getCerts(promise) {
-        document.querySelector('.loadBar').style.setProperty('--end', '35vw')
+        // document.querySelector('.loadBar').style.setProperty('--end', '35vw')
         let certList = [];
         let fetches = [];
         // let certList = [];
@@ -246,7 +247,8 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
                 }
             })
-        console.log('CERT DATA FUNC FIRED OFF')
+
+        document.querySelector('.loadBar').style.width = '35vw'
         return certList;
 
     }
@@ -256,20 +258,19 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
 // BUILDER FOR THE HTML
     async function htmlBuilder(certData, occData) {
-        let theData = 0;
-        document.querySelector('.loadBar').style.setProperty('--end', '40vw')
+
         const cert = await certData.then(cd => {
-            console.log(cd);
-            if (cd.length > 0) {
-                theData = cd.length;
-            } else {
+
+          
+            if (cd.length <= 0) {
+
+
                 document.querySelector('.loading').style.display = "none"
                 document.querySelector('.loadImg').style.display = "none"
-
                 document.querySelector('#job-input').style.display = "none"
                 document.querySelector('#job-search').style.display = "none"
                 document.querySelector('.noLoad').style.display = "flex"
-                document.querySelector('.noLoadButton').addEventListener('click', ()=>{
+                document.querySelector('.noLoadButton').addEventListener('click', () => {
                     document.location.reload()
                 })
             }
@@ -295,7 +296,7 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
         const occ = await occData.then(od => {
 
-            console.log(od);
+            // console.log(od);
 
             document.querySelectorAll('.job_Title').forEach((title, i) => {
                 title.innerHTML = "";
@@ -318,18 +319,29 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
         })
 
-        document.querySelectorAll('.job_Card').forEach(jobCard => {
-            jobCard.style.display = 'flex'
-        })
 
-        document.querySelector('.loadBar').style.setProperty('--end', '48vw')
-        loadData()
+        document.querySelector('.loadBar').style.width = '48vw'
+        if (document.querySelector('.loadBar').style.width === '48vw') {
+            setTimeout(function (){
+                document.querySelector('.loadContainer').style.display = "none"
+
+            },350)
+            setTimeout(function (){
+                document.querySelector(".main-job").style.backgroundImage = "url('/img/backdrop.jpg')"
+                document.querySelectorAll('.job_Card').forEach(jobCard => {
+                    jobCard.style.display = 'flex'
+                })
+                document.querySelector('.nextB').style.display = 'block';
+                document.querySelector('.prevB').style.display = 'block';
+            }, 500)
+        }
+        // document.querySelector('.loadBar').style.setProperty('--end', '48vw')
 
 
-        document.querySelector('.nextB').style.display = 'block';
-        document.querySelector('.prevB').style.display = 'block';
 
-        console.log('HTML FUNC FIRED OFF')
+
+
+        // console.log('HTML FUNC FIRED OFF')
     }
 
     htmlBuilder(certData, occData)
@@ -339,8 +351,8 @@ document.querySelector('#job-search').addEventListener('click', () => {
     function nextButtonEvent() {
         document.querySelector('.nextB').addEventListener('click', () => {
 
-            console.log("Min: " + min)
-            console.log("Max: " + max)
+            // console.log("Min: " + min)
+            // console.log("Max: " + max)
 
             change++
 
@@ -404,8 +416,8 @@ document.querySelectorAll('.startRoadMap').forEach((button, i) => {
         let wages = document.querySelectorAll('.job_Wages').item(i)
         let certs = document.querySelectorAll('.job_Certs').item(i)
 
-        console.log('clicked')
-        console.log(wages)
+        // console.log('clicked')
+        // console.log(wages)
 
 
         document.querySelector('.job_Form').innerHTML +=

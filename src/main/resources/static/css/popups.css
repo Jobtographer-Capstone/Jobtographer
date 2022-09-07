@@ -1,51 +1,45 @@
-:root {
-    --start: 0;
-    --end: 48vw;
-}
-
 
 #populate {
     margin: 0;
     padding: 0;
 }
 
+.loadContainer {
+    position: relative;
+    bottom: 10vw;
+    height: 50vh;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .loading {
     height: 5vh;
     width: 50vw;
     border-radius: 1em;
-    background: navy;
-    border: 1px inset navy;
+    background: var(--navyBlue);
+    border: 1px inset var(--navyBlue);
     position: absolute;
 }
 
 .loadBar {
     position: relative;
-    background: #BDDAC1;
+    background: var(--mintGreen);
     border-radius: 1em;
     height: 2.5vh;
     top: 1vh;
     left: 0.5vw;
-    width: 48vw;
-    animation-name: bar;
-    animation-duration: 5s;
+    width: 0;
+    transition: 0.5s ease-in-out;
 }
 
 .loadImg {
-    height: 100px;
-    width: 100px;
-    position: relative;
-    bottom: 12vh;
-    right: 25vw;
-}
-
-@keyframes bar {
-    from {
-        width: 5vw;
-    }
-    to {
-        width: var(--end);
-    }
+    height: 150px;
+    width: 150px;
+    animation: infinite;
+    animation-name: rotate;
+    animation-duration: 3s;
 }
 
 .noLoad {
@@ -63,6 +57,11 @@
     align-items: center;
 }
 
-.noLoadButton{
-
+@keyframes rotate {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
 }
