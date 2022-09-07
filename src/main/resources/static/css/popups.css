@@ -4,6 +4,13 @@
     padding: 0;
 }
 
+.loadContainer {
+    height: 50vh;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 .loading {
     height: 5vh;
@@ -26,11 +33,11 @@
 }
 
 .loadImg {
-    height: 100px;
-    width: 100px;
-    position: relative;
-    bottom: 12vh;
-    right: 25vw;
+    height: 150px;
+    width: 150px;
+    animation: infinite;
+    animation-name: rotate;
+    animation-duration: 3s;
 }
 
 .noLoad {
@@ -48,3 +55,11 @@
     align-items: center;
 }
 
+@keyframes rotate {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
