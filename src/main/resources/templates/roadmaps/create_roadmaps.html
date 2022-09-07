@@ -120,7 +120,7 @@
 
                                 </div>
 
-                                <p th:text="${cert.expectedDate}"></p>
+                                <p th:text="${cert.expectedDate.toLocalDate().getMonth().getValue() + '/' + cert.expectedDate.toLocalDate().getDayOfMonth() + '/' + cert.expectedDate.toLocalDate().getYear()}"></p>
                             </div>
 
                         </li>
