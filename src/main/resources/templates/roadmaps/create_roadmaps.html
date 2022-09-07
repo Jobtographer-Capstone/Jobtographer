@@ -36,7 +36,7 @@
                 <h4 th:if="${roadmap != null}" class="pt-5">Assign An Expected Completion Date</h4>
                 <div th:each="cert : ${roadmap.getRoadmapCerts()}">
                     <p class="cert-name"><span th:text="${cert.getCert_id().getCertificationName()}"></span></p>
-                    <p> expected date: <span th:text="${cert.expectedDate}"></span></p>
+                    <p th:if="${cert.expectedDate != null}"> expected date: <span th:text="${cert.expectedDate.toLocalDate().getMonth().getValue() + '/' + cert.expectedDate.toLocalDate().getDayOfMonth() + '/' + cert.expectedDate.toLocalDate().getYear()}"></span></p>
 
                     <form
                           th:action="@{/create/roadmaps/{id}(id=${roadmap.getId()})}" th:method="post">
