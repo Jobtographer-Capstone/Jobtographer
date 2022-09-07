@@ -17,7 +17,6 @@
             <img class="profile-img" th:src="@{~/img/default_img.jpeg}" alt="wow">
         </div>
         <div class="flex align-items-start">
-            <h6 class="username" th:text="${user.getUsername()}"></h6>
             <button type="button" id="defaultEdit" class="edit-img btn ">Edit Profile Image</button>
         </div>
     </div>
@@ -27,34 +26,30 @@
             <img class="profile-img" th:src="${user.img}" alt="wow">
         </div>
         <div class="flex align-items-start">
-            <h5 class="username" th:text="${user.getUsername()}"></h5>
-            <button type="button" id="uploadEdit" class="edit-img btn ">Edit Profile Image</button>
-
+            <button type="button" id="defaultEdit" class="edit-img btn ">Edit Profile Image</button>
         </div>
     </div>
 
 <!--Update form-->
         <div class="update-info shadow-lg text-center">
             <h1 class="update-label">Update Profile Information</h1>
-            <form class=" form-profile" th:method="post" th:action="@{/update/user}" th:object="${user}">
+            <form class="form-profile" th:method="post" th:action="@{/update/user}" th:object="${user}">
                 <h2 th:if="${user == null}" class="form-signin-heading">Sign Up For An Account!</h2>
-                <p>
+                <div class="inputs mx-auto">
+                <p class="mx-3">
                     <label for="username">Username</label>
-                    <input type="text" id="username" name="username" class="" placeholder="Username"
-                           required=""
-                           autofocus="" th:field="*{username}">
+                    <input type="text" id="username" name="username" class="" placeholder="Username" th:field="*{username}">
                 </p>
                 <input type="hidden" th:field="*{img}">
-                <p>
+                <p class="mx-3">
                     <label for="email">Email</label>
-                    <input type="email" id="email" name="email" class="" placeholder="example@example.com"
-                           required="" autofocus="" th:field="*{email}">
+                    <input type="email" id="email" name="email" class="" placeholder="example@example.com" th:field="*{email}">
                 </p>
-                <p>
+                <p class="mx-3">
                     <label for="password">Password</label>
-                    <input type="password" id="password" name="password" class="" placeholder="Password"
-                           th:field="*{password}">
+                    <input type="password" id="password" name="password" placeholder="Password" th:field="*{password}">
                 </p>
+                </div>
                 <input type="hidden" th:field="*{id}">
 
                 <input name="_csrf" type="hidden" th:each="cookie: ${#httpServletRequest.cookies}"
