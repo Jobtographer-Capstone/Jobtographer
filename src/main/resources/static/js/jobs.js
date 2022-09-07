@@ -10,8 +10,10 @@ function cardBuilder() {
             '<p class="job_Outlook" th:name="outlook"></p>' +
             'Average salary: ' +
             '<p class="job_Wages" th:name="wages"></p>' +
-            '<p class="job_Certs cert-name" th:name="certs"></p>' +
+            '<p class="job_Certs cert-name" th:name="certs"></p>' + '<div>' +
             '<button class="startRoadMap btn" type="button">Create RoadMap</button>' +
+            '</div>' +
+
             '</div>';
         document.querySelector(".populate").insertAdjacentHTML("beforeEnd", card
         )
@@ -274,7 +276,7 @@ document.querySelector('#job-search').addEventListener('click', () => {
                 document.querySelector('#job-input').style.display = "none"
                 document.querySelector('#job-search').style.display = "none"
                 document.querySelector('.noLoad').style.display = "flex"
-                document.querySelector('.noLoadButton').addEventListener('click', ()=>{
+                document.querySelector('.noLoadButton').addEventListener('click', () => {
                     document.location.reload()
                 })
             }

@@ -54,7 +54,7 @@ body{
 
 .link-certs{
     font-size: 12px;
-    padding: 0 3em;
+    padding: 0.5em 3em;
     height: 70%;
     margin: 3px 6px;
 }
@@ -112,7 +112,7 @@ body{
 }
 .update-info{
     background: #edf5e1;
-    width: 70%;
+    width: 80vw;
 
 }
 #update-info{

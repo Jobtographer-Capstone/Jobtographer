@@ -6,7 +6,7 @@
 </head>
 <body>
 <nav th:replace="partials/fragments :: navbar"></nav>
-<div class="main">
+<div class="main main-create">
 <div class="container create-roadmap">
     <ul class="nav nav-tabs" id="create-roadmap" role="tablist">
         <li class="nav-item" role="presentation">
@@ -33,7 +33,7 @@
 
                     <p th:text="${roadmap.getCareer()}"></p>
                 </div>
-                <h4 class="pt-5">Assign Needed Certifications An Expected Completion Date</h4>
+                <h4 th:if="${roadmap != null}" class="pt-5">Assign An Expected Completion Date</h4>
                 <div th:each="cert : ${roadmap.getRoadmapCerts()}">
                     <p class="cert-name"><span th:text="${cert.getCert_id().getCertificationName()}"></span></p>
                     <p> expected date: <span th:text="${cert.expectedDate}"></span></p>
@@ -100,6 +100,9 @@
 
 <script th:replace="partials/fragments :: convert-name"></script>
 <script th:replace="partials/fragments :: jobs"></script>
+<script type="text/javascript">
+    document.querySelector(".main-create").style.backgroundImage = "url('/img/backdrop.jpg')"
+</script>
 <script type="text/javascript">
     let tms = document.querySelectorAll(".divider-div");
     let i = 0;

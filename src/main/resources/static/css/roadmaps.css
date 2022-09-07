@@ -83,7 +83,7 @@ flex-grow: 1;
     padding: 0;
 }
 .divider{
-    /*flex-grow: 1;*/
+
     border: var(--notBlack) solid 3px;
 }
 .circle-container{
@@ -132,8 +132,9 @@ flex-grow: 1;
     margin: .5em;
 }
 .fa-star{
-    color: var(--redBrown);
-    font-size: 1.5em;
+    color: gold;
+    font-size: .5em;
+
 }
 .fa-star-blue{
     color: #05386B;
@@ -149,6 +150,17 @@ flex-grow: 1;
     justify-content: center;
     align-items: center;
 }
+.main-create{
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+.main-job{
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
 @media screen and (min-width:996px) {
     .circle{
         height: 80px;
@@ -156,6 +168,9 @@ flex-grow: 1;
     }
     .roadmap-all{
         width: 50vw;
+    }
+    .fa-star{
+        font-size: 1.5em;
     }
     
 }
