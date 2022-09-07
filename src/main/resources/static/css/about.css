@@ -1,5 +1,3 @@
-
-
 #background-image-target {
     position: absolute;
     width: 100%;
@@ -16,7 +14,6 @@
 
 #background-image-target > * {
     position: relative;
-
 }
 
 #background-image-target:before {
@@ -26,6 +23,7 @@
     /*background-color: hsla(213, 54%, 50%, 0.1);*/
     background-color: #bddac1;
 }
+
 
 
 .ppl-img{
@@ -100,4 +98,8 @@
     justify-content: center;
 
 
+}
+
+#chris-pic {
+    background-image: url('../img/christopherdavis.jpeg');
 }
