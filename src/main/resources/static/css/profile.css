@@ -96,7 +96,6 @@ body{
     align-items: center;
     background: transparent;
     margin:.5em 3em;
-    height:90vh;
 }
 .main-profile{
     background-repeat: no-repeat;
@@ -145,7 +144,6 @@ body{
 
     .roadmap-profile {
         width: 50vw;
-        height: 90vh;
         margin-left: .5em;
     }
 
