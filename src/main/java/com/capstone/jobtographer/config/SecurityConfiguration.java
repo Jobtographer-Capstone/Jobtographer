@@ -55,8 +55,7 @@ private UserRepository usersdao;
                         "/delete/user",
                         "/certifications",
                         "/search/certification",
-                        "/delete/certification/{id}",
-                        "/search"
+                        "/delete/certification/{id}"
                 )
                 .authenticated()
                 .and()
