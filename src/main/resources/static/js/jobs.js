@@ -48,7 +48,7 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
     document.querySelector('.loading').style.display = "block"
     document.querySelector('.loadImg').style.display = "block"
-    document.querySelector('.loadBar').style.setProperty('--end', '0')
+    document.querySelector('.loadBar').style.width = "2vw"
 
 
     //###########################//
@@ -71,7 +71,7 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
     //FETCH ALL JOBS
     async function getAllJobs(searchValue) {
-        document.querySelector('.loadImg').style.setProperty('--end', '10vw')
+        // document.querySelector('.loadBar').style.width = '100vw'
 
 
         let jobs = new Map();
@@ -95,6 +95,7 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
         })
         console.log('JOBS FUNC FIRED OFF')
+        document.querySelector('.loadBar').style.width = '5vw'
         return jobs;
     }
 
@@ -137,6 +138,7 @@ document.querySelector('#job-search').addEventListener('click', () => {
                 }
             })
         console.log('JOB CODES FUNC FIRED OFF')
+        document.querySelector('.loadBar').style.width = '15vw'
         return codes;
     }
 
@@ -146,8 +148,6 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
     // FETCH OCCUPATION DATA
     async function getOccData(promise) {
-        // document.querySelector('.loadImg').style.removeProperty('--end')
-        document.querySelector('.loadBar').style.setProperty('--end', '20vw')
 
         let values = [];
         let titles_And_Codes = new Map();
@@ -210,6 +210,7 @@ document.querySelector('#job-search').addEventListener('click', () => {
         values.push(filteredCodes, outlooks, filteredTitles, wages)
 
         console.log('OCC DATA FUNC FIRED OFF')
+        document.querySelector('.loadBar').style.width = '20vw'
         return values;
     }
 
@@ -218,7 +219,7 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
     // FETCH CERTIFICATION DATA
     async function getCerts(promise) {
-        document.querySelector('.loadBar').style.setProperty('--end', '35vw')
+        // document.querySelector('.loadBar').style.setProperty('--end', '35vw')
         let certList = [];
         let fetches = [];
         // let certList = [];
@@ -247,6 +248,7 @@ document.querySelector('#job-search').addEventListener('click', () => {
                 }
             })
         console.log('CERT DATA FUNC FIRED OFF')
+        document.querySelector('.loadBar').style.width = '35vw'
         return certList;
 
     }
@@ -256,13 +258,11 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
 // BUILDER FOR THE HTML
     async function htmlBuilder(certData, occData) {
-        let theData = 0;
-        document.querySelector('.loadBar').style.setProperty('--end', '40vw')
+
         const cert = await certData.then(cd => {
             console.log(cd);
-            if (cd.length > 0) {
-                theData = cd.length;
-            } else {
+            if (cd.length <= 0) {
+
                 document.querySelector('.loading').style.display = "none"
                 document.querySelector('.loadImg').style.display = "none"
 
@@ -318,16 +318,26 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
         })
 
-        document.querySelectorAll('.job_Card').forEach(jobCard => {
-            jobCard.style.display = 'flex'
-        })
 
-        document.querySelector('.loadBar').style.setProperty('--end', '48vw')
-        loadData()
+        document.querySelector('.loadBar').style.width = '48vw'
+        if (document.querySelector('.loadBar').style.width === '48vw') {
+            setTimeout(function (){
+                loadData()
+
+            },350)
+            setTimeout(function (){
+                document.querySelectorAll('.job_Card').forEach(jobCard => {
+                    jobCard.style.display = 'flex'
+                })
+                document.querySelector('.nextB').style.display = 'block';
+                document.querySelector('.prevB').style.display = 'block';
+            }, 500)
+        }
+        // document.querySelector('.loadBar').style.setProperty('--end', '48vw')
 
 
-        document.querySelector('.nextB').style.display = 'block';
-        document.querySelector('.prevB').style.display = 'block';
+
+
 
         console.log('HTML FUNC FIRED OFF')
     }
