@@ -60,6 +60,8 @@ public class UserController {
         return "index";
     }
 
+
+
     @GetMapping("/profile")
     public String profilePage(Model model) {
         UserWithRoles loggedIn = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
