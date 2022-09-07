@@ -51,7 +51,7 @@ public class CertificationController {
         model.addAttribute("cert", new Certification());
 //        model.addAttribute("USER_ID",USER_ID);
 //        model.addAttribute("CAREER_API_KEY", CAREER_API_KEY);
-        return "certs";
+        return "certification/certs";
     }
 
     @PostMapping("/search/certification")
@@ -84,7 +84,7 @@ public class CertificationController {
         if (userCertsDoa.getById(id).getUser_id().equals(user)) {
             userCertsDoa.delete(userCertsDoa.getById(id));
         }
-        return "redirect:/roadmaps";
+        return "redirect:/certifications";
     }
 
 }

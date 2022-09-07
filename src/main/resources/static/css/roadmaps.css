@@ -1,6 +1,6 @@
 .myProgress {
     padding: 1em;
-    background: #edf5e1;
+    background: var(--offWhite);
     border: none;
 
 }
@@ -19,11 +19,11 @@ flex-grow: 1;
 }
 #industryLink{
     font-family: var(--title);
-    color: black;
+    color: var(--notBlack);
 }
 
 #newRoadmapLink {
-    color: var(--lightshade);
+    /*color: var(--lightshade);*/
 }
 
 .career-title{
@@ -50,7 +50,7 @@ flex-grow: 1;
     height: 25px;
     width: 25px;
     border-radius: 50%;
-    border: black solid 2px;
+    border: var(--notBlack) solid 2px;
     justify-self: center;
     background: #05386B;
     display: flex;
@@ -83,8 +83,8 @@ flex-grow: 1;
     padding: 0;
 }
 .divider{
-    /*flex-grow: 1;*/
-    border: black solid 3px;
+
+    border: var(--notBlack) solid 3px;
 }
 .circle-container{
     display: flex;
@@ -115,7 +115,8 @@ flex-grow: 1;
     justify-content: center;
     align-items: center;
 
-    background: #EDF5E1;
+    background: var(--offWhite);
+
 }
 .add-rd{
     flex-grow: 1;
@@ -131,8 +132,9 @@ flex-grow: 1;
     margin: .5em;
 }
 .fa-star{
-    color: #A9675B;
+    color: gold;
     font-size: .5em;
+
 }
 .fa-star-blue{
     color: #05386B;

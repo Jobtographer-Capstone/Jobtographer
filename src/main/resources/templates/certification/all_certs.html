@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="/partials/fragments :: head(Certifications)">
+<head th:replace="partials/fragments :: head(Certifications)">
 </head>
 <body>
-<nav th:replace="/partials/fragments :: navbar"></nav>
+<nav th:replace="partials/fragments :: navbar"></nav>
 <div class="main main-rd">
     <!--All User Certifications-->
     <div class="cert-main">
@@ -16,7 +16,7 @@
         </div>
     </div>
     <div class="text-center">
-        <a href="/search/certification">Add a certification +</a>
+        <a href="/search/certification" class="my-5"><i class="fa-solid fa-plus fa-2xl"></i></a>
 
     </div>
 </div>
@@ -26,6 +26,6 @@
 
 </script>
 <script th:replace="partials/fragments :: convert-name"></script>
-<footer th:replace="/partials/fragments :: footer"></footer>
+<footer th:replace="partials/fragments :: footer"></footer>
 </body>
 </html>
