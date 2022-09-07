@@ -33,6 +33,7 @@ private UserRepository usersdao;
 //                Users home page
                 .permitAll()
                 .defaultSuccessUrl("/profile")
+                .failureUrl("/error")
 //                Anyone can go to the login page
 //                .permitAll()
 //                Pages that can be viewed without having to log in
