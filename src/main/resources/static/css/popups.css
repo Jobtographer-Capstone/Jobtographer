@@ -5,6 +5,8 @@
 }
 
 .loadContainer {
+    position: relative;
+    bottom: 10vw;
     height: 50vh;
     width: 50vw;
     display: flex;
