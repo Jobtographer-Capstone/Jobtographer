@@ -58,7 +58,7 @@ public class CertificationController {
     public String addCert(@ModelAttribute Certification cert, @RequestParam(name = "expDate") Date expDate) {
         UserWithRoles loggedIn = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         AppUser user = usersDoa.findById(loggedIn.getId());
-        System.out.println("The user ID is " + user.getId());
+//        System.out.println("The user ID is " + user.getId());
 
         Certification tableCert = certsDao.findCertificationByCertificationName(cert.getCertificationName());
 

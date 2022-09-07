@@ -94,7 +94,7 @@ document.querySelector('#job-search').addEventListener('click', () => {
             }
 
         })
-        console.log('JOBS FUNC FIRED OFF')
+        // console.log('JOBS FUNC FIRED OFF')
         return jobs;
     }
 
@@ -136,7 +136,7 @@ document.querySelector('#job-search').addEventListener('click', () => {
                     }
                 }
             })
-        console.log('JOB CODES FUNC FIRED OFF')
+        // console.log('JOB CODES FUNC FIRED OFF')
         return codes;
     }
 
@@ -209,7 +209,7 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
         values.push(filteredCodes, outlooks, filteredTitles, wages)
 
-        console.log('OCC DATA FUNC FIRED OFF')
+        // console.log('OCC DATA FUNC FIRED OFF')
         return values;
     }
 
@@ -246,7 +246,7 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
                 }
             })
-        console.log('CERT DATA FUNC FIRED OFF')
+        // console.log('CERT DATA FUNC FIRED OFF')
         return certList;
 
     }
@@ -259,7 +259,7 @@ document.querySelector('#job-search').addEventListener('click', () => {
         let theData = 0;
         document.querySelector('.loadBar').style.setProperty('--end', '40vw')
         const cert = await certData.then(cd => {
-            console.log(cd);
+            // console.log(cd);
             if (cd.length > 0) {
                 theData = cd.length;
             } else {
@@ -295,7 +295,7 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
         const occ = await occData.then(od => {
 
-            console.log(od);
+            // console.log(od);
 
             document.querySelectorAll('.job_Title').forEach((title, i) => {
                 title.innerHTML = "";
@@ -329,7 +329,7 @@ document.querySelector('#job-search').addEventListener('click', () => {
         document.querySelector('.nextB').style.display = 'block';
         document.querySelector('.prevB').style.display = 'block';
 
-        console.log('HTML FUNC FIRED OFF')
+        // console.log('HTML FUNC FIRED OFF')
     }
 
     htmlBuilder(certData, occData)
@@ -339,8 +339,8 @@ document.querySelector('#job-search').addEventListener('click', () => {
     function nextButtonEvent() {
         document.querySelector('.nextB').addEventListener('click', () => {
 
-            console.log("Min: " + min)
-            console.log("Max: " + max)
+            // console.log("Min: " + min)
+            // console.log("Max: " + max)
 
             change++
 
@@ -404,8 +404,8 @@ document.querySelectorAll('.startRoadMap').forEach((button, i) => {
         let wages = document.querySelectorAll('.job_Wages').item(i)
         let certs = document.querySelectorAll('.job_Certs').item(i)
 
-        console.log('clicked')
-        console.log(wages)
+        // console.log('clicked')
+        // console.log(wages)
 
 
         document.querySelector('.job_Form').innerHTML +=

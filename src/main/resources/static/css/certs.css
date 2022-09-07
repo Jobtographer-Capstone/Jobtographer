@@ -1,5 +1,5 @@
 .cert-card {
-    background: #edf5e1;
+    background: var(--offWhite);
     padding: 1em;
     margin: 1em;
     width: 40%;
@@ -28,11 +28,11 @@
 }
 .cert_value{
     margin-right: .5em;
-    background: #edf5e1;
+    background: var(--offWhite);
     border-radius: 5px;
 }
 .cert-card-populate{
-    background: #edf5e1;
+    background: var(--offWhite);
     padding: .5em;
     margin: 1em;
     width: 50vh;

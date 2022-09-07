@@ -56,17 +56,17 @@ public class RoadmapController {
         UserWithRoles userRole = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         AppUser user = usersDao.findById(userRole.getId());
         roadmap.setUser(user);
-        System.out.println(certsArr);
-        System.out.println("------------------");
+//        System.out.println(certsArr);
+//        System.out.println("------------------");
         roadmap.setCareer(title);
         roadmapsDao.save(roadmap);
         long id = roadmap.getId();
         String[] certs = certsArr.split(",");
-        System.out.println(certsArr);
+//        System.out.println(certsArr);
 
         List<Certification> certificationList = new ArrayList<>();
         for (String cert : certs) {
-            System.out.println("Look !!! A CERT " + cert);
+//            System.out.println("Look !!! A CERT " + cert);
             Certification tableCert = certsDao.findCertificationByCertificationName(cert);
             if (tableCert == null) {
                 Certification certification = new Certification();
@@ -125,9 +125,9 @@ public class RoadmapController {
         RoadmapCert cert = roadmapsCertsDao.getById(certId);
 //        YearMonth cDate = YearMonth.parse(date);
         cert.setExpectedDate(date);
-        System.out.println(cert.getExpectedDate());
+//        System.out.println(cert.getExpectedDate());
         roadmapsCertsDao.save(cert);
-        System.out.println("Did it save ?");
+//        System.out.println("Did it save ?");
 
         return "redirect:/create/roadmaps/{id}";
     }
@@ -159,9 +159,9 @@ public class RoadmapController {
             roadmapsDao.save(rm);
             model.addAttribute("progress", progress);
 
-            System.out.println(need + " !!!!!");
-            System.out.println("i have " + have);
-            System.out.format("i am %d percent complete %n", progress);
+//            System.out.println(need + " !!!!!");
+//            System.out.println("i have " + have);
+//            System.out.format("i am %d percent complete %n", progress);
             model.addAttribute("progress", progress);
         }
 
