@@ -161,6 +161,12 @@ flex-grow: 1;
     background-size: contain;
     background-position: center;
 }
+
+.create-page-rd{
+    max-width: 90vw;
+
+}
+
 @media screen and (min-width:996px) {
     .circle{
         height: 80px;
