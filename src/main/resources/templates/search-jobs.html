@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:replace="partials/fragments :: head('Search')">
     <meta charset="UTF-8">
     <title>Title</title>
@@ -7,6 +7,7 @@
 <body>
 <nav th:replace="partials/fragments :: navbar"></nav>
 <div class="main main-job">
+    <h1 class="font-title">Search careers</h1>
     <div th:replace="partials/fragments :: search-jobs"></div>
         <img class="loadImg" th:src="@{~/img/modern_Jobtographer_Logo_RedBrown.svg}" alt="compass">
     <div class="loading">

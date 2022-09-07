@@ -184,7 +184,12 @@ li {
 .card-body {
     margin-top: 2.5em;
 }
-
+.main-job{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-top: 5em;
+}
 @media screen and (min-width: 996px) {
     #index-pic {
         height: 600px;
