@@ -51,20 +51,17 @@
                 </p>
                 </div>
                 <input type="hidden" th:field="*{id}">
-
+                <div class="px-1">
                 <input name="_csrf" type="hidden" th:each="cookie: ${#httpServletRequest.cookies}"
                        th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
-                <button class="btn btn-block" type="submit">Update</button>
-
-                <input name="_csrf" type="hidden" th:each="cookie: ${#httpServletRequest.cookies}"
-                       th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
-                <button  th:action="@{/profile.html}" class="btn btn-block" type="submit">Cancel</button>
-
-
-
-
+                <button class="btn px-1" type="submit">Update</button>
+                <button class="btn px-1" id="deleteAccount">Delete Account</button>
+                    <input name="_csrf" type="hidden" th:each="cookie: ${#httpServletRequest.cookies}"
+                           th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
+                </div>
             </form>
-            <a class="delete" href="" id="deleteAccount">Delete Account</a>
+
+            <a class="delete" href="/profile" type="submit">Cancel</a>
         </div>
         <!--        File stack.Js-->
         <form class="myForm" th:action="@{/profile}" method="post">
