@@ -32,8 +32,8 @@
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    box-shadow: white;
-    border: #05386B solid 3px;
+    box-shadow: var(--offWhite);
+    border: var(--navyBlue) solid 3px;
 }
 
 .whole-card{
@@ -42,7 +42,7 @@
 }
 
 .about-card{
-    background-color: #EDF5E1;
+    background-color: var(--offWhite);
     margin: 1em;
     padding: 1em;
 }
@@ -50,7 +50,7 @@
 .card-body > h5{
     /*font: var(--title);*/
     font-size: 30px;
-    color: #05386B;
+    color: var(--navyBlue);
 }
 
 .social-links {
@@ -63,7 +63,7 @@
 }
 
 .about-title{
-    color: #05386B;
+    color: var(--navyBlue);
 }
 
 .card-title > p{
