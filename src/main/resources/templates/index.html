@@ -78,6 +78,14 @@
     document.querySelector(".icon2").style.backgroundImage = "url('/img/icon2.jpg')";
     document.querySelector(".icon3").style.backgroundImage = "url('/img/icon3.jpg')";
 
+
+        if(window.location.href === "http://jobtographer.com/login?error" ){
+
+            alert("you entered an incorrect username or password");
+        }
+
+
+
 </script>
 <script th:replace="partials/fragments :: jobs"></script>
 </body>
