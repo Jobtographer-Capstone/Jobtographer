@@ -7,7 +7,7 @@
 }
 
 #github-button {
-    background: black;
+    background: var(--notBlack);
 }
 
 #github-button:hover{

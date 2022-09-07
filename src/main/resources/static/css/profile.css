@@ -22,7 +22,7 @@ body{
     flex-direction: column;
     justify-content: start;
     align-items: center;
-    background-color: #EDF5E1;
+    background-color: var(--offWhite);
     padding: .5em;
     margin:1em 5em;
 }
@@ -48,7 +48,7 @@ body{
     font-size: 14px;
 }
 .profile-img{
-    border: solid #05386B 3px;
+    border: solid var(--navyBlue) 3px;
     border-radius: 50%;
 }
 
@@ -78,7 +78,7 @@ body{
     height: 100%;
     padding: 1em;
     margin: .5em;
-    background: #EDF5E1;
+    background: var(--offWhite);
 
 }
 .roadmap-profile{
@@ -90,7 +90,7 @@ body{
     align-items: center;
     padding: 1em;
     margin: .5em;
-    background: #EDF5E1;
+    background: var(--offWhite);
 }
 #certs-maps{
     display: flex;
@@ -111,7 +111,7 @@ body{
     padding: 0;
 }
 .update-info{
-    background: #edf5e1;
+    background: var(--offWhite);
     width: 80vw;
 
 }

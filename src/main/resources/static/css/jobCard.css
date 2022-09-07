@@ -8,7 +8,7 @@
 
 }
 .job-card-populate{
-    background: #edf5e1;
+    background: var(--offWhite);
     padding: 1em;
     margin: 1em;
     width: 75%;
