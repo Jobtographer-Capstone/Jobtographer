@@ -3,7 +3,7 @@ document.querySelector('.cert_search').addEventListener('click', () => {
 
     document.querySelector('.card_holder').innerHTML = "";
     const searchValue = document.querySelector('.cert_value').value;
-    console.log(searchValue + " was searched for!")
+    // console.log(searchValue + " was searched for!")
 
 
     fetch(`https://api.careeronestop.org/v1/certificationfinder/${USER_ID}/${searchValue}/0/0/0/0/0/0/0/0/0/10`, {
@@ -13,7 +13,7 @@ document.querySelector('.cert_search').addEventListener('click', () => {
             'Content-Type': 'application/json'
         }
     }).then(res => res.json()).then(data => {
-        console.log(data);
+        // console.log(data);
 
         data.CertList.forEach((cert, i) => {
 

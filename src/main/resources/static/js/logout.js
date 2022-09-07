@@ -2,7 +2,7 @@
 
 document.querySelector("#logout").addEventListener("click", () => {
     let trueFalse = confirm("Are you sure you want to logout ?");
-    console.log(trueFalse)
+    // console.log(trueFalse)
     if (trueFalse === true) {
         window.location.assign("/logout");
         alert("You have been logged out");

@@ -6,13 +6,15 @@
 </head>
 <body>
 <nav th:replace="partials/fragments :: navbar"></nav>
-<main class="container-fluid d-flex flex-column mx-auto">
+<main class="container-fluid d-flex flex-column mx-auto error">
 <h1 class="mx-auto my-3">Something went wrong! <i class="fa-solid fa-heart-crack"></i></h1>
 <h2 class="mx-auto">Our Engineers are on it</h2>
 <a href="/" class="mx-auto"><i class="fa-solid fa-helmet-safety"></i> Go Back to Safety</a>
 </main>
 <nav th:replace="partials/fragments :: page-bottom-one"></nav>
 <script th:src="@{~/js/error.js}"></script>
-
+<script th:inline="javascript">
+    document.querySelector(".error").style.backgroundImage = "url('/img/background.jpg')";
+</script>
 </body>
 </html>

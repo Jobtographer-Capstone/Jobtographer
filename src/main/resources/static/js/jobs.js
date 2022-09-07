@@ -94,7 +94,7 @@ document.querySelector('#job-search').addEventListener('click', () => {
             }
 
         })
-        console.log('JOBS FUNC FIRED OFF')
+
         document.querySelector('.loadBar').style.width = '5vw'
         return jobs;
     }
@@ -137,8 +137,9 @@ document.querySelector('#job-search').addEventListener('click', () => {
                     }
                 }
             })
-        console.log('JOB CODES FUNC FIRED OFF')
+
         document.querySelector('.loadBar').style.width = '15vw'
+
         return codes;
     }
 
@@ -209,8 +210,9 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
         values.push(filteredCodes, outlooks, filteredTitles, wages)
 
-        console.log('OCC DATA FUNC FIRED OFF')
+
         document.querySelector('.loadBar').style.width = '20vw'
+
         return values;
     }
 
@@ -247,8 +249,9 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
                 }
             })
-        console.log('CERT DATA FUNC FIRED OFF')
+
         document.querySelector('.loadBar').style.width = '35vw'
+
         return certList;
 
     }
@@ -260,8 +263,10 @@ document.querySelector('#job-search').addEventListener('click', () => {
     async function htmlBuilder(certData, occData) {
 
         const cert = await certData.then(cd => {
-            console.log(cd);
+
+          
             if (cd.length <= 0) {
+
 
                 document.querySelector('.loading').style.display = "none"
                 document.querySelector('.loadImg').style.display = "none"
@@ -295,7 +300,7 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
         const occ = await occData.then(od => {
 
-            console.log(od);
+            // console.log(od);
 
             document.querySelectorAll('.job_Title').forEach((title, i) => {
                 title.innerHTML = "";
@@ -339,7 +344,7 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
 
 
-        console.log('HTML FUNC FIRED OFF')
+        // console.log('HTML FUNC FIRED OFF')
     }
 
     htmlBuilder(certData, occData)
@@ -349,8 +354,8 @@ document.querySelector('#job-search').addEventListener('click', () => {
     function nextButtonEvent() {
         document.querySelector('.nextB').addEventListener('click', () => {
 
-            console.log("Min: " + min)
-            console.log("Max: " + max)
+            // console.log("Min: " + min)
+            // console.log("Max: " + max)
 
             change++
 
@@ -414,8 +419,8 @@ document.querySelectorAll('.startRoadMap').forEach((button, i) => {
         let wages = document.querySelectorAll('.job_Wages').item(i)
         let certs = document.querySelectorAll('.job_Certs').item(i)
 
-        console.log('clicked')
-        console.log(wages)
+        // console.log('clicked')
+        // console.log(wages)
 
 
         document.querySelector('.job_Form').innerHTML +=
