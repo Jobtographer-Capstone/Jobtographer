@@ -6,14 +6,13 @@ function cardBuilder() {
     while (x < 5) {
 
         let card = '<div class="job-card-populate shadow-lg job_Card">' +
-            '<h3>Title: </h3>'+
-            '<p class="job_Title" th:name="title"></p>' +
-            '<h3>Outlook: </h3>'+
-            '<p class="job_Outlook" th:name="outlook"></p>' +
-            '<h3>Average Salary: </h3>'+
-            '<p class="job_Wages" th:name="wages"></p>' +
-            '<h3>Certifications: </h3> '+
-            '<p class="job_Certs cert-name" th:name="certs"></p>' + '<div>' +
+            '<p class="job_Title font-title" th:name="title"></p>' +
+            '<h4 class="font-title">Outlook: </h4>'+
+            '<p class="job_Outlook font-body" th:name="outlook"></p>' +
+            '<h4 class="font-title">Average Salary: </h4>'+
+            '<p class="job_Wages font-body" th:name="wages"></p>' +
+            '<h4 class="font-title">Certifications: </h4> '+
+            '<p class="job_Certs cert-name font-body" th:name="certs"></p>' + '<div>' +
             '<button class="startRoadMap btn" type="button">Create RoadMap</button>' +
             '</div>';
         document.querySelector(".populate").insertAdjacentHTML("beforeEnd", card
