@@ -1,18 +1,20 @@
 // CARD BUILDER
-function cardBuilder() {
-
+function cardBuilder(length) {
+    console.log(length)
     let x = 0;
-
-    while (x < 5) {
+    if (length > 5) {
+        length = 5
+    }
+    while (x < length) { // was x < 5
 
         let card = '<div class="job-card-populate shadow-lg job_Card">' +
-            '<h3>Title: </h3>'+
+            '<h3>Title: </h3>' +
             '<p class="job_Title" th:name="title"></p>' +
-            '<h3>Outlook: </h3>'+
+            '<h3>Outlook: </h3>' +
             '<p class="job_Outlook" th:name="outlook"></p>' +
-            '<h3>Average Salary: </h3>'+
+            '<h3>Average Salary: </h3>' +
             '<p class="job_Wages" th:name="wages"></p>' +
-            '<h3>Certifications: </h3> '+
+            '<h3>Certifications: </h3> ' +
             '<p class="job_Certs cert-name" th:name="certs"></p>' + '<div>' +
             '<button class="startRoadMap btn" type="button">Create RoadMap</button>' +
             '</div>';
@@ -25,12 +27,15 @@ function cardBuilder() {
 
 }
 
-cardBuilder()
+cardBuilder(5)
+
+// cardBuilder()
 //###########################//
 
 let change = 0;
 let end = 1;
-
+let display = 0;
+let inputLength = 0;
 
 document.querySelector('.noLoad').style.display = "none"
 document.querySelector('.loadContainer').style.display = "none"
@@ -128,13 +133,26 @@ document.querySelector('#job-search').addEventListener('click', () => {
             .then(values => Promise.all(values.map(v => v.json())))
             .then(data => {
                 for (let i = 0; i < data.length; i++) {
+                    try {
+                        for (let j = 0; j < data[i].OnetCodes.length; j++) {
+                            if (!codes.includes(data[i].OnetCodes[j])) {
+                                codes.push(data[i].OnetCodes[j])
 
-                    for (let j = 0; j < data[i].OnetCodes.length; j++) {
-                        if (!codes.includes(data[i].OnetCodes[j])) {
-                            codes.push(data[i].OnetCodes[j])
+                            }
 
                         }
+                    } catch (e) {
+                        window.scroll(0, 0)
+                        document.querySelector('.noLoad').style.display = "flex"
+                        document.querySelector('.jobMessage').innerHTML = `<p style="text-align: center">OOPS... Something Went Wrong!</p> <br> <p style="text-align: center">Please try a new search.</p>`
+                        document.querySelectorAll('.job_Card').forEach(jobCard => {
+                            jobCard.style.display = 'none'
+                            display++
+                            document.querySelector('.noLoadButton').addEventListener('click', () => {
+                                document.location.reload()
+                            })
 
+                        })
                     }
                 }
             })
@@ -220,10 +238,10 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
     // FETCH CERTIFICATION DATA
     async function getCerts(promise) {
-        // document.querySelector('.loadBar').style.setProperty('--end', '35vw')
+
         let certList = [];
         let fetches = [];
-        // let certList = [];
+
         const p = await promise
 
         for (let i = 0; i < p[0].length; i++) {
@@ -261,8 +279,10 @@ document.querySelector('#job-search').addEventListener('click', () => {
     async function htmlBuilder(certData, occData) {
 
         const cert = await certData.then(cd => {
+            console.log(cd)
+            inputLength = cd.length
 
-          
+
             if (cd.length <= 0) {
 
 
@@ -275,29 +295,44 @@ document.querySelector('#job-search').addEventListener('click', () => {
                     document.location.reload()
                 })
             }
+            let words = searchValue.split(' ');
             document.querySelectorAll('.job_Certs').forEach((c, i) => {
                 c.innerHTML = "";
+                try {
+                    for (let j = 0; j < cd[i + change].length; j++) {
 
-                for (let j = 0; j < cd[i + change].length; j++) {
-
-                    if (j < 10) {
-                        //Each individual cert seperated by a space
-                        c.innerHTML +=
-                            `
+                        if (j < 10) {
+                            //Each individual cert seperated by a space
+                            console.log(cd[i + change][j])
+                            c.innerHTML +=
+                                `
                                 <p>${cd[i + change][j].Name}</p>
                                 <input name="certID" type="hidden" value="${cd[i + change][j].Id}" />
                             `;
 
+                        }
                     }
-                }
+                } catch (e) {
+                    window.scroll(0, 0)
+                    document.querySelector('.noLoad').style.display = "flex"
+                    document.querySelector('.jobMessage').innerHTML = `<p style="text-align: center">OOPS... Something Went Wrong!</p> <br> <p style="text-align: center">Please try a new search.</p>`
+                    document.querySelectorAll('.job_Card').forEach(jobCard => {
+                        jobCard.style.display = 'none'
+                        display++
+                        document.querySelector('.noLoadButton').addEventListener('click', () => {
+                            document.location.reload()
+                        })
 
+                    })
+
+                }
             })
 
         })
 
         const occ = await occData.then(od => {
 
-            // console.log(od);
+            console.log(od);
 
             document.querySelectorAll('.job_Title').forEach((title, i) => {
                 title.innerHTML = "";
@@ -320,14 +355,13 @@ document.querySelector('#job-search').addEventListener('click', () => {
 
         })
 
-
         document.querySelector('.loadBar').style.width = '48vw'
         if (document.querySelector('.loadBar').style.width === '48vw') {
-            setTimeout(function (){
+            setTimeout(function () {
                 document.querySelector('.loadContainer').style.display = "none"
 
-            },350)
-            setTimeout(function (){
+            }, 350)
+            let displayTimer = setTimeout(function () {
                 document.querySelector(".main-job").style.backgroundImage = "url('/img/backdrop.jpg')"
                 document.querySelectorAll('.job_Card').forEach(jobCard => {
                     jobCard.style.display = 'flex'
@@ -335,14 +369,11 @@ document.querySelector('#job-search').addEventListener('click', () => {
                 document.querySelector('.nextB').style.display = 'block';
                 document.querySelector('.prevB').style.display = 'block';
             }, 500)
+            if (display > 0) {
+                clearTimeout(displayTimer)
+            }
         }
-        // document.querySelector('.loadBar').style.setProperty('--end', '48vw')
 
-
-
-
-
-        // console.log('HTML FUNC FIRED OFF')
     }
 
     htmlBuilder(certData, occData)
@@ -352,9 +383,7 @@ document.querySelector('#job-search').addEventListener('click', () => {
     function nextButtonEvent() {
         document.querySelector('.nextB').addEventListener('click', () => {
 
-            // console.log("Min: " + min)
-            // console.log("Max: " + max)
-
+            window.scroll(0, 0)
             change++
 
             if (change === 0) {
@@ -380,7 +409,7 @@ document.querySelector('#job-search').addEventListener('click', () => {
     // PREV BUTTON CLICK EVENT
     function prevButtonEvent() {
         document.querySelector('.prevB').addEventListener('click', () => {
-
+            window.scroll(0, 0)
             change--
 
             if (change === 0) {
@@ -442,8 +471,3 @@ document.querySelectorAll('.startRoadMap').forEach((button, i) => {
 
 //###########################//
 
-
-function loadData() {
-    document.querySelector('.loading').style.display = "none"
-    document.querySelector('.loadImg').style.display = "none"
-}
