@@ -2,11 +2,13 @@
     padding: 1em;
     background: var(--offWhite);
     border: none;
-
+    width: 50vw;
 }
+
 .create-rd{
     font-family: var(--title);
 }
+
 #roadmaps{
 flex-grow: 1;
     display: flex;
@@ -14,38 +16,39 @@ flex-grow: 1;
     justify-content: center;
     align-items: center;
 }
+
 .progress-bar{
     font-family: var(--title);
 }
+
 #industryLink{
     font-family: var(--title);
     color: var(--notBlack);
 }
 
 #newRoadmapLink {
-    /*color: var(--lightshade);*/
+
 }
 
 .career-title{
     display: flex;
     justify-content: center;
     align-items: center;
-
-    
 }
+
 .prog-percent{
     display: flex;
     justify-content: center;
     align-items: center;
-    
-
 }
+
 #roadmapTabContent{
     display: flex;
     flex-direction: row;
     padding-bottom: 100px;
     flex-wrap: wrap;
 }
+
 .circle{
     height: 25px;
     width: 25px;
@@ -57,23 +60,25 @@ flex-grow: 1;
     justify-content: center;
     align-items: center;
 }
+
 .timeline-cert{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
 .timeline-container{
     display: flex;
     flex-direction: row;
     width: 100vw;
-
 }
+
 .tc-con{
     width: 325px;
     margin-top: 1em;
-
 }
+
 .table-tm{
     display: flex;
     flex-direction: row;
@@ -82,63 +87,69 @@ flex-grow: 1;
     flex-wrap: nowrap;
     padding: 0;
 }
-.divider{
 
+.divider{
     border: var(--notBlack) solid 3px;
 }
+
 .circle-container{
     display: flex;
     width: 100%;
     margin-top: 1em;
     align-items: center;
-
 }
+
 .divider-div{
     display: flex;
     flex-direction: column;
     justify-content: center;
-
     flex-grow: 1;
 }
+
 .create-roadmap{
     flex-grow: 1;
 }
+
 .main-rd{
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
 }
+
 .roadmap-all{
     padding: 1em;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
     background: var(--offWhite);
-
 }
+
 .add-rd{
     flex-grow: 1;
 }
+
 .rd-page{
     margin: 1em;
 }
+
 .single-cert{
     width: 100vw;
 }
-.cert-name{
 
+.cert-name{
     margin: .5em;
 }
+
 .fa-star{
     color: gold;
     font-size: .5em;
-
 }
+
 .fa-star-blue{
     color: var(--navyBlue);
 }
+
 .circle-brown{
     background: var(--redBrown);
     height: 25px;
@@ -150,12 +161,13 @@ flex-grow: 1;
     justify-content: center;
     align-items: center;
 }
+
 .main-create{
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-
 }
+
 .main-job{
     background-repeat: no-repeat;
     background-size: contain;
@@ -164,7 +176,6 @@ flex-grow: 1;
 
 .create-page-rd{
     max-width: 90vw;
-
 }
 
 @media screen and (min-width:996px) {
@@ -172,11 +183,12 @@ flex-grow: 1;
         height: 80px;
         width: 80px;
     }
+
     .roadmap-all{
         width: 50vw;
     }
+
     .fa-star{
         font-size: 1.5em;
     }
-    
 }
