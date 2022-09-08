@@ -26,22 +26,24 @@
                     <h2 th:if="${roadmap.getCareer() == null }" class="form-heading text-center">Create Your
                         Roadmap</h2>
                     <div>
-                        <h4>Career</h4>
+                        <h4 class="text-center">Career</h4>
                         <div th:if="${roadmap.getCareer() == null}">
 
                             <a class="btn" href="/search" type="button">Search Jobs</a>
                         </div>
                         <p th:text="${roadmap.getCareer()}"></p>
                     </div>
-                    <h4 th:if="${roadmap != null}" class="pt-5">Assign An Expected Completion Date</h4>
+                    <h4 th:if="${roadmap != null}" class="pt-5 text-center">Assign An Expected Completion Date</h4>
                     <form th:action="@{/create/roadmaps/{id}(id=${roadmap.getId()})}" th:method="post" class="dateForm">
                         <div class="dates"></div>
-                        <div th:each="cert : ${roadmap.getRoadmapCerts()}">
+                        <div th:each="cert : ${roadmap.getRoadmapCerts()}" class="my-3 d-flex flex-column align-items-center">
                             <p class="cert-name"><span th:text="${cert.getCert_id().getCertificationName()}"></span></p>
                             <p th:if="${cert.expectedDate != null}"> expected date: <span class="test"
                                     th:text="${cert.expectedDate.toLocalDate().getMonth().getValue() + '/' + cert.expectedDate.toLocalDate().getDayOfMonth() + '/' + cert.expectedDate.toLocalDate().getYear()}"></span>
                                 <input type="hidden" class="testing" th:value="${cert.expectedDate}" />
                             </p>
+
+
                             <input th:id="${cert.getCert_id().getCertificationName()}" type="date"
                                    required="" class="dateValues"> <!--NAME = EXPECTED WAS HERE-->
 
@@ -54,7 +56,7 @@
                     </form>
                 </div>
                 <!--                href="/roadmaps"-->
-                <a th:if="${roadmap.getCareer() != null}" class="addBtn btn" type="button">Finish</a>
+                <a th:if="${roadmap.getCareer() != null}" class="addBtn btn mx-auto" type="button">Finish</a>
             </div>
 <!--            <div class="tab-pane fade timeline-container " id="certs" role="tabpanel" aria-labelledby="profile-tab">-->
 <!--                <div class="rd-contain">-->
