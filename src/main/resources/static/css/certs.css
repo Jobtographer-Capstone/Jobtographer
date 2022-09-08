@@ -1,23 +1,25 @@
-.cert-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    background: var(--offWhite);
-    padding: 1em;
-    margin: 1em;
-    height: 45vh;
-    width: 40vw;
+.cert-table {
+    width: 50vw;
 }
 
-.cert-main{
-    max-width: 90vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
+.cert-table > tr {
+    padding: 5vw;
 }
 
+.main-certs{
+    background-color: var(--offWhite);
+    width: 70vw ;
+}
+
+.background {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
 .font-title{
     font-family: var(--title);
 }
@@ -59,26 +61,4 @@
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-}
-
-.main-certs{
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center;
-}
-
-@media screen and (min-width:996px){
-    .cert-main{
-        flex-direction: row;
-    }
-
-    .cert-card{
-        width: 25%;
-    }
-}
-
-@media screen and (max-width: 500px){
-    .cert-card-populate{
-        width: 50vw;
-    }
 }
