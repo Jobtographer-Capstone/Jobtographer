@@ -21,6 +21,7 @@
         animation-name: slideToRight;
     }
 }
+
 @keyframes spin {
     from {
         transform: rotate(0deg);
@@ -39,7 +40,6 @@
     }
 }
 
-
 @keyframes slideToLeft {
     from {
         margin-left: 100%;
@@ -51,7 +51,6 @@
         width: 100%;
     }
 }
-
 
 @keyframes slideToRight {
     from {

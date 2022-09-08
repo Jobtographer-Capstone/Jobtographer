@@ -22,8 +22,7 @@ public class Certification {
 @OneToMany(mappedBy = "cert_id")
     private List<RoadmapCert> roadmapCerts;
 
-    public Certification() {
-    }
+    public Certification() {}
     public Certification(String certificationName) {
         this.certificationName = certificationName;
     }
@@ -32,7 +31,6 @@ public class Certification {
     public Certification(Long id, String certificationName) {
         this.id = id;
         this.certificationName = certificationName;
-
     }
 
     public Long getId() {

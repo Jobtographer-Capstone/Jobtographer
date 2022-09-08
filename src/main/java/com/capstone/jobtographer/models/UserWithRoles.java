@@ -56,10 +56,7 @@ public class UserWithRoles implements UserDetails {
     }
 
     @Override
-    public boolean isAccountNonLocked() {
-        return true;
-
-    }
+    public boolean isAccountNonLocked() {return true;}
 
     @Override
     public boolean isCredentialsNonExpired() {

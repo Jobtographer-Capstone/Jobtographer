@@ -1,10 +1,7 @@
 #nav-top {
     margin: 0;
     padding: 0;
-    /*background-color: var(--mintGreen);*/
     width: 100%;
-
-
 }
 
 .logo{
@@ -24,15 +21,16 @@
     color:  var(--navyBlue);
     font-weight: bold;
 }
+
 .btn{
     color: var(--offWhite);
     background-color: var(--navyBlue);
-/*border: var(--accent) 3px solid;*/
 }
 
 .nav-link{
     color: var(--navyBlue);
 }
+
 .btn:hover {
     background-color:var(--offWhite) ;
     box-shadow: 3px 3px 2px dimgrey;

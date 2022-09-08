@@ -6,11 +6,8 @@
 </head>
 <body>
 <nav th:replace="partials/fragments :: navbar"></nav>
-
 <div  class="main main-profile">
     <div id="update-info">
-
-
     <!--Default Img-->
     <div class="profile-div update-profile-div shadow-lg" th:if="${user.getImg() == null}">
         <div class="p_img">
@@ -29,7 +26,6 @@
             <button type="button" id="defaultEdit" class="edit-img btn ">Edit Profile Image</button>
         </div>
     </div>
-
 <!--Update form-->
         <div class="update-info shadow-lg text-center">
             <h1 class="update-label">Update Profile Information</h1>
@@ -60,7 +56,6 @@
                            th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
                 </div>
             </form>
-
             <a class="delete" href="/profile" type="submit">Cancel</a>
         </div>
         <!--        File stack.Js-->

@@ -109,14 +109,12 @@ body{
 .update-info{
     background: var(--offWhite);
     width: 80vw;
-
 }
 #update-info{
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-grow: 1;
-
 }
 
 .inputs {
@@ -127,12 +125,12 @@ body{
     display: flex;
     flex-direction: column;
 }
+
 @media screen and (min-width:992px) {
 
     #profile{
         flex-direction: row;
         margin-left: 5em;
-        /*height: 100vh;*/
         justify-content: start;
     }
     .profile-div{

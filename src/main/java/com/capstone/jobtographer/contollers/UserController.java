@@ -68,7 +68,6 @@ public class UserController {
         model.addAttribute("user", user);
         List<UserCert> userCerts = userCertsDao.findAllByUser_id(user.getId());
         model.addAttribute("certs", userCerts);
-
         Roadmap roadmap = roadmapsDao.findTopByUserOrderByIdDesc(user);
         model.addAttribute("roadmap", roadmap);
         if(roadmap != null){
@@ -87,15 +86,10 @@ public class UserController {
 
             double math = (double) have / need * 100;
             int progress = (int) math;
-
             roadmap.setProgress(progress);
             roadmapsDao.save(roadmap);
         }
-
-
-
         return "user/profile";
-
     }
 
     @PostMapping("/profile")
@@ -104,8 +98,6 @@ public class UserController {
         AppUser user = usersdao.findById(loggedIn.getId());
         model.addAttribute("FILESTACK_API_KEY", FILESTACK_API_KEY);
         usersdao.updateImg(pI, user.getUsername());
-
-
         return "redirect:/update/user";
     }
 
@@ -129,7 +121,6 @@ public class UserController {
             String body = "Welcome " + user.getUsername() + ", You have created a new account ! your login username is : " + user.getUsername();
             emailService.prepareAndSend(user, subject, body);
         }
-
         return "redirect:/login";
     }
 
@@ -158,7 +149,6 @@ public class UserController {
     }
     @GetMapping("/search")
     public String search(){
-
         return "search-jobs";
     }
 

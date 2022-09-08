@@ -4,33 +4,37 @@
     margin: 1em;
     width: 40%;
 }
+
 .cert-main{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
 }
 
 .font-title{
     font-family: var(--title);
 }
+
 .search-cert-main{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
+
 .search-cert-btn{
     display: flex;
     align-items: center;
     margin: 5em;
 }
+
 .cert_value{
     margin-right: .5em;
     background: var(--offWhite);
     border-radius: 5px;
 }
+
 .cert-card-populate{
     background: var(--offWhite);
     padding: .5em;
@@ -43,21 +47,25 @@
     justify-content: space-evenly;
 
 }
+
 .card_holder{
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
 }
+
 .main-certs{
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
 }
+
 @media screen and (min-width:996px){
     .cert-main{
         flex-direction: row;
     }
+
     .cert-card{
         width: 25%;
     }

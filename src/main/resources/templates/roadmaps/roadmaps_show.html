@@ -4,15 +4,11 @@
 </head>
 <body>
 <nav th:replace="partials/fragments :: navbar"></nav>
-
-
 <div class="shadow-lg single-cert myProgress">
     <div>
             <h3 class="career-title"><span class="font-title" th:text="${roadmap.getCareer().toUpperCase()}"></span></h3>
-
         <div th:each="cert : ${roadmap.getRoadmapCerts()}">
             <p> <span class="cert-name" th:text="${cert.getCert_id().getCertificationName()}"></span> <span th:each="c : ${user.getUserCerts()}" th:if="${c.getCert_id() == cert.getCert_id()}"><i class="fa-solid fa-star"></i></span></p>
-
         </div>
         <ul>
             <li><h3 class="prog-percent"><span id="progress-bar" class="font-title" th:text="${roadmap.getProgress()}"></span>% Complete!
@@ -28,7 +24,6 @@
                 <div class="circle-container">
 
                     <div class="divider-div"><hr class="divider"></div>
-
 
                     <div class="circle">
                         <i th:each="c : ${user.getUserCerts()}" th:if="${c.getCert_id() == cert.getCert_id()}" class="fa-solid fa-star"></i>
