@@ -4,25 +4,30 @@
 </head>
 <body>
 <nav th:replace="partials/fragments :: navbar"></nav>
-<div class="main main-rd">
+<div class="main background">
+    <div class="main-certs mx-auto shadow">
     <!--All User Certifications-->
-    <div class="cert-main">
-        <div class="cert-card shadow-lg" th:if="${certs != null}" th:each="cert : ${certs}">
-
-            <h1 class="cert-name"><span th:text="${cert.getCert_id().getCertificationName()}"></span></h1>
-            <p th:text="${cert.expDate.toLocalDate().getMonth().getValue() + '/' + cert.expDate.toLocalDate().getDayOfMonth() + '/' + cert.expDate.toLocalDate().getYear()}"></p>
-            <a th:href="@{/delete/certification/{id}(id = ${cert.getId()})}">Remove</a>
-
-        </div>
-    </div>
-    <div class="text-center">
+    <h3 class="text-center font-title py-3">Certifications</h3>
+    <table class="cert-table mx-auto py-3">
+        <tr>
+            <th class="font-title text-center" style="font-weight: bold">Name</th>
+            <th class="font-title text-center" style="font-weight: bold">Expiration Date</th>
+            <th></th>
+        </tr>
+        <tr th:if="${certs != null}" th:each="cert : ${certs}">
+            <td class="cert-name" th:text="${cert.getCert_id().getCertificationName()}"></td>
+            <td th:text="${cert.expDate.toLocalDate().getMonth().getValue() + '/' + cert.expDate.toLocalDate().getDayOfMonth() + '/' + cert.expDate.toLocalDate().getYear()}"></td>
+            <td><a th:href="@{/delete/certification/{id}(id = ${cert.getId()})}">Remove</a>
+        </tr>
+    </table>
+    <div class="text-center my-3">
         <a href="/search/certification" class="my-5"><i class="fa-solid fa-plus fa-2xl"></i></a>
-
+    </div>
     </div>
 </div>
 <nav th:replace="partials/fragments :: page-bottom-one"></nav>
 <script th:inline="javascript">
-    document.querySelector(".main-rd").style.backgroundImage = "url('/img/background.jpg')";
+    document.querySelector(".background").style.backgroundImage = "url('/img/background.jpg')";
 
 </script>
 <script th:replace="partials/fragments :: convert-name"></script>
