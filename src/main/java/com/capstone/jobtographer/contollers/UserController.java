@@ -126,7 +126,7 @@ public class UserController {
             String body = "Welcome " + user.getUsername() + ", You have created a new account ! your login username is : " + user.getUsername();
             emailService.prepareAndSend(user, subject, body);
         }
-        return "redirect:/login";
+        return "redirect:/";
     }
 
     @GetMapping("/delete/user")
