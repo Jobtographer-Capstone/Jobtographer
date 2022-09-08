@@ -107,7 +107,7 @@ public class RoadmapController {
                 i++;
             }
 
-        return "redirect:/create/roadmaps/{id}";
+        return "redirect:/roadmaps/{id}";
     }
 
     @GetMapping("/roadmaps")
@@ -179,6 +179,6 @@ public class RoadmapController {
     @PostMapping("/update/roadmaps/{id}")
     public String updateRoadmaps(@ModelAttribute Roadmap roadmap) {
         roadmapsDao.save(roadmap);
-        return "redirect:/roadmaps";
+        return "redirect:/roadmaps/{id}";
     }
 }

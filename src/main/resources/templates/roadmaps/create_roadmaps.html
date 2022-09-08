@@ -20,18 +20,18 @@
 <!--                </button>-->
 <!--            </li>-->
 <!--        </ul>-->
-        <div class="" id="roadmapTabContent">
+        <div class="mx-auto" id="roadmapTabContent">
             <div class="" id="roadmap" >
                 <div class="form" th:method="post" th:action="@{/create/roadmaps}" th:object="${roadmap}">
                     <h2 th:if="${roadmap.getCareer() == null }" class="form-heading text-center">Create Your
                         Roadmap</h2>
                     <div>
-                        <h4 class="text-center">Career</h4>
+                        <h4 class="font-title text-center">Career</h4>
                         <div th:if="${roadmap.getCareer() == null}">
 
                             <a class="btn" href="/search" type="button">Search Jobs</a>
                         </div>
-                        <p th:text="${roadmap.getCareer()}"></p>
+                        <p class="text-center" th:text="${roadmap.getCareer()}"></p>
                     </div>
                     <h4 th:if="${roadmap != null}" class="pt-5 text-center">Assign An Expected Completion Date</h4>
                     <form th:action="@{/create/roadmaps/{id}(id=${roadmap.getId()})}" th:method="post" class="dateForm">
