@@ -35,7 +35,13 @@
     background: var(--offWhite);
     padding: .5em;
     margin: 1em;
-    width: 50vh;
+    width: 25vw;
+    max-width: 50vw;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
 }
 .card_holder{
     display: flex;
