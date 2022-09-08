@@ -12,7 +12,6 @@
     <script src="https://kit.fontawesome.com/b09c354de0.js" crossorigin="anonymous"></script>
     <!--    Main CSS File-->
     <link rel="stylesheet" th:href="@{~/css/main.css}">
-
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/svg" th:href="@{~/img/modern_Jobtographer_Logo_RedBrown.svg}" sizes="16x16">
@@ -194,7 +193,6 @@
         </div>
     </div>
 </div>
-
 <!--Html Job Search Functionality-->
 <div th:fragment="search-jobs">
     <div class="search-jobs d-flex">
@@ -202,24 +200,16 @@
         <button id="job-search" type="button" class="btn btn-outline-dark searchButton">Search</button>
     </div>
 </div>
-
 <!--Where job cards populate-->
-
 <div id="populate" class="jobs" th:fragment="populate">
 <div class="populate"></div>
     <div class="job_Buttons">
         <button class="prevB btn " type="button">Prev</button>
         <button class=" nextB btn" type="button">Next</button>
-
     </div>
-
     <form class="job_Form" th:action="@{/create/roadmaps}" method="post">
-
     </form>
-
 </div>
-
-
 <!--Footer-->
 <nav th:fragment="page-bottom-one" id="page-bottom" class="navbar navbar-expand navbar-dark">
     <div class="container-fluid text-center">
@@ -233,7 +223,6 @@
         </ul>
     </div>
 </nav>
-
 <!--Common Scripts-->
 <footer th:fragment="footer">
     <script th:fragment="jquery" src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -244,7 +233,6 @@
             crossorigin="anonymous"></script>
     <script th:src="@{~/js/logout.js}"></script>
 </footer>
-
 <!--Modular Scripts-->
 <div th:fragment="filestack">
     <script src="//static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>

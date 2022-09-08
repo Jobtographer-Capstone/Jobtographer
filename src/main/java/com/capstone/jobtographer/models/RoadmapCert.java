@@ -14,7 +14,6 @@ public class RoadmapCert {
     @Column
     private Date expectedDate;
 
-
     @ManyToOne
     @JoinColumn(name = "roadmap_id")
     private Roadmap roadmap_id;
@@ -23,17 +22,13 @@ public class RoadmapCert {
     @JoinColumn(name = "cert_id")
     private Certification cert_id;
 
-
-    public RoadmapCert() {
-    }
+    public RoadmapCert() {}
 
     public RoadmapCert(Date expectedDate, Roadmap roadmap_id, Certification cert_id) {
         this.expectedDate = expectedDate;
         this.roadmap_id = roadmap_id;
         this.cert_id = cert_id;
     }
-
-
 
     public RoadmapCert(Roadmap roadmap_id, Certification cert_id) {
         this.roadmap_id = roadmap_id;

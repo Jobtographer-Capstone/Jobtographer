@@ -14,8 +14,10 @@ function cardBuilder(length) {
             '<p class="job_Outlook" th:name="outlook"></p>' +
             '<h3>Average Salary: </h3>' +
             '<p class="job_Wages" th:name="wages"></p>' +
+
             '<h3>Certifications: </h3> ' +
             '<p class="job_Certs cert-name" th:name="certs"></p>' + '<div>' +
+
             '<button class="startRoadMap btn" type="button">Create RoadMap</button>' +
             '</div>';
         document.querySelector(".populate").insertAdjacentHTML("beforeEnd", card

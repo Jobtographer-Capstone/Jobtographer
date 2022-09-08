@@ -9,7 +9,6 @@
 <div class="main main-job">
     <h1 class="font-title">Search careers</h1>
     <div th:replace="partials/fragments :: search-jobs"></div>
-
     <div class="loadContainer">
         <img class="loadImg" th:src="@{~/img/modern_Jobtographer_Logo_RedBrown.svg}" alt="compass">
         <div class="loading">
@@ -17,7 +16,6 @@
         </div>
     </div>
     <div th:replace="partials/fragments :: populate"></div>
-
 </div>
 <div class="noLoad">
     <h3 class="jobMessage font-title">NO JOBS FOUND</h3>
@@ -27,10 +25,8 @@
 <footer th:replace="partials/fragments :: footer"></footer>
 <script type="text/javascript">
     document.querySelector(".main-job").style.backgroundImage = "url('/img/backdrop.jpg')"
-
 </script>
 <script th:replace="partials/fragments :: convert-name"></script>
 <script th:replace="partials/fragments :: jobs"></script>
-
 </body>
 </html>
