@@ -14,8 +14,10 @@ document.querySelector('.cert_search').addEventListener('click', () => {
 
         data.CertList.forEach((cert, i) => {
                 document.querySelector('.card_holder').innerHTML += `<div class="cert-card-populate"> ${cert.Name}
-            <br> ${cert.Id} 
             <br>
+
+            <a href="${cert.Url}">Gain Cert Here</a>
+
             <input type="hidden" value="${cert.Id}" class="cert_id">
     
     <button class="add_Cert btn " type="button"  data-bs-toggle="modal" data-bs-target="#addCert">Select</button>
