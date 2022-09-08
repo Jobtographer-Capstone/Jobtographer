@@ -54,8 +54,13 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public String loginPage(Model model) {
+    public String loginPage(Model model, @RequestParam Error error) {
         model.addAttribute("user", SecurityContextHolder.getContext().getAuthentication().getPrincipal());
+        if(error != null){
+            model.addAttribute("error", error);
+
+        }
+
         return "index";
     }
 
