@@ -26,6 +26,10 @@ li > a {
     font-weight: bold;
 }
 
+li > a {
+    text-decoration: none;
+}
+
 .btn{
     color: var(--offWhite);
     background-color: var(--navyBlue);
