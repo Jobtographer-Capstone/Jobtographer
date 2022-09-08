@@ -40,12 +40,12 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li sec:authorize="isAuthenticated()" class="nav-item dropdown">
                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                       Profile
+                       Dashboard
                    </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="/profile">View Profile</a></li>
+                        <li><a class="dropdown-item" href="/profile">View Dashboard</a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="/update/user">Edit Profile</a></li>
+                        <li><a class="dropdown-item" href="/update/user">Edit Account</a></li>
                     </ul>
                 </li>
                 <li sec:authorize="isAuthenticated()" class="nav-item dropdown">
