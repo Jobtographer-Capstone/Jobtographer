@@ -7,7 +7,7 @@
 <body>
 <nav th:replace="partials/fragments :: navbar"></nav>
 <div class="main main-create">
-    <div class="container create-roadmap">
+    <div class="create-roadmap">
         <ul class="nav nav-tabs" id="create-roadmap" role="tablist">
             <li class="nav-item" role="presentation">
                 <button class="nav-link active" id="roadmap-tab" data-bs-toggle="tab" data-bs-target="#roadmap"
@@ -34,35 +34,37 @@
                         <p th:text="${roadmap.getCareer()}"></p>
                     </div>
                     <h4 th:if="${roadmap != null}" class="pt-5">Assign An Expected Completion Date</h4>
-                    <div th:each="cert : ${roadmap.getRoadmapCerts()}">
-                        <p class="cert-name"><span th:text="${cert.getCert_id().getCertificationName()}"></span></p>
-                        <p th:if="${cert.expectedDate != null}"> expected date: <span
-                                th:text="${cert.expectedDate.toLocalDate().getMonth().getValue() + '/' + cert.expectedDate.toLocalDate().getDayOfMonth() + '/' + cert.expectedDate.toLocalDate().getYear()}"></span>
-                        </p>
-                        <form
-                                th:action="@{/create/roadmaps/{id}(id=${roadmap.getId()})}" th:method="post">
-                            <input th:id="${cert.getCert_id().getCertificationName()}" name="expected" type="date"
-                                   required="">
+                    <form th:action="@{/create/roadmaps/{id}(id=${roadmap.getId()})}" th:method="post" class="dateForm">
+                        <div class="dates"></div>
+                        <div th:each="cert : ${roadmap.getRoadmapCerts()}">
+                            <p class="cert-name"><span th:text="${cert.getCert_id().getCertificationName()}"></span></p>
+                            <p th:if="${cert.expectedDate != null}"> expected date: <span
+                                    th:text="${cert.expectedDate.toLocalDate().getMonth().getValue() + '/' + cert.expectedDate.toLocalDate().getDayOfMonth() + '/' + cert.expectedDate.toLocalDate().getYear()}"></span>
+                            </p>
+                            <input th:id="${cert.getCert_id().getCertificationName()}" type="date"
+                                   required="" class="dateValues"> <!--NAME = EXPECTED WAS HERE-->
+
                             <input type="hidden" th:value="${cert.getId()}" name="cert-id">
                             <input name="_csrf" type="hidden" th:each="cookie: ${#httpServletRequest.cookies}"
                                    th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
 
-                            <button th:if="${cert.expectedDate == null}" class="btn btn-primary" type="submit">add
-                                date
-                            </button>
-                            <button th:if="${cert.expectedDate != null}" class="btn btn-primary" type="submit">change
-                                date
-                            </button>
-                        </form>
-                    </div>
+<!--                            <button th:if="${cert.expectedDate == null}" class="btn btn-primary" type="button">add-->
+<!--                                date-->
+<!--                            </button>-->
+<!--                            <button th:if="${cert.expectedDate != null}" class="btn btn-primary" type="button">change-->
+<!--                                date-->
+<!--                            </button>-->
+                        </div>
+                    </form>
                     <input name="_csrf" type="hidden" th:each="cookie: ${#httpServletRequest.cookies}"
                            th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
                 </div>
-                <a th:if="${roadmap.getCareer() != null}" class="btn" href="/roadmaps" type="button">Finish</a>
+                <!--                href="/roadmaps"-->
+                <a th:if="${roadmap.getCareer() != null}" class="addBtn btn" type="button">Finish</a>
             </div>
             <div class="tab-pane fade timeline-container " id="certs" role="tabpanel" aria-labelledby="profile-tab">
                 <div class="rd-contain">
-                    <ul class="table-tm shadow-lg single-cert myProgress create-page-rd">
+                    <ul class="table-tm single-cert progress-rm create-page-rd">
                         <li class="tc-con" th:if="${cert.expectedDate != null}" th:each="cert : ${timeline}">
                             <div class="timeline-cert">
                                 <p class="cert-name" th:text="${cert.getCert_id().getCertificationName()}"></p>
@@ -108,5 +110,6 @@
         i++;
     }
 </script>
+<script th:src="@{~/js/addDate.js}"></script>
 </body>
 </html>
