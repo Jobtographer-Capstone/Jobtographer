@@ -6,12 +6,13 @@ function cardBuilder() {
     while (x < 5) {
 
         let card = '<div class="job-card-populate shadow-lg job_Card">' +
-            '<p class="job_Title" th:name="title"></p>' +
+            '<p class="job_Title font-title" th:name="title"></p>' +
             '<p class="job_Outlook" th:name="outlook"></p>' +
-            'Average salary: ' +
+            'Average Salary: ' +
             '<p class="job_Wages" th:name="wages"></p>' +
+            '<p class="cert_Title font-title">Certifications</p>' +
             '<p class="job_Certs cert-name" th:name="certs"></p>' + '<div>' +
-            '<button class="startRoadMap btn" type="button">Create RoadMap</button>' +
+            '<button class="start-road-map btn" type="button">Create RoadMap</button>' +
             '</div>' +
 
             '</div>';
