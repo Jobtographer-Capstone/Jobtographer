@@ -70,3 +70,9 @@
         width: 25%;
     }
 }
+
+@media screen and (max-width: 500px){
+    .cert-card-populate{
+        width: 50vw;
+    }
+}
