@@ -87,18 +87,26 @@ public class RoadmapController {
         Roadmap rd = roadmapsDao.getById(id);
         model.addAttribute("roadmap", rd);
         List<RoadmapCert> timeline = roadmapsCertsDao.findAllByRoadmap_idOrderByExpectedDateAsc(id);
-        for(RoadmapCert cert : timeline){
-            System.out.println(cert.getExpectedDate());
+        for (RoadmapCert cert : timeline) {
+//            System.out.println(cert.getExpectedDate());
         }
         model.addAttribute("timeline", timeline);
         return "roadmaps/create_roadmaps";
     }
 
     @PostMapping("/create/roadmaps/{id}")
-    public String addDate(@PathVariable(name = "id") long id, @RequestParam(name = "cert-id") long certId, @RequestParam(name = "expected")Date date) {
-        RoadmapCert cert = roadmapsCertsDao.getById(certId);
-        cert.setExpectedDate(date);
-        roadmapsCertsDao.save(cert);
+    public String addDate(@PathVariable(name = "id") long id, @RequestParam(name = "cert-id") List<Long> certId, @RequestParam(name = "expected") List<Date> date) {
+
+
+        int i = 0;
+            for (Long cId : certId) {
+                RoadmapCert cert = roadmapsCertsDao.getById(cId);
+                System.out.println(date.get(i));
+                cert.setExpectedDate(date.get(i));
+                roadmapsCertsDao.save(cert);
+                i++;
+            }
+
         return "redirect:/create/roadmaps/{id}";
     }
 
@@ -135,7 +143,7 @@ public class RoadmapController {
     public String RoadmapShow(Model model, @PathVariable long id) {
         UserWithRoles user = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         AppUser userLoggedIn = usersDao.findByUsername(user.getUsername());
-        model.addAttribute("user",userLoggedIn);
+        model.addAttribute("user", userLoggedIn);
         if (userLoggedIn.getRoadmaps().contains(roadmapsDao.getById(id))) {
             model.addAttribute("roadmap", roadmapsDao.getById(id));
             List<RoadmapCert> timeline = roadmapsCertsDao.findAllByRoadmap_idOrderByExpectedDateAsc(id);

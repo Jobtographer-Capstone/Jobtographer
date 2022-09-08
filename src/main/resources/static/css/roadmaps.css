@@ -5,6 +5,12 @@
     width: 50vw;
 }
 
+.progress-rm{
+    padding: 1em;
+    border: none;
+    width: 50vw;
+}
+
 .create-rd{
     font-family: var(--title);
 }
@@ -45,8 +51,14 @@ flex-grow: 1;
 #roadmapTabContent{
     display: flex;
     flex-direction: row;
-    padding-bottom: 100px;
+    /*padding-bottom: 100px;*/
     flex-wrap: wrap;
+    background: var(--offWhite);
+    justify-content: center;
+    max-width: 75vw;
+    padding: 1em;
+    margin: 0 4.3em;
+    border-top: none;
 }
 
 .circle{
@@ -72,6 +84,7 @@ flex-grow: 1;
     display: flex;
     flex-direction: row;
     width: 100vw;
+    background: none;
 }
 
 .tc-con{
@@ -108,6 +121,9 @@ flex-grow: 1;
 
 .create-roadmap{
     flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .main-rd{
@@ -178,6 +194,13 @@ flex-grow: 1;
     max-width: 90vw;
 }
 
+.nav-tabs{
+    align-self: flex-start;
+    margin-left: 14vw;
+    border: none;
+}
+
+
 @media screen and (min-width:996px) {
     .circle{
         height: 80px;
@@ -190,5 +213,13 @@ flex-grow: 1;
 
     .fa-star{
         font-size: 1.5em;
+    }
+
+    .nav-tabs{
+        margin-left: 11.7vw;
+    }
+
+    #roadmapTabContent{
+        margin: 0 7.5em;
     }
 }
