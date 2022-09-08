@@ -79,7 +79,7 @@ public class RoadmapController {
             }
         }
         model.addAttribute("certs", certificationList);
-        return "redirect:/create/roadmaps/" + id;
+        return "redirect:/roadmaps/{id}";
     }
 
     @GetMapping("/create/roadmaps/{id}")
@@ -107,7 +107,7 @@ public class RoadmapController {
                 i++;
             }
 
-        return "redirect:/create/roadmaps/{id}";
+        return "redirect:/roadmaps/{id}";
     }
 
     @GetMapping("/roadmaps")

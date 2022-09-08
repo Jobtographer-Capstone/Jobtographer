@@ -200,6 +200,12 @@ flex-grow: 1;
     border: none;
 }
 
+.creation-form {
+    margin: 3em;
+    padding: 1em;
+    width: 50vw;
+    background-color: var(--offWhite);
+}
 
 @media screen and (min-width:996px) {
     .circle{
