@@ -27,7 +27,7 @@
         </div>
     </div>
 <!--Update form-->
-        <div class="update-info shadow-lg text-center">
+        <div class="update-info shadow-lg text-center my-5">
             <h1 class="update-label">Update Profile Information</h1>
             <form class="form-profile" th:method="post" th:action="@{/update/user}" th:object="${user}">
                 <h2 th:if="${user == null}" class="form-signin-heading">Sign Up For An Account!</h2>

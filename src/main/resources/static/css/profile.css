@@ -119,6 +119,7 @@ body{
 
 .inputs {
     display: flex;
+    flex-direction: column;
 }
 
 .form-profile {
