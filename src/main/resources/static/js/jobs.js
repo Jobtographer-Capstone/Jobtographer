@@ -145,6 +145,8 @@ document.querySelector('#job-search').addEventListener('click', () => {
                         }
                     } catch (e) {
                         window.scroll(0, 0)
+                        document.querySelector('.searchJobs').style.display = "none"
+                        document.querySelector('.searchButton').style.display = "none"
                         document.querySelector('.noLoad').style.display = "flex"
                         document.querySelector('.jobMessage').innerHTML = `<p style="text-align: center">OOPS... Something Went Wrong!</p> <br> <p style="text-align: center">Please try a new search.</p>`
                         document.querySelectorAll('.job_Card').forEach(jobCard => {
@@ -316,6 +318,8 @@ document.querySelector('#job-search').addEventListener('click', () => {
                     }
                 } catch (e) {
                     window.scroll(0, 0)
+                    document.querySelector('.searchJobs').style.display = "none"
+                    document.querySelector('.searchButton').style.display = "none"
                     document.querySelector('.noLoad').style.display = "flex"
                     document.querySelector('.jobMessage').innerHTML = `<p style="text-align: center">OOPS... Something Went Wrong!</p> <br> <p style="text-align: center">Please try a new search.</p>`
                     document.querySelectorAll('.job_Card').forEach(jobCard => {
