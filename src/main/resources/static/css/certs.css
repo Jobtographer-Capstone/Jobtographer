@@ -1,15 +1,21 @@
 .cert-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background: var(--offWhite);
     padding: 1em;
     margin: 1em;
-    width: 40%;
+    height: 45vh;
+    width: 40vw;
 }
 
 .cert-main{
+    max-width: 90vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .font-title{

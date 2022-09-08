@@ -10,7 +10,7 @@
         <div class="cert-card shadow-lg" th:if="${certs != null}" th:each="cert : ${certs}">
 
             <h1 class="cert-name"><span th:text="${cert.getCert_id().getCertificationName()}"></span></h1>
-            <p th:text="${cert.expDate}"></p>
+            <p th:text="${cert.expDate.toLocalDate().getMonth().getValue() + '/' + cert.expDate.toLocalDate().getDayOfMonth() + '/' + cert.expDate.toLocalDate().getYear()}"></p>
             <a th:href="@{/delete/certification/{id}(id = ${cert.getId()})}">Remove</a>
 
         </div>
