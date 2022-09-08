@@ -11,7 +11,6 @@
             <div class="search-index-button">
                 <a type="button" class="btn btn-index font-title" href="/search">Explore</a>
             </div>
-<!--        <div th:replace="partials/fragments :: search-jobs"></div>-->
     </div>
 
     <div id="index-mid" class="container">
@@ -20,12 +19,8 @@
             <h1 class="font-title big-text">Who We Are</h1>
             <p class="who-text">Jobtographer is an online platform that is designed to assist you in developing a pathway to your career goals.</p>
             </div>
-
         </div>
-
         <div class="search-track">
-
-
         <div class="how-to index-mid-header">
             <div class="first">
             <h1 class="font-title big-text search-big">Search</h1>
@@ -39,7 +34,6 @@
                 <div class="icon2"></div>
             </div>
             <p>Create a roadmap from your career goals. See which certifications are in demand for your next career shift.</p>
-
         </div>
         <div class="how-to index-mid-header">
             <div class="first">
@@ -49,43 +43,25 @@
             <p>Track all your progress on your journey, view and update completed certifications, and follow your guide to your dream job.</p>
         </div>
         </div>
-
     </div>
-<!--    <div th:replace="partials/fragments :: populate"></div>-->
     <div id="bottom-index" class="container">
-
     </div>
     <button id="footer-signup" type="button" data-bs-toggle="modal" data-bs-target="#register" class="btn shadow mx-auto">Sign up!</button>
-
     <div th:replace="partials/fragments :: page-bottom-one"></div>
-
-
 </div>
-
-
-
 <footer th:replace="partials/fragments :: footer"></footer>
-
 <script th:inline="javascript">
     const CAREER_API_KEY = /*[[${CAREER_API_KEY}]]*/ "test";
-
     const USER_ID = /*[[${USER_ID}]]*/ "please";
-
-
     document.querySelector("#index-pic").style.backgroundImage = "url('/img/job6.svg')";
     document.querySelector("#bottom-index").style.backgroundImage = "url('/img/jobaccent2.jpg')";
     document.querySelector(".icon1").style.backgroundImage = "url('/img/icon1.jpg')";
     document.querySelector(".icon2").style.backgroundImage = "url('/img/icon2.jpg')";
     document.querySelector(".icon3").style.backgroundImage = "url('/img/icon3.jpg')";
 
-
-        if(window.location.href === "http://jobtographer.com/login?error" ){
-
+        if(window.location.href === "http://www.jobtographer.com/login?error" ){
             alert("you entered an incorrect username or password");
         }
-
-
-
 </script>
 <script th:replace="partials/fragments :: jobs"></script>
 </body>

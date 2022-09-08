@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/fragments :: head('Roadmap details')">
+<head th:replace="partials/fragments :: head('Create a Roadmap')">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
@@ -31,7 +31,6 @@
 
                             <a class="btn" href="/search" type="button">Search Jobs</a>
                         </div>
-
                         <p th:text="${roadmap.getCareer()}"></p>
                     </div>
                     <h4 th:if="${roadmap != null}" class="pt-5">Assign An Expected Completion Date</h4>
@@ -40,7 +39,6 @@
                         <p th:if="${cert.expectedDate != null}"> expected date: <span
                                 th:text="${cert.expectedDate.toLocalDate().getMonth().getValue() + '/' + cert.expectedDate.toLocalDate().getDayOfMonth() + '/' + cert.expectedDate.toLocalDate().getYear()}"></span>
                         </p>
-
                         <form
                                 th:action="@{/create/roadmaps/{id}(id=${roadmap.getId()})}" th:method="post">
                             <input th:id="${cert.getCert_id().getCertificationName()}" name="expected" type="date"
@@ -57,85 +55,38 @@
                             </button>
                         </form>
                     </div>
-
                     <input name="_csrf" type="hidden" th:each="cookie: ${#httpServletRequest.cookies}"
                            th:if="${cookie.name == 'Idea-4c161dd1'} " th:value="${cookie.value}">
-
                 </div>
                 <a th:if="${roadmap.getCareer() != null}" class="btn" href="/roadmaps" type="button">Finish</a>
-
             </div>
             <div class="tab-pane fade timeline-container " id="certs" role="tabpanel" aria-labelledby="profile-tab">
-                <!--            <ul class="table-tm">-->
-                <!--                <li class="tc-con" th:if="${cert.expectedDate != null}" th:each="cert : ${timeline}">-->
-                <!--                    <div class="timeline-cert">-->
-
-                <!--                        <p class="cert-name" th:text="${cert.getCert_id().getCertificationName()}"></p>-->
-
-                <!--                        <div class="circle-container">-->
-
-                <!--                            <div class="divider-div">-->
-                <!--                                <hr class="divider">-->
-                <!--                            </div>-->
-
-                <!--                            <div class="circle"-->
-                <!--                                 style="background: #E41134">-->
-                <!--                            </div>-->
-
-                <!--                            <div class="divider-div">-->
-                <!--                                <hr class="divider">-->
-                <!--                            </div>-->
-
-                <!--                        </div>-->
-
-                <!--                        <p th:text="${cert.expectedDate}"></p>-->
-                <!--                    </div>-->
-
-                <!--                </li>-->
-                <!--            </ul>-->
                 <div class="rd-contain">
-
-
                     <ul class="table-tm shadow-lg single-cert myProgress create-page-rd">
                         <li class="tc-con" th:if="${cert.expectedDate != null}" th:each="cert : ${timeline}">
                             <div class="timeline-cert">
-
                                 <p class="cert-name" th:text="${cert.getCert_id().getCertificationName()}"></p>
-
                                 <div class="circle-container">
-
                                     <div class="divider-div">
                                         <hr class="divider">
                                     </div>
-
-
                                     <div class="circle">
-                                        <!--                                    <i th:each="c : ${user.getUserCerts()}" th:if="${c.getCert_id() == cert.getCert_id()}" class="fa-solid fa-star"></i>-->
-
                                     </div>
-
                                     <div class="divider-div">
                                         <hr class="divider">
                                     </div>
-
                                 </div>
-
                                 <p th:text="${cert.expectedDate.toLocalDate().getMonth().getValue() + '/' + cert.expectedDate.toLocalDate().getDayOfMonth() + '/' + cert.expectedDate.toLocalDate().getYear()}"></p>
                             </div>
-
                         </li>
                     </ul>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
 <nav th:replace="partials/fragments :: page-bottom-one"></nav>
-
 <footer th:replace="partials/fragments :: footer"></footer>
-<!--<script th:replace="partials/fragments :: DnD"></script>-->
-
 <script th:replace="partials/fragments :: convert-name"></script>
 <script th:replace="partials/fragments :: jobs"></script>
 <script type="text/javascript">
@@ -154,11 +105,8 @@
             tm.style.borderRight = "solid black 5px";
             tm.style.marginRight = "1em";
         }
-
         i++;
     }
 </script>
-
-
 </body>
 </html>

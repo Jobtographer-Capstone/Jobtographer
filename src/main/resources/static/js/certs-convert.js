@@ -22,4 +22,3 @@ for (let val of vals) {
         val.replaceWith(data.Name)
     })
 }
-

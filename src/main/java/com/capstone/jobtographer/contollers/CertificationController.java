@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.sql.Date;
 
-
-
 @Controller
 public class CertificationController {
     @Autowired
@@ -40,7 +38,6 @@ public class CertificationController {
         UserWithRoles loggedIn = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         AppUser user = usersDoa.findById(loggedIn.getId());
         model.addAttribute("certs", userCertsDoa.findAllByUser_id(user.getId()));
-
         return "certification/all_certs";
     }
 
@@ -49,8 +46,6 @@ public class CertificationController {
         model.addAttribute("CAREER_API_KEY",CAREER_API_KEY);
         model.addAttribute("USER_ID", USER_ID);
         model.addAttribute("cert", new Certification());
-//        model.addAttribute("USER_ID",USER_ID);
-//        model.addAttribute("CAREER_API_KEY", CAREER_API_KEY);
         return "certification/certs";
     }
 
@@ -58,22 +53,13 @@ public class CertificationController {
     public String addCert(@ModelAttribute Certification cert, @RequestParam(name = "expDate") Date expDate) {
         UserWithRoles loggedIn = (UserWithRoles) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         AppUser user = usersDoa.findById(loggedIn.getId());
-//        System.out.println("The user ID is " + user.getId());
-
         Certification tableCert = certsDao.findCertificationByCertificationName(cert.getCertificationName());
-
         if (tableCert == null) {
             certsDao.save(cert);
             userCertsDoa.save(new UserCert(user, cert, expDate));
         } else {
-
             userCertsDoa.save(new UserCert(user, tableCert, expDate));
         }
-
-
-
-
-
         return "redirect:/certifications";
     }
 
@@ -86,5 +72,4 @@ public class CertificationController {
         }
         return "redirect:/certifications";
     }
-
 }

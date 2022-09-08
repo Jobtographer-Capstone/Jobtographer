@@ -9,5 +9,4 @@ import java.util.List;
 public interface RoadmapRepository extends JpaRepository<Roadmap,Long> {
     List<Roadmap> findByUser(AppUser user);
     Roadmap findTopByUserOrderByIdDesc(AppUser user);
-
 }

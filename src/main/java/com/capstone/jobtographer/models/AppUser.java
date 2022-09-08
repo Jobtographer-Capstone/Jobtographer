@@ -27,9 +27,7 @@ public class AppUser {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user_id")
     private List<UserCert> userCerts;
 
-    public AppUser() {
-
-    }
+    public AppUser() {}
 
 
     public AppUser(String username, String email, String password) {
