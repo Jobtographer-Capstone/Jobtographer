@@ -26,8 +26,7 @@ public class Roadmap {
     private List<RoadmapCert> roadmapCerts;
 
 
-    public Roadmap() {
-    }
+    public Roadmap() {}
 
 
     public Roadmap(long id, String career) {
@@ -50,7 +49,6 @@ public class Roadmap {
         this.career = career;
         this.user = user;
         this.progress = progress;
-
     }
 
     public int getProgress() {
@@ -68,7 +66,6 @@ public class Roadmap {
     public void setId(long id) {
         this.id = id;
     }
-
 
     public String getCareer() {
         return career;
@@ -93,5 +90,4 @@ public class Roadmap {
     public void setRoadmapCerts(List<RoadmapCert> roadmapCerts) {
         this.roadmapCerts = roadmapCerts;
     }
-
 }

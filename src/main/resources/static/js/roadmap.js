@@ -14,8 +14,8 @@ for(let progress of allProgress){
             label: 'My First Dataset',
             data: [progress, need],
             backgroundColor: [
-                '#5CDB95',
-                'gray'
+                '#05386B',
+                'lightgray'
             ],
             hoverOffset: 4
         }]

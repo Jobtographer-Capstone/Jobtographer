@@ -2,13 +2,10 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="partials/fragments :: head('About')"></head>
 <body>
-
 <nav th:replace="partials/fragments :: navbar"></nav>
-
 <section class="row text-center">
     <h1 class="text-center font-title about-title"> Development Team</h1>
 </section>
-
 <div class="container wrapper">
 <!--            ////column for the center-->
     <div class="row duh">
@@ -33,12 +30,10 @@
             </div>
         </section>
 <!--                //card 1 end-->
-
 <!--                card 2 start-->
         <section class="myprogress about-card col-2 shadow-lg" style="width: 18rem;">
             <div class="text-center prp">
                 <img class="mt-1 ppl-img text-center" alt="" id="miguel-pic">
-
                 <div class="card-body text-center profile-card ">
                     <h5 class="card-title font-title mb-2">
                         <li>Miguel</li>
@@ -55,7 +50,6 @@
             </div>
         </section>
 <!--                card 2 end-->
-
         <!--                card 3 start-->
         <section class="myprogress about-card col-2 shadow-lg" style="width: 18rem;">
             <div class="text-center prp">
@@ -77,12 +71,10 @@
             </div>
         </section>
         <!--                card 3 end-->
-
         <!--                card 4 start-->
         <section class="myprogress about-card col-2 shadow-lg" style="width: 18rem;">
             <div class="text-center prp">
                 <img class="mt-1 ppl-img text-center" alt="" id="romeo-pic">
-
                 <div class="card-body text-center profile-card">
                     <h5 class="card-title font-title mb-2">
                         <li>Romeo</li>
@@ -90,7 +82,6 @@
                     </h5>
                     <p>Full Stack Developer & Air Force Veteran</p>
                 </div>
-
                 <div class="social-links mb-2">
                     <a href="https://www.linkedin.com/in/romeo-cohens/"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
                     <a href="https://github.com/romeocohens17"><i class="fa-brands fa-github fa-xl"></i></a>
@@ -99,12 +90,10 @@
             </div>
         </section>
         <!--                card 4 end-->
-
                 <!--                card 5 start-->
         <section class="myprogress about-card col-2 shadow-lg" style="width: 18rem;">
             <div class="text-center prp">
                 <img class="mt-1 ppl-img text-center" alt="" id="sigg-pic">
-
                 <div class="card-body text-center profile-card ">
                     <h5 class="card-title font-title mb-2">
                         <li>Michael</li>
@@ -112,7 +101,6 @@
                     </h5>
                     <p>Full Stack Developer & Army Veteran</p>
                 </div>
-
                 <div class="social-links mb-2">
                     <a href="https://www.linkedin.com/in/mjsigg/"><i class="fa-brands fa-linkedin-in fa-xl"></i></a>
                     <a href="https://github.com/mjsigg"><i class="fa-brands fa-github fa-xl"></i></a>
@@ -121,18 +109,14 @@
             </div>
         </section>
         <!--                card 5 end-->
-
     </div>
     <nav th:replace="partials/fragments :: page-bottom-one"></nav>
 </div>
-
 <footer th:replace="partials/fragments :: footer"></footer>
 <script th:inline="javascript">
     document.querySelector("#sigg-pic").style.backgroundImage = "url('https://media-exp1.licdn.com/dms/image/C5603AQHb0_bnGzdjhw/profile-displayphoto-shrink_800_800/0/1661878075262?e=1668038400&v=beta&t=yRqyR2HMfp5tmbUCn2GOSz2aCkUYuqvoy5__SOX5Ang')";
     document.querySelector("#romeo-pic").style.backgroundImage = "url('/img/romeocohens.jpeg')";
     document.querySelector("#miguel-pic").style.backgroundImage = "url('/img/miguelromero.jpeg')";
-    // document.querySelector("#chris-pic").style.backgroundImage = "url('/img/christopherdavis.jpeg')";
-    // document.querySelector("#kevin-pic").style.backgroundImage = "url('/img/kevinorgeron.jpeg')";
 </script>
 </body>
 </html>

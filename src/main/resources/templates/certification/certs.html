@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="partials/fragments :: head('Certifications')">
+<head th:replace="partials/fragments :: head('Search Certifications')">
 </head>
 <body>
 <nav th:replace="partials/fragments :: navbar"></nav>
@@ -16,16 +16,8 @@
         <!--        Certs populate here-->
         <div class="card_holder"></div>
     </div>
-
-
-
     <div th:replace="partials/fragments :: modals"></div>
-
 </div>
-
-
-
-
 
 <script th:inline="javascript">
     const CAREER_API_KEY = /*[[${CAREER_API_KEY}]]*/ "test";
@@ -35,7 +27,6 @@
 </script>
 <script th:inline="javascript">
     document.querySelector(".main-certs").style.backgroundImage = "url('/img/backdrop.jpg')";
-
 </script>
 <footer th:replace="partials/fragments :: footer"></footer>
 <script th:inline="javascript">
@@ -45,6 +36,5 @@
     console.log(USER_ID);
 </script>
 <script th:src="@{~/js/certs.js}"></script>
-
 </body>
 </html>

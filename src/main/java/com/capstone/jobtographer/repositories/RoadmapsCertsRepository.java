@@ -13,5 +13,4 @@ public interface RoadmapsCertsRepository extends JpaRepository<RoadmapCert,Long>
 
     @Query("SELECT rc FROM RoadmapCert rc WHERE rc.roadmap_id.id= :id order by rc.expectedDate")
     List<RoadmapCert> findAllByRoadmap_idOrderByExpectedDateAsc(long id);
-
 }

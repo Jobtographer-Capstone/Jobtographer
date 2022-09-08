@@ -12,14 +12,10 @@ const options = {
 
         document.querySelector('.myForm').innerHTML += (`<input type="hidden" name="profileImage" value="${file.url}" />`);
         document.querySelector('.myForm').submit();
-
     }
 }
-
 
 document.querySelector('.edit-img').addEventListener('click', () => {
 
     client.picker(options).open();
-
-
 });

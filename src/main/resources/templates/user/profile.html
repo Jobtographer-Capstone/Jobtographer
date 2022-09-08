@@ -10,7 +10,6 @@
         <div id="certs-maps">
         <!--Default Image-->
         <div class=" profile-div shadow-lg" th:if="${user.getImg() == null}">
-
             <div class="p_img">
                 <img th:src="@{~/img/default_img.jpeg}" class="profile-img" alt="wow">
             </div>
@@ -20,12 +19,9 @@
                 <h6 class="text-center" th:text="${user.getEmail()}"></h6>
                 <a class="btn btn-outline-dark" id="defaultEdit" href="/update/user">Edit profile</a>
             </div>
-
         </div>
-
         <!--Uploaded image-->
         <div class="profile-div shadow-lg" th:if="${user.getImg() != null}">
-
             <div class="p_img">
                 <img th:src="${user.img}" class="profile-img" alt="wow">
             </div>
@@ -35,9 +31,7 @@
                 <h6 th:text="${user.getEmail()}"></h6>
                 <a class="btn btn-outline-dark" id="uploadEdit" href="/update/user">Edit profile</a>
             </div>
-
         </div>
-
         <!--        Certs and Roadmaps-->
             <div class="certs text-center shadow-lg">
                 <h3 class="cert-label">Certifications <i class="fa-solid fa-award"></i></h3>
@@ -73,16 +67,9 @@
                     </div>
                 </div>
             </div>
-
     </div>
-
-
-
-
     <nav th:replace="partials/fragments :: page-bottom-one"></nav>
 </div>
-
-
 <!--THIS FORM IS BEING SENT THROUGH FILESTACK.JS-->
 <form class="myForm" th:action="@{/profile}" method="post">
     <input name="_csrf" type="hidden" th:each="cookie: ${#httpServletRequest.cookies}"
@@ -91,18 +78,12 @@
 <script th:inline="javascript">
     const FILESTACK_API_KEY = /*[[${FILESTACK_API_KEY}]]*/ "test";
     console.log(FILESTACK_API_KEY);
-
     document.querySelector(".main-profile").style.backgroundImage = "url('/img/profile2.jpg')";
-
-
 </script>
 <script th:src="@{~/js/roadmap.js}"></script>
 <div th:replace="partials/fragments :: filestack"></div>
 <script th:replace="partials/fragments :: convert-name"></script>
 <footer th:replace="partials/fragments :: footer"></footer>
 <script th:replace="partials/fragments :: jobs"></script>
-<!--<script th:replace="partials/fragments :: progress-bar"></script>-->
-
-
 </body>
 </html>

@@ -22,9 +22,7 @@ public class UserCert {
     @Column
     private Date expDate;
 
-    public UserCert() {
-
-    }
+    public UserCert() {}
 
     public UserCert(AppUser user_id, Certification cert_id, Date expDate) {
         this.user_id = user_id;
