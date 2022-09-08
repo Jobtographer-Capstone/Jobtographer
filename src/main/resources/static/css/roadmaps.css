@@ -2,7 +2,7 @@
     padding: 1em;
     background: var(--offWhite);
     border: none;
-
+    width: 50vw;
 }
 .create-rd{
     font-family: var(--title);
