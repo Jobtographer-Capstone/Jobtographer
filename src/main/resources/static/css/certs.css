@@ -32,9 +32,10 @@
 }
 
 .search-cert-btn{
-    display: flex;
-    align-items: center;
-    margin: 5em;
+    font-size: 15px;
+    margin-top: 0.5em;
+    padding: 4px;
+    width: min-content;
 }
 
 .cert_value{

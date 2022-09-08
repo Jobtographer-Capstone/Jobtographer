@@ -6,11 +6,11 @@
 <nav th:replace="partials/fragments :: navbar"></nav>
 <div class="main main-certs">
     <div class="search-cert-main">
-        <div class="text-center">
+        <div class="text-center d-flex flex-column align-items-center">
             <h1 class="font-title">Search for a certification</h1>
-            <div class="search-cert-btn ">
-                <input type="text" class="cert_value">
-                <button type="button" class="cert_search btn">Search</button>
+            <div class="search-cert-btn search-jobs d-flex">
+                <input type="text" class="cert_value searchJobs">
+                <button type="button" class="cert_search btn mx-1" style="padding: 1px">Search</button>
             </div>
         </div>
         <!--        Certs populate here-->

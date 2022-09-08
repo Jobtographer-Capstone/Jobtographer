@@ -17,6 +17,10 @@
     font-size: 4em;
 }
 
+li > a {
+    text-decoration: none;
+}
+
 .nav-item{
     color:  var(--navyBlue);
     font-weight: bold;
